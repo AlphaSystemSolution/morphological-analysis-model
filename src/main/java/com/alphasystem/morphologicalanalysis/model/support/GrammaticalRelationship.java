@@ -15,7 +15,7 @@ import static com.alphasystem.arabic.model.DiacriticType.SHADDA;
 /**
  * @author sali
  */
-public enum GrammaticalTerm implements ArabicSupportEnum {
+public enum GrammaticalRelationship implements ArabicSupportEnum {
 
     MUDAF(getWord(MEEM, DDAD, ALIF, FA)),
 
@@ -48,11 +48,11 @@ public enum GrammaticalTerm implements ArabicSupportEnum {
     private final ArabicWord label;
     private final String colorCode;
 
-    private GrammaticalTerm(ArabicWord label) {
+    GrammaticalRelationship(ArabicWord label) {
         this(label, null);
     }
 
-    private GrammaticalTerm(ArabicWord label, String colorCode) {
+    GrammaticalRelationship(ArabicWord label, String colorCode) {
         this.label = label;
         this.colorCode = StringUtils.isBlank(colorCode) ? "#000000" : colorCode;
 

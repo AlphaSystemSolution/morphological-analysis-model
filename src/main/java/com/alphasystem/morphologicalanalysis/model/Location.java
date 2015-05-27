@@ -3,23 +3,22 @@
  */
 package com.alphasystem.morphologicalanalysis.model;
 
-import static com.alphasystem.morphologicalanalysis.model.support.PartOfSpeech.NOUN;
-import static java.lang.String.format;
-import static org.apache.commons.lang3.StringUtils.isBlank;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.exception.InvalidChapterException;
-import com.alphasystem.morphologicalanalysis.model.support.GrammaticalTerm;
+import com.alphasystem.morphologicalanalysis.model.support.GrammaticalRelationship;
 import com.alphasystem.morphologicalanalysis.model.support.NamedTag;
 import com.alphasystem.morphologicalanalysis.model.support.PartOfSpeech;
 import com.alphasystem.morphologicalanalysis.model.support.RootWord;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
+import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.alphasystem.morphologicalanalysis.model.support.PartOfSpeech.NOUN;
+import static java.lang.String.format;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 /**
  * @author sali
@@ -52,7 +51,7 @@ public class Location extends AbstractDocument {
 
 	protected RootWord rootWord;
 
-	protected List<GrammaticalTerm> grammaticalTerms;
+	protected List<GrammaticalRelationship> grammaticalRelationships;
 
 	protected NamedTag namedTag;
 
@@ -87,7 +86,7 @@ public class Location extends AbstractDocument {
 		initDisplayName();
 		setPartOfSpeech(null);
 		setRootWord(new RootWord());
-		setGrammaticalTerms(null);
+		setGrammaticalRelationships(null);
 		setStartIndex(null);
 		setEndIndex(null);
 	}
@@ -96,28 +95,59 @@ public class Location extends AbstractDocument {
 		return chapterNumber;
 	}
 
+	public void setChapterNumber(Integer chapterNumber) {
+		this.chapterNumber = chapterNumber;
+	}
+
 	public Integer getEndIndex() {
 		return endIndex;
+	}
+
+	public void setEndIndex(Integer endIndex) {
+		this.endIndex = endIndex == null || endIndex.intValue() <= 0 ? 0
+				: endIndex;
 	}
 
 	public NamedTemplate getFormTemplate() {
 		return formTemplate;
 	}
 
-	public List<GrammaticalTerm> getGrammaticalTerms() {
-		return grammaticalTerms;
+	public void setFormTemplate(NamedTemplate formTemplate) {
+		this.formTemplate = formTemplate;
+	}
+
+	public List<GrammaticalRelationship> getGrammaticalRelationships() {
+		return grammaticalRelationships;
+	}
+
+	public void setGrammaticalRelationships(List<GrammaticalRelationship> grammaticalRelationships) {
+		this.grammaticalRelationships = grammaticalRelationships == null ? new ArrayList<GrammaticalRelationship>()
+				: grammaticalRelationships;
 	}
 
 	public Integer getLocationNumber() {
 		return locationNumber;
 	}
 
+	public void setLocationNumber(Integer locationIndex) {
+		this.locationNumber = locationIndex;
+	}
+
 	public NamedTag getNamedTag() {
 		return namedTag;
 	}
 
+	public void setNamedTag(NamedTag namedTag) {
+		this.namedTag = namedTag;
+	}
+
 	public PartOfSpeech getPartOfSpeech() {
 		return partOfSpeech;
+	}
+
+	public void setPartOfSpeech(PartOfSpeech partOfSpeech) {
+		this.partOfSpeech = partOfSpeech == null ? NOUN : partOfSpeech;
+		initProperties();
 	}
 
 	public AbstractProperties getProperties() {
@@ -137,24 +167,49 @@ public class Location extends AbstractDocument {
 		return properties;
 	}
 
+	public void setProperties(AbstractProperties properties) {
+		this.properties = properties;
+	}
+
 	public RootWord getRootWord() {
 		return rootWord;
+	}
+
+	public void setRootWord(RootWord rootWord) {
+		this.rootWord = rootWord;
 	}
 
 	public Integer getStartIndex() {
 		return startIndex;
 	}
 
+	public void setStartIndex(Integer startIndex) {
+		this.startIndex = startIndex == null || startIndex.intValue() <= 0 ? 0
+				: startIndex;
+	}
+
 	public Integer getTokenNumber() {
 		return tokenNumber;
+	}
+
+	public void setTokenNumber(Integer tokenNumber) {
+		this.tokenNumber = tokenNumber;
 	}
 
 	public String getTranslation() {
 		return translation;
 	}
 
+	public void setTranslation(String translation) {
+		this.translation = translation;
+	}
+
 	public Integer getVerseNumber() {
 		return verseNumber;
+	}
+
+	public void setVerseNumber(Integer verseNumber) {
+		this.verseNumber = verseNumber;
 	}
 
 	@Override
@@ -171,62 +226,6 @@ public class Location extends AbstractDocument {
 
 	public boolean isTransient() {
 		return startIndex == 0 && endIndex == 0;
-	}
-
-	public void setChapterNumber(Integer chapterNumber) {
-		this.chapterNumber = chapterNumber;
-	}
-
-	public void setEndIndex(Integer endIndex) {
-		this.endIndex = endIndex == null || endIndex.intValue() <= 0 ? 0
-				: endIndex;
-	}
-
-	public void setFormTemplate(NamedTemplate formTemplate) {
-		this.formTemplate = formTemplate;
-	}
-
-	public void setGrammaticalTerms(List<GrammaticalTerm> grammaticalTerms) {
-		this.grammaticalTerms = grammaticalTerms == null ? new ArrayList<GrammaticalTerm>()
-				: grammaticalTerms;
-	}
-
-	public void setLocationNumber(Integer locationIndex) {
-		this.locationNumber = locationIndex;
-	}
-
-	public void setNamedTag(NamedTag namedTag) {
-		this.namedTag = namedTag;
-	}
-
-	public void setPartOfSpeech(PartOfSpeech partOfSpeech) {
-		this.partOfSpeech = partOfSpeech == null ? NOUN : partOfSpeech;
-		initProperties();
-	}
-
-	public void setProperties(AbstractProperties properties) {
-		this.properties = properties;
-	}
-
-	public void setRootWord(RootWord rootWord) {
-		this.rootWord = rootWord;
-	}
-
-	public void setStartIndex(Integer startIndex) {
-		this.startIndex = startIndex == null || startIndex.intValue() <= 0 ? 0
-				: startIndex;
-	}
-
-	public void setTokenNumber(Integer tokenNumber) {
-		this.tokenNumber = tokenNumber;
-	}
-
-	public void setTranslation(String translation) {
-		this.translation = translation;
-	}
-
-	public void setVerseNumber(Integer verseNumber) {
-		this.verseNumber = verseNumber;
 	}
 
 	public Location withChapterNumber(Integer chapterNumber) {
@@ -250,9 +249,9 @@ public class Location extends AbstractDocument {
 		return this;
 	}
 
-	public Location withGrammaticalTerms(List<GrammaticalTerm> grammaticalTerm) {
-		if (grammaticalTerm != null && !grammaticalTerms.isEmpty()) {
-			setGrammaticalTerms(grammaticalTerm);
+	public Location withGrammaticalTerms(List<GrammaticalRelationship> grammaticalRelationship) {
+		if (grammaticalRelationship != null && !grammaticalRelationships.isEmpty()) {
+			setGrammaticalRelationships(grammaticalRelationship);
 		}
 		return this;
 	}
