@@ -3,21 +3,21 @@
  */
 package com.alphasystem.morphologicalanalysis.model;
 
-import static com.alphasystem.arabic.model.ArabicWord.fromUnicode;
-import static java.lang.String.format;
-import static org.apache.commons.lang3.StringUtils.isBlank;
+import com.alphasystem.arabic.model.ArabicWord;
+import com.alphasystem.morphologicalanalysis.exception.InvalidChapterException;
+import com.alphasystem.persistence.mongo.model.AbstractDocument;
+import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import com.alphasystem.arabic.model.ArabicWord;
-import com.alphasystem.morphologicalanalysis.exception.InvalidChapterException;
-import com.alphasystem.persistence.mongo.model.AbstractDocument;
+import static com.alphasystem.arabic.model.ArabicWord.fromUnicode;
+import static java.lang.String.format;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 /**
  * @author sali
@@ -30,9 +30,18 @@ public class Chapter extends AbstractDocument {
 
 	protected String chapterName;
 
+	@Indexed(
+			unique = true,
+			name = "chapter_number"
+	)
 	protected Integer chapterNumber;
 
-	@DBRef
+	@Indexed(
+			name = "verse_count"
+	)
+	protected Integer verseCount;
+
+	@DBRef (lazy = true)
 	protected List<Verse> verses;
 
 	@Transient
@@ -68,6 +77,11 @@ public class Chapter extends AbstractDocument {
 		return chapterName;
 	}
 
+	public void setChapterName(String chapterName) {
+		this.chapterName = chapterName;
+		initChapterNameWord();
+	}
+
 	public ArabicWord getChapterNameWord() {
 		return chapterNameWord;
 	}
@@ -76,16 +90,34 @@ public class Chapter extends AbstractDocument {
 		return chapterNumber;
 	}
 
+	public void setChapterNumber(Integer chapterNumber)
+			throws InvalidChapterException {
+		if (chapterNumber == null
+				|| (chapterNumber <= 0 || chapterNumber > 114)) {
+			throw new InvalidChapterException(format(
+					"Invalid chapter Number {%s}", chapterNumber));
+		}
+		this.chapterNumber = chapterNumber;
+	}
+
 	public Verse getVerse(int verseNumber) {
 		return verses.get(verseNumber - 1);
 	}
 
 	public Integer getVerseCount() {
-		return verses.size();
+		return verseCount;
+	}
+
+	public void setVerseCount(Integer verseCount) {
+		this.verseCount = verseCount;
 	}
 
 	public List<Verse> getVerses() {
 		return verses;
+	}
+
+	public void setVerses(List<Verse> verses) {
+		this.verses = verses == null ? new ArrayList<Verse>() : verses;
 	}
 
 	private void initChapterNameWord() {
@@ -99,25 +131,6 @@ public class Chapter extends AbstractDocument {
 				chapterNumber);
 		setDisplayName(dn);
 		setId(dn);
-	}
-
-	public void setChapterName(String chapterName) {
-		this.chapterName = chapterName;
-		initChapterNameWord();
-	}
-
-	public void setChapterNumber(Integer chapterNumber)
-			throws InvalidChapterException {
-		if (chapterNumber == null
-				|| (chapterNumber <= 0 || chapterNumber > 114)) {
-			throw new InvalidChapterException(format(
-					"Invalid chapter Number {%s}", chapterNumber));
-		}
-		this.chapterNumber = chapterNumber;
-	}
-
-	public void setVerses(List<Verse> verses) {
-		this.verses = verses == null ? new ArrayList<Verse>() : verses;
 	}
 
 	public Chapter withChapterNumber(Integer chapterNumber) {
