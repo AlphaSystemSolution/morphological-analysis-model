@@ -17,6 +17,8 @@ import static com.alphasystem.arabic.model.DiacriticType.SHADDA;
  */
 public enum GrammaticalRelationship implements ArabicSupportEnum {
 
+    NONE(getWord(FA, AIN, LAM)),
+
     MUDAF(getWord(MEEM, DDAD, ALIF, FA)),
 
     MUDAF_ILAIH(getWord(MEEM, DDAD, ALIF, FA, SPACE, ALIF_HAMZA_BELOW, LAM, YA,

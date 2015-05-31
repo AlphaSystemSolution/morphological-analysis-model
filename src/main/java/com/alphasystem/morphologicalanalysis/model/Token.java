@@ -3,22 +3,20 @@
  */
 package com.alphasystem.morphologicalanalysis.model;
 
-import static com.alphasystem.arabic.model.ArabicWord.fromUnicode;
-import static java.lang.String.format;
-import static org.apache.commons.lang3.StringUtils.isBlank;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.commons.lang3.StringUtils;
+import com.alphasystem.arabic.model.ArabicWord;
+import com.alphasystem.morphologicalanalysis.exception.InvalidChapterException;
+import com.alphasystem.persistence.mongo.model.AbstractDocument;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.alphasystem.arabic.model.ArabicWord;
-import com.alphasystem.morphologicalanalysis.exception.InvalidChapterException;
-import com.alphasystem.persistence.mongo.model.AbstractDocument;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.alphasystem.arabic.model.ArabicWord.fromUnicode;
+import static java.lang.String.format;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 /**
  * @author sali
@@ -76,6 +74,16 @@ public class Token extends AbstractDocument {
 		return chapterNumber;
 	}
 
+	public void setChapterNumber(Integer chapterNumber)
+			throws InvalidChapterException {
+		if (chapterNumber == null
+				|| (chapterNumber <= 0 || chapterNumber > 114)) {
+			throw new InvalidChapterException(format(
+					"Invalid chapter Number {%s}", chapterNumber));
+		}
+		this.chapterNumber = chapterNumber;
+	}
+
 	public Integer getLocationCount() {
 		return locations.size();
 	}
@@ -84,12 +92,26 @@ public class Token extends AbstractDocument {
 		return locations;
 	}
 
+	public void setLocations(List<Location> locations) {
+		this.locations = locations == null ? new ArrayList<Location>()
+				: locations;
+	}
+
 	public String getToken() {
 		return token;
 	}
 
+	public void setToken(String token) {
+		this.token = token;
+		initTokenWord();
+	}
+
 	public Integer getTokenNumber() {
 		return tokenNumber;
+	}
+
+	public void setTokenNumber(Integer tokenNumber) {
+		this.tokenNumber = tokenNumber;
 	}
 
 	public ArabicWord getTokenWord() {
@@ -101,13 +123,13 @@ public class Token extends AbstractDocument {
 		if (locations != null && !locations.isEmpty()) {
 			Location location = locations.get(0);
 			String translation = location.getTranslation();
-			translation = StringUtils.isBlank(translation) ? "" : translation;
+			translation = isBlank(translation) ? "" : translation;
 			builder.append(translation);
 			for (int i = 1; i < locations.size(); i++) {
 				builder.append(" ");
 				location = locations.get(i);
 				translation = location.getTranslation();
-				translation = StringUtils.isBlank(translation) ? ""
+				translation = isBlank(translation) ? ""
 						: translation;
 				builder.append(translation);
 			}
@@ -119,6 +141,10 @@ public class Token extends AbstractDocument {
 		return verseNumber;
 	}
 
+	public void setVerseNumber(Integer verseNumber) {
+		this.verseNumber = verseNumber;
+	}
+
 	@Override
 	public void initDisplayName() {
 		String dn = format("%s:%s:%s", chapterNumber, verseNumber, tokenNumber);
@@ -128,34 +154,6 @@ public class Token extends AbstractDocument {
 
 	private void initTokenWord() {
 		tokenWord = isBlank(token) ? null : fromUnicode(token);
-	}
-
-	public void setChapterNumber(Integer chapterNumber)
-			throws InvalidChapterException {
-		if (chapterNumber == null
-				|| (chapterNumber <= 0 || chapterNumber > 114)) {
-			throw new InvalidChapterException(format(
-					"Invalid chapter Number {%s}", chapterNumber));
-		}
-		this.chapterNumber = chapterNumber;
-	}
-
-	public void setLocations(List<Location> locations) {
-		this.locations = locations == null ? new ArrayList<Location>()
-				: locations;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-		initTokenWord();
-	}
-
-	public void setTokenNumber(Integer tokenNumber) {
-		this.tokenNumber = tokenNumber;
-	}
-
-	public void setVerseNumber(Integer verseNumber) {
-		this.verseNumber = verseNumber;
 	}
 
 	public Token withChapterNumber(Integer chapterNumber) {
