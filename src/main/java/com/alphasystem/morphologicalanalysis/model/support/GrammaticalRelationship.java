@@ -4,6 +4,7 @@
 package com.alphasystem.morphologicalanalysis.model.support;
 
 import com.alphasystem.arabic.model.ArabicLetter;
+import com.alphasystem.arabic.model.ArabicLetters;
 import com.alphasystem.arabic.model.ArabicSupportEnum;
 import com.alphasystem.arabic.model.ArabicWord;
 import org.apache.commons.lang3.StringUtils;
@@ -17,7 +18,7 @@ import static com.alphasystem.arabic.model.DiacriticType.SHADDA;
  */
 public enum GrammaticalRelationship implements ArabicSupportEnum {
 
-    NONE(getWord(FA, AIN, LAM)),
+    NONE(ArabicLetters.WORD_SPACE),
 
     MUDAF(getWord(MEEM, DDAD, ALIF, FA)),
 
