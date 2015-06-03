@@ -93,7 +93,7 @@ public class Token extends AbstractDocument {
 	}
 
 	public void setLocations(List<Location> locations) {
-		this.locations = locations == null ? new ArrayList<Location>()
+		this.locations = locations == null ? new ArrayList<>()
 				: locations;
 	}
 
