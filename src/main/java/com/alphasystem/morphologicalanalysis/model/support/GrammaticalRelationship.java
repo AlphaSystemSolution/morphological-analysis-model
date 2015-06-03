@@ -25,9 +25,11 @@ public enum GrammaticalRelationship implements ArabicSupportEnum {
     MUDAF_ILAIH(getWord(MEEM, DDAD, ALIF, FA, SPACE, ALIF_HAMZA_BELOW, LAM, YA,
             HA), "#4AA02C"),
 
+    IDAFAH(getWord(ALIF_HAMZA_BELOW, DDAD, ALIF, FA, TA_MARBUTA), "#336633"),
+
     MOWSOOF(getWord(MEEM, WAW, SAD, WAW, FA)),
 
-    SIFAH(getWord(SAD, FA, TA_MARBUTA), "#F6F6F6"),
+    SIFAH(getWord(SAD, FA, TA_MARBUTA), "#993838"),
 
     JAR_MAJROOR(getWord(JEEM, ALIF, RA, SPACE, WAW, SPACE, MEEM, JEEM, RA, WAW, RA), "#DC381F"),
 
