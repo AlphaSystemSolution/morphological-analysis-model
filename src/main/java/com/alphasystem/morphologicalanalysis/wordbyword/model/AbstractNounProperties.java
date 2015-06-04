@@ -1,11 +1,11 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model;
+package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
-import static com.alphasystem.morphologicalanalysis.model.support.NounStatus.NOMINATIVE;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounStatus;
 
-import com.alphasystem.morphologicalanalysis.model.support.NounStatus;
+import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounStatus.NOMINATIVE;
 
 /**
  * @author sali

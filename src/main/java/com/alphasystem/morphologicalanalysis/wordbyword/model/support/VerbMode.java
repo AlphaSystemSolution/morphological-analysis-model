@@ -1,19 +1,13 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model.support;
-
-import static com.alphasystem.arabic.model.ArabicLetterType.BA;
-import static com.alphasystem.arabic.model.ArabicLetterType.JEEM;
-import static com.alphasystem.arabic.model.ArabicLetterType.MEEM;
-import static com.alphasystem.arabic.model.ArabicLetterType.NOON;
-import static com.alphasystem.arabic.model.ArabicLetterType.SAD;
-import static com.alphasystem.arabic.model.ArabicLetterType.WAW;
-import static com.alphasystem.arabic.model.ArabicLetterType.ZAIN;
-import static com.alphasystem.arabic.model.ArabicWord.getWord;
+package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
 import com.alphasystem.arabic.model.ArabicSupportEnum;
 import com.alphasystem.arabic.model.ArabicWord;
+
+import static com.alphasystem.arabic.model.ArabicLetterType.*;
+import static com.alphasystem.arabic.model.ArabicWord.getWord;
 
 /**
  * @author sali
@@ -33,7 +27,7 @@ public enum VerbMode implements ArabicSupportEnum {
 	 * @param code
 	 * @param label
 	 */
-	private VerbMode(String code, ArabicWord label) {
+	VerbMode(String code, ArabicWord label) {
 		this.code = code;
 		this.label = label;
 	}

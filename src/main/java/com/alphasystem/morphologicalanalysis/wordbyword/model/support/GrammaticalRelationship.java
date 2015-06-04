@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.alphasystem.morphologicalanalysis.model.support;
+package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
 import com.alphasystem.arabic.model.ArabicLetter;
 import com.alphasystem.arabic.model.ArabicLetters;
@@ -35,6 +35,10 @@ public enum GrammaticalRelationship implements ArabicSupportEnum {
 
     MAJROOR(getWord(MEEM, JEEM, RA, WAW, RA), "#8D38C9"),
 
+    KHABAR(getWord(KHA, BA, RA), "#0041C2"),
+
+    MUTALIQ(getWord(MEEM, TA, AIN, LAM, QAF), "#3BB9FF"),
+
     ISM_INNA(getWord(new ArabicLetter(ALIF_HAMZA_BELOW), new ArabicLetter(SEEN), new ArabicLetter(MEEM),
             new ArabicLetter(SPACE), new ArabicLetter(LEFT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK),
             new ArabicLetter(SPACE), new ArabicLetter(ALIF_HAMZA_BELOW), new ArabicLetter(NOON, SHADDA),
@@ -44,8 +48,6 @@ public enum GrammaticalRelationship implements ArabicSupportEnum {
             new ArabicLetter(SPACE),new ArabicLetter(LEFT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK),
             new ArabicLetter(SPACE), new ArabicLetter(ALIF_HAMZA_BELOW), new ArabicLetter(NOON, SHADDA),
             new ArabicLetter(SPACE), new ArabicLetter(RIGHT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK)), "#008080"),
-
-    MUTALIQ(getWord(MEEM, TA, AIN, LAM, QAF), "#3BB9FF")
 
     //
     ;

@@ -1,16 +1,10 @@
-package com.alphasystem.morphologicalanalysis.model.support;
-
-import static com.alphasystem.arabic.model.ArabicLetterType.AIN;
-import static com.alphasystem.arabic.model.ArabicLetterType.FA;
-import static com.alphasystem.arabic.model.ArabicLetterType.KAF;
-import static com.alphasystem.arabic.model.ArabicLetterType.MEEM;
-import static com.alphasystem.arabic.model.ArabicLetterType.NOON;
-import static com.alphasystem.arabic.model.ArabicLetterType.RA;
-import static com.alphasystem.arabic.model.ArabicLetterType.TA_MARBUTA;
-import static com.alphasystem.arabic.model.ArabicWord.getWord;
+package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
 import com.alphasystem.arabic.model.ArabicSupportEnum;
 import com.alphasystem.arabic.model.ArabicWord;
+
+import static com.alphasystem.arabic.model.ArabicLetterType.*;
+import static com.alphasystem.arabic.model.ArabicWord.getWord;
 
 /**
  * @author sali
@@ -30,7 +24,7 @@ public enum NounType implements ArabicSupportEnum {
 	 * @param code
 	 * @param label
 	 */
-	private NounType(String code, ArabicWord label) {
+	NounType(String code, ArabicWord label) {
 		this.code = code;
 		this.label = label;
 	}

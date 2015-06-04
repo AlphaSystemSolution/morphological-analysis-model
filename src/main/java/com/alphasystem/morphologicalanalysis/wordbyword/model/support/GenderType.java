@@ -1,19 +1,13 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model.support;
-
-import static com.alphasystem.arabic.model.ArabicLetterType.KAF;
-import static com.alphasystem.arabic.model.ArabicLetterType.MEEM;
-import static com.alphasystem.arabic.model.ArabicLetterType.NOON;
-import static com.alphasystem.arabic.model.ArabicLetterType.RA;
-import static com.alphasystem.arabic.model.ArabicLetterType.THA;
-import static com.alphasystem.arabic.model.ArabicLetterType.THAL;
-import static com.alphasystem.arabic.model.ArabicLetterType.WAW_HAMZA_ABOVE;
-import static com.alphasystem.arabic.model.ArabicWord.getWord;
+package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
 import com.alphasystem.arabic.model.ArabicSupportEnum;
 import com.alphasystem.arabic.model.ArabicWord;
+
+import static com.alphasystem.arabic.model.ArabicLetterType.*;
+import static com.alphasystem.arabic.model.ArabicWord.getWord;
 
 /**
  * @author sali
@@ -33,7 +27,7 @@ public enum GenderType implements ArabicSupportEnum {
 	 * @param code
 	 * @param label
 	 */
-	private GenderType(String code, ArabicWord label) {
+	GenderType(String code, ArabicWord label) {
 		this.code = code;
 		this.label = label;
 	}

@@ -1,18 +1,17 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model;
-
-import static com.alphasystem.arabic.model.ArabicWord.concatenateWithSpace;
-import static com.alphasystem.morphologicalanalysis.model.support.ConversationType.THIRD_PERSON;
-import static com.alphasystem.morphologicalanalysis.model.support.VerbType.PERFECT;
-
-import org.springframework.data.annotation.Transient;
+package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.ArabicWord;
-import com.alphasystem.morphologicalanalysis.model.support.ConversationType;
-import com.alphasystem.morphologicalanalysis.model.support.VerbMode;
-import com.alphasystem.morphologicalanalysis.model.support.VerbType;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ConversationType;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbMode;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbType;
+import org.springframework.data.annotation.Transient;
+
+import static com.alphasystem.arabic.model.ArabicWord.concatenateWithSpace;
+import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.ConversationType.THIRD_PERSON;
+import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbType.PERFECT;
 
 /**
  * @author sali
@@ -40,6 +39,11 @@ public class VerbProperties extends AbstractProperties {
 		return conversationType;
 	}
 
+	public void setConversationType(ConversationType conversationType) {
+		this.conversationType = conversationType == null ? THIRD_PERSON
+				: conversationType;
+	}
+
 	@Override
 	@Transient
 	public ArabicWord getLabel() {
@@ -51,19 +55,13 @@ public class VerbProperties extends AbstractProperties {
 		return mode;
 	}
 
-	public VerbType getVerbType() {
-		return verbType;
-	}
-
-	public void setConversationType(ConversationType conversationType) {
-		this.conversationType = conversationType == null ? THIRD_PERSON
-				: conversationType;
-	}
-
 	public void setMode(VerbMode mode) {
 		this.mode = mode;
 	}
 
+	public VerbType getVerbType() {
+		return verbType;
+	}
 
 	public void setVerbType(VerbType verbType) {
 		this.verbType = verbType == null ? PERFECT : verbType;

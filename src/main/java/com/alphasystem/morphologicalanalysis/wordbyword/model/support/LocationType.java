@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model.support;
+package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
 import com.alphasystem.arabic.model.ArabicSupportEnum;
 import com.alphasystem.arabic.model.ArabicWord;

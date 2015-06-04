@@ -1,10 +1,10 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model;
+package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.ArabicWord;
-import com.alphasystem.morphologicalanalysis.exception.InvalidChapterException;
+import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;

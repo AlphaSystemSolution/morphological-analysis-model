@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.exception;
+package com.alphasystem.morphologicalanalysis.wordbyword.exception;
 
 /**
  * @author sali

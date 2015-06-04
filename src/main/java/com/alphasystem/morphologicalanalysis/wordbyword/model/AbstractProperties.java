@@ -1,17 +1,16 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model;
-
-import static com.alphasystem.morphologicalanalysis.model.support.GenderType.MASCULINE;
-import static com.alphasystem.morphologicalanalysis.model.support.NumberType.SINGULAR;
-
-import org.springframework.data.annotation.Transient;
+package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.ArabicWord;
-import com.alphasystem.morphologicalanalysis.model.support.GenderType;
-import com.alphasystem.morphologicalanalysis.model.support.NumberType;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
+import org.springframework.data.annotation.Transient;
+
+import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType.MASCULINE;
+import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType.SINGULAR;
 
 /**
  * @author sali
@@ -20,6 +19,13 @@ import com.alphasystem.persistence.mongo.model.AbstractDocument;
 public abstract class AbstractProperties extends AbstractDocument {
 
 	private static final long serialVersionUID = 8386413187448630570L;
+	protected NumberType number;
+	protected GenderType gender;
+
+	protected AbstractProperties() {
+		setNumber(null);
+		setGender(null);
+	}
 
 	public static boolean isNoun(AbstractProperties properties) {
 		return properties != null
@@ -43,17 +49,12 @@ public abstract class AbstractProperties extends AbstractDocument {
 				&& VerbProperties.class.isAssignableFrom(properties.getClass());
 	}
 
-	protected NumberType number;
-
-	protected GenderType gender;
-
-	protected AbstractProperties() {
-		setNumber(null);
-		setGender(null);
-	}
-
 	public GenderType getGender() {
 		return gender;
+	}
+
+	public void setGender(GenderType gender) {
+		this.gender = gender == null ? MASCULINE : gender;
 	}
 
 	@Transient
@@ -63,10 +64,6 @@ public abstract class AbstractProperties extends AbstractDocument {
 
 	public NumberType getNumber() {
 		return number;
-	}
-
-	public void setGender(GenderType gender) {
-		this.gender = gender == null ? MASCULINE : gender;
 	}
 
 	public void setNumber(NumberType number) {

@@ -1,19 +1,18 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model;
+package com.alphasystem.morphologicalanalysis.wordbyword.model;
+
+import com.alphasystem.arabic.model.ArabicWord;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounKind;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounType;
+import org.springframework.data.annotation.Transient;
 
 import static com.alphasystem.arabic.model.ArabicLetters.WORD_COMMA;
 import static com.alphasystem.arabic.model.ArabicWord.concatenate;
 import static com.alphasystem.arabic.model.ArabicWord.concatenateWithSpace;
-import static com.alphasystem.morphologicalanalysis.model.support.NounType.INDEFINITE;
+import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounType.INDEFINITE;
 import static java.lang.String.format;
-
-import org.springframework.data.annotation.Transient;
-
-import com.alphasystem.arabic.model.ArabicWord;
-import com.alphasystem.morphologicalanalysis.model.support.NounKind;
-import com.alphasystem.morphologicalanalysis.model.support.NounType;
 
 /**
  * @author sali
@@ -46,12 +45,12 @@ public class NounProperties extends AbstractNounProperties {
 		return nounKind;
 	}
 
-	public NounType getNounType() {
-		return nounType;
-	}
-
 	public void setNounKind(NounKind kind) {
 		this.nounKind = kind;
+	}
+
+	public NounType getNounType() {
+		return nounType;
 	}
 
 	public void setNounType(NounType type) {

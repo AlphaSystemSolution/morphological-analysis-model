@@ -1,11 +1,11 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model.support;
+package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
 import com.alphasystem.arabic.model.ArabicSupportEnum;
 import com.alphasystem.arabic.model.ArabicWord;
-import com.alphasystem.morphologicalanalysis.model.*;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.*;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -183,22 +183,15 @@ public enum PartOfSpeech implements ArabicSupportEnum {
 		}
 	}
 
-	public static PartOfSpeech getByCode(String code) {
-		return codeMap.get(code);
-	}
-
 	private final String code;
-
 	private final String colorCode;
-
 	private final ArabicWord label;
-
 	private final Class<? extends AbstractProperties> propertiesClass;
 
 	/**
 	 * @param code
 	 */
-	private PartOfSpeech(String code) {
+	PartOfSpeech(String code) {
 		this(code, DEFAULT_COLOR);
 	}
 
@@ -206,7 +199,7 @@ public enum PartOfSpeech implements ArabicSupportEnum {
 	 * @param code
 	 * @param label
 	 */
-	private PartOfSpeech(String code, ArabicWord label) {
+	PartOfSpeech(String code, ArabicWord label) {
 		this(code, DEFAULT_COLOR, label);
 	}
 
@@ -214,7 +207,7 @@ public enum PartOfSpeech implements ArabicSupportEnum {
 	 * @param code
 	 * @param colorCode
 	 */
-	private PartOfSpeech(String code, String colorCode) {
+	PartOfSpeech(String code, String colorCode) {
 		this(code, colorCode, null);
 	}
 
@@ -223,17 +216,21 @@ public enum PartOfSpeech implements ArabicSupportEnum {
 	 * @param colorCode
 	 * @param label
 	 */
-	private PartOfSpeech(String code, String colorCode, ArabicWord label) {
+	PartOfSpeech(String code, String colorCode, ArabicWord label) {
 		this(code, colorCode, label, null);
 	}
 
-	private PartOfSpeech(String code, String colorCode, ArabicWord label,
-			Class<? extends AbstractProperties> propertiesClass) {
+	PartOfSpeech(String code, String colorCode, ArabicWord label,
+				 Class<? extends AbstractProperties> propertiesClass) {
 		this.code = code;
 		this.colorCode = colorCode == null ? DEFAULT_COLOR : colorCode;
 		this.label = label;
 		this.propertiesClass = propertiesClass == null ? ParticleProperties.class
 				: propertiesClass;
+	}
+
+	public static PartOfSpeech getByCode(String code) {
+		return codeMap.get(code);
 	}
 
 	@Override

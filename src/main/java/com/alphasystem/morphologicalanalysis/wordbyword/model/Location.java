@@ -1,22 +1,18 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model;
+package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.NamedTemplate;
-import com.alphasystem.morphologicalanalysis.exception.InvalidChapterException;
-import com.alphasystem.morphologicalanalysis.model.support.GrammaticalRelationship;
-import com.alphasystem.morphologicalanalysis.model.support.NamedTag;
-import com.alphasystem.morphologicalanalysis.model.support.PartOfSpeech;
-import com.alphasystem.morphologicalanalysis.model.support.RootWord;
+import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NamedTag;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeech;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RootWord;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.alphasystem.morphologicalanalysis.model.support.PartOfSpeech.NOUN;
+import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeech.NOUN;
 import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
@@ -51,8 +47,6 @@ public class Location extends AbstractDocument {
 
 	protected RootWord rootWord;
 
-	protected List<GrammaticalRelationship> grammaticalRelationships;
-
 	protected NamedTag namedTag;
 
 	protected NamedTemplate formTemplate;
@@ -86,7 +80,6 @@ public class Location extends AbstractDocument {
 		initDisplayName();
 		setPartOfSpeech(null);
 		setRootWord(new RootWord());
-		setGrammaticalRelationships(null);
 		setStartIndex(null);
 		setEndIndex(null);
 	}
@@ -114,15 +107,6 @@ public class Location extends AbstractDocument {
 
 	public void setFormTemplate(NamedTemplate formTemplate) {
 		this.formTemplate = formTemplate;
-	}
-
-	public List<GrammaticalRelationship> getGrammaticalRelationships() {
-		return grammaticalRelationships;
-	}
-
-	public void setGrammaticalRelationships(List<GrammaticalRelationship> grammaticalRelationships) {
-		this.grammaticalRelationships = grammaticalRelationships == null ? new ArrayList<GrammaticalRelationship>()
-				: grammaticalRelationships;
 	}
 
 	public Integer getLocationNumber() {
@@ -245,13 +229,6 @@ public class Location extends AbstractDocument {
 	public Location withForm(NamedTemplate formTemplate) {
 		if (formTemplate != null) {
 			setFormTemplate(formTemplate);
-		}
-		return this;
-	}
-
-	public Location withGrammaticalTerms(List<GrammaticalRelationship> grammaticalRelationship) {
-		if (grammaticalRelationship != null && !grammaticalRelationships.isEmpty()) {
-			setGrammaticalRelationships(grammaticalRelationship);
 		}
 		return this;
 	}

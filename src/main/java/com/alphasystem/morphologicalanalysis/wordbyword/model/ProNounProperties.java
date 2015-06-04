@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model;
+package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
-import static com.alphasystem.morphologicalanalysis.model.support.ConversationType.THIRD_PERSON;
-import static com.alphasystem.morphologicalanalysis.model.support.ProNounType.DETACHED;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ConversationType;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ProNounType;
 
-import com.alphasystem.morphologicalanalysis.model.support.ConversationType;
-import com.alphasystem.morphologicalanalysis.model.support.ProNounType;
+import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.ConversationType.THIRD_PERSON;
+import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.ProNounType.DETACHED;
 
 /**
  * @author sali
@@ -31,13 +31,13 @@ public class ProNounProperties extends AbstractNounProperties {
 		return conversationType;
 	}
 
-	public ProNounType getProNounType() {
-		return proNounType;
-	}
-
 	public void setConversationType(ConversationType conversationType) {
 		this.conversationType = conversationType == null ? THIRD_PERSON
 				: conversationType;
+	}
+
+	public ProNounType getProNounType() {
+		return proNounType;
 	}
 
 	public void setProNounType(ProNounType proNounType) {

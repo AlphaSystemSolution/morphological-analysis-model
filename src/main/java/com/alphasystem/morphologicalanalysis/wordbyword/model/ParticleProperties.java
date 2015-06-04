@@ -1,10 +1,10 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model;
+package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
-import com.alphasystem.morphologicalanalysis.model.support.GenderType;
-import com.alphasystem.morphologicalanalysis.model.support.NumberType;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType;
 
 /**
  * @author sali

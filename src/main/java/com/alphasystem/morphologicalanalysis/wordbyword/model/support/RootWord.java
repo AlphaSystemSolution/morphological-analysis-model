@@ -1,15 +1,14 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model.support;
-
-import static com.alphasystem.util.IdGenerator.nextId;
-import static org.apache.commons.lang3.StringUtils.isBlank;
-
-import org.springframework.data.annotation.PersistenceConstructor;
+package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
 import com.alphasystem.arabic.model.ArabicLetterType;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
+import org.springframework.data.annotation.PersistenceConstructor;
+
+import static com.alphasystem.util.IdGenerator.nextId;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 /**
  * @author sali
@@ -47,28 +46,28 @@ public class RootWord extends AbstractDocument {
 		return firstRadical;
 	}
 
-	public ArabicLetterType getFourthRadical() {
-		return fourthRadical;
-	}
-
-	public ArabicLetterType getSecondRadical() {
-		return secondRadical;
-	}
-
-	public ArabicLetterType getThirdRadical() {
-		return thirdRadical;
-	}
-
 	public void setFirstRadical(ArabicLetterType firstRadical) {
 		this.firstRadical = firstRadical;
+	}
+
+	public ArabicLetterType getFourthRadical() {
+		return fourthRadical;
 	}
 
 	public void setFourthRadical(ArabicLetterType fourthRadical) {
 		this.fourthRadical = fourthRadical;
 	}
 
+	public ArabicLetterType getSecondRadical() {
+		return secondRadical;
+	}
+
 	public void setSecondRadical(ArabicLetterType secondRadical) {
 		this.secondRadical = secondRadical;
+	}
+
+	public ArabicLetterType getThirdRadical() {
+		return thirdRadical;
 	}
 
 	public void setThirdRadical(ArabicLetterType thirdRadical) {

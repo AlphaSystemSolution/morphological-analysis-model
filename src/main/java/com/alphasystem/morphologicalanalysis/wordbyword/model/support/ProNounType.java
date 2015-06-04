@@ -1,18 +1,14 @@
 /**
  * 
  */
-package com.alphasystem.morphologicalanalysis.model.support;
-
-import static com.alphasystem.arabic.model.ArabicLetterType.FA;
-import static com.alphasystem.arabic.model.ArabicLetterType.LAM;
-import static com.alphasystem.arabic.model.ArabicLetterType.MEEM;
-import static com.alphasystem.arabic.model.ArabicLetterType.NOON;
-import static com.alphasystem.arabic.model.ArabicLetterType.SAD;
-import static com.alphasystem.arabic.model.ArabicWord.getWord;
+package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
 import com.alphasystem.arabic.model.ArabicLetterType;
 import com.alphasystem.arabic.model.ArabicSupportEnum;
 import com.alphasystem.arabic.model.ArabicWord;
+
+import static com.alphasystem.arabic.model.ArabicLetterType.*;
+import static com.alphasystem.arabic.model.ArabicWord.getWord;
 
 /**
  * @author sali
@@ -32,7 +28,7 @@ public enum ProNounType implements ArabicSupportEnum {
 	 * @param code
 	 * @param label
 	 */
-	private ProNounType(String code, ArabicWord label) {
+	ProNounType(String code, ArabicWord label) {
 		this.code = code;
 		this.label = label;
 	}
