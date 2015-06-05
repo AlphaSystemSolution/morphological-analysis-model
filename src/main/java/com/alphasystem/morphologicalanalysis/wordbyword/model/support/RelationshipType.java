@@ -16,7 +16,7 @@ import static com.alphasystem.arabic.model.DiacriticType.SHADDA;
 /**
  * @author sali
  */
-public enum GrammaticalRelationship implements ArabicSupportEnum {
+public enum RelationshipType implements ArabicSupportEnum {
 
     NONE(ArabicLetters.WORD_SPACE),
 
@@ -55,11 +55,11 @@ public enum GrammaticalRelationship implements ArabicSupportEnum {
     private final ArabicWord label;
     private final String colorCode;
 
-    GrammaticalRelationship(ArabicWord label) {
+    RelationshipType(ArabicWord label) {
         this(label, null);
     }
 
-    GrammaticalRelationship(ArabicWord label, String colorCode) {
+    RelationshipType(ArabicWord label, String colorCode) {
         this.label = label;
         this.colorCode = StringUtils.isBlank(colorCode) ? "#000000" : colorCode;
 

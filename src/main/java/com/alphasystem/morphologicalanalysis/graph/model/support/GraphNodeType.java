@@ -3,7 +3,7 @@ package com.alphasystem.morphologicalanalysis.graph.model.support;
 /**
  * @author sali
  */
-public enum DependencyGraphNodeType {
+public enum GraphNodeType {
 
     /**
      * A node that will always has part of speech tag.
