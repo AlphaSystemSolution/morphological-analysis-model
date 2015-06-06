@@ -56,7 +56,7 @@ public class Location extends Related {
 	protected AbstractProperties properties;
 
 	/**
-	 * 
+	 *
 	 */
 	public Location() {
 	}

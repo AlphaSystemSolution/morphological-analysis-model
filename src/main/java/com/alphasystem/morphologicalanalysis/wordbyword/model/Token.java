@@ -35,6 +35,11 @@ public class Token extends AbstractDocument {
 
 	protected String token;
 
+	/**
+	 * For empty or hidden location will set as true to mark that this location was added for morphological analysis
+	 */
+	protected boolean hidden;
+
 	@DBRef
 	protected List<Location> locations;
 
@@ -42,7 +47,7 @@ public class Token extends AbstractDocument {
 	protected ArabicWord tokenWord;
 
 	/**
-	 * 
+	 *
 	 */
 	public Token() {
 		setLocations(null);
@@ -64,6 +69,15 @@ public class Token extends AbstractDocument {
 		initDisplayName();
 		setToken(token);
 		setLocations(null);
+		setHidden(false);
+	}
+
+	public boolean isHidden() {
+		return hidden;
+	}
+
+	public void setHidden(boolean hidden) {
+		this.hidden = hidden;
 	}
 
 	public boolean addLocation(Location e) {
