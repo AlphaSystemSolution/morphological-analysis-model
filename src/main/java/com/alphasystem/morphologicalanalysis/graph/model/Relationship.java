@@ -1,22 +1,38 @@
-package com.alphasystem.morphologicalanalysis.wordbyword.model;
+package com.alphasystem.morphologicalanalysis.graph.model;
 
+import com.alphasystem.morphologicalanalysis.common.model.Related;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RelationshipType;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
+ * This class represents actual relationship between two {@link Location}(s) or {@link Fragment}(s).
+ * Typical example of relationship between is <emp>Harf of Jar</emp> and <emp>Ism majroor</emp>.
+ *
  * @author sali
+ * @see Location
+ * @see Fragment
  */
 @Document
 public class Relationship extends AbstractDocument {
 
+    /**
+     * Reference to child location
+     */
     @DBRef
-    protected Location child;
+    protected Related child;
 
+    /**
+     * Reference to owner location
+     */
     @DBRef
-    protected Location owner;
+    protected Related owner;
 
+    /**
+     *
+     */
     protected RelationshipType relationship;
 
     /**
@@ -27,19 +43,19 @@ public class Relationship extends AbstractDocument {
         initDisplayName();
     }
 
-    public Location getChild() {
+    public Related getChild() {
         return child;
     }
 
-    public void setChild(Location child) {
+    public void setChild(Related child) {
         this.child = child;
     }
 
-    public Location getOwner() {
+    public Related getOwner() {
         return owner;
     }
 
-    public void setOwner(Location owner) {
+    public void setOwner(Related owner) {
         this.owner = owner;
     }
 

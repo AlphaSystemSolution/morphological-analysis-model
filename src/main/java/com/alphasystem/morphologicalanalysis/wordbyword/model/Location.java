@@ -4,11 +4,11 @@
 package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.NamedTemplate;
+import com.alphasystem.morphologicalanalysis.common.model.Related;
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NamedTag;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeech;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RootWord;
-import com.alphasystem.persistence.mongo.model.AbstractDocument;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -21,7 +21,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
  * 
  */
 @Document
-public class Location extends AbstractDocument {
+public class Location extends Related {
 
 	private static final long serialVersionUID = 7895140946662001637L;
 
