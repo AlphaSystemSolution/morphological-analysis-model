@@ -2,10 +2,14 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Token;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
+import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.String.format;
 
 /**
  * @author sali
@@ -19,15 +23,48 @@ public class DependencyGraph extends AbstractDocument {
 
     protected Integer segmentNumber;
 
+    @DBRef
     protected List<Token> tokens;
 
+    @DBRef
     protected List<Relationship> relationships;
+
+    @DBRef
+    protected List<Fragment> fragments;
 
     public DependencyGraph() {
         super();
+        setTokens(null);
+        setRelationships(null);
+        setFragments(null);
+    }
+
+    @PersistenceConstructor
+    public DependencyGraph(Integer chapterNumber, Integer verseNumber, Integer segmentNumber) {
+        super();
+        this.chapterNumber = chapterNumber;
+        this.verseNumber = verseNumber;
+        this.segmentNumber = segmentNumber;
         initDisplayName();
         setTokens(null);
         setRelationships(null);
+        setFragments(null);
+    }
+
+    @Override
+    public void initDisplayName() {
+        setDisplayName(format("%s:%s:%s", chapterNumber, verseNumber, segmentNumber));
+    }
+
+    public List<Fragment> getFragments() {
+        return fragments;
+    }
+
+    public void setFragments(List<Fragment> fragments) {
+        this.fragments = new ArrayList<>();
+        if (fragments != null) {
+            this.fragments.addAll(fragments);
+        }
     }
 
     public List<Token> getTokens() {
@@ -40,6 +77,30 @@ public class DependencyGraph extends AbstractDocument {
             this.tokens.addAll(tokens);
 
         }
+    }
+
+    public Integer getChapterNumber() {
+        return chapterNumber;
+    }
+
+    public void setChapterNumber(Integer chapterNumber) {
+        this.chapterNumber = chapterNumber;
+    }
+
+    public Integer getSegmentNumber() {
+        return segmentNumber;
+    }
+
+    public void setSegmentNumber(Integer segmentNumber) {
+        this.segmentNumber = segmentNumber;
+    }
+
+    public Integer getVerseNumber() {
+        return verseNumber;
+    }
+
+    public void setVerseNumber(Integer verseNumber) {
+        this.verseNumber = verseNumber;
     }
 
     public List<Relationship> getRelationships() {

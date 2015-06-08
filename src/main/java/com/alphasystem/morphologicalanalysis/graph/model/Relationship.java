@@ -7,6 +7,8 @@ import com.alphasystem.persistence.mongo.model.AbstractDocument;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import static java.lang.String.format;
+
 /**
  * This class represents actual relationship between two {@link Location}(s) or {@link Fragment}(s).
  * Typical example of relationship between is <emp>Harf of Jar</emp> and <emp>Ism majroor</emp>.
@@ -19,10 +21,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Relationship extends AbstractDocument {
 
     /**
-     * Reference to child location
+     * Reference to dependent location
      */
     @DBRef
-    protected Related child;
+    protected Related dependent;
 
     /**
      * Reference to owner location
@@ -40,15 +42,24 @@ public class Relationship extends AbstractDocument {
      */
     public Relationship() {
         super();
-        initDisplayName();
     }
 
-    public Related getChild() {
-        return child;
+    @Override
+    public void initDisplayName() {
+        String dn1 = dependent == null ? "" : dependent.getDisplayName();
+        String dn2 = owner == null ? "" : owner.getDisplayName();
+        setDisplayName(format("%s::%s", dn1, dn2));
     }
 
-    public void setChild(Related child) {
-        this.child = child;
+    public Related getDependent() {
+        return dependent;
+    }
+
+    public void setDependent(Related dependent) {
+        this.dependent = dependent;
+        if (this.dependent != null) {
+            initDisplayName();
+        }
     }
 
     public Related getOwner() {
@@ -57,6 +68,9 @@ public class Relationship extends AbstractDocument {
 
     public void setOwner(Related owner) {
         this.owner = owner;
+        if (this.owner != null) {
+            initDisplayName();
+        }
     }
 
     public RelationshipType getRelationship() {
