@@ -21,7 +21,6 @@ public class VerbProperties extends AbstractProperties {
 
 	private static final long serialVersionUID = 579863620988819896L;
 
-
 	protected ConversationType conversationType;
 
 	protected VerbType verbType;
