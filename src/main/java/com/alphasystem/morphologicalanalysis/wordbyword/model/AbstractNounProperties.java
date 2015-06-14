@@ -21,6 +21,15 @@ public abstract class AbstractNounProperties extends AbstractProperties {
 		setStatus(null);
 	}
 
+	/**
+	 * @param src
+	 * @throws NullPointerException
+	 */
+	public AbstractNounProperties(AbstractNounProperties src) throws NullPointerException {
+		super(src);
+		setStatus(src.getStatus());
+	}
+
 	public NounStatus getStatus() {
 		return status;
 	}

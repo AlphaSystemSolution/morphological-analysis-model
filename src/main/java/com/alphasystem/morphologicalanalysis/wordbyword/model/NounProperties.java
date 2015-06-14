@@ -32,6 +32,16 @@ public class NounProperties extends AbstractNounProperties {
 		setNounKind(null);
 	}
 
+	/**
+	 * @param src
+	 * @throws NullPointerException
+	 */
+	public NounProperties(NounProperties src) throws NullPointerException {
+		super(src);
+		setNounType(src.getNounType());
+		setNounKind(src.getNounKind());
+	}
+
 	@Override
 	@Transient
 	public ArabicWord getLabel() {

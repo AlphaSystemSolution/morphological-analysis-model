@@ -14,6 +14,18 @@ public class ParticleProperties extends AbstractProperties {
 
 	private static final long serialVersionUID = 3916962887098806402L;
 
+	public ParticleProperties() {
+		super();
+	}
+
+	/**
+	 * @param src
+	 * @throws NullPointerException
+	 */
+	public ParticleProperties(ParticleProperties src) throws NullPointerException {
+		super(src);
+	}
+
 	@Override
 	public void setGender(GenderType gender) {
 		this.gender = null;

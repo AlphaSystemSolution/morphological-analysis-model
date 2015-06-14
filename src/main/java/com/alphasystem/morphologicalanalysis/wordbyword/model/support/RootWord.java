@@ -42,6 +42,24 @@ public class RootWord extends AbstractDocument {
 		updateDisplayName();
 	}
 
+	/**
+	 * Copy Constructor.
+	 *
+	 * @param src
+	 * @throws NullPointerException
+	 */
+	public RootWord(RootWord src) throws NullPointerException{
+		super(nextId());
+		if(src == null){
+			throw new NullPointerException("Source is null.");
+		}
+		setFirstRadical(src.getFirstRadical());
+		setSecondRadical(src.getSecondRadical());
+		setThirdRadical(src.getThirdRadical());
+		setFourthRadical(src.getFourthRadical());
+		updateDisplayName();
+	}
+
 	public ArabicLetterType getFirstRadical() {
 		return firstRadical;
 	}

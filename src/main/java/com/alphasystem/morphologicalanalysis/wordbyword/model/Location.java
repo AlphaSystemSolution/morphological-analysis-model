@@ -79,9 +79,34 @@ public class Location extends Related {
 		setLocationNumber(locationNumber);
 		initDisplayName();
 		setPartOfSpeech(null);
-		setRootWord(new RootWord());
+		setRootWord(null);
 		setStartIndex(null);
 		setEndIndex(null);
+	}
+
+	/**
+	 * Copy constructor
+	 *
+	 * @param src
+	 * @throws NullPointerException
+	 */
+	public Location(Location src) throws NullPointerException {
+		super();
+		if (src == null) {
+			throw new NullPointerException("Source is null.");
+		}
+		setChapterNumber(src.getChapterNumber());
+		setVerseNumber(src.getVerseNumber());
+		setTokenNumber(src.getTokenNumber());
+		setLocationNumber(src.getLocationNumber());
+		setStartIndex(src.getStartIndex());
+		setEndIndex(src.getEndIndex());
+		setPartOfSpeech(src.getPartOfSpeech());
+		setNamedTag(src.getNamedTag());
+		setFormTemplate(src.getFormTemplate());
+		setTranslation(src.getTranslation());
+		setRootWord(new RootWord(src.getRootWord()));
+		setProperties(AbstractProperties.copy(src.getProperties()));
 	}
 
 	public Integer getChapterNumber() {
@@ -160,7 +185,7 @@ public class Location extends Related {
 	}
 
 	public void setRootWord(RootWord rootWord) {
-		this.rootWord = rootWord;
+		this.rootWord = rootWord == null ? new RootWord() : rootWord;
 	}
 
 	public Integer getStartIndex() {

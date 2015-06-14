@@ -34,6 +34,17 @@ public class VerbProperties extends AbstractProperties {
 		setConversationType(null);
 	}
 
+	/**
+	 * @param src
+	 * @throws NullPointerException
+	 */
+	public VerbProperties(VerbProperties src) throws NullPointerException {
+		super(src);
+		setVerbType(src.getVerbType());
+		setMode(src.getMode());
+		setConversationType(src.getConversationType());
+	}
+
 	public ConversationType getConversationType() {
 		return conversationType;
 	}

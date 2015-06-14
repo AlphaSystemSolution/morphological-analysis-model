@@ -72,6 +72,22 @@ public class Token extends AbstractDocument {
 		setHidden(false);
 	}
 
+	/**
+	 * @param src
+	 * @throws NullPointerException
+	 */
+	public Token(Token src) throws NullPointerException {
+		if (src == null) {
+			throw new NullPointerException("Source is null.");
+		}
+		setChapterNumber(src.getChapterNumber());
+		setVerseNumber(src.getVerseNumber());
+		setTokenNumber(src.getTokenNumber());
+		setToken(src.getToken());
+		setHidden(src.isHidden());
+		setLocations(src.getLocations());
+	}
+
 	public boolean isHidden() {
 		return hidden;
 	}
@@ -96,6 +112,7 @@ public class Token extends AbstractDocument {
 					"Invalid chapter Number {%s}", chapterNumber));
 		}
 		this.chapterNumber = chapterNumber;
+		initDisplayName();
 	}
 
 	public Integer getLocationCount() {
@@ -107,8 +124,14 @@ public class Token extends AbstractDocument {
 	}
 
 	public void setLocations(List<Location> locations) {
-		this.locations = locations == null ? new ArrayList<>()
-				: locations;
+		this.locations = new ArrayList<>();
+		if (locations != null && !locations.isEmpty()) {
+			locations.forEach(l -> {
+				if (l != null) {
+					this.locations.add(new Location(l));
+				}
+			});
+		}
 	}
 
 	public String getToken() {
@@ -126,6 +149,7 @@ public class Token extends AbstractDocument {
 
 	public void setTokenNumber(Integer tokenNumber) {
 		this.tokenNumber = tokenNumber;
+		initDisplayName();
 	}
 
 	public ArabicWord getTokenWord() {
@@ -157,13 +181,13 @@ public class Token extends AbstractDocument {
 
 	public void setVerseNumber(Integer verseNumber) {
 		this.verseNumber = verseNumber;
+		initDisplayName();
 	}
 
 	@Override
 	public void initDisplayName() {
 		String dn = format("%s:%s:%s", chapterNumber, verseNumber, tokenNumber);
 		setDisplayName(dn);
-		setId(dn);
 	}
 
 	private void initTokenWord() {

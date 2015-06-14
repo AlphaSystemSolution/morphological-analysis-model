@@ -27,6 +27,16 @@ public class ProNounProperties extends AbstractNounProperties {
 		setProNounType(null);
 	}
 
+	/**
+	 * @param src
+	 * @throws NullPointerException
+	 */
+	public ProNounProperties(ProNounProperties src) throws NullPointerException {
+		super(src);
+		setConversationType(src.getConversationType());
+		setProNounType(src.getProNounType());
+	}
+
 	public ConversationType getConversationType() {
 		return conversationType;
 	}
