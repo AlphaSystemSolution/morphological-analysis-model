@@ -21,15 +21,17 @@ public class DependencyGraph extends AbstractDocument {
 
     protected Integer verseNumber;
 
-    protected Integer segmentNumber;
+    protected Integer firstTokenIndex;
 
-    @DBRef
+    protected Integer lastTokenIndex;
+
+    @DBRef(lazy = true)
     protected List<Token> tokens;
 
-    @DBRef
+    @DBRef(lazy = true)
     protected List<Relationship> relationships;
 
-    @DBRef
+    @DBRef(lazy = true)
     protected List<Fragment> fragments;
 
     public DependencyGraph() {
@@ -40,20 +42,30 @@ public class DependencyGraph extends AbstractDocument {
     }
 
     @PersistenceConstructor
-    public DependencyGraph(Integer chapterNumber, Integer verseNumber, Integer segmentNumber) {
+    public DependencyGraph(Integer chapterNumber, Integer verseNumber, Integer firstTokenIndex,
+                           Integer lastTokenIndex) {
         super();
         this.chapterNumber = chapterNumber;
         this.verseNumber = verseNumber;
-        this.segmentNumber = segmentNumber;
+        this.firstTokenIndex = firstTokenIndex;
+        this.lastTokenIndex = lastTokenIndex;
         initDisplayName();
         setTokens(null);
         setRelationships(null);
         setFragments(null);
     }
 
+    public Integer getLastTokenIndex() {
+        return lastTokenIndex;
+    }
+
+    public void setLastTokenIndex(Integer lastTokenIndex) {
+        this.lastTokenIndex = lastTokenIndex;
+    }
+
     @Override
     public void initDisplayName() {
-        setDisplayName(format("%s:%s:%s", chapterNumber, verseNumber, segmentNumber));
+        setDisplayName(format("%s:%s:%s:%s", chapterNumber, verseNumber, firstTokenIndex, lastTokenIndex));
     }
 
     public List<Fragment> getFragments() {
@@ -87,12 +99,12 @@ public class DependencyGraph extends AbstractDocument {
         this.chapterNumber = chapterNumber;
     }
 
-    public Integer getSegmentNumber() {
-        return segmentNumber;
+    public Integer getFirstTokenIndex() {
+        return firstTokenIndex;
     }
 
-    public void setSegmentNumber(Integer segmentNumber) {
-        this.segmentNumber = segmentNumber;
+    public void setFirstTokenIndex(Integer firstTokenIndex) {
+        this.firstTokenIndex = firstTokenIndex;
     }
 
     public Integer getVerseNumber() {
