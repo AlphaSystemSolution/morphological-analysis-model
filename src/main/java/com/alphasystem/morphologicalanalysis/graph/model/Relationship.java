@@ -23,13 +23,13 @@ public class Relationship extends AbstractDocument {
     /**
      * Reference to dependent location
      */
-    @DBRef
+    @DBRef(lazy = true)
     protected Related dependent;
 
     /**
      * Reference to owner location
      */
-    @DBRef
+    @DBRef(lazy = true)
     protected Related owner;
 
     /**
