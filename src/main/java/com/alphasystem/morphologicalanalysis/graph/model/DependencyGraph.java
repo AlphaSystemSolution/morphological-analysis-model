@@ -2,6 +2,7 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Token;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
+import com.alphasystem.persistence.mongo.model.CascadeSave;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -26,12 +27,15 @@ public class DependencyGraph extends AbstractDocument {
     protected Integer lastTokenIndex;
 
     @DBRef(lazy = true)
+    @CascadeSave
     protected List<Token> tokens;
 
     @DBRef(lazy = true)
+    @CascadeSave
     protected List<Relationship> relationships;
 
     @DBRef(lazy = true)
+    @CascadeSave
     protected List<Fragment> fragments;
 
     public DependencyGraph() {

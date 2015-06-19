@@ -4,6 +4,7 @@ import com.alphasystem.morphologicalanalysis.common.model.Related;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RelationshipType;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
+import com.alphasystem.persistence.mongo.model.CascadeSave;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -24,12 +25,14 @@ public class Relationship extends AbstractDocument {
      * Reference to dependent location
      */
     @DBRef(lazy = true)
+    @CascadeSave
     protected Related dependent;
 
     /**
      * Reference to owner location
      */
     @DBRef(lazy = true)
+    @CascadeSave
     protected Related owner;
 
     /**
