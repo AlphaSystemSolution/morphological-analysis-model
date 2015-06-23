@@ -59,6 +59,10 @@ public class Location extends Related {
 	 *
 	 */
 	public Location() {
+		setPartOfSpeech(null);
+		setRootWord(null);
+		setStartIndex(null);
+		setEndIndex(null);
 	}
 
 	/**
@@ -107,6 +111,7 @@ public class Location extends Related {
 		setTranslation(src.getTranslation());
 		setRootWord(new RootWord(src.getRootWord()));
 		setProperties(AbstractProperties.copy(src.getProperties()));
+		initDisplayName();
 	}
 
 	public Integer getChapterNumber() {

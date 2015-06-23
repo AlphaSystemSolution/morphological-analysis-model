@@ -22,6 +22,7 @@ public abstract class AbstractProperties extends AbstractDocument {
     protected GenderType gender;
 
     protected AbstractProperties() {
+        super();
         setNumber(null);
         setGender(null);
     }
@@ -52,6 +53,7 @@ public abstract class AbstractProperties extends AbstractDocument {
         } else if (isParticle(src)) {
             target = new ParticleProperties((ParticleProperties) src);
         }
+        target.initDisplayName();
         return target;
     }
 

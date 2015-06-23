@@ -18,7 +18,8 @@ public abstract class AbstractNounProperties extends AbstractProperties {
 	protected NounStatus status;
 
 	public AbstractNounProperties() {
-		setStatus(null);
+        super();
+        setStatus(null);
 	}
 
 	/**
