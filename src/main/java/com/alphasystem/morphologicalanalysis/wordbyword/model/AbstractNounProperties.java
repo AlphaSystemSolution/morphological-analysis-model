@@ -20,7 +20,7 @@ public abstract class AbstractNounProperties extends AbstractProperties {
 	public AbstractNounProperties() {
         super();
         setStatus(null);
-	}
+    }
 
 	/**
 	 * @param src
