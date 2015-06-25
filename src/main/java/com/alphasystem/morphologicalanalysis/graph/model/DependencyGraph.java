@@ -1,6 +1,5 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
-import com.alphasystem.morphologicalanalysis.wordbyword.model.Token;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
 import com.alphasystem.persistence.mongo.model.CascadeSave;
 import org.springframework.data.annotation.PersistenceConstructor;
@@ -28,7 +27,7 @@ public class DependencyGraph extends AbstractDocument {
 
     @DBRef(lazy = true)
     @CascadeSave
-    protected List<Token> tokens;
+    protected List<Terminal> terminals;
 
     @DBRef(lazy = true)
     @CascadeSave
@@ -40,7 +39,7 @@ public class DependencyGraph extends AbstractDocument {
 
     public DependencyGraph() {
         super();
-        setTokens(null);
+        setTerminals(null);
         setRelationships(null);
         setFragments(null);
     }
@@ -54,7 +53,7 @@ public class DependencyGraph extends AbstractDocument {
         this.firstTokenIndex = firstTokenIndex;
         this.lastTokenIndex = lastTokenIndex;
         initDisplayName();
-        setTokens(null);
+        setTerminals(null);
         setRelationships(null);
         setFragments(null);
     }
@@ -83,14 +82,14 @@ public class DependencyGraph extends AbstractDocument {
         }
     }
 
-    public List<Token> getTokens() {
-        return tokens;
+    public List<Terminal> getTerminals() {
+        return terminals;
     }
 
-    public void setTokens(List<Token> tokens) {
-        this.tokens = new ArrayList<>();
-        if (tokens != null && !tokens.isEmpty()) {
-            this.tokens.addAll(tokens);
+    public void setTerminals(List<Terminal> terminals) {
+        this.terminals = new ArrayList<>();
+        if (terminals != null && !terminals.isEmpty()) {
+            this.terminals.addAll(terminals);
 
         }
     }
