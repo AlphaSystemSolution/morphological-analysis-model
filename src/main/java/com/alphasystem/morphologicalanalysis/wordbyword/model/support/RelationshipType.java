@@ -3,7 +3,6 @@
  */
 package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
-import com.alphasystem.arabic.model.ArabicLetter;
 import com.alphasystem.arabic.model.ArabicLetters;
 import com.alphasystem.arabic.model.ArabicSupportEnum;
 import com.alphasystem.arabic.model.ArabicWord;
@@ -11,7 +10,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import static com.alphasystem.arabic.model.ArabicLetterType.*;
 import static com.alphasystem.arabic.model.ArabicWord.getWord;
-import static com.alphasystem.arabic.model.DiacriticType.SHADDA;
 
 /**
  * @author sali
@@ -42,16 +40,6 @@ public enum RelationshipType implements ArabicSupportEnum {
     MUTALIQ(getWord(MEEM, TA, AIN, LAM, QAF), "#3BB9FF"),
 
     ISM(getWord(ALIF_HAMZA_BELOW, SEEN, MEEM), "#800000"),
-
-    ISM_INNA(getWord(new ArabicLetter(ALIF_HAMZA_BELOW), new ArabicLetter(SEEN), new ArabicLetter(MEEM),
-            new ArabicLetter(SPACE), new ArabicLetter(LEFT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK),
-            new ArabicLetter(SPACE), new ArabicLetter(ALIF_HAMZA_BELOW), new ArabicLetter(NOON, SHADDA),
-            new ArabicLetter(SPACE), new ArabicLetter(RIGHT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK)), "#800000"),
-
-    KHABAR_INNA(getWord(new ArabicLetter(KHA), new ArabicLetter(BA), new ArabicLetter(RA),
-            new ArabicLetter(SPACE),new ArabicLetter(LEFT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK),
-            new ArabicLetter(SPACE), new ArabicLetter(ALIF_HAMZA_BELOW), new ArabicLetter(NOON, SHADDA),
-            new ArabicLetter(SPACE), new ArabicLetter(RIGHT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK)), "#008080"),
 
     //
     ;
