@@ -3,6 +3,7 @@
  */
 package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
+import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.common.model.Related;
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
@@ -10,6 +11,7 @@ import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NamedTag;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeech;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RootWord;
 import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeech.NOUN;
@@ -54,6 +56,9 @@ public class Location extends Related {
 	protected String translation;
 
 	protected AbstractProperties properties;
+
+	@Transient
+	protected ArabicWord locationWord;
 
 	/**
 	 *
@@ -197,7 +202,15 @@ public class Location extends Related {
 		return startIndex;
 	}
 
-	public void setStartIndex(Integer startIndex) {
+    public ArabicWord getLocationWord() {
+        return locationWord;
+    }
+
+    public void setLocationWord(ArabicWord locationWord) {
+        this.locationWord = locationWord;
+    }
+
+    public void setStartIndex(Integer startIndex) {
 		this.startIndex = startIndex == null || startIndex.intValue() <= 0 ? 0
 				: startIndex;
 	}
