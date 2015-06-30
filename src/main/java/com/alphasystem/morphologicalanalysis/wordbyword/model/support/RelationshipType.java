@@ -35,9 +35,13 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     MAJROOR(getWord(MEEM, JEEM, RA, WAW, RA), "#8D38C9"),
 
+    MUBTADA(getWord(MEEM, BA, TA, DAL, ALIF_HAMZA_ABOVE)),
+
     KHABAR(getWord(KHA, BA, RA), "#0041C2"),
 
     MUTALIQ(getWord(MEEM, TA, AIN, LAM, QAF), "#3BB9FF"),
+
+    ISM(getWord(ALIF_HAMZA_BELOW, SEEN, MEEM), "#800000"),
 
     ISM_INNA(getWord(new ArabicLetter(ALIF_HAMZA_BELOW), new ArabicLetter(SEEN), new ArabicLetter(MEEM),
             new ArabicLetter(SPACE), new ArabicLetter(LEFT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK),
