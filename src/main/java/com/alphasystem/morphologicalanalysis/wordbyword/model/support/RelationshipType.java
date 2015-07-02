@@ -41,6 +41,8 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     ISM(getWord(ALIF_HAMZA_BELOW, SEEN, MEEM), "#800000"),
 
+    MAFOOL(getWord(MEEM, FA, AIN, WAW, LAM)),
+
     //
     ;
 

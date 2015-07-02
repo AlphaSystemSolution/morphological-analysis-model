@@ -61,9 +61,6 @@ public enum PartOfSpeech implements ArabicSupportEnum {
 	ACCUSSATIVE_PARTICLE("Accussative particle", "#8B0807", getWord(HHA, RA, FA,
 			SPACE, NOON, SAD, BA)),
 
-	// CONJUNCTION_PARTICLE("Conjunction particle", getWord(HHA, RA, FA, SPACE,
-	// AIN, TTA, FA)),
-
 	CONJUNCTION_PARTICLE_WAW("Conjunction particle", getWord(ALIF, LAM, WAW,
 			ALIF, WAW, SPACE, AIN, ALIF, TTA, FA, TA_MARBUTA)),
 
@@ -76,7 +73,11 @@ public enum PartOfSpeech implements ArabicSupportEnum {
 	JUSSIVE_PARTICLE("Jussive particle", getWord(HHA, RA, FA, SPACE, ALIF, LAM,
 			JEEM, ALIF, ZAIN, MEEM, TA_MARBUTA)),
 
-	RESUMPTION_PARTICLE("Resumption particle", getWord(HHA, RA, FA, SPACE,
+	RESUMPTION_PARTICLE_WAW("Resumption particle", getWord(ALIF, LAM, WAW,
+			ALIF, WAW, SPACE, ALIF_HAMZA_BELOW, SEEN, TA, YA_HAMZA_ABOVE, NOON, ALIF, FA, YA,
+			TA_MARBUTA)),
+
+	RESUMPTION_PARTICLE_FA("Resumption particle", getWord(ALIF, LAM, FA, ALIF, HAMZA, SPACE,
 			ALIF_HAMZA_BELOW, SEEN, TA, YA_HAMZA_ABOVE, NOON, ALIF, FA, YA,
 			TA_MARBUTA)),
 
