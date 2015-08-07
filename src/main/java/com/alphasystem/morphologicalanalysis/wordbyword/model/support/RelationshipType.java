@@ -33,6 +33,8 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     MAJROOR(getWord(MEEM, JEEM, RA, WAW, RA), "#8D38C9"),
 
+    SILLAH(getWord(SAD, LAM, TA_MARBUTA), "#6DEF9B"),
+
     MUBTADA(getWord(MEEM, BA, TA, DAL, ALIF_HAMZA_ABOVE)),
 
     KHABAR(getWord(KHA, BA, RA), "#0041C2"),
@@ -41,7 +43,13 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     ISM(getWord(ALIF_HAMZA_BELOW, SEEN, MEEM), "#800000"),
 
+    FAIIL(getWord(FA, ALIF, AIN, LAM), "#4C5F6A"),
+
     MAFOOL(getWord(MEEM, FA, AIN, WAW, LAM), "#FF8040"),
+
+    MAFOOL_BHI(getWord(MEEM, FA, AIN, WAW, LAM, SPACE, BA, HA), "#FF8040"),
+
+    MAFOOL_FIHI(getWord(MEEM, FA, AIN, WAW, LAM, SPACE, FA, YA, HA), "#FF8040"),
 
     //
     ;

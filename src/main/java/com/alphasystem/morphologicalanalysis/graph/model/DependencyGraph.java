@@ -25,15 +25,15 @@ public class DependencyGraph extends AbstractDocument {
 
     protected Integer lastTokenIndex;
 
-    @DBRef(lazy = true)
+    @DBRef
     @CascadeSave
     protected List<Terminal> terminals;
 
-    @DBRef(lazy = true)
+    @DBRef
     @CascadeSave
     protected List<Relationship> relationships;
 
-    @DBRef(lazy = true)
+    @DBRef
     @CascadeSave
     protected List<Fragment> fragments;
 
