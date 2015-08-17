@@ -41,7 +41,7 @@ public enum PartOfSpeech implements ArabicSupportEnum {
 
 	DEMONSTRATIVE_PRONOUN("Demonstrative pronoun", null, getWord(
 			ALIF_HAMZA_BELOW, SEEN, MEEM, SPACE, ALIF_HAMZA_BELOW, SHEEN, ALIF,
-			RA, TA_MARBUTA), ProNounProperties.class),
+			RA, TA_MARBUTA), NounProperties.class),
 
 	VERB("Verb", "#4AA02C", getWord(FA, AIN, LAM), VerbProperties.class),
 

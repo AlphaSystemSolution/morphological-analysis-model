@@ -41,6 +41,8 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     MUTALIQ(getWord(MEEM, TA, AIN, LAM, QAF), "#3BB9FF"),
 
+    MAATOOF(getWord(MEEM, AIN, TTA, WAW, FA), "#659EC7"),
+
     ISM(getWord(ALIF_HAMZA_BELOW, SEEN, MEEM), "#800000"),
 
     FAIIL(getWord(FA, ALIF, AIN, LAM), "#4C5F6A"),
@@ -49,7 +51,18 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     MAFOOL_BHI(getWord(MEEM, FA, AIN, WAW, LAM, SPACE, BA, HA), "#FF8040"),
 
+    MAFOOL_BHI_ALTERNATE(getWord(MEEM, FA, AIN, WAW, LAM, SPACE, BA, HA, SPACE, FA, YA, SPACE, MEEM, HHA, LAM,
+            SPACE, NOON, SAD, BA), "#FF8040"),
+
     MAFOOL_FIHI(getWord(MEEM, FA, AIN, WAW, LAM, SPACE, FA, YA, HA), "#FF8040"),
+
+    MAFOOL_FIHI_ALTERNATE(getWord(MEEM, FA, AIN, WAW, LAM, SPACE, FA, YA, HA, SPACE, FA, YA, SPACE, MEEM, HHA, LAM,
+            SPACE, NOON, SAD, BA), "#FF8040"),
+
+    NOUN_BASED_SENTENCE(getWord(JEEM, MEEM, LAM, TA_MARBUTA, SPACE, ALIF_HAMZA_BELOW, SEEN, MEEM, YA, TA_MARBUTA),
+            "#FF00FF"),
+
+    VERB_BASED_SENTENCE(getWord(JEEM, MEEM, LAM, TA_MARBUTA, SPACE, FA, AIN, LAM, YA, TA_MARBUTA), "#8A4117"),
 
     //
     ;
