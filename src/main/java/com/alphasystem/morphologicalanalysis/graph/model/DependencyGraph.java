@@ -25,23 +25,16 @@ public class DependencyGraph extends AbstractDocument {
 
     protected Integer lastTokenIndex;
 
-    @DBRef
-    @CascadeSave
-    protected List<Terminal> terminals;
+    protected GraphMetaInfo metaInfo;
 
     @DBRef
     @CascadeSave
-    protected List<Relationship> relationships;
-
-    @DBRef
-    @CascadeSave
-    protected List<Fragment> fragments;
+    protected List<GraphNode> nodes;
 
     public DependencyGraph() {
         super();
-        setTerminals(null);
-        setRelationships(null);
-        setFragments(null);
+        setNodes(null);
+        setMetaInfo(null);
     }
 
     @PersistenceConstructor
@@ -53,9 +46,32 @@ public class DependencyGraph extends AbstractDocument {
         this.firstTokenIndex = firstTokenIndex;
         this.lastTokenIndex = lastTokenIndex;
         initDisplayName();
-        setTerminals(null);
-        setRelationships(null);
-        setFragments(null);
+        setNodes(null);
+        setMetaInfo(null);
+
+    }
+
+    public boolean addNode(GraphNode graphNode) {
+        return getNodes().add(graphNode);
+    }
+
+    public GraphMetaInfo getMetaInfo() {
+        return metaInfo;
+    }
+
+    public void setMetaInfo(GraphMetaInfo metaInfo) {
+        this.metaInfo = metaInfo == null ? new GraphMetaInfo() : metaInfo;
+    }
+
+    public List<GraphNode> getNodes() {
+        return nodes;
+    }
+
+    public void setNodes(List<GraphNode> nodes) {
+        this.nodes = new ArrayList<>();
+        if (nodes != null && !nodes.isEmpty()) {
+            this.nodes.addAll(nodes);
+        }
     }
 
     public Integer getLastTokenIndex() {
@@ -69,29 +85,6 @@ public class DependencyGraph extends AbstractDocument {
     @Override
     public void initDisplayName() {
         setDisplayName(format("%s:%s:%s:%s", chapterNumber, verseNumber, firstTokenIndex, lastTokenIndex));
-    }
-
-    public List<Fragment> getFragments() {
-        return fragments;
-    }
-
-    public void setFragments(List<Fragment> fragments) {
-        this.fragments = new ArrayList<>();
-        if (fragments != null) {
-            this.fragments.addAll(fragments);
-        }
-    }
-
-    public List<Terminal> getTerminals() {
-        return terminals;
-    }
-
-    public void setTerminals(List<Terminal> terminals) {
-        this.terminals = new ArrayList<>();
-        if (terminals != null && !terminals.isEmpty()) {
-            this.terminals.addAll(terminals);
-
-        }
     }
 
     public Integer getChapterNumber() {
@@ -118,14 +111,4 @@ public class DependencyGraph extends AbstractDocument {
         this.verseNumber = verseNumber;
     }
 
-    public List<Relationship> getRelationships() {
-        return relationships;
-    }
-
-    public void setRelationships(List<Relationship> relationships) {
-        this.relationships = new ArrayList<>();
-        if (relationships != null) {
-            this.relationships.addAll(relationships);
-        }
-    }
 }

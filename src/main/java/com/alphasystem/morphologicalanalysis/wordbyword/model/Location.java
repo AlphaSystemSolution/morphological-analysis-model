@@ -1,11 +1,11 @@
 /**
- * 
+ *
  */
 package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.arabic.model.NamedTemplate;
-import com.alphasystem.morphologicalanalysis.common.model.Related;
+import com.alphasystem.morphologicalanalysis.common.model.Linkable;
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NamedTag;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeech;
@@ -20,187 +20,212 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 
 /**
  * @author sali
- * 
  */
 @Document
-public class Location extends Related {
+public class Location extends Linkable {
 
-	private static final long serialVersionUID = 7895140946662001637L;
+    private static final long serialVersionUID = 7895140946662001637L;
 
-	protected Integer chapterNumber;
+    protected Integer chapterNumber;
 
-	protected Integer verseNumber;
+    protected Integer verseNumber;
 
-	protected Integer tokenNumber;
+    protected Integer tokenNumber;
 
-	protected Integer locationNumber;
+    protected Integer locationNumber;
 
-	/**
-	 * Start index of this location within token (inclusive)
-	 */
-	protected Integer startIndex;
+    protected boolean hidden;
 
-	/**
-	 * End index of this location within token (exclusive)
-	 */
-	protected Integer endIndex;
+    /**
+     * Start index of this location within token (inclusive)
+     */
+    protected Integer startIndex;
 
-	protected PartOfSpeech partOfSpeech;
+    /**
+     * End index of this location within token (exclusive)
+     */
+    protected Integer endIndex;
 
-	protected RootWord rootWord;
+    protected PartOfSpeech partOfSpeech;
 
-	protected NamedTag namedTag;
+    protected RootWord rootWord;
 
-	protected NamedTemplate formTemplate;
+    protected NamedTag namedTag;
 
-	protected String translation;
+    protected NamedTemplate formTemplate;
 
-	protected AbstractProperties properties;
+    protected String translation;
 
-	@Transient
-	protected ArabicWord locationWord;
+    protected AbstractProperties properties;
 
-	/**
-	 *
-	 */
-	public Location() {
-		setPartOfSpeech(null);
-		setRootWord(null);
-		setStartIndex(null);
-		setEndIndex(null);
-	}
+    @Transient
+    protected ArabicWord locationWord;
 
-	/**
-	 * @param chapterNumber
-	 * @param verseNumber
-	 * @param tokenNumber
-	 * @param locationNumber
-	 * @throws InvalidChapterException
-	 */
-	@PersistenceConstructor
-	public Location(Integer chapterNumber, Integer verseNumber,
-			Integer tokenNumber, Integer locationNumber)
-			throws InvalidChapterException {
-		super();
-		setChapterNumber(chapterNumber);
-		setVerseNumber(verseNumber);
-		setTokenNumber(tokenNumber);
-		setLocationNumber(locationNumber);
-		initDisplayName();
-		setPartOfSpeech(null);
-		setRootWord(null);
-		setStartIndex(null);
-		setEndIndex(null);
-	}
+    /**
+     *
+     */
+    public Location() {
+        setPartOfSpeech(null);
+        setRootWord(null);
+        setStartIndex(null);
+        setEndIndex(null);
+    }
 
-	/**
-	 * Copy constructor
-	 *
-	 * @param src
-	 * @throws NullPointerException
-	 */
-	public Location(Location src) throws NullPointerException {
-		super();
-		if (src == null) {
-			throw new NullPointerException("Source is null.");
-		}
-		setChapterNumber(src.getChapterNumber());
-		setVerseNumber(src.getVerseNumber());
-		setTokenNumber(src.getTokenNumber());
-		setLocationNumber(src.getLocationNumber());
-		setStartIndex(src.getStartIndex());
-		setEndIndex(src.getEndIndex());
-		setPartOfSpeech(src.getPartOfSpeech());
-		setNamedTag(src.getNamedTag());
-		setFormTemplate(src.getFormTemplate());
-		setTranslation(src.getTranslation());
-		setRootWord(new RootWord(src.getRootWord()));
-		setProperties(AbstractProperties.copy(src.getProperties()));
-		initDisplayName();
-	}
+    /**
+     * @param chapterNumber
+     * @param verseNumber
+     * @param tokenNumber
+     * @param locationNumber
+     * @param hidden
+     * @throws InvalidChapterException
+     */
+    public Location(Integer chapterNumber, Integer verseNumber,
+                    Integer tokenNumber, Integer locationNumber, boolean hidden)
+            throws InvalidChapterException {
+        super();
+        setChapterNumber(chapterNumber);
+        setVerseNumber(verseNumber);
+        setTokenNumber(tokenNumber);
+        setLocationNumber(locationNumber);
+        setHidden(hidden);
+        initDisplayName();
+        setPartOfSpeech(null);
+        setRootWord(null);
+        setStartIndex(null);
+        setEndIndex(null);
+    }
 
-	public Integer getChapterNumber() {
-		return chapterNumber;
-	}
+    /**
+     * @param chapterNumber
+     * @param verseNumber
+     * @param tokenNumber
+     * @param locationNumber
+     * @throws InvalidChapterException
+     */
+    @PersistenceConstructor
+    public Location(Integer chapterNumber, Integer verseNumber,
+                    Integer tokenNumber, Integer locationNumber)
+            throws InvalidChapterException {
+        this(chapterNumber, verseNumber, tokenNumber, locationNumber, false);
+    }
 
-	public void setChapterNumber(Integer chapterNumber) {
-		this.chapterNumber = chapterNumber;
-	}
+    /**
+     * Copy constructor
+     *
+     * @param src
+     * @throws NullPointerException
+     */
+    public Location(Location src) throws NullPointerException {
+        super();
+        if (src == null) {
+            throw new NullPointerException("Source is null.");
+        }
+        setChapterNumber(src.getChapterNumber());
+        setVerseNumber(src.getVerseNumber());
+        setTokenNumber(src.getTokenNumber());
+        setLocationNumber(src.getLocationNumber());
+        setHidden(src.isHidden());
+        setStartIndex(src.getStartIndex());
+        setEndIndex(src.getEndIndex());
+        setPartOfSpeech(src.getPartOfSpeech());
+        setNamedTag(src.getNamedTag());
+        setFormTemplate(src.getFormTemplate());
+        setTranslation(src.getTranslation());
+        setRootWord(new RootWord(src.getRootWord()));
+        setProperties(AbstractProperties.copy(src.getProperties()));
+        initDisplayName();
+    }
 
-	public Integer getEndIndex() {
-		return endIndex;
-	}
+    public Integer getChapterNumber() {
+        return chapterNumber;
+    }
 
-	public void setEndIndex(Integer endIndex) {
-		this.endIndex = endIndex == null || endIndex.intValue() <= 0 ? 0
-				: endIndex;
-	}
+    public void setChapterNumber(Integer chapterNumber) {
+        this.chapterNumber = chapterNumber;
+    }
 
-	public NamedTemplate getFormTemplate() {
-		return formTemplate;
-	}
+    public Integer getEndIndex() {
+        return endIndex;
+    }
 
-	public void setFormTemplate(NamedTemplate formTemplate) {
-		this.formTemplate = formTemplate;
-	}
+    public void setEndIndex(Integer endIndex) {
+        this.endIndex = endIndex == null || endIndex.intValue() <= 0 ? 0
+                : endIndex;
+    }
 
-	public Integer getLocationNumber() {
-		return locationNumber;
-	}
+    public NamedTemplate getFormTemplate() {
+        return formTemplate;
+    }
 
-	public void setLocationNumber(Integer locationIndex) {
-		this.locationNumber = locationIndex;
-	}
+    public void setFormTemplate(NamedTemplate formTemplate) {
+        this.formTemplate = formTemplate;
+    }
 
-	public NamedTag getNamedTag() {
-		return namedTag;
-	}
+    public Integer getLocationNumber() {
+        return locationNumber;
+    }
 
-	public void setNamedTag(NamedTag namedTag) {
-		this.namedTag = namedTag;
-	}
+    public void setLocationNumber(Integer locationIndex) {
+        this.locationNumber = locationIndex;
+    }
 
-	public PartOfSpeech getPartOfSpeech() {
-		return partOfSpeech;
-	}
+    public boolean isHidden() {
+        return hidden;
+    }
 
-	public void setPartOfSpeech(PartOfSpeech partOfSpeech) {
-		this.partOfSpeech = partOfSpeech == null ? NOUN : partOfSpeech;
-		initProperties();
-	}
+    public void setHidden(boolean hidden) {
+        this.hidden = hidden;
+    }
 
-	public AbstractProperties getProperties() {
-		if (properties == null && partOfSpeech != null) {
-			Class<? extends AbstractProperties> propertiesClass = partOfSpeech
-					.getPropertiesClass();
-			try {
-				properties = propertiesClass.newInstance();
-			} catch (Exception e) {
-				e.printStackTrace();
-				properties = new ParticleProperties();
-			}
-			String id = format("%s:%s", getDisplayName(), partOfSpeech);
-			properties.setDisplayName(id);
-			properties.setId(id);
-		}
-		return properties;
-	}
+    public NamedTag getNamedTag() {
+        return namedTag;
+    }
 
-	public void setProperties(AbstractProperties properties) {
-		this.properties = properties;
-	}
+    public void setNamedTag(NamedTag namedTag) {
+        this.namedTag = namedTag;
+    }
 
-	public RootWord getRootWord() {
-		return rootWord;
-	}
+    public PartOfSpeech getPartOfSpeech() {
+        return partOfSpeech;
+    }
 
-	public void setRootWord(RootWord rootWord) {
-		this.rootWord = rootWord == null ? new RootWord() : rootWord;
-	}
+    public void setPartOfSpeech(PartOfSpeech partOfSpeech) {
+        this.partOfSpeech = partOfSpeech == null ? NOUN : partOfSpeech;
+        initProperties();
+    }
 
-	public Integer getStartIndex() {
-		return startIndex;
-	}
+    public AbstractProperties getProperties() {
+        if (properties == null && partOfSpeech != null) {
+            Class<? extends AbstractProperties> propertiesClass = partOfSpeech
+                    .getPropertiesClass();
+            try {
+                properties = propertiesClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+                properties = new ParticleProperties();
+            }
+            String id = format("%s:%s", getDisplayName(), partOfSpeech);
+            properties.setDisplayName(id);
+            properties.setId(id);
+        }
+        return properties;
+    }
+
+    public void setProperties(AbstractProperties properties) {
+        this.properties = properties;
+    }
+
+    public RootWord getRootWord() {
+        return rootWord;
+    }
+
+    public void setRootWord(RootWord rootWord) {
+        this.rootWord = rootWord == null ? new RootWord() : rootWord;
+    }
+
+    public Integer getStartIndex() {
+        return startIndex;
+    }
 
     public ArabicWord getLocationWord() {
         return locationWord;
@@ -211,132 +236,153 @@ public class Location extends Related {
     }
 
     public void setStartIndex(Integer startIndex) {
-		this.startIndex = startIndex == null || startIndex.intValue() <= 0 ? 0
-				: startIndex;
-	}
+        this.startIndex = startIndex == null || startIndex.intValue() <= 0 ? 0
+                : startIndex;
+    }
 
-	public Integer getTokenNumber() {
-		return tokenNumber;
-	}
+    public Integer getTokenNumber() {
+        return tokenNumber;
+    }
 
-	public void setTokenNumber(Integer tokenNumber) {
-		this.tokenNumber = tokenNumber;
-	}
+    public void setTokenNumber(Integer tokenNumber) {
+        this.tokenNumber = tokenNumber;
+    }
 
-	public String getTranslation() {
-		return translation;
-	}
+    public String getTranslation() {
+        return translation;
+    }
 
-	public void setTranslation(String translation) {
-		this.translation = translation;
-	}
+    public void setTranslation(String translation) {
+        this.translation = translation;
+    }
 
-	public Integer getVerseNumber() {
-		return verseNumber;
-	}
+    public Integer getVerseNumber() {
+        return verseNumber;
+    }
 
-	public void setVerseNumber(Integer verseNumber) {
-		this.verseNumber = verseNumber;
-	}
+    public void setVerseNumber(Integer verseNumber) {
+        this.verseNumber = verseNumber;
+    }
 
-	@Override
-	public void initDisplayName() {
-		String dn = format("%s:%s:%s:%s", chapterNumber, verseNumber,
-				tokenNumber, locationNumber);
-		setDisplayName(dn);
-	}
+    @Override
+    public void initDisplayName() {
+        String ver = hidden ? ":1" : "";
+        String dn = format("%s:%s:%s:%s%s", chapterNumber, verseNumber,
+                tokenNumber, locationNumber, ver);
+        setDisplayName(dn);
+    }
 
-	private void initProperties() {
-		properties = null;
-		getProperties();
-	}
+    private void initProperties() {
+        properties = null;
+        getProperties();
+    }
 
-	public boolean isTransient() {
-		return startIndex == 0 && endIndex == 0;
-	}
+    public boolean isTransient() {
+        return startIndex == 0 && endIndex == 0;
+    }
 
-	public Location withChapterNumber(Integer chapterNumber) {
-		if (chapterNumber != null) {
-			setChapterNumber(chapterNumber);
-		}
-		return this;
-	}
+    /**
+     * Checks whether this location is before the given location. This method will only returns true if the chapter and
+     * verse number of this location is matches the chapter and verse number of given location.
+     *
+     * @param other
+     * @return
+     */
+    public boolean before(Location other) {
+        boolean valid = getChapterNumber().equals(other.getChapterNumber()) &&
+                getVerseNumber().equals(other.getVerseNumber()) && getTokenNumber() <= other.getTokenNumber();
+        if (valid) {
+            valid = getLocationNumber() < other.getLocationNumber();
+        }
+        return valid;
+    }
 
-	public Location withEndIndex(Integer endIndex) {
-		if (endIndex != null) {
-			setEndIndex(endIndex);
-		}
-		return this;
-	}
+    public Location withChapterNumber(Integer chapterNumber) {
+        if (chapterNumber != null) {
+            setChapterNumber(chapterNumber);
+        }
+        return this;
+    }
 
-	public Location withForm(NamedTemplate formTemplate) {
-		if (formTemplate != null) {
-			setFormTemplate(formTemplate);
-		}
-		return this;
-	}
+    public Location withEndIndex(Integer endIndex) {
+        if (endIndex != null) {
+            setEndIndex(endIndex);
+        }
+        return this;
+    }
 
-	public Location withLocationIndex(Integer locationIndex) {
-		if (locationIndex != null) {
-			setLocationNumber(locationIndex);
-		}
-		return this;
-	}
+    public Location withForm(NamedTemplate formTemplate) {
+        if (formTemplate != null) {
+            setFormTemplate(formTemplate);
+        }
+        return this;
+    }
 
-	public Location withNamedTag(NamedTag namedTag) {
-		if (namedTag != null) {
-			setNamedTag(namedTag);
-		}
-		return this;
-	}
+    public Location withLocationIndex(Integer locationIndex) {
+        if (locationIndex != null) {
+            setLocationNumber(locationIndex);
+        }
+        return this;
+    }
 
-	public Location withPartOfSpeech(PartOfSpeech partOfSpeech) {
-		if (partOfSpeech != null) {
-			setPartOfSpeech(partOfSpeech);
-		}
-		return this;
-	}
+    public Location withNamedTag(NamedTag namedTag) {
+        if (namedTag != null) {
+            setNamedTag(namedTag);
+        }
+        return this;
+    }
 
-	public Location withProperties(AbstractProperties properties) {
-		if (properties != null) {
-			setProperties(properties);
-		}
-		return this;
-	}
+    public Location withPartOfSpeech(PartOfSpeech partOfSpeech) {
+        if (partOfSpeech != null) {
+            setPartOfSpeech(partOfSpeech);
+        }
+        return this;
+    }
 
-	public Location withRootWord(RootWord rootWord) {
-		if (rootWord != null) {
-			setRootWord(rootWord);
-		}
-		return this;
-	}
+    public Location withProperties(AbstractProperties properties) {
+        if (properties != null) {
+            setProperties(properties);
+        }
+        return this;
+    }
 
-	public Location withStartIndex(Integer startIndex) {
-		if (startIndex != null) {
-			setStartIndex(startIndex);
-		}
-		return this;
-	}
+    public Location withRootWord(RootWord rootWord) {
+        if (rootWord != null) {
+            setRootWord(rootWord);
+        }
+        return this;
+    }
 
-	public Location withTokenNumber(Integer tokenNumber) {
-		if (tokenNumber != null) {
-			setTokenNumber(tokenNumber);
-		}
-		return this;
-	}
+    public Location withStartIndex(Integer startIndex) {
+        if (startIndex != null) {
+            setStartIndex(startIndex);
+        }
+        return this;
+    }
 
-	public Location withTranslation(String translation) {
-		if (!isBlank(translation)) {
-			setTranslation(translation);
-		}
-		return this;
-	}
+    public Location withTokenNumber(Integer tokenNumber) {
+        if (tokenNumber != null) {
+            setTokenNumber(tokenNumber);
+        }
+        return this;
+    }
 
-	public Location withVerseNumber(Integer verseNumber) {
-		if (verseNumber != null) {
-			setVerseNumber(verseNumber);
-		}
-		return this;
-	}
+    public Location withTranslation(String translation) {
+        if (!isBlank(translation)) {
+            setTranslation(translation);
+        }
+        return this;
+    }
 
+    public Location withVerseNumber(Integer verseNumber) {
+        if (verseNumber != null) {
+            setVerseNumber(verseNumber);
+        }
+        return this;
+    }
+
+    public Location withHidden(boolean hidden) {
+        setHidden(hidden);
+        return this;
+    }
 }

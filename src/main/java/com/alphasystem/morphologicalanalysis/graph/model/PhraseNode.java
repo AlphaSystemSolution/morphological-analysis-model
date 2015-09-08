@@ -1,36 +1,37 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.common.model.Linkable;
-import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
-import com.alphasystem.morphologicalanalysis.wordbyword.model.Token;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.AlternateStatus;
-import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounStatus;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RelationshipType;
+import com.alphasystem.persistence.mongo.model.CascadeSave;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.PHRASE;
+
 /**
- * This class represents series of {@link Location}(s) and create fragment / phrase relationship. The fragment could be
- * a phrase like <emp>Idafah</emp> or it could be nominal or verbal sentences.
- *
  * @author sali
- * @see Token
  */
 @Document
-public class Fragment extends Linkable {
+public class PhraseNode extends LinkSupport {
 
-    @DBRef(lazy = true)
-    protected List<Location> locations;
+    private static final long serialVersionUID = 8563558531527217502L;
+
+    @DBRef
+    protected List<PartOfSpeechNode> fragments;
     protected AlternateStatus alternateStatus;
     protected RelationshipType relationshipType;
 
-    public Fragment() {
-        super();
-        setLocations(null);
-        initDisplayName();
+    public PhraseNode() {
+        this(null);
+    }
+
+    public PhraseNode(String id) {
+        super(id, PHRASE);
+        setFragments(null);
     }
 
     public AlternateStatus getAlternateStatus() {
@@ -41,14 +42,14 @@ public class Fragment extends Linkable {
         this.alternateStatus = alternateStatus;
     }
 
-    public List<Location> getLocations() {
-        return locations;
+    public List<PartOfSpeechNode> getFragments() {
+        return fragments;
     }
 
-    public void setLocations(List<Location> locations) {
-        this.locations = new ArrayList<>();
-        if (locations != null) {
-            this.locations.addAll(locations);
+    public void setFragments(List<PartOfSpeechNode> fragments) {
+        this.fragments = new ArrayList<>();
+        if (fragments != null) {
+            this.fragments.addAll(fragments);
         }
     }
 
@@ -59,4 +60,6 @@ public class Fragment extends Linkable {
     public void setRelationshipType(RelationshipType relationshipType) {
         this.relationshipType = relationshipType;
     }
+
+
 }

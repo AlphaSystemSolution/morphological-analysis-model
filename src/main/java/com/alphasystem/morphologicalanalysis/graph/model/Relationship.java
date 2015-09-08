@@ -1,10 +1,10 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
-import com.alphasystem.morphologicalanalysis.common.model.Related;
+import com.alphasystem.morphologicalanalysis.common.model.Linkable;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounStatus;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RelationshipType;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
-import com.alphasystem.persistence.mongo.model.CascadeSave;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -24,16 +24,19 @@ public class Relationship extends AbstractDocument {
     /**
      * Reference to dependent location
      */
-    @DBRef(lazy = true)
-    @CascadeSave
-    protected Related dependent;
+    @DBRef
+    protected Linkable dependent;
 
     /**
      * Reference to owner location
      */
-    @DBRef(lazy = true)
-    @CascadeSave
-    protected Related owner;
+    @DBRef
+    protected Linkable owner;
+
+    /**
+     *
+     */
+    protected NounStatus alternateStatus;
 
     /**
      *
@@ -54,26 +57,34 @@ public class Relationship extends AbstractDocument {
         setDisplayName(format("%s::%s", dn1, dn2));
     }
 
-    public Related getDependent() {
+    public Linkable getDependent() {
         return dependent;
     }
 
-    public void setDependent(Related dependent) {
+    public void setDependent(Linkable dependent) {
         this.dependent = dependent;
         if (this.dependent != null) {
             initDisplayName();
         }
     }
 
-    public Related getOwner() {
+    public Linkable getOwner() {
         return owner;
     }
 
-    public void setOwner(Related owner) {
+    public void setOwner(Linkable owner) {
         this.owner = owner;
         if (this.owner != null) {
             initDisplayName();
         }
+    }
+
+    public NounStatus getAlternateStatus() {
+        return alternateStatus;
+    }
+
+    public void setAlternateStatus(NounStatus alternateStatus) {
+        this.alternateStatus = alternateStatus;
     }
 
     public RelationshipType getRelationship() {

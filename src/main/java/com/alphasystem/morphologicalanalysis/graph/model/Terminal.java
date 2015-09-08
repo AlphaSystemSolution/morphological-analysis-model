@@ -3,7 +3,6 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 import com.alphasystem.morphologicalanalysis.graph.model.support.TerminalType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Token;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
-import com.alphasystem.persistence.mongo.model.CascadeSave;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -19,7 +18,6 @@ public class Terminal extends AbstractDocument {
     private static final long serialVersionUID = -8747858955802083485L;
 
     @DBRef
-    @CascadeSave
     protected Token token;
 
     protected TerminalType terminalType;

@@ -5,11 +5,11 @@ import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
 
 /**
- * A marker class to represents that sub classes can be related to or dependent on other classes of this type.
+ * A marker class to represents that sub classes can be linked to or dependent on other classes of this type.
  *
  * @author sali
  * @see Location
  * @see Fragment
  */
-public abstract class Related extends AbstractDocument {
+public abstract class Linkable extends AbstractDocument {
 }

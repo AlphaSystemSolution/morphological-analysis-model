@@ -34,8 +34,10 @@ public class Token extends AbstractDocument {
     protected Integer tokenNumber;
 
     protected String token;
+
     /**
-     * For empty or hidden location will set as true to mark that this location was added for morphological analysis
+     * For empty or hidden location will set as true to mark that this location was added for
+     * Tree bank dependency graph
      */
     protected boolean hidden;
     @DBRef
@@ -93,6 +95,7 @@ public class Token extends AbstractDocument {
 
     public void setHidden(boolean hidden) {
         this.hidden = hidden;
+        initDisplayName();
     }
 
     public boolean addLocation(Location e) {
@@ -179,7 +182,8 @@ public class Token extends AbstractDocument {
 
     @Override
     public void initDisplayName() {
-        String dn = format("%s:%s:%s", chapterNumber, verseNumber, tokenNumber);
+        String r = hidden ? ":1" : "";
+        String dn = format("%s:%s:%s%s", chapterNumber, verseNumber, tokenNumber, r);
         setDisplayName(dn);
     }
 
