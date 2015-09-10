@@ -1,6 +1,5 @@
 package com.alphasystem.morphologicalanalysis.common.model;
 
-import com.alphasystem.morphologicalanalysis.graph.model.Fragment;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
 
@@ -9,7 +8,6 @@ import com.alphasystem.persistence.mongo.model.AbstractDocument;
  *
  * @author sali
  * @see Location
- * @see Fragment
  */
 public abstract class Linkable extends AbstractDocument {
 }

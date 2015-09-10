@@ -67,7 +67,6 @@ public class Token extends AbstractDocument {
         setChapterNumber(chapterNumber);
         setVerseNumber(verseNumber);
         setTokenNumber(tokenNumber);
-        initDisplayName();
         setToken(token);
         setLocations(null);
         setHidden(false);
@@ -95,7 +94,6 @@ public class Token extends AbstractDocument {
 
     public void setHidden(boolean hidden) {
         this.hidden = hidden;
-        initDisplayName();
     }
 
     public boolean addLocation(Location e) {
@@ -108,7 +106,6 @@ public class Token extends AbstractDocument {
 
     public void setChapterNumber(Integer chapterNumber) {
         this.chapterNumber = chapterNumber;
-        initDisplayName();
     }
 
     public Integer getLocationCount() {
@@ -145,7 +142,6 @@ public class Token extends AbstractDocument {
 
     public void setTokenNumber(Integer tokenNumber) {
         this.tokenNumber = tokenNumber;
-        initDisplayName();
     }
 
     public ArabicWord getTokenWord() {
@@ -177,7 +173,6 @@ public class Token extends AbstractDocument {
 
     public void setVerseNumber(Integer verseNumber) {
         this.verseNumber = verseNumber;
-        initDisplayName();
     }
 
     @Override

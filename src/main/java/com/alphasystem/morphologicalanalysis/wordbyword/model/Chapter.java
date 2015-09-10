@@ -67,7 +67,6 @@ public class Chapter extends AbstractDocument {
 			throws InvalidChapterException {
 		setChapterNumber(chapterNumber);
 		setChapterName(chapterName);
-		initDisplayName();
 		setVerses(null);
 	}
 

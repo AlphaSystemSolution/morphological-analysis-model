@@ -54,7 +54,6 @@ public class Verse extends AbstractDocument {
 			throws InvalidChapterException {
 		setChapterNumber(chapterNumber);
 		setVerseNumber(verseNumber);
-		initDisplayName();
 		setTokens(null);
 	}
 

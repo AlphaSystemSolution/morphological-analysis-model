@@ -14,6 +14,9 @@ public abstract class GraphNode extends AbstractDocument {
     private static final FontMetaInfo DEFAULT_FONT = new FontMetaInfo("Arabic Typesetting", "NORMAL", "REGULAR", 20.0);
 
     protected GraphNodeType graphNodeType;
+    protected Integer chapterNumber;
+    protected Integer verseNumber;
+    protected Integer tokenNumber;
     protected Integer version;
     protected Double x;
     protected Double y;
@@ -34,6 +37,30 @@ public abstract class GraphNode extends AbstractDocument {
         setTranslateY(null);
         setFont(null);
         setVersion(0);
+    }
+
+    public Integer getChapterNumber() {
+        return chapterNumber;
+    }
+
+    public void setChapterNumber(Integer chapterNumber) {
+        this.chapterNumber = chapterNumber;
+    }
+
+    public Integer getTokenNumber() {
+        return tokenNumber;
+    }
+
+    public void setTokenNumber(Integer tokenNumber) {
+        this.tokenNumber = tokenNumber;
+    }
+
+    public Integer getVerseNumber() {
+        return verseNumber;
+    }
+
+    public void setVerseNumber(Integer verseNumber) {
+        this.verseNumber = verseNumber;
     }
 
     FontMetaInfo getDefaultFont() {
@@ -98,6 +125,5 @@ public abstract class GraphNode extends AbstractDocument {
 
     public void setVersion(Integer version) {
         this.version = version == null ? 0 : version;
-        initDisplayName();
     }
 }

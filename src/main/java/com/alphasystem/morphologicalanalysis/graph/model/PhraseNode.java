@@ -1,9 +1,7 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
-import com.alphasystem.morphologicalanalysis.common.model.Linkable;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.AlternateStatus;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RelationshipType;
-import com.alphasystem.persistence.mongo.model.CascadeSave;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 

@@ -45,7 +45,6 @@ public class DependencyGraph extends AbstractDocument {
         this.verseNumber = verseNumber;
         this.firstTokenIndex = firstTokenIndex;
         this.lastTokenIndex = lastTokenIndex;
-        initDisplayName();
         setNodes(null);
         setMetaInfo(null);
 

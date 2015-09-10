@@ -88,7 +88,6 @@ public class Location extends Linkable {
         setTokenNumber(tokenNumber);
         setLocationNumber(locationNumber);
         setHidden(hidden);
-        initDisplayName();
         setPartOfSpeech(null);
         setRootWord(null);
         setStartIndex(null);
@@ -133,7 +132,6 @@ public class Location extends Linkable {
         setTranslation(src.getTranslation());
         setRootWord(new RootWord(src.getRootWord()));
         setProperties(AbstractProperties.copy(src.getProperties()));
-        initDisplayName();
     }
 
     public Integer getChapterNumber() {
@@ -227,17 +225,17 @@ public class Location extends Linkable {
         return startIndex;
     }
 
+    public void setStartIndex(Integer startIndex) {
+        this.startIndex = startIndex == null || startIndex.intValue() <= 0 ? 0
+                : startIndex;
+    }
+
     public ArabicWord getLocationWord() {
         return locationWord;
     }
 
     public void setLocationWord(ArabicWord locationWord) {
         this.locationWord = locationWord;
-    }
-
-    public void setStartIndex(Integer startIndex) {
-        this.startIndex = startIndex == null || startIndex.intValue() <= 0 ? 0
-                : startIndex;
     }
 
     public Integer getTokenNumber() {

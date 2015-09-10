@@ -23,12 +23,6 @@ public class TerminalNode extends LineSupport {
     private static final FontMetaInfo DEFAULT_TRANSLATION_FONT = new FontMetaInfo("Century Gothic", "NORMAL",
             "REGULAR", 12.0);
 
-    protected Integer chapterNumber;
-
-    protected Integer verseNumber;
-
-    protected Integer tokenNumber;
-
     /**
      * x location for translation
      */
@@ -73,33 +67,14 @@ public class TerminalNode extends LineSupport {
 
     @Override
     public void initDisplayName() {
-        String dn = token == null ? "" : token.getDisplayName();
+        String dn = token == null ? null : token.getDisplayName();
+        if (token != null) {
+            setChapterNumber(token.getChapterNumber());
+            setVerseNumber(token.getVerseNumber());
+            setTokenNumber(token.getTokenNumber());
+        }
         String ver = getVersion() <= 0 ? "" : format(":%s", getVersion());
         setDisplayName(format("%s%s:%s", dn, ver, getGraphNodeType()));
-    }
-
-    public Integer getChapterNumber() {
-        return chapterNumber;
-    }
-
-    public void setChapterNumber(Integer chapterNumber) {
-        this.chapterNumber = chapterNumber;
-    }
-
-    public Integer getTokenNumber() {
-        return tokenNumber;
-    }
-
-    public void setTokenNumber(Integer tokenNumber) {
-        this.tokenNumber = tokenNumber;
-    }
-
-    public Integer getVerseNumber() {
-        return verseNumber;
-    }
-
-    public void setVerseNumber(Integer verseNumber) {
-        this.verseNumber = verseNumber;
     }
 
     @Override
@@ -121,12 +96,6 @@ public class TerminalNode extends LineSupport {
 
     public void setToken(Token token) {
         this.token = token;
-        if (token != null) {
-            setChapterNumber(token.getChapterNumber());
-            setVerseNumber(token.getVerseNumber());
-            setTokenNumber(token.getTokenNumber());
-        }
-        initDisplayName();
     }
 
     public Double getTranslationX() {

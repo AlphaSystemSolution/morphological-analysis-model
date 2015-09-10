@@ -19,6 +19,8 @@ public class PartOfSpeechNode extends LinkSupport {
     @DBRef
     protected Location location;
 
+    protected Integer locationNumber;
+
     public PartOfSpeechNode() {
         this(null);
     }
@@ -32,9 +34,25 @@ public class PartOfSpeechNode extends LinkSupport {
         setLocation(location);
     }
 
+    public Integer getLocationNumber() {
+        return locationNumber;
+    }
+
+    public void setLocationNumber(Integer locationNumber) {
+        this.locationNumber = locationNumber;
+    }
+
     @Override
     public void initDisplayName() {
-        String dn = location == null ? "" : format("%s:%s", location.getDisplayName(), location.getPartOfSpeech());
+        String ver = getVersion() <= 0 ? "" : format(":%s", getVersion());
+        String dn = location == null ? "" :
+                format("%s%s:%s", location.getDisplayName(), ver, location.getPartOfSpeech());
+        if (location != null) {
+            setChapterNumber(location.getChapterNumber());
+            setVerseNumber(location.getVerseNumber());
+            setTokenNumber(location.getTokenNumber());
+            setLocationNumber(location.getLocationNumber());
+        }
         setDisplayName(dn);
     }
 
@@ -44,7 +62,6 @@ public class PartOfSpeechNode extends LinkSupport {
 
     public void setLocation(Location location) {
         this.location = location;
-        initDisplayName();
         setLinkable(location);
     }
 
