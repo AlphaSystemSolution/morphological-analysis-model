@@ -36,9 +36,9 @@ public enum GraphNodeType {
     HIDDEN,
 
     /**
-     * Hidden node without any Arabic text and only part of speech to fill grammatical meaning / relationship.
+     * An implied node without any Arabic text and only part of speech to complete grammatical meaning / relationship.
      */
-    EMPTY,
+    IMPLIED,
 
     /**
      * Represents the root of each of above category in the tree. This is not used in actual graph.
