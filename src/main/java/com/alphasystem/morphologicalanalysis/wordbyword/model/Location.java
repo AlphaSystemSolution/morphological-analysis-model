@@ -202,6 +202,7 @@ public class Location extends Linkable {
                 e.printStackTrace();
                 properties = new ParticleProperties();
             }
+            initDisplayName();
             String id = format("%s:%s", getDisplayName(), partOfSpeech);
             properties.setDisplayName(id);
             properties.setId(id);
