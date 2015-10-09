@@ -170,7 +170,7 @@ public enum PartOfSpeech implements ArabicSupportEnum {
 	SUBORDINATING_CONJUNCTION("Subordinating conjunction", getWord(HHA, RA, FA,
 			SPACE, MEEM, SAD, DAL, RA, YA)),
 
-	QURANIC_PUNCTUATION("Quranic Punctuation", getWord(SPACE))
+	QURANIC_PUNCTUATION("Quranic Punctuation", getWord(QAF))
 
 	;
 
