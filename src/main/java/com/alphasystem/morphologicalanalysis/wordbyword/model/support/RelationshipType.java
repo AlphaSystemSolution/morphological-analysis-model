@@ -51,13 +51,9 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     MAFOOL_BHI(getWord(MEEM, FA, AIN, WAW, LAM, SPACE, BA, HA), "#FF8040"),
 
-    MAFOOL_BHI_ALTERNATE(getWord(MEEM, FA, AIN, WAW, LAM, SPACE, BA, HA, SPACE, FA, YA, SPACE, MEEM, HHA, LAM,
-            SPACE, NOON, SAD, BA), "#FF8040"),
-
     MAFOOL_FIHI(getWord(MEEM, FA, AIN, WAW, LAM, SPACE, FA, YA, HA), "#FF8040"),
 
-    MAFOOL_FIHI_ALTERNATE(getWord(MEEM, FA, AIN, WAW, LAM, SPACE, FA, YA, HA, SPACE, FA, YA, SPACE, MEEM, HHA, LAM,
-            SPACE, NOON, SAD, BA), "#FF8040"),
+    TAWKEED(getWord(TA, WAW, KAF, YA, DAL), "#BBAADD"),
 
     NOUN_BASED_SENTENCE(getWord(JEEM, MEEM, LAM, TA_MARBUTA, SPACE, ALIF_HAMZA_BELOW, SEEN, MEEM, YA, TA_MARBUTA),
             "#FF00FF"),
