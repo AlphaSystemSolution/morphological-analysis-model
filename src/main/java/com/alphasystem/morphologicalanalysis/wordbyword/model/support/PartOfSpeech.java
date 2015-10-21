@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
@@ -15,33 +15,32 @@ import static com.alphasystem.arabic.model.ArabicWord.getWord;
 
 /**
  * @author sali
- * 
  */
 public enum PartOfSpeech implements ArabicSupportEnum {
 
-	NOUN("Noun", "#000080", getWord(ALIF_HAMZA_BELOW, SEEN, MEEM),
-			NounProperties.class),
+    NOUN("Noun", "#000080", getWord(ALIF_HAMZA_BELOW, SEEN, MEEM),
+            NounProperties.class),
 
     PROPER_NOUN("Proper Noun", "#000080", getWord(ALIF_HAMZA_BELOW, SEEN, MEEM,
             SPACE, AIN, LAM, MEEM), NounProperties.class),
 
-	RELATIVE_PRONOUN("Relative pronoun", null, getWord(ALIF_HAMZA_BELOW, SEEN,
-			MEEM, SPACE, MEEM, WAW, SAD, WAW, LAM), NounProperties.class),
+    RELATIVE_PRONOUN("Relative pronoun", null, getWord(ALIF_HAMZA_BELOW, SEEN,
+            MEEM, SPACE, MEEM, WAW, SAD, WAW, LAM), NounProperties.class),
 
     DEMONSTRATIVE_PRONOUN("Demonstrative pronoun", null, getWord(
             ALIF_HAMZA_BELOW, SEEN, MEEM, SPACE, ALIF_HAMZA_BELOW, SHEEN, ALIF,
             RA, TA_MARBUTA), NounProperties.class),
 
-	TIME_ADVERB("Time adverb", null, getWord(DTHA, RA, FA, SPACE, ZAIN, MEEM,
-			ALIF, NOON), NounProperties.class),
+    TIME_ADVERB("Time adverb", null, getWord(DTHA, RA, FA, SPACE, ZAIN, MEEM,
+            ALIF, NOON), NounProperties.class),
 
-	LOCATION_ADVERB("Location adverb", null, getWord(DTHA, RA, FA, SPACE, ZAIN,
-			MEEM, KAF, ALIF, NOON), NounProperties.class),
+    LOCATION_ADVERB("Location adverb", null, getWord(DTHA, RA, FA, SPACE, ZAIN,
+            MEEM, KAF, ALIF, NOON), NounProperties.class),
 
     PRONOUN("Pronoun", "#8C001A", getWord(DDAD, MEEM, YA, RA),
             ProNounProperties.class),
 
-	VERB("Verb", "#4AA02C", getWord(FA, AIN, LAM), VerbProperties.class),
+    VERB("Verb", "#4AA02C", getWord(FA, AIN, LAM), VerbProperties.class),
 
     // Particles
 
@@ -51,8 +50,8 @@ public enum PartOfSpeech implements ArabicSupportEnum {
     ACCUSSATIVE_PARTICLE("Accussative particle", "#8B0807", getWord(HHA, RA, FA,
             SPACE, NOON, SAD, BA)),
 
-	DEFINITE_ARTICLE("Definite article", getWord(LAM, ALIF, MEEM, SPACE, ALIF,
-			LAM, TA, AIN, RA, YA, FA)),
+    DEFINITE_ARTICLE("Definite article", getWord(LAM, ALIF, MEEM, SPACE, ALIF,
+            LAM, TA, AIN, RA, YA, FA)),
 
     EMPHATIC_PARTICLE("Emphatic particle", getWord(ALIF, LAM, LAM, ALIF, MEEM,
             SPACE, LAM, ALIF, MEEM, SPACE, ALIF, LAM, TA, AIN, LAM, YA, LAM)),
@@ -88,8 +87,8 @@ public enum PartOfSpeech implements ArabicSupportEnum {
     PARTICLE_OF_CERTAINTY("Particle of certainty", getWord(HHA, RA, FA, SPACE,
             TA, HHA, QAF, YA, QAF)),
 
-    CIRCUMSTANTIAL_PARTICLE("Circumstantial particle", getWord(HHA, RA, FA,
-            SPACE, HHA, ALIF, LAM)),
+    CIRCUMSTANTIAL_PARTICLE("Circumstantial particle", getWord(ALIF, LAM, WAW, ALIF, WAW,
+            SPACE, HHA, ALIF, LAM, YA, TA_MARBUTA)),
 
     COMITATIVE_PARTICLE("Comitative particle", getWord(WAW, ALIF, WAW, SPACE,
             ALIF, LAM, MEEM, AIN, YA, TA_MARBUTA)),
@@ -163,93 +162,91 @@ public enum PartOfSpeech implements ArabicSupportEnum {
     JUSSIVE_PARTICLE("Jussive particle", getWord(HHA, RA, FA, SPACE, ALIF, LAM,
             JEEM, ALIF, ZAIN, MEEM, TA_MARBUTA)),
 
-	QURANIC_INITIAL("Quranic initial", getWord(HHA, RA, FA, SPACE, MEEM, QAF,
-			TTA, AIN, TTA, TA_MARBUTA)),
+    QURANIC_INITIAL("Quranic initial", getWord(HHA, RA, FA, SPACE, MEEM, QAF,
+            TTA, AIN, TTA, TA_MARBUTA)),
 
-	QURANIC_PUNCTUATION("Quranic Punctuation", getWord(QAF))
+    QURANIC_PUNCTUATION("Quranic Punctuation", getWord(QAF));
 
-	;
+    private static final String DEFAULT_COLOR = "#000000";
 
-	private static final String DEFAULT_COLOR = "#000000";
+    private static Map<String, PartOfSpeech> codeMap = new LinkedHashMap<String, PartOfSpeech>();
 
-	private static Map<String, PartOfSpeech> codeMap = new LinkedHashMap<String, PartOfSpeech>();
+    static {
+        for (PartOfSpeech pos : values()) {
+            codeMap.put(pos.getCode(), pos);
+        }
+    }
 
-	static {
-		for (PartOfSpeech pos : values()) {
-			codeMap.put(pos.getCode(), pos);
-		}
-	}
+    private final String code;
+    private final String colorCode;
+    private final ArabicWord label;
+    private final Class<? extends AbstractProperties> propertiesClass;
 
-	private final String code;
-	private final String colorCode;
-	private final ArabicWord label;
-	private final Class<? extends AbstractProperties> propertiesClass;
+    /**
+     * @param code
+     */
+    PartOfSpeech(String code) {
+        this(code, DEFAULT_COLOR);
+    }
 
-	/**
-	 * @param code
-	 */
-	PartOfSpeech(String code) {
-		this(code, DEFAULT_COLOR);
-	}
+    /**
+     * @param code
+     * @param label
+     */
+    PartOfSpeech(String code, ArabicWord label) {
+        this(code, DEFAULT_COLOR, label);
+    }
 
-	/**
-	 * @param code
-	 * @param label
-	 */
-	PartOfSpeech(String code, ArabicWord label) {
-		this(code, DEFAULT_COLOR, label);
-	}
+    /**
+     * @param code
+     * @param colorCode
+     */
+    PartOfSpeech(String code, String colorCode) {
+        this(code, colorCode, null);
+    }
 
-	/**
-	 * @param code
-	 * @param colorCode
-	 */
-	PartOfSpeech(String code, String colorCode) {
-		this(code, colorCode, null);
-	}
+    /**
+     * @param code
+     * @param colorCode
+     * @param label
+     */
+    PartOfSpeech(String code, String colorCode, ArabicWord label) {
+        this(code, colorCode, label, null);
+    }
 
-	/**
-	 * @param code
-	 * @param colorCode
-	 * @param label
-	 */
-	PartOfSpeech(String code, String colorCode, ArabicWord label) {
-		this(code, colorCode, label, null);
-	}
+    PartOfSpeech(String code, String colorCode, ArabicWord label,
+                 Class<? extends AbstractProperties> propertiesClass) {
+        this.code = code;
+        this.colorCode = colorCode == null ? DEFAULT_COLOR : colorCode;
+        this.label = label;
+        this.propertiesClass = propertiesClass == null ? ParticleProperties.class
+                : propertiesClass;
+    }
 
-	PartOfSpeech(String code, String colorCode, ArabicWord label,
-				 Class<? extends AbstractProperties> propertiesClass) {
-		this.code = code;
-		this.colorCode = colorCode == null ? DEFAULT_COLOR : colorCode;
-		this.label = label;
-		this.propertiesClass = propertiesClass == null ? ParticleProperties.class
-				: propertiesClass;
-	}
+    public static PartOfSpeech getByCode(String code) {
+        return codeMap.get(code);
+    }
 
-	public static PartOfSpeech getByCode(String code) {
-		return codeMap.get(code);
-	}
+    @Override
+    public String getCode() {
+        return code;
+    }
 
-	@Override
-	public String getCode() {
-		return code;
-	}
+    public String getColorCode() {
+        return colorCode;
+    }
 
-	public String getColorCode() {
-		return colorCode;
-	}
+    @Override
+    public ArabicWord getLabel() {
+        return label;
+    }
 
-	@Override
-	public ArabicWord getLabel() {
-		return label;
-	}
+    @Override
+    public String getName() {
+        return name();
+    }
 
-	@Override
-	public String getName() {
-		return name();
-	}
-
-	public Class<? extends AbstractProperties> getPropertiesClass() {
-		return propertiesClass;
-	}
+    public Class<? extends AbstractProperties> getPropertiesClass() {
+        return propertiesClass;
+    }
 }
