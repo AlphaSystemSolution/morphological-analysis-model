@@ -60,6 +60,8 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     VERB_BASED_SENTENCE(getWord(JEEM, MEEM, LAM, TA_MARBUTA, SPACE, FA, AIN, LAM, YA, TA_MARBUTA), "#8A4117"),
 
+    HAL_SENTENCE(getWord(JEEM, MEEM, LAM, TA_MARBUTA, SPACE, HHA, ALIF, LAM, YA, TA_MARBUTA), "#8B77FD"),
+
     //
     ;
 
