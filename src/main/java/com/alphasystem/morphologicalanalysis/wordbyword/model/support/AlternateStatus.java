@@ -4,7 +4,6 @@ import com.alphasystem.arabic.model.ArabicSupportEnum;
 import com.alphasystem.arabic.model.ArabicWord;
 
 import static com.alphasystem.arabic.model.ArabicLetterType.*;
-import static com.alphasystem.arabic.model.ArabicLetterType.RA;
 import static com.alphasystem.arabic.model.ArabicWord.getWord;
 
 /**
@@ -16,7 +15,7 @@ public enum AlternateStatus implements ArabicSupportEnum {
 
     ACCUSATIVE("Accusative", getWord(NOON, SAD, BA)),
 
-    GENETIVE("Genetive", getWord(JEEM, RA));;
+    GENETIVE("Genitive", getWord(JEEM, RA));;
 
     private final String code;
 

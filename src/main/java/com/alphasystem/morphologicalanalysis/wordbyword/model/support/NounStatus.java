@@ -19,7 +19,7 @@ public enum NounStatus implements ArabicSupportEnum {
 
 	ACCUSATIVE("Accusative", getWord(MEEM, NOON, SAD, WAW, BA)),
 
-	GENETIVE("Genetive", getWord(MEEM, JEEM, RA, WAW, RA));
+	GENETIVE("Genitive", getWord(MEEM, JEEM, RA, WAW, RA));
 
 	private final String code;
 
