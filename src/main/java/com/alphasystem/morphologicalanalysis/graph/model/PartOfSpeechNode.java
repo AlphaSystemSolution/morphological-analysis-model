@@ -21,6 +21,8 @@ public class PartOfSpeechNode extends LinkSupport {
 
     protected Integer locationNumber;
 
+    protected boolean hidden;
+
     public PartOfSpeechNode() {
         this(null);
     }
@@ -54,6 +56,14 @@ public class PartOfSpeechNode extends LinkSupport {
             setLocationNumber(location.getLocationNumber());
         }
         setDisplayName(dn);
+    }
+
+    public boolean isHidden() {
+        return hidden;
+    }
+
+    public void setHidden(boolean hidden) {
+        this.hidden = hidden;
     }
 
     public Location getLocation() {
