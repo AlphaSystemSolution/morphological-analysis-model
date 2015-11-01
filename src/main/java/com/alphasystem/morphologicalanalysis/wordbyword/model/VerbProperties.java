@@ -1,10 +1,11 @@
 /**
- * 
+ *
  */
 package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ConversationType;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.IncompleteVerb;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbMode;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbType;
 import org.springframework.data.annotation.Transient;
@@ -15,80 +16,91 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Ver
 
 /**
  * @author sali
- * 
  */
 public class VerbProperties extends AbstractProperties {
 
-	private static final long serialVersionUID = 579863620988819896L;
+    private static final long serialVersionUID = 579863620988819896L;
 
-	protected ConversationType conversationType;
+    protected ConversationType conversationType;
 
-	protected VerbType verbType;
+    protected VerbType verbType;
 
-	protected VerbMode mode;
+    protected VerbMode mode;
 
-	public VerbProperties() {
-		super();
-		setVerbType(null);
-		setMode(null);
-		setConversationType(null);
-	}
+    protected IncompleteVerb incompleteVerb;
 
-	/**
-	 * @param src
-	 * @throws NullPointerException
-	 */
-	public VerbProperties(VerbProperties src) throws NullPointerException {
-		super(src);
-		setVerbType(src.getVerbType());
-		setMode(src.getMode());
-		setConversationType(src.getConversationType());
-	}
+    public VerbProperties() {
+        super();
+        setVerbType(null);
+        setMode(null);
+        setConversationType(null);
+        setIncompleteVerb(null);
+    }
 
-	public ConversationType getConversationType() {
-		return conversationType;
-	}
+    /**
+     * @param src
+     * @throws NullPointerException
+     */
+    public VerbProperties(VerbProperties src) throws NullPointerException {
+        super(src);
+        setVerbType(src.getVerbType());
+        setMode(src.getMode());
+        setConversationType(src.getConversationType());
+        setIncompleteVerb(src.getIncompleteVerb());
+    }
 
-	public void setConversationType(ConversationType conversationType) {
-		this.conversationType = conversationType == null ? THIRD_PERSON
-				: conversationType;
-	}
+    public IncompleteVerb getIncompleteVerb() {
+        return incompleteVerb;
+    }
 
-	@Override
-	@Transient
-	public ArabicWord getLabel() {
-		return concatenateWithSpace(gender.getLabel(),
-				conversationType.getLabel(), number.getLabel());
-	}
+    public void setIncompleteVerb(IncompleteVerb incompleteVerb) {
+        this.incompleteVerb = incompleteVerb;
+    }
 
-	public VerbMode getMode() {
-		return mode;
-	}
+    public ConversationType getConversationType() {
+        return conversationType;
+    }
 
-	public void setMode(VerbMode mode) {
-		this.mode = mode;
-	}
+    public void setConversationType(ConversationType conversationType) {
+        this.conversationType = conversationType == null ? THIRD_PERSON
+                : conversationType;
+    }
 
-	public VerbType getVerbType() {
-		return verbType;
-	}
+    @Override
+    @Transient
+    public ArabicWord getLabel() {
+        return concatenateWithSpace(gender.getLabel(),
+                conversationType.getLabel(), number.getLabel());
+    }
 
-	public void setVerbType(VerbType verbType) {
-		this.verbType = verbType == null ? PERFECT : verbType;
-	}
+    public VerbMode getMode() {
+        return mode;
+    }
 
-	public VerbProperties withConversationType(ConversationType conversationType) {
-		setConversationType(conversationType);
-		return this;
-	}
+    public void setMode(VerbMode mode) {
+        this.mode = mode;
+    }
 
-	public VerbProperties withVerbMode(VerbMode verbMode) {
-		setMode(verbMode);
-		return this;
-	}
+    public VerbType getVerbType() {
+        return verbType;
+    }
 
-	public VerbProperties withVerbType(VerbType verbType) {
-		setVerbType(verbType);
-		return this;
-	}
+    public void setVerbType(VerbType verbType) {
+        this.verbType = verbType == null ? PERFECT : verbType;
+    }
+
+    public VerbProperties withConversationType(ConversationType conversationType) {
+        setConversationType(conversationType);
+        return this;
+    }
+
+    public VerbProperties withVerbMode(VerbMode verbMode) {
+        setMode(verbMode);
+        return this;
+    }
+
+    public VerbProperties withVerbType(VerbType verbType) {
+        setVerbType(verbType);
+        return this;
+    }
 }
