@@ -27,6 +27,10 @@ public enum IncompleteVerbCategory implements ArabicSupportEnum {
         this.label = label;
     }
 
+    public IncompleteVerbType[] getMembers() {
+        return members;
+    }
+
     public Class<? extends IncompleteVerb> getCategoryClassName() {
         return categoryClassName;
     }
