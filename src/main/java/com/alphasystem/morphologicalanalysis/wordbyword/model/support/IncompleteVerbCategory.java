@@ -17,17 +17,18 @@ public enum IncompleteVerbCategory implements ArabicSupportEnum {
     private final String code;
     private final ArabicWord label;
     private final IncompleteVerbType[] members;
-    private final Class<?> typeClassName;
+    private final Class<? extends IncompleteVerb> categoryClassName;
 
-    IncompleteVerbCategory(String code, Class<?> typeClassName, IncompleteVerbType[] members, ArabicWord label) {
+    IncompleteVerbCategory(String code, Class<? extends IncompleteVerb> categoryClassName,
+                           IncompleteVerbType[] members, ArabicWord label) {
         this.code = code;
-        this.typeClassName = typeClassName;
+        this.categoryClassName = categoryClassName;
         this.members = members;
         this.label = label;
     }
 
-    public Class<?> getTypeClassName() {
-        return typeClassName;
+    public Class<? extends IncompleteVerb> getCategoryClassName() {
+        return categoryClassName;
     }
 
     @Override
