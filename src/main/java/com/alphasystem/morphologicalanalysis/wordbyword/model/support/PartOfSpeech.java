@@ -34,8 +34,7 @@ public enum PartOfSpeech implements ArabicSupportEnum {
     TIME_ADVERB("Time adverb", null, getWord(DTHA, RA, FA, SPACE, ZAIN, MEEM,
             ALIF, NOON), NounProperties.class),
 
-    LOCATION_ADVERB("Location adverb", null, getWord(DTHA, RA, FA, SPACE, ZAIN,
-            MEEM, KAF, ALIF, NOON), NounProperties.class),
+    LOCATION_ADVERB("Location adverb", null, getWord(DTHA, RA, FA, SPACE, MEEM, KAF, ALIF, NOON), NounProperties.class),
 
     PRONOUN("Pronoun", "#8C001A", getWord(DDAD, MEEM, YA, RA),
             ProNounProperties.class),
