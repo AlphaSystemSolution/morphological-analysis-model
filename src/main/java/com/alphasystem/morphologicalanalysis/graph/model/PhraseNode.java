@@ -22,6 +22,7 @@ public class PhraseNode extends LinkSupport {
     protected List<PartOfSpeechNode> fragments;
     protected AlternateStatus alternateStatus;
     protected RelationshipType relationshipType;
+    protected List<RelationshipType> relationships;
 
     public PhraseNode() {
         this(null);
@@ -30,6 +31,7 @@ public class PhraseNode extends LinkSupport {
     public PhraseNode(String id) {
         super(id, PHRASE);
         setFragments(null);
+        setRelationships(null);
     }
 
     public AlternateStatus getAlternateStatus() {
@@ -59,5 +61,14 @@ public class PhraseNode extends LinkSupport {
         this.relationshipType = relationshipType;
     }
 
+    public List<RelationshipType> getRelationships() {
+        return relationships;
+    }
 
+    public void setRelationships(List<RelationshipType> relationships) {
+        this.relationships = new ArrayList<>();
+        if (relationships != null) {
+            this.relationships.addAll(relationships);
+        }
+    }
 }
