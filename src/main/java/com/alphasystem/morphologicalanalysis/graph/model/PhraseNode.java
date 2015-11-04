@@ -21,7 +21,6 @@ public class PhraseNode extends LinkSupport {
     @DBRef
     protected List<PartOfSpeechNode> fragments;
     protected AlternateStatus alternateStatus;
-    protected RelationshipType relationshipType;
     protected List<RelationshipType> relationships;
 
     public PhraseNode() {
@@ -51,14 +50,6 @@ public class PhraseNode extends LinkSupport {
         if (fragments != null) {
             this.fragments.addAll(fragments);
         }
-    }
-
-    public RelationshipType getRelationshipType() {
-        return relationshipType;
-    }
-
-    public void setRelationshipType(RelationshipType relationshipType) {
-        this.relationshipType = relationshipType;
     }
 
     public List<RelationshipType> getRelationships() {
