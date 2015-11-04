@@ -11,7 +11,7 @@ import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNod
 public abstract class GraphNode extends AbstractDocument {
 
     private static final long serialVersionUID = -3423247102141013999L;
-    private static final FontMetaInfo DEFAULT_FONT = new FontMetaInfo("Arabic Typesetting", "NORMAL", "REGULAR", 20.0);
+    private static final FontMetaInfo DEFAULT_FONT = new FontMetaInfo("Arabic Typesetting", "NORMAL", "REGULAR", 14.0);
 
     protected GraphNodeType graphNodeType;
     protected Integer chapterNumber;

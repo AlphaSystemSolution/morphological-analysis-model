@@ -19,9 +19,9 @@ import static java.lang.String.format;
 public class TerminalNode extends LineSupport {
 
     private static final long serialVersionUID = -2286312045728788322L;
-    private static final FontMetaInfo DEFAULT_FONT = new FontMetaInfo("Arabic Typesetting", "NORMAL", "REGULAR", 36.0);
+    private static final FontMetaInfo DEFAULT_FONT = new FontMetaInfo("Arabic Typesetting", "NORMAL", "REGULAR", 24.0);
     private static final FontMetaInfo DEFAULT_TRANSLATION_FONT = new FontMetaInfo("Century Gothic", "NORMAL",
-            "REGULAR", 12.0);
+            "REGULAR", 10.0);
 
     /**
      * x location for translation
