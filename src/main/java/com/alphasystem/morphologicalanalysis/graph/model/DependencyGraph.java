@@ -9,8 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.String.format;
-
 /**
  * @author sali
  */
@@ -18,36 +16,38 @@ import static java.lang.String.format;
 public class DependencyGraph extends AbstractDocument {
 
     protected Integer chapterNumber;
-
-    protected Integer verseNumber;
-
-    protected Integer firstTokenIndex;
-
-    protected Integer lastTokenIndex;
-
+    protected List<DependencyGraphTokenInfo> tokens;
     protected GraphMetaInfo metaInfo;
-
     @DBRef
     @CascadeSave
     protected List<GraphNode> nodes;
 
     public DependencyGraph() {
         super();
+        setTokens(null);
         setNodes(null);
         setMetaInfo(null);
     }
 
     @PersistenceConstructor
-    public DependencyGraph(Integer chapterNumber, Integer verseNumber, Integer firstTokenIndex,
-                           Integer lastTokenIndex) {
+    public DependencyGraph(Integer chapterNumber) {
         super();
-        this.chapterNumber = chapterNumber;
-        this.verseNumber = verseNumber;
-        this.firstTokenIndex = firstTokenIndex;
-        this.lastTokenIndex = lastTokenIndex;
+        setChapterNumber(chapterNumber);
+        setTokens(null);
         setNodes(null);
         setMetaInfo(null);
 
+    }
+
+    public List<DependencyGraphTokenInfo> getTokens() {
+        return tokens;
+    }
+
+    public void setTokens(List<DependencyGraphTokenInfo> tokens) {
+        this.tokens = new ArrayList<>();
+        if (tokens != null) {
+            this.tokens.addAll(tokens);
+        }
     }
 
     public boolean addNode(GraphNode graphNode) {
@@ -73,17 +73,20 @@ public class DependencyGraph extends AbstractDocument {
         }
     }
 
-    public Integer getLastTokenIndex() {
-        return lastTokenIndex;
-    }
-
-    public void setLastTokenIndex(Integer lastTokenIndex) {
-        this.lastTokenIndex = lastTokenIndex;
-    }
-
     @Override
     public void initDisplayName() {
-        setDisplayName(format("%s:%s:%s:%s", chapterNumber, verseNumber, firstTokenIndex, lastTokenIndex));
+        StringBuilder dn = new StringBuilder();
+        dn.append(chapterNumber);
+        int size = tokens.size();
+        if (size > 0) {
+            DependencyGraphTokenInfo token = tokens.get(0);
+            dn.append("::").append(token.getDisplayName());
+            for (int i = 1; i < size; i++) {
+                token = tokens.get(i);
+                dn.append("::").append(token.getDisplayName());
+            }
+        }
+        setDisplayName(dn.toString());
     }
 
     public Integer getChapterNumber() {
@@ -92,22 +95,6 @@ public class DependencyGraph extends AbstractDocument {
 
     public void setChapterNumber(Integer chapterNumber) {
         this.chapterNumber = chapterNumber;
-    }
-
-    public Integer getFirstTokenIndex() {
-        return firstTokenIndex;
-    }
-
-    public void setFirstTokenIndex(Integer firstTokenIndex) {
-        this.firstTokenIndex = firstTokenIndex;
-    }
-
-    public Integer getVerseNumber() {
-        return verseNumber;
-    }
-
-    public void setVerseNumber(Integer verseNumber) {
-        this.verseNumber = verseNumber;
     }
 
 }
