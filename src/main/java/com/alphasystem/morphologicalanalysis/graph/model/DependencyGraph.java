@@ -16,6 +16,7 @@ import java.util.List;
 @Document
 public class DependencyGraph extends AbstractDocument {
 
+    private static final String SEPARATOR = "|";
     protected Integer chapterNumber;
     protected List<VerseTokensPair> tokens;
     protected GraphMetaInfo metaInfo;
@@ -81,10 +82,10 @@ public class DependencyGraph extends AbstractDocument {
         int size = tokens.size();
         if (size > 0) {
             VerseTokensPair token = tokens.get(0);
-            dn.append("::").append(token.getDisplayName());
+            dn.append(SEPARATOR).append(token.getDisplayName());
             for (int i = 1; i < size; i++) {
                 token = tokens.get(i);
-                dn.append("::").append(token.getDisplayName());
+                dn.append(SEPARATOR).append(token.getDisplayName());
             }
         }
         setDisplayName(dn.toString());

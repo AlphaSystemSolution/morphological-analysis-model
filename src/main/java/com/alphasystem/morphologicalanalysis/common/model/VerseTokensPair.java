@@ -6,7 +6,6 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import static com.alphasystem.util.AppUtil.isGivenType;
 import static com.alphasystem.util.HashCodeUtil.hash;
 import static java.lang.String.format;
-import static java.lang.String.valueOf;
 
 /**
  * @author sali
@@ -26,18 +25,9 @@ public class VerseTokensPair extends AbstractDocument {
         initDisplayName();
     }
 
-    private static boolean emptyIndex(Integer value) {
-        return value == null || value < 0;
-    }
-
     @Override
     public void initDisplayName() {
-        super.initDisplayName();
-        String dn = valueOf(verseNumber);
-        if (!emptyIndex(firstTokenIndex) && !emptyIndex(lastTokenIndex)) {
-            dn = format("%s:%s:%s", verseNumber, firstTokenIndex, lastTokenIndex);
-        }
-        setDisplayName(dn);
+        setDisplayName(toString());
     }
 
     public Integer getFirstTokenIndex() {
@@ -97,5 +87,10 @@ public class VerseTokensPair extends AbstractDocument {
             }
         }
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return format("%s:%s:%s", verseNumber, firstTokenIndex, lastTokenIndex);
     }
 }
