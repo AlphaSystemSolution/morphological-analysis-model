@@ -1,5 +1,6 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
+import com.alphasystem.morphologicalanalysis.common.model.VerseTokensPair;
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
 import com.alphasystem.persistence.mongo.model.CascadeSave;
 import org.springframework.data.annotation.PersistenceConstructor;
@@ -16,7 +17,7 @@ import java.util.List;
 public class DependencyGraph extends AbstractDocument {
 
     protected Integer chapterNumber;
-    protected List<DependencyGraphTokenInfo> tokens;
+    protected List<VerseTokensPair> tokens;
     protected GraphMetaInfo metaInfo;
     @DBRef
     @CascadeSave
@@ -39,11 +40,11 @@ public class DependencyGraph extends AbstractDocument {
 
     }
 
-    public List<DependencyGraphTokenInfo> getTokens() {
+    public List<VerseTokensPair> getTokens() {
         return tokens;
     }
 
-    public void setTokens(List<DependencyGraphTokenInfo> tokens) {
+    public void setTokens(List<VerseTokensPair> tokens) {
         this.tokens = new ArrayList<>();
         if (tokens != null) {
             this.tokens.addAll(tokens);
@@ -79,7 +80,7 @@ public class DependencyGraph extends AbstractDocument {
         dn.append(chapterNumber);
         int size = tokens.size();
         if (size > 0) {
-            DependencyGraphTokenInfo token = tokens.get(0);
+            VerseTokensPair token = tokens.get(0);
             dn.append("::").append(token.getDisplayName());
             for (int i = 1; i < size; i++) {
                 token = tokens.get(i);

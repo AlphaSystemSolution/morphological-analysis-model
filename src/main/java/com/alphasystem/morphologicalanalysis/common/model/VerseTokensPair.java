@@ -1,4 +1,4 @@
-package com.alphasystem.morphologicalanalysis.graph.model;
+package com.alphasystem.morphologicalanalysis.common.model;
 
 import com.alphasystem.persistence.mongo.model.AbstractDocument;
 import org.springframework.data.annotation.PersistenceConstructor;
@@ -11,14 +11,14 @@ import static java.lang.String.valueOf;
 /**
  * @author sali
  */
-public class DependencyGraphTokenInfo extends AbstractDocument {
+public class VerseTokensPair extends AbstractDocument {
 
     protected Integer verseNumber;
     protected Integer firstTokenIndex;
     protected Integer lastTokenIndex;
 
     @PersistenceConstructor
-    public DependencyGraphTokenInfo(Integer verseNumber, Integer firstTokenIndex, Integer lastTokenIndex) {
+    public VerseTokensPair(Integer verseNumber, Integer firstTokenIndex, Integer lastTokenIndex) {
         super();
         setVerseNumber(verseNumber);
         setFirstTokenIndex(firstTokenIndex);
@@ -75,8 +75,8 @@ public class DependencyGraphTokenInfo extends AbstractDocument {
     @Override
     public boolean equals(Object obj) {
         boolean result = super.equals(obj);
-        if (isGivenType(DependencyGraphTokenInfo.class, obj)) {
-            DependencyGraphTokenInfo o = (DependencyGraphTokenInfo) obj;
+        if (isGivenType(VerseTokensPair.class, obj)) {
+            VerseTokensPair o = (VerseTokensPair) obj;
             result = getVerseNumber().equals(o.getVerseNumber()) && getFirstTokenIndex().equals(o.getFirstTokenIndex())
                     && getLastTokenIndex().equals(o.getLastTokenIndex());
         }
@@ -86,8 +86,8 @@ public class DependencyGraphTokenInfo extends AbstractDocument {
     @Override
     public int compareTo(AbstractDocument obj) {
         int result = super.compareTo(obj);
-        if (isGivenType(DependencyGraphTokenInfo.class, obj)) {
-            DependencyGraphTokenInfo o = (DependencyGraphTokenInfo) obj;
+        if (isGivenType(VerseTokensPair.class, obj)) {
+            VerseTokensPair o = (VerseTokensPair) obj;
             result = getVerseNumber().compareTo(o.getVerseNumber());
             if (result == 0) {
                 result = getFirstTokenIndex().compareTo(o.getFirstTokenIndex());
