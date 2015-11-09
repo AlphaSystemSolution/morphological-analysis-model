@@ -16,6 +16,10 @@ public class VerseTokensPair extends AbstractDocument {
     protected Integer firstTokenIndex;
     protected Integer lastTokenIndex;
 
+    public VerseTokensPair(Integer verseNumber) {
+        this(verseNumber, -1, -1);
+    }
+
     @PersistenceConstructor
     public VerseTokensPair(Integer verseNumber, Integer firstTokenIndex, Integer lastTokenIndex) {
         super();
