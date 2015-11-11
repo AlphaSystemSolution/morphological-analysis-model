@@ -24,10 +24,10 @@ public enum PartOfSpeech implements ArabicSupportEnum {
     PROPER_NOUN("Proper Noun", "#000080", getWord(ALIF_HAMZA_BELOW, SEEN, MEEM,
             SPACE, AIN, LAM, MEEM), NounProperties.class),
 
-    RELATIVE_PRONOUN("Relative pronoun", null, getWord(ALIF_HAMZA_BELOW, SEEN,
+    RELATIVE_PRONOUN("Relative pronoun", "#3EA055", getWord(ALIF_HAMZA_BELOW, SEEN,
             MEEM, SPACE, MEEM, WAW, SAD, WAW, LAM), NounProperties.class),
 
-    DEMONSTRATIVE_PRONOUN("Demonstrative pronoun", null, getWord(
+    DEMONSTRATIVE_PRONOUN("Demonstrative pronoun", "#008080", getWord(
             ALIF_HAMZA_BELOW, SEEN, MEEM, SPACE, ALIF_HAMZA_BELOW, SHEEN, ALIF,
             RA, TA_MARBUTA), NounProperties.class),
 
