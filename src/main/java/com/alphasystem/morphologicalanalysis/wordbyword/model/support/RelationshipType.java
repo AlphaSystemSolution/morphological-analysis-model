@@ -41,6 +41,8 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     MUTALIQ(getWord(MEEM, TA, AIN, LAM, QAF), "#3BB9FF"),
 
+    MUTALIQ_TO_KHABAR(getWord(MEEM, TA, AIN, LAM, QAF, SPACE, BA, LAM, KHA, BA, RA), "#3BB9FF"),
+
     MAATOOF(getWord(MEEM, AIN, TTA, WAW, FA), "#659EC7"),
 
     ISM(getWord(ALIF_HAMZA_BELOW, SEEN, MEEM), "#800000"),
