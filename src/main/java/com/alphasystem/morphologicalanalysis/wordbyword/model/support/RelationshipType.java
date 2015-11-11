@@ -47,6 +47,8 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     FAIIL(getWord(FA, ALIF, AIN, LAM), "#4C5F6A"),
 
+    ALTERNATE_DOER(getWord(NOON, ALIF, YA_HAMZA_ABOVE, BA, SPACE, FA, ALIF, AIN, LAM), "#4C5F6A"),
+
     MAFOOL(getWord(MEEM, FA, AIN, WAW, LAM), "#FF8040"),
 
     MAFOOL_BHI(getWord(MEEM, FA, AIN, WAW, LAM, SPACE, BA, HA), "#FF8040"),
@@ -65,6 +67,8 @@ public enum RelationshipType implements ArabicSupportEnum {
     VERB_BASED_SENTENCE(getWord(JEEM, MEEM, LAM, TA_MARBUTA, SPACE, FA, AIN, LAM, YA, TA_MARBUTA), "#8A4117"),
 
     HAL_SENTENCE(getWord(JEEM, MEEM, LAM, TA_MARBUTA, SPACE, HHA, ALIF, LAM, YA, TA_MARBUTA), "#8B77FD"),
+
+    _KAF(getWord(KAF, ALIF, FA), "#008080")
 
     //
     ;
