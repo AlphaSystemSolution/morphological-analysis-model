@@ -70,6 +70,8 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     HAL_SENTENCE(getWord(JEEM, MEEM, LAM, TA_MARBUTA, SPACE, HHA, ALIF, LAM, YA, TA_MARBUTA), "#8B77FD"),
 
+    QUOTATION_SENTENCE(getWord(MEEM, QAF, WAW, LAM, SPACE, ALIF, LAM, QAF, WAW, LAM)),
+
     _KAF(getWord(KAF, ALIF, FA), "#008080")
 
     //
