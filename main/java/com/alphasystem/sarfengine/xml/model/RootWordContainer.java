@@ -21,13 +21,13 @@ public abstract class RootWordContainer {
 
     public List<RootWord> getRootWords() {
         if (rootWords == null) {
-            rootWords = new ArrayList<RootWord>();
+            rootWords = new ArrayList<>();
         }
         return rootWords;
     }
 
     public void setRootWords(List<RootWord> rootWords) {
-        this.rootWords = rootWords == null ? new ArrayList<RootWord>()
+        this.rootWords = rootWords == null ? new ArrayList<>()
                 : rootWords;
     }
 
