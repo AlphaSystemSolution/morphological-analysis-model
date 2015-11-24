@@ -46,7 +46,7 @@ import static com.alphasystem.arabic.model.NamedTemplate.FORM_I_CATEGORY_A_GROUP
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ConjugationData", propOrder = {"template", "translation",
-        "rootLetters", "verbalNouns", "adverbs", "configuration"})
+        "rootLetters", "container", "configuration"})
 public class ConjugationData {
 
     @XmlElement(required = true)
@@ -54,12 +54,11 @@ public class ConjugationData {
     protected String translation;
     @XmlElement(required = true)
     protected RootLetters rootLetters;
-    protected VerbalNounContainer verbalNouns;
-    protected NounOfPlaceAndTimeContainer adverbs;
+    protected VernalNounAndAdverbContainer container = new VernalNounAndAdverbContainer();
     protected ConjugationConfiguration configuration = new ConjugationConfiguration();
 
     /**
-     * Gets the value of the adverbs property.
+     * Gets the value of the container property.
      * <p>
      * <p>
      * This accessor method returns a reference to the live list, not a
@@ -71,28 +70,28 @@ public class ConjugationData {
      * For example, to add a new item, do as follows:
      * <p>
      * <pre>
-     * getAdverbs().add(newItem);
+     * getContainer().add(newItem);
      * </pre>
      * <p>
      * <p>
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link NounOfPlaceAndTimeContainer }
+     * {@link VernalNounAndAdverbContainer }
      */
-    public NounOfPlaceAndTimeContainer getAdverbs() {
-        if (adverbs == null) {
-            adverbs = new NounOfPlaceAndTimeContainer();
+    public VernalNounAndAdverbContainer getContainer() {
+        if (container == null) {
+            container = new VernalNounAndAdverbContainer();
         }
-        return this.adverbs;
+        return this.container;
     }
 
     /**
-     * Sets the value of the adverbs property.
+     * Sets the value of the container property.
      *
-     * @param adverbs allowed object is {@link NounOfPlaceAndTimeContainer }
+     * @param container allowed object is {@link VernalNounAndAdverbContainer }
      */
-    public void setAdverbs(NounOfPlaceAndTimeContainer adverbs) {
-        this.adverbs = adverbs;
+    public void setContainer(VernalNounAndAdverbContainer container) {
+        this.container = container;
     }
 
     public ConjugationConfiguration getConfiguration() {
@@ -158,48 +157,6 @@ public class ConjugationData {
         this.translation = value;
     }
 
-    /**
-     * Gets the value of the verbalNouns property.
-     * <p>
-     * <p>
-     * This accessor method returns a reference to the live list, not a
-     * snapshot. Therefore any modification you make to the returned list will
-     * be present inside the JAXB object. This is why there is not a
-     * <CODE>set</CODE> method for the verbalNouns property.
-     * <p>
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <p>
-     * <pre>
-     * getVerbalNouns().add(newItem);
-     * </pre>
-     * <p>
-     * <p>
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link VerbalNounContainer }
-     */
-    public VerbalNounContainer getVerbalNouns() {
-        if (verbalNouns == null) {
-            verbalNouns = new VerbalNounContainer();
-        }
-        return this.verbalNouns;
-    }
-
-    /**
-     * Sets the value of the verbalNouns property.
-     *
-     * @param verbalNouns allowed object is {@link VerbalNounContainer }
-     */
-    public void setVerbalNouns(VerbalNounContainer verbalNouns) {
-        this.verbalNouns = verbalNouns;
-    }
-
-    public ConjugationData withAdverbs(NounOfPlaceAndTimeContainer adverbs) {
-        setAdverbs(adverbs);
-        return this;
-    }
-
     public ConjugationData withRootLetters(RootLetters value) {
         setRootLetters(value);
         return this;
@@ -215,8 +172,8 @@ public class ConjugationData {
         return this;
     }
 
-    public ConjugationData withVerbalNouns(VerbalNounContainer verbalNouns) {
-        setVerbalNouns(verbalNouns);
+    public ConjugationData withContainer(VernalNounAndAdverbContainer container) {
+        setContainer(container);
         return this;
     }
 
