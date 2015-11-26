@@ -4,13 +4,15 @@
 package com.alphasystem.sarfengine.xml.model;
 
 import com.alphasystem.arabic.model.ArabicLetters;
+import com.alphasystem.arabic.model.ArabicSupport;
+import com.alphasystem.arabic.model.ArabicWord;
 
 import static com.alphasystem.sarfengine.util.TriLiteralTemplateHelper.createZarfRootWord;
 
 /**
  * @author sali
  */
-public enum NounOfPlaceAndTime implements ArabicLetters {
+public enum NounOfPlaceAndTime implements ArabicLetters, ArabicSupport {
 
     NOUN_OF_PLACE_AND_TIME_V1(createZarfRootWord(1, 2, 3,
             MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
@@ -69,5 +71,10 @@ public enum NounOfPlaceAndTime implements ArabicLetters {
 
     public RootWord getRootWord() {
         return rootWord;
+    }
+
+    @Override
+    public ArabicWord getLabel() {
+        return getRootWord().getRootWord();
     }
 }

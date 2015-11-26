@@ -4,13 +4,15 @@
 package com.alphasystem.sarfengine.xml.model;
 
 import com.alphasystem.arabic.model.ArabicLetters;
+import com.alphasystem.arabic.model.ArabicSupport;
+import com.alphasystem.arabic.model.ArabicWord;
 
 import static com.alphasystem.sarfengine.util.TriLiteralTemplateHelper.createVerbalNounRootWord;
 
 /**
  * @author sali
  */
-public enum VerbalNoun implements ArabicLetters {
+public enum VerbalNoun implements ArabicLetters, ArabicSupport {
 
     VERBAL_NOUN_V1(createVerbalNounRootWord(0, 1, 2, FA_WITH_FATHA,
             AIN_WITH_SUKUN, LAM_WITH_DAMMATAN)),
@@ -151,4 +153,8 @@ public enum VerbalNoun implements ArabicLetters {
         return rootWord;
     }
 
+    @Override
+    public ArabicWord getLabel() {
+        return getRootWord().getRootWord();
+    }
 }
