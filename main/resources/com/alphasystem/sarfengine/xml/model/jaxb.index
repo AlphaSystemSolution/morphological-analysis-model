@@ -4,6 +4,4 @@ ConjugationData
 ConjugationTemplate
 RootWord
 RootLetters
-RootWordContainer
-VerbalNounContainer
-NounOfPlaceAndTimeContainer
+VernalNounAndAdverbContainer

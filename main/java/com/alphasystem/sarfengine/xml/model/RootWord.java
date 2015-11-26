@@ -7,10 +7,7 @@
 
 package com.alphasystem.sarfengine.xml.model;
 
-import com.alphasystem.arabic.model.ArabicLetter;
-import com.alphasystem.arabic.model.ArabicLetterType;
-import com.alphasystem.arabic.model.ArabicWord;
-import com.alphasystem.arabic.model.SarfMemberType;
+import com.alphasystem.arabic.model.*;
 
 import javax.xml.bind.annotation.*;
 
@@ -48,7 +45,7 @@ import static java.lang.String.format;
         "firstRadicalIndex", "secondRadicalIndex", "thirdRadicalIndex",
         "fourthRadicalIndex", "sarfTermType"})
 @XmlRootElement
-public class RootWord {
+public class RootWord implements ArabicSupport {
 
     @XmlElement(defaultValue = "0")
     protected int firstRadicalIndex = 0;
@@ -60,8 +57,6 @@ public class RootWord {
     protected int fourthRadicalIndex = -1;
     @XmlElement(required = true)
     protected SarfTermType sarfTermType;
-    @XmlAttribute(name = "implementationClass")
-    protected String implementationClass;
     @XmlElement(required = true)
     private ArabicWord rootWord;
     @XmlTransient
@@ -141,7 +136,6 @@ public class RootWord {
             setSecondRadicalIndex(src.getSecondRadicalIndex());
             setThirdRadicalIndex(src.getThirdRadicalIndex());
             setFourthRadicalIndex(src.getFourthRadicalIndex());
-            setImplementationClass(src.getImplementationClass());
             setSarfTermType(src.getSarfTermType());
             setMemberType(src.getMemberType());
         }
@@ -276,24 +270,6 @@ public class RootWord {
         setFourthRadical(null);
     }
 
-    /**
-     * Gets the value of the implementationClass property.
-     *
-     * @return possible object is {@link String }
-     */
-    public String getImplementationClass() {
-        return implementationClass;
-    }
-
-    /**
-     * Sets the value of the implementationClass property.
-     *
-     * @param value allowed object is {@link String }
-     */
-    public void setImplementationClass(String value) {
-        this.implementationClass = value;
-    }
-
     private ArabicLetter getLetter(int index) {
         ArabicWord rootWord = getRootWord();
         if (index < 0 || index >= rootWord.getLength()) {
@@ -393,6 +369,11 @@ public class RootWord {
     }
 
     @Override
+    public ArabicWord getLabel() {
+        return getRootWord();
+    }
+
+    @Override
     public String toString() {
         return format("%s - {%s}", sarfTermType, rootWord.toBuckWalter());
     }
@@ -409,11 +390,6 @@ public class RootWord {
 
     public RootWord withFourthRadicalIndex(int value) {
         setFourthRadicalIndex(value);
-        return this;
-    }
-
-    public RootWord withImplementationClass(String value) {
-        setImplementationClass(value);
         return this;
     }
 

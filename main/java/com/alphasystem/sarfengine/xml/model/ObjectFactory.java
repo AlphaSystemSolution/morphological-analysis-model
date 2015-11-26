@@ -47,8 +47,7 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.alphasystem.com/sarfengine/xml/model", name = "chart")
     public JAXBElement<ConjugationTemplate> createChart(
             ConjugationTemplate value) {
-        return new JAXBElement<ConjugationTemplate>(_Chart_QNAME,
-                ConjugationTemplate.class, null, value);
+        return new JAXBElement<>(_Chart_QNAME, ConjugationTemplate.class, null, value);
     }
 
     /**
@@ -71,8 +70,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.alphasystem.com/sarfengine/xml/model", name = "conjugation")
     public JAXBElement<ConjugationData> createConjugation(ConjugationData value) {
-        return new JAXBElement<ConjugationData>(_Data_QNAME,
-                ConjugationData.class, null, value);
+        return new JAXBElement<>(_Data_QNAME, ConjugationData.class, null, value);
     }
 
     /**
@@ -88,8 +86,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.alphasystem.com/sarfengine/xml/model", name = "root-word")
     public JAXBElement<RootWord> createRootWord(RootWord value) {
-        return new JAXBElement<RootWord>(_RootWord_QNAME, RootWord.class, null,
-                value);
+        return new JAXBElement<>(_RootWord_QNAME, RootWord.class, null, value);
     }
 
     /**
