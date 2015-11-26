@@ -44,7 +44,7 @@ public enum NounOfPlaceAndTime implements ArabicLetters, ArabicSupport {
     NOUN_OF_PLACE_AND_TIME_FORM_VIII(createZarfRootWord(1, 3, 4,
             MEEM_WITH_DAMMA, FA_WITH_SUKUN, TA_WITH_FATHA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_IX(null),
+    //NOUN_OF_PLACE_AND_TIME_FORM_IX(null),
 
     NOUN_OF_PLACE_AND_TIME_FORM_X(createZarfRootWord(3, 4, 5,
             MEEM_WITH_DAMMA, SEEN_WITH_SUKUN, TA_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN));
