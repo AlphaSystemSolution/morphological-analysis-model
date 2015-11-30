@@ -81,7 +81,7 @@ public class ConjugationTemplate {
      */
     public List<ConjugationData> getData() {
         if (data == null) {
-            data = new ArrayList<ConjugationData>();
+            data = new ArrayList<>();
         }
         return this.data;
     }

@@ -95,6 +95,9 @@ public class ConjugationData {
     }
 
     public ConjugationConfiguration getConfiguration() {
+        if (configuration == null) {
+            configuration = new ConjugationConfiguration();
+        }
         return configuration;
     }
 
@@ -109,6 +112,9 @@ public class ConjugationData {
      * @return possible object is {@link RootLetters }
      */
     public RootLetters getRootLetters() {
+        if (rootLetters == null) {
+            rootLetters = new RootLetters();
+        }
         return rootLetters;
     }
 
@@ -127,6 +133,9 @@ public class ConjugationData {
      * @return possible object is {@link NamedTemplate }
      */
     public NamedTemplate getTemplate() {
+        if (template == null) {
+            template = FORM_I_CATEGORY_A_GROUP_U_TEMPLATE;
+        }
         return template;
     }
 
