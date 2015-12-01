@@ -10,6 +10,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import static com.alphasystem.arabic.model.ArabicLetterType.*;
+
 /**
  * @author sali
  */
@@ -25,6 +27,12 @@ public class RootLetters {
     @XmlElement(required = true)
     protected ArabicLetterType thirdRadical;
     protected ArabicLetterType fourthRadical;
+
+    public RootLetters() {
+        setFirstRadical(FA);
+        setSecondRadical(AIN);
+        setThirdRadical(LAM);
+    }
 
     public ArabicLetterType getFirstRadical() {
         return firstRadical;
