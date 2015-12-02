@@ -67,8 +67,7 @@ public class RootLetters {
     }
 
     private String getValue(ArabicLetterType arabicLetterType) {
-        return arabicLetterType == null ? "" : Character.valueOf(
-                arabicLetterType.getUnicode()).toString();
+        return arabicLetterType == null ? "" : arabicLetterType.toCode();
     }
 
     @Override
