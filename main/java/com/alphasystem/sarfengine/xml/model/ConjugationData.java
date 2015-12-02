@@ -9,10 +9,9 @@ package com.alphasystem.sarfengine.xml.model;
 
 import com.alphasystem.arabic.model.NamedTemplate;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.alphasystem.arabic.model.NamedTemplate.FORM_I_CATEGORY_A_GROUP_U_TEMPLATE;
 
@@ -46,7 +45,7 @@ import static com.alphasystem.arabic.model.NamedTemplate.FORM_I_CATEGORY_A_GROUP
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ConjugationData", propOrder = {"template", "translation",
-        "rootLetters", "container", "configuration"})
+        "rootLetters", "verbalNouns", "adverbs", "configuration"})
 public class ConjugationData {
 
     @XmlElement(required = true)
@@ -54,7 +53,14 @@ public class ConjugationData {
     protected String translation;
     @XmlElement(required = true)
     protected RootLetters rootLetters;
-    protected VernalNounAndAdverbContainer container = new VernalNounAndAdverbContainer();
+
+    @XmlElementWrapper(name = "verbalNouns")
+    @XmlElement(name = "verbalNoun")
+    protected List<VerbalNoun> verbalNouns;
+
+    @XmlElementWrapper(name = "adverbs")
+    @XmlElement(name = "adverb")
+    protected List<NounOfPlaceAndTime> adverbs;
     protected ConjugationConfiguration configuration = new ConjugationConfiguration();
 
     /**
@@ -70,28 +76,47 @@ public class ConjugationData {
      * For example, to add a new item, do as follows:
      * <p>
      * <pre>
-     * getContainer().add(newItem);
+     * getVerbalNouns().add(newItem);
      * </pre>
      * <p>
      * <p>
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link VernalNounAndAdverbContainer }
+     * {@link VerbalNoun }
      */
-    public VernalNounAndAdverbContainer getContainer() {
-        if (container == null) {
-            container = new VernalNounAndAdverbContainer();
+    public List<VerbalNoun> getVerbalNouns() {
+        if (verbalNouns == null) {
+            verbalNouns = new ArrayList<>();
         }
-        return this.container;
+        return verbalNouns;
     }
 
     /**
-     * Sets the value of the container property.
-     *
-     * @param container allowed object is {@link VernalNounAndAdverbContainer }
+     * Gets the value of the container property.
+     * <p>
+     * <p>
+     * This accessor method returns a reference to the live list, not a
+     * snapshot. Therefore any modification you make to the returned list will
+     * be present inside the JAXB object. This is why there is not a
+     * <CODE>set</CODE> method for the adverbs property.
+     * <p>
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <p>
+     * <pre>
+     * getAdverbs().add(newItem);
+     * </pre>
+     * <p>
+     * <p>
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link NounOfPlaceAndTime }
      */
-    public void setContainer(VernalNounAndAdverbContainer container) {
-        this.container = container;
+    public List<NounOfPlaceAndTime> getAdverbs() {
+        if (adverbs == null) {
+            adverbs = new ArrayList<>();
+        }
+        return adverbs;
     }
 
     public ConjugationConfiguration getConfiguration() {
@@ -164,31 +189,6 @@ public class ConjugationData {
      */
     public void setTranslation(String value) {
         this.translation = value;
-    }
-
-    public ConjugationData withRootLetters(RootLetters value) {
-        setRootLetters(value);
-        return this;
-    }
-
-    public ConjugationData withTemplate(NamedTemplate value) {
-        setTemplate(value);
-        return this;
-    }
-
-    public ConjugationData withTranslation(String value) {
-        setTranslation(value);
-        return this;
-    }
-
-    public ConjugationData withContainer(VernalNounAndAdverbContainer container) {
-        setContainer(container);
-        return this;
-    }
-
-    public ConjugationData withConfiguration(ConjugationConfiguration value) {
-        setConfiguration(value);
-        return this;
     }
 
 }
