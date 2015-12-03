@@ -13,5 +13,5 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum SortDirection {
 
-    ASCENDING, DESCENDING
+    DEFAULT, ASCENDING, DESCENDING
 }
