@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import static com.alphasystem.sarfengine.xml.model.SortDirection.DEFAULT;
+import static com.alphasystem.sarfengine.xml.model.SortDirection.ASCENDING;
 import static com.alphasystem.sarfengine.xml.model.SortDirective.NONE;
 
 /**
@@ -52,7 +52,7 @@ public class ChartConfiguration {
     }
 
     public void setSortDirection(SortDirection sortDirection) {
-        this.sortDirection = (sortDirection == null) ? DEFAULT : sortDirection;
+        this.sortDirection = (sortDirection == null) ? ASCENDING : sortDirection;
     }
 
     public SortDirective getSortDirective() {
