@@ -1,8 +1,8 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.common.model.VerseTokensPair;
-import com.alphasystem.persistence.mongo.model.AbstractDocument;
-import com.alphasystem.persistence.mongo.model.CascadeSave;
+import com.alphasystem.persistence.model.AbstractDocument;
+import com.alphasystem.persistence.model.CascadeSave;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;

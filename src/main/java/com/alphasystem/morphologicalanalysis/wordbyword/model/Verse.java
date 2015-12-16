@@ -5,8 +5,8 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
-import com.alphasystem.persistence.mongo.model.AbstractDocument;
-import com.alphasystem.persistence.mongo.model.CascadeSave;
+import com.alphasystem.persistence.model.AbstractDocument;
+import com.alphasystem.persistence.model.CascadeSave;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;

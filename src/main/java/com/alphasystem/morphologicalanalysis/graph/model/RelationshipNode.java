@@ -2,7 +2,7 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.AlternateStatus;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RelationshipType;
-import com.alphasystem.persistence.mongo.model.CascadeSave;
+import com.alphasystem.persistence.model.CascadeSave;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.RELATIONSHIP;

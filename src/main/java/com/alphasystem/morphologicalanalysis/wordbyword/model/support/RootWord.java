@@ -4,7 +4,7 @@
 package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
 import com.alphasystem.arabic.model.ArabicLetterType;
-import com.alphasystem.persistence.mongo.model.AbstractDocument;
+import com.alphasystem.persistence.model.AbstractDocument;
 import org.springframework.data.annotation.PersistenceConstructor;
 
 import static com.alphasystem.util.IdGenerator.nextId;

@@ -2,7 +2,7 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Token;
-import com.alphasystem.persistence.mongo.model.CascadeSave;
+import com.alphasystem.persistence.model.CascadeSave;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 

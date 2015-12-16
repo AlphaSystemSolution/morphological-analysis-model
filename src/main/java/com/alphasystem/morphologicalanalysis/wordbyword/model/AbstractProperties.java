@@ -6,7 +6,7 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType;
-import com.alphasystem.persistence.mongo.model.AbstractDocument;
+import com.alphasystem.persistence.model.AbstractDocument;
 import org.springframework.data.annotation.Transient;
 
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType.MASCULINE;

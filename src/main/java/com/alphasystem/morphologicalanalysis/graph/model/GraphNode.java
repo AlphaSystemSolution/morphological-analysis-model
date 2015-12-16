@@ -1,7 +1,7 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType;
-import com.alphasystem.persistence.mongo.model.AbstractDocument;
+import com.alphasystem.persistence.model.AbstractDocument;
 
 import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.TERMINAL;
 

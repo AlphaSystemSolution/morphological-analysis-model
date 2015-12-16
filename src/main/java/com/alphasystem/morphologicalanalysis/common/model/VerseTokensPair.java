@@ -1,6 +1,6 @@
 package com.alphasystem.morphologicalanalysis.common.model;
 
-import com.alphasystem.persistence.mongo.model.AbstractDocument;
+import com.alphasystem.persistence.model.AbstractDocument;
 import org.springframework.data.annotation.PersistenceConstructor;
 
 import static com.alphasystem.util.AppUtil.isGivenType;
