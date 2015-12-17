@@ -5,11 +5,11 @@ package com.alphasystem.sarfengine.util;
 
 import com.alphasystem.arabic.model.ArabicLetter;
 import com.alphasystem.arabic.model.ArabicWord;
+import com.alphasystem.morphologicalanalysis.morphology.model.support.SarfTermType;
 import com.alphasystem.sarfengine.xml.model.ObjectFactory;
 import com.alphasystem.sarfengine.xml.model.RootWord;
-import com.alphasystem.sarfengine.xml.model.SarfTermType;
 
-import static com.alphasystem.sarfengine.xml.model.SarfTermType.*;
+import static com.alphasystem.morphologicalanalysis.morphology.model.support.SarfTermType.*;
 
 /**
  * @author sali

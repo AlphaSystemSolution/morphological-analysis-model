@@ -3,13 +3,16 @@
  */
 package com.alphasystem.sarfengine.xml.model;
 
+import com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirection;
+import com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirective;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import static com.alphasystem.sarfengine.xml.model.SortDirection.ASCENDING;
-import static com.alphasystem.sarfengine.xml.model.SortDirective.NONE;
+import static com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirection.ASCENDING;
+import static com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirective.NONE;
 
 /**
  * @author sali

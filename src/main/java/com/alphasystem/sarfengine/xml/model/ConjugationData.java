@@ -9,6 +9,8 @@ package com.alphasystem.sarfengine.xml.model;
 
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.RootLetters;
+import com.alphasystem.morphologicalanalysis.morphology.model.support.NounOfPlaceAndTime;
+import com.alphasystem.morphologicalanalysis.morphology.model.support.VerbalNoun;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;

@@ -1,11 +1,12 @@
 /**
  *
  */
-package com.alphasystem.sarfengine.xml.model;
+package com.alphasystem.morphologicalanalysis.morphology.model.support;
 
 import com.alphasystem.arabic.model.ArabicLetters;
 import com.alphasystem.arabic.model.ArabicSupport;
 import com.alphasystem.arabic.model.ArabicWord;
+import com.alphasystem.sarfengine.xml.model.RootWord;
 
 import static com.alphasystem.sarfengine.util.TriLiteralTemplateHelper.createVerbalNounRootWord;
 

@@ -5,46 +5,16 @@
 // Generated on: 2014.08.01 at 04:51:01 PM EDT 
 //
 
-package com.alphasystem.sarfengine.xml.model;
+package com.alphasystem.morphologicalanalysis.morphology.model.support;
 
 import com.alphasystem.arabic.model.ArabicWord;
-
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlType;
 
 import static com.alphasystem.arabic.model.ArabicLetterType.*;
 import static com.alphasystem.arabic.model.ArabicWord.getWord;
 
 /**
- * <p>
- * Java class for SarfTermType.
- * <p>
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- * <p>
- * <p>
- * <pre>
- * &lt;simpleType name="SarfTermType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="fElQmADy"/>
- *     &lt;enumeration value="fElQmDArE"/>
- *     &lt;enumeration value="mSdr"/>
- *     &lt;enumeration value="AsmQfAElQm*kr"/>
- *     &lt;enumeration value="AsmQfAElQmWnv"/>
- *     &lt;enumeration value="fElQmADyQmbnyQElYQAlmjhwl"/>
- *     &lt;enumeration value="fElQmDArEQmbnyQElYQAlmjhwl"/>
- *     &lt;enumeration value="AsmQmfEwlQm*kr"/>
- *     &lt;enumeration value="AsmQmfEwlQmWnv"/>
- *     &lt;enumeration value="Amr"/>
- *     &lt;enumeration value="nhy"/>
- *     &lt;enumeration value="Zrf"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
+ * @author sali
  */
-@XmlType(name = "SarfTermType")
-@XmlEnum
 public enum SarfTermType {
 
     PAST_TENSE(getWord(FA, AIN, LAM, SPACE, MEEM, ALIF, DDAD, YA)),

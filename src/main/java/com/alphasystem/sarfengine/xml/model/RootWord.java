@@ -8,6 +8,7 @@
 package com.alphasystem.sarfengine.xml.model;
 
 import com.alphasystem.arabic.model.*;
+import com.alphasystem.morphologicalanalysis.morphology.model.support.SarfTermType;
 
 import javax.xml.bind.annotation.*;
 
