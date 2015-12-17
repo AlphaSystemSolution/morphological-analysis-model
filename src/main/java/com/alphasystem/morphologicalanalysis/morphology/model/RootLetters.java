@@ -5,6 +5,7 @@ package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import com.alphasystem.arabic.model.ArabicLetterType;
 import com.alphasystem.persistence.model.AbstractDocument;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.arabic.model.ArabicLetterType.*;
@@ -17,6 +18,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
  * @author sali
  */
 @Document
+@TypeAlias("RootLetters")
 public class RootLetters extends AbstractDocument {
 
     protected ArabicLetterType firstRadical;

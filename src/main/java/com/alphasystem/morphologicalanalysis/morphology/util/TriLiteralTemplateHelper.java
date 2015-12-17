@@ -1,13 +1,13 @@
 /**
  *
  */
-package com.alphasystem.sarfengine.util;
+package com.alphasystem.morphologicalanalysis.morphology.util;
 
 import com.alphasystem.arabic.model.ArabicLetter;
 import com.alphasystem.arabic.model.ArabicWord;
+import com.alphasystem.morphologicalanalysis.morphology.model.RootWord;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SarfTermType;
 import com.alphasystem.sarfengine.xml.model.ObjectFactory;
-import com.alphasystem.sarfengine.xml.model.RootWord;
 
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.SarfTermType.*;
 
