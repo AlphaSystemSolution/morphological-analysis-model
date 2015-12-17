@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import static com.alphasystem.arabic.model.ArabicLetterType.*;
 import static com.alphasystem.util.AppUtil.isGivenType;
 import static com.alphasystem.util.HashCodeUtil.hash;
+import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 /**
@@ -68,10 +69,8 @@ public class RootLetters extends AbstractDocument {
 
     @Override
     public void initDisplayName() {
-        StringBuilder builder = new StringBuilder();
-        builder.append(getValue(firstRadical)).append(" ").append(getValue(secondRadical)).append(" ")
-                .append(getValue(thirdRadical)).append(" ").append(getValue(fourthRadical));
-        String displayName = builder.toString();
+        String displayName = format("%s%s%s%s", getValue(firstRadical), getValue(secondRadical),
+                getValue(thirdRadical), getValue(fourthRadical));
         if (isBlank(displayName.trim())) {
             super.initDisplayName();
         } else {
