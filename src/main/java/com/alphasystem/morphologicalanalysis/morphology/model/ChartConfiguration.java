@@ -1,15 +1,13 @@
 /**
  *
  */
-package com.alphasystem.sarfengine.xml.model;
+package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirection;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirective;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
+import com.alphasystem.persistence.model.AbstractDocument;
+import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirection.ASCENDING;
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirective.NONE;
@@ -17,37 +15,23 @@ import static com.alphasystem.morphologicalanalysis.morphology.model.support.Sor
 /**
  * @author sali
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ChartConfigurationType")
-public class ChartConfiguration {
+@Document
+@TypeAlias("ChartConfiguration")
+public class ChartConfiguration extends AbstractDocument {
 
-    @XmlAttribute(name = "omit-toc", required = false)
     private boolean omitToc;
-
-    @XmlAttribute(name = "omit-abbreviated-conjugation", required = false)
     private boolean omitAbbreviatedConjugation;
-
-    @XmlAttribute(name = "omit-detailed-conjugation", required = false)
     private boolean omitDetailedConjugation;
-
-    @XmlAttribute(name = "omit-title", required = false)
     private boolean omitTitle;
-
-    @XmlAttribute(name = "omit-header", required = false)
     private boolean omitHeader;
-
-    @XmlAttribute(name = "omit-sarf-term-caption", required = false)
     private boolean omitSarfTermCaption;
-
-    @XmlAttribute(name = "sort-directive", required = true)
     private SortDirective sortDirective;
-
-    @XmlAttribute(name = "sort-direction", required = true)
     private SortDirection sortDirection;
 
     public ChartConfiguration() {
         setSortDirection(null);
         setSortDirection(null);
+        initDisplayName();
     }
 
     public SortDirection getSortDirection() {

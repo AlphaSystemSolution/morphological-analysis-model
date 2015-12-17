@@ -1,25 +1,25 @@
 /**
  *
  */
-package com.alphasystem.sarfengine.xml.model;
+package com.alphasystem.morphologicalanalysis.morphology.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
+import com.alphasystem.persistence.model.AbstractDocument;
+import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author sali
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ConjugationConfigurationType")
-public class ConjugationConfiguration {
+@Document
+@TypeAlias("ConjugationConfiguration")
+public class ConjugationConfiguration extends AbstractDocument {
 
-    @XmlAttribute(name = "remove-passive-line", required = false)
     private boolean removePassiveLine;
-
-    @XmlAttribute(name = "skip-rule-processing", required = false)
     private boolean skipRuleProcessing;
+
+    public ConjugationConfiguration() {
+        initDisplayName();
+    }
 
     public boolean isRemovePassiveLine() {
         return removePassiveLine;
