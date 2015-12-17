@@ -7,7 +7,6 @@ import com.alphasystem.arabic.model.ArabicLetter;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.morphology.model.RootWord;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SarfTermType;
-import com.alphasystem.sarfengine.xml.model.ObjectFactory;
 
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.SarfTermType.*;
 
@@ -16,22 +15,18 @@ import static com.alphasystem.morphologicalanalysis.morphology.model.support.Sar
  */
 public class TriLiteralTemplateHelper {
 
-    private static final ObjectFactory OBJECT_FACTORY = new ObjectFactory();
-
     public static RootWord createActiveParticipleFeminineRootWord(
             int firstRadicalIndex, int secondRadicalIndex,
             int thirdRadicalIndex, ArabicLetter... arabicLetters) {
-        return createRootWord(firstRadicalIndex, secondRadicalIndex,
-                thirdRadicalIndex,
-                ACTIVE_PARTICIPLE_FEMININE, arabicLetters);
+        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, ACTIVE_PARTICIPLE_FEMININE,
+                arabicLetters);
     }
 
     public static RootWord createActiveParticipleMasculineRootWord(
             int firstRadicalIndex, int secondRadicalIndex,
             int thirdRadicalIndex, ArabicLetter... arabicLetters) {
-        return createRootWord(firstRadicalIndex, secondRadicalIndex,
-                thirdRadicalIndex,
-                ACTIVE_PARTICIPLE_MASCULINE, arabicLetters);
+        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, ACTIVE_PARTICIPLE_MASCULINE,
+                arabicLetters);
     }
 
     public static RootWord createForbiddingRootWord(RootWord presentTenseRoot) {
@@ -46,37 +41,35 @@ public class TriLiteralTemplateHelper {
             int firstRadicalIndex, int secondRadicalIndex,
             int thirdRadicalIndex,
             ArabicLetter... arabicLetters) {
-        return createRootWord(firstRadicalIndex, secondRadicalIndex,
-                thirdRadicalIndex, PASSIVE_PARTICIPLE_FEMININE, arabicLetters);
+        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, PASSIVE_PARTICIPLE_FEMININE,
+                arabicLetters);
     }
 
     public static RootWord createPassiveParticipleMasculineRootWord(
             int firstRadicalIndex, int secondRadicalIndex,
             int thirdRadicalIndex, ArabicLetter... arabicLetters) {
-        return createRootWord(firstRadicalIndex, secondRadicalIndex,
-                thirdRadicalIndex, PASSIVE_PARTICIPLE_MASCULINE, arabicLetters);
+        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, PASSIVE_PARTICIPLE_MASCULINE,
+                arabicLetters);
     }
 
     public static RootWord createPastPassiveTenseRootWord(
             int firstRadicalIndex, int secondRadicalIndex,
             int thirdRadicalIndex, ArabicLetter... arabicLetters) {
-        return createRootWord(firstRadicalIndex, secondRadicalIndex,
-                thirdRadicalIndex, PAST_PASSIVE_TENSE,
+        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, PAST_PASSIVE_TENSE,
                 arabicLetters);
     }
 
     public static RootWord createPastTenseRootWord(int firstRadicalIndex,
                                                    int secondRadicalIndex, int thirdRadicalIndex,
                                                    ArabicLetter... arabicLetters) {
-        return createRootWord(firstRadicalIndex, secondRadicalIndex,
-                thirdRadicalIndex, PAST_TENSE, arabicLetters);
+        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, PAST_TENSE, arabicLetters);
     }
 
     public static RootWord createPresentPassiveTenseRootWord(
             int firstRadicalIndex, int secondRadicalIndex,
             int thirdRadicalIndex, ArabicLetter... arabicLetters) {
-        return createRootWord(firstRadicalIndex, secondRadicalIndex,
-                thirdRadicalIndex, PRESENT_PASSIVE_TENSE, arabicLetters);
+        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, PRESENT_PASSIVE_TENSE,
+                arabicLetters);
     }
 
     public static RootWord createPresentTenseRootWord(int firstRadicalIndex,
@@ -90,34 +83,29 @@ public class TriLiteralTemplateHelper {
                                           int secondRadicalIndex, int thirdRadicalIndex,
                                           ArabicLetter... arabicLetters) {
         ArabicWord arabicWord = new ArabicWord(arabicLetters);
-        return OBJECT_FACTORY.createRootWord().withSarfTermType(PAST_TENSE)
-                .withFirstRadicalIndex(firstRadicalIndex)
-                .withSecondRadicalIndex(secondRadicalIndex)
-                .withThirdRadicalIndex(thirdRadicalIndex)
-                .withFourthRadicalIndex(-1).withBaseWord(arabicWord)
-                .withRootWord(arabicWord);
+        return new RootWord().withSarfTermType(PAST_TENSE).withFirstRadicalIndex(firstRadicalIndex)
+                .withSecondRadicalIndex(secondRadicalIndex).withThirdRadicalIndex(thirdRadicalIndex)
+                .withFourthRadicalIndex(-1).withBaseWord(arabicWord).withRootWord(arabicWord);
     }
 
     public static RootWord createRootWord(int firstRadicalIndex,
                                           int secondRadicalIndex, int thirdRadicalIndex,
                                           SarfTermType sarfTermType,
                                           ArabicLetter... arabicLetters) {
-        return createRootWord(firstRadicalIndex, secondRadicalIndex,
-                thirdRadicalIndex, arabicLetters).withSarfTermType(sarfTermType);
+        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, arabicLetters)
+                .withSarfTermType(sarfTermType);
     }
 
     public static RootWord createVerbalNounRootWord(int firstRadicalIndex,
                                                     int secondRadicalIndex, int thirdRadicalIndex,
                                                     ArabicLetter... arabicLetters) {
-        return createRootWord(firstRadicalIndex, secondRadicalIndex,
-                thirdRadicalIndex, VERBAL_NOUN, arabicLetters);
+        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, VERBAL_NOUN, arabicLetters);
     }
 
     public static RootWord createZarfRootWord(int firstRadicalIndex,
                                               int secondRadicalIndex, int thirdRadicalIndex,
                                               ArabicLetter... arabicLetters) {
-        return createRootWord(firstRadicalIndex, secondRadicalIndex,
-                thirdRadicalIndex, NOUN_OF_PLACE_AND_TIME,
+        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, NOUN_OF_PLACE_AND_TIME,
                 arabicLetters);
     }
 }
