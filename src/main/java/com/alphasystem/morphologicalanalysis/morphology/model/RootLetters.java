@@ -34,7 +34,7 @@ public class RootLetters extends AbstractDocument {
     }
 
     private static String getValue(ArabicLetterType arabicLetterType) {
-        return arabicLetterType == null ? "" : arabicLetterType.toCode();
+        return (arabicLetterType == null) ? "" : arabicLetterType.toCode();
     }
 
     public ArabicLetterType getFirstRadical() {

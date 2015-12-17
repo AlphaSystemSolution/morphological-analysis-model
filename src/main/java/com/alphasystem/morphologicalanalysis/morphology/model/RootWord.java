@@ -42,7 +42,6 @@ public class RootWord extends AbstractDocument implements ArabicSupport {
     private ArabicWord rootWord;
     @Transient
     private ArabicWord baseWord;
-
     @Transient
     private ArabicLetter firstRadical;
     @Transient
@@ -51,7 +50,6 @@ public class RootWord extends AbstractDocument implements ArabicSupport {
     private ArabicLetter thirdRadical;
     @Transient
     private ArabicLetter fourthRadical;
-
 
     /**
      * Default constructor
@@ -132,6 +130,10 @@ public class RootWord extends AbstractDocument implements ArabicSupport {
                     fourthRadical);
         }
         return arabicWord;
+    }
+
+    private static String getValue(ArabicLetter arabicLetter) {
+        return (arabicLetter == null) ? "" : arabicLetter.toUnicode();
     }
 
     private boolean compare(ArabicLetter l1, ArabicLetter l2) {
@@ -321,7 +323,6 @@ public class RootWord extends AbstractDocument implements ArabicSupport {
         this.rootWord = rootWord;
     }
 
-
     /**
      * Gets the value of the sarfTermType property.
      *
@@ -347,6 +348,17 @@ public class RootWord extends AbstractDocument implements ArabicSupport {
     @Override
     public ArabicWord getLabel() {
         return getRootWord();
+    }
+
+    @Override
+    public void initDisplayName() {
+        String displayName = String.format("%s %s %s %s", getValue(firstRadical), getValue(secondRadical),
+                getValue(thirdRadical), getValue(fourthRadical));
+        if (isBlank(displayName.trim())) {
+            super.initDisplayName();
+        } else {
+            setDisplayName(displayName);
+        }
     }
 
     @Override
