@@ -5,6 +5,7 @@ package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import com.alphasystem.arabic.model.ArabicLetterType;
 import com.alphasystem.persistence.model.AbstractDocument;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -26,11 +27,37 @@ public class RootLetters extends AbstractDocument {
     protected ArabicLetterType thirdRadical;
     protected ArabicLetterType fourthRadical;
 
+    @PersistenceConstructor
     public RootLetters() {
         setFirstRadical(FA);
         setSecondRadical(AIN);
         setThirdRadical(LAM);
         setFourthRadical(null);
+    }
+
+    /**
+     * @param firstRadical
+     * @param secondRadical
+     * @param thirdRadical
+     */
+    public RootLetters(ArabicLetterType firstRadical, ArabicLetterType secondRadical, ArabicLetterType thirdRadical) {
+        this.firstRadical = firstRadical;
+        this.secondRadical = secondRadical;
+        this.thirdRadical = thirdRadical;
+    }
+
+    /**
+     * @param firstRadical
+     * @param secondRadical
+     * @param thirdRadical
+     * @param fourthRadical
+     */
+    public RootLetters(ArabicLetterType firstRadical, ArabicLetterType secondRadical, ArabicLetterType thirdRadical,
+                       ArabicLetterType fourthRadical) {
+        this.firstRadical = firstRadical;
+        this.secondRadical = secondRadical;
+        this.thirdRadical = thirdRadical;
+        this.fourthRadical = fourthRadical;
     }
 
     private static String getValue(ArabicLetterType arabicLetterType) {
