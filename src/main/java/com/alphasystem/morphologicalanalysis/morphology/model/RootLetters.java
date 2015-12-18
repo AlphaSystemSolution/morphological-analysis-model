@@ -29,10 +29,7 @@ public class RootLetters extends AbstractDocument {
 
     @PersistenceConstructor
     public RootLetters() {
-        setFirstRadical(FA);
-        setSecondRadical(AIN);
-        setThirdRadical(LAM);
-        setFourthRadical(null);
+        this(FA, AIN, LAM);
     }
 
     /**
@@ -41,9 +38,7 @@ public class RootLetters extends AbstractDocument {
      * @param thirdRadical
      */
     public RootLetters(ArabicLetterType firstRadical, ArabicLetterType secondRadical, ArabicLetterType thirdRadical) {
-        this.firstRadical = firstRadical;
-        this.secondRadical = secondRadical;
-        this.thirdRadical = thirdRadical;
+        this(firstRadical, secondRadical, thirdRadical, null);
     }
 
     /**
