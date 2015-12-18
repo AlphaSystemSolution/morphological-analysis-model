@@ -22,16 +22,6 @@
         </dependency>
         <dependency>
             <groupId>com.querydsl</groupId>
-            <artifactId>querydsl-mongodb</artifactId>
-            <version>${querydsl.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mongodb.morphia</groupId>
-            <artifactId>morphia</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.querydsl</groupId>
             <artifactId>querydsl-apt</artifactId>
             <version>${querydsl.version}</version>
             <scope>provided</scope>
@@ -64,7 +54,6 @@
     <properties>
         <arabic-support.version>${project.version}</arabic-support.version>
         <model-base.version>${project.version}</model-base.version>
-        <querydsl.version>4.0.7</querydsl.version>
-        <genOutputDirectory>${project.build.directory}/generated-sources/java</genOutputDirectory>
+        <genOutputDirectory>${project.build.directory}/generated-sources/querydsl</genOutputDirectory>
     </properties>
 </project>
