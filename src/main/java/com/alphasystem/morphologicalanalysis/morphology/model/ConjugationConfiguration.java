@@ -18,6 +18,7 @@ public class ConjugationConfiguration extends AbstractDocument {
     private boolean skipRuleProcessing;
 
     public ConjugationConfiguration() {
+        super();
         initDisplayName();
     }
 
