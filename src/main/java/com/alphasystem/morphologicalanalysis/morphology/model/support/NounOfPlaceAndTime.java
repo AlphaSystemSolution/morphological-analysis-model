@@ -6,9 +6,14 @@ package com.alphasystem.morphologicalanalysis.morphology.model.support;
 import com.alphasystem.arabic.model.ArabicLetters;
 import com.alphasystem.arabic.model.ArabicSupport;
 import com.alphasystem.arabic.model.ArabicWord;
+import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.RootWord;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.alphasystem.morphologicalanalysis.morphology.util.TriLiteralTemplateHelper.createZarfRootWord;
+import static java.util.Arrays.asList;
 
 /**
  * @author sali
@@ -64,6 +69,51 @@ public enum NounOfPlaceAndTime implements ArabicLetters, ArabicSupport {
 
     NounOfPlaceAndTime(RootWord rootWord) {
         this.rootWord = rootWord;
+    }
+
+    public static List<NounOfPlaceAndTime> getByTemplate(NamedTemplate template) {
+        List<NounOfPlaceAndTime> nounOfPlaceAndTimes = new ArrayList<>();
+        if (template == null) {
+            return nounOfPlaceAndTimes;
+        }
+        switch (template) {
+            case FORM_I_CATEGORY_A_GROUP_U_TEMPLATE:
+            case FORM_I_CATEGORY_A_GROUP_I_TEMPLATE:
+            case FORM_I_CATEGORY_A_GROUP_A_TEMPLATE:
+            case FORM_I_CATEGORY_U_TEMPLATE:
+            case FORM_I_CATEGORY_I_GROUP_A_TEMPLATE:
+            case FORM_I_CATEGORY_I_GROUP_I_TEMPLATE:
+                nounOfPlaceAndTimes.addAll(asList(NOUN_OF_PLACE_AND_TIME_V1, NOUN_OF_PLACE_AND_TIME_V2,
+                        NOUN_OF_PLACE_AND_TIME_V3));
+                break;
+            case FORM_II_TEMPLATE:
+                nounOfPlaceAndTimes.add(NOUN_OF_PLACE_AND_TIME_FORM_II);
+                break;
+            case FORM_III_TEMPLATE:
+                nounOfPlaceAndTimes.add(NOUN_OF_PLACE_AND_TIME_FORM_III);
+                break;
+            case FORM_IV_TEMPLATE:
+                nounOfPlaceAndTimes.add(NOUN_OF_PLACE_AND_TIME_FORM_IV);
+                break;
+            case FORM_V_TEMPLATE:
+                nounOfPlaceAndTimes.add(NOUN_OF_PLACE_AND_TIME_FORM_V);
+                break;
+            case FORM_VI_TEMPLATE:
+                nounOfPlaceAndTimes.add(NOUN_OF_PLACE_AND_TIME_FORM_VI);
+                break;
+            case FORM_VII_TEMPLATE:
+                nounOfPlaceAndTimes.add(NOUN_OF_PLACE_AND_TIME_FORM_VII);
+                break;
+            case FORM_VIII_TEMPLATE:
+                nounOfPlaceAndTimes.add(NOUN_OF_PLACE_AND_TIME_FORM_VIII);
+                break;
+            case FORM_X_TEMPLATE:
+                nounOfPlaceAndTimes.add(NOUN_OF_PLACE_AND_TIME_FORM_X);
+                break;
+            default:
+                break;
+        }
+        return nounOfPlaceAndTimes;
     }
 
     public static RootWord[] getRootWords() {

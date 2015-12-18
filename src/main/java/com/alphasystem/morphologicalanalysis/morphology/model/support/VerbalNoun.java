@@ -6,7 +6,12 @@ package com.alphasystem.morphologicalanalysis.morphology.model.support;
 import com.alphasystem.arabic.model.ArabicLetters;
 import com.alphasystem.arabic.model.ArabicSupport;
 import com.alphasystem.arabic.model.ArabicWord;
+import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.RootWord;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static com.alphasystem.morphologicalanalysis.morphology.util.TriLiteralTemplateHelper.createVerbalNounRootWord;
 
@@ -142,12 +147,54 @@ public enum VerbalNoun implements ArabicLetters, ArabicSupport {
 
     VERBAL_NOUN_FORM_XI(createVerbalNounRootWord(1, 2, 5,
             ALIF_HAMZA_BELOW_WITH_KASRA, FA_WITH_SUKUN, AIN_WITH_KASRA,
-            YA_WITH_SUKUN, LAM_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),;
+            YA_WITH_SUKUN, LAM_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN));
 
     private final RootWord rootWord;
 
     VerbalNoun(RootWord rootWord) {
         this.rootWord = rootWord;
+    }
+
+    public static List<VerbalNoun> getByTemplate(NamedTemplate template) {
+        List<VerbalNoun> verbalNouns = new ArrayList<>();
+        if (template == null) {
+            return verbalNouns;
+        }
+        switch (template) {
+            case FORM_II_TEMPLATE:
+                verbalNouns.add(VERBAL_NOUN_FORM_II);
+                break;
+            case FORM_III_TEMPLATE:
+                verbalNouns.addAll(Arrays.asList(VERBAL_NOUN_FORM_III_V1, VERBAL_NOUN_FORM_III_V2));
+                break;
+            case FORM_IV_TEMPLATE:
+                verbalNouns.add(VERBAL_NOUN_FORM_IV);
+                break;
+            case FORM_V_TEMPLATE:
+                verbalNouns.add(VERBAL_NOUN_FORM_V);
+                break;
+            case FORM_VI_TEMPLATE:
+                verbalNouns.add(VERBAL_NOUN_FORM_VI);
+                break;
+            case FORM_VII_TEMPLATE:
+                verbalNouns.add(VERBAL_NOUN_FORM_VII);
+                break;
+            case FORM_VIII_TEMPLATE:
+                verbalNouns.add(VERBAL_NOUN_FORM_VIII);
+                break;
+            case FORM_IX_TEMPLATE:
+                verbalNouns.add(VERBAL_NOUN_FORM_IX);
+                break;
+            case FORM_X_TEMPLATE:
+                verbalNouns.add(VERBAL_NOUN_FORM_X);
+                break;
+            case FORM_XI_TEMPLATE:
+                verbalNouns.add(VERBAL_NOUN_FORM_XI);
+                break;
+            default:
+                break;
+        }
+        return verbalNouns;
     }
 
     public RootWord getRootWord() {
