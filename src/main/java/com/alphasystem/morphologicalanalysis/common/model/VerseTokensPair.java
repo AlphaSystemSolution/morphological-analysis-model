@@ -1,6 +1,7 @@
 package com.alphasystem.morphologicalanalysis.common.model;
 
 import com.alphasystem.persistence.model.AbstractDocument;
+import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.PersistenceConstructor;
 
 import static com.alphasystem.util.AppUtil.isGivenType;
@@ -10,6 +11,7 @@ import static java.lang.String.format;
 /**
  * @author sali
  */
+@QueryEntity
 public class VerseTokensPair extends AbstractDocument {
 
     protected Integer verseNumber;

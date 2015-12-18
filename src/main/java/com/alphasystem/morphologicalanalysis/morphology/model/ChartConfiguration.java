@@ -6,7 +6,7 @@ package com.alphasystem.morphologicalanalysis.morphology.model;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirection;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirective;
 import com.alphasystem.persistence.model.AbstractDocument;
-import org.mongodb.morphia.annotations.Entity;
+import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,7 +16,7 @@ import static com.alphasystem.morphologicalanalysis.morphology.model.support.Sor
 /**
  * @author sali
  */
-@Entity
+@QueryEntity
 @Document
 @TypeAlias("ChartConfiguration")
 public class ChartConfiguration extends AbstractDocument {

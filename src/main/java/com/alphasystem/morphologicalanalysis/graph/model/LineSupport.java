@@ -1,14 +1,14 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType;
-import org.mongodb.morphia.annotations.Entity;
+import com.querydsl.core.annotations.QueryEntity;
 
 import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.TERMINAL;
 
 /**
  * @author sali
  */
-@Entity
+@QueryEntity
 public abstract class LineSupport extends GraphNode {
 
     private static final long serialVersionUID = 5068739165143371930L;

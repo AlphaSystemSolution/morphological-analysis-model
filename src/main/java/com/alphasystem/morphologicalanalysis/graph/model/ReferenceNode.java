@@ -1,7 +1,7 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Token;
-import org.mongodb.morphia.annotations.Entity;
+import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.REFERENCE;
@@ -9,7 +9,7 @@ import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNod
 /**
  * @author sali
  */
-@Entity
+@QueryEntity
 @Document
 public class ReferenceNode extends TerminalNode {
 
@@ -19,7 +19,7 @@ public class ReferenceNode extends TerminalNode {
         this(null);
     }
 
-    public ReferenceNode(Token token){
+    public ReferenceNode(Token token) {
         this(null, token);
     }
 

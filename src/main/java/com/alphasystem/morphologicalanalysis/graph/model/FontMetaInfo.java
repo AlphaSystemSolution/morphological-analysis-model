@@ -1,8 +1,11 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
+import com.querydsl.core.annotations.QueryEntity;
+
 /**
  * @author sali
  */
+@QueryEntity
 public class FontMetaInfo {
 
     protected String family;

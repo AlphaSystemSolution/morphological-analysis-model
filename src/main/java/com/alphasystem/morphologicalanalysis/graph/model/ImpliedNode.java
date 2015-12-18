@@ -1,7 +1,7 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Token;
-import org.mongodb.morphia.annotations.Entity;
+import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.IMPLIED;
@@ -9,7 +9,7 @@ import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNod
 /**
  * @author sali
  */
-@Entity
+@QueryEntity
 @Document
 public class ImpliedNode extends TerminalNode {
 

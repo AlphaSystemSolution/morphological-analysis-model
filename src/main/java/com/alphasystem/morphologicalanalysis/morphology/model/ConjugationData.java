@@ -11,7 +11,7 @@ import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.NounOfPlaceAndTime;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.VerbalNoun;
 import com.alphasystem.persistence.model.AbstractDocument;
-import org.mongodb.morphia.annotations.Entity;
+import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -23,7 +23,7 @@ import static com.alphasystem.arabic.model.NamedTemplate.FORM_I_CATEGORY_A_GROUP
 /**
  * @author sali
  */
-@Entity
+@QueryEntity
 @Document
 @TypeAlias("ConjugationData")
 public class ConjugationData extends AbstractDocument {

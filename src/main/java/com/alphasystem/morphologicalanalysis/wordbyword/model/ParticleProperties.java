@@ -5,11 +5,13 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType;
+import com.querydsl.core.annotations.QueryEntity;
 
 /**
  * @author sali
  * 
  */
+@QueryEntity
 public class ParticleProperties extends AbstractProperties {
 
 	private static final long serialVersionUID = 3916962887098806402L;

@@ -2,14 +2,14 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType;
 import com.alphasystem.persistence.model.AbstractDocument;
-import org.mongodb.morphia.annotations.Entity;
+import com.querydsl.core.annotations.QueryEntity;
 
 import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.TERMINAL;
 
 /**
  * @author sali
  */
-@Entity
+@QueryEntity
 public abstract class GraphNode extends AbstractDocument {
 
     private static final long serialVersionUID = -3423247102141013999L;

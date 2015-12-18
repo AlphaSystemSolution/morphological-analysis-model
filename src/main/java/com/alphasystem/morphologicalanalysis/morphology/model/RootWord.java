@@ -13,7 +13,7 @@ import com.alphasystem.arabic.model.ArabicSupport;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SarfTermType;
 import com.alphasystem.persistence.model.AbstractDocument;
-import org.mongodb.morphia.annotations.Entity;
+import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.annotation.TypeAlias;
@@ -27,7 +27,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 /**
  * @author sali
  */
-@Entity
+@QueryEntity
 @Document
 @TypeAlias("RootWord")
 public class RootWord extends AbstractDocument implements ArabicSupport {

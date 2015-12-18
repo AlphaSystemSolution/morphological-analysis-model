@@ -7,6 +7,7 @@ import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType;
 import com.alphasystem.persistence.model.AbstractDocument;
+import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.Transient;
 
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType.MASCULINE;
@@ -15,6 +16,7 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Num
 /**
  * @author sali
  */
+@QueryEntity
 public abstract class AbstractProperties extends AbstractDocument {
 
     private static final long serialVersionUID = 8386413187448630570L;

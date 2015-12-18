@@ -2,7 +2,7 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.common.model.Linkable;
 import com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType;
-import org.mongodb.morphia.annotations.Entity;
+import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.TERMINAL;
@@ -10,7 +10,7 @@ import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNod
 /**
  * @author sali
  */
-@Entity
+@QueryEntity
 public abstract class LinkSupport extends LineSupport {
 
     private static final long serialVersionUID = 4736069403525106807L;
