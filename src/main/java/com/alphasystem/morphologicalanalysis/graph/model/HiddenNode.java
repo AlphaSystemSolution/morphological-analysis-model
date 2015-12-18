@@ -1,6 +1,7 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Token;
+import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.HIDDEN;
@@ -8,6 +9,7 @@ import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNod
 /**
  * @author sali
  */
+@Entity
 @Document
 public class HiddenNode extends TerminalNode {
 

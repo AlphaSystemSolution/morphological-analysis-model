@@ -4,12 +4,14 @@
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import com.alphasystem.persistence.model.AbstractDocument;
+import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author sali
  */
+@Entity
 @Document
 @TypeAlias("ConjugationConfiguration")
 public class ConjugationConfiguration extends AbstractDocument {

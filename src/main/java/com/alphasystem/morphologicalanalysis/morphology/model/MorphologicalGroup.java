@@ -3,6 +3,7 @@ package com.alphasystem.morphologicalanalysis.morphology.model;
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.IllegalEntryException;
 import com.alphasystem.persistence.model.AbstractDocument;
+import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,6 +15,7 @@ import java.util.Map.Entry;
 /**
  * @author sali
  */
+@Entity
 @Document
 @TypeAlias("MorphologicalGroup")
 public class MorphologicalGroup extends AbstractDocument {
@@ -56,7 +58,7 @@ public class MorphologicalGroup extends AbstractDocument {
      * @throws IllegalEntryException
      */
     public void addEntry(MorphologicalEntry entry) throws IllegalEntryException {
-        if (entry == null || entry.getRootLetters() == null || entry.getForm() == null) {
+        if (entry == null || entry.getRootLetters() == null || entry.getRootLetters().isEmpty() || entry.getForm() == null) {
             return;
         }
         if (rootLetters == null) {
