@@ -3,12 +3,16 @@ package com.alphasystem.morphologicalanalysis.morphology.model;
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.NounOfPlaceAndTime;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.VerbalNoun;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
 import com.alphasystem.persistence.model.AbstractDocument;
+import com.alphasystem.persistence.model.CascadeSave;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -23,9 +27,13 @@ import static java.lang.String.format;
 public class MorphologicalEntry extends AbstractDocument {
 
     @DBRef
+    @CascadeSave
     protected RootLetters rootLetters;
 
     protected NamedTemplate form;
+
+    @Indexed(name = "group-tag")
+    protected String groupTag;
 
     protected Set<VerbalNoun> verbalNouns;
 
@@ -33,7 +41,15 @@ public class MorphologicalEntry extends AbstractDocument {
 
     protected ConjugationConfiguration configuration;
 
-    protected String dictionary;
+    protected String translation;
+
+    @DBRef(lazy = true)
+    protected Set<Location> locations;
+
+    public MorphologicalEntry() {
+        super();
+        setConfiguration(null);
+    }
 
     public NamedTemplate getForm() {
         return form;
@@ -49,6 +65,14 @@ public class MorphologicalEntry extends AbstractDocument {
 
     public void setRootLetters(RootLetters rootLetters) {
         this.rootLetters = rootLetters;
+    }
+
+    public String getGroupTag() {
+        return groupTag;
+    }
+
+    public void setGroupTag(String groupTag) {
+        this.groupTag = groupTag;
     }
 
     public Set<VerbalNoun> getVerbalNouns() {
@@ -84,23 +108,42 @@ public class MorphologicalEntry extends AbstractDocument {
     }
 
     public void setConfiguration(ConjugationConfiguration configuration) {
-        this.configuration = configuration;
+        this.configuration = configuration == null ? new ConjugationConfiguration() : configuration;
     }
 
-    public String getDictionary() {
-        return dictionary;
+    public String getTranslation() {
+        return translation;
     }
 
-    public void setDictionary(String dictionary) {
-        this.dictionary = dictionary;
+    public void setTranslation(String translation) {
+        this.translation = translation;
+    }
+
+    public Set<Location> getLocations() {
+        if (locations == null) {
+            locations = new HashSet<>();
+        }
+        return locations;
+    }
+
+    public void setLocations(Set<Location> locations) {
+        this.locations = new HashSet<>();
+        if (locations != null) {
+            this.locations.addAll(locations);
+        }
     }
 
     @Override
     public void initDisplayName() {
-        if (rootLetters != null && !rootLetters.isEmpty() && form != null) {
-            setDisplayName(format("%s:%s", form.name(), rootLetters.getDisplayName()));
-        } else {
-            super.initDisplayName();
+        if (rootLetters == null || rootLetters.isEmpty()) {
+            throw new RuntimeException("RootLetters cannot be null.");
         }
+        if (form == null) {
+            throw new RuntimeException("Form cannot be null.");
+        }
+        String displayName = rootLetters.getDisplayName();
+        setDisplayName(format("%s:%s", form.name(), displayName));
+        groupTag = displayName;
     }
+
 }

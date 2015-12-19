@@ -6,6 +6,7 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.common.model.Linkable;
+import com.alphasystem.morphologicalanalysis.morphology.model.MorphologicalEntry;
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NamedTag;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeech;
@@ -13,6 +14,7 @@ import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RootWord;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeech.NOUN;
@@ -49,6 +51,9 @@ public class Location extends Linkable {
     protected Integer endIndex;
 
     protected PartOfSpeech partOfSpeech;
+
+    @DBRef
+    protected MorphologicalEntry morphologicalEntry;
 
     protected RootWord rootWord;
 
@@ -214,6 +219,14 @@ public class Location extends Linkable {
 
     public void setProperties(AbstractProperties properties) {
         this.properties = properties;
+    }
+
+    public MorphologicalEntry getMorphologicalEntry() {
+        return morphologicalEntry;
+    }
+
+    public void setMorphologicalEntry(MorphologicalEntry morphologicalEntry) {
+        this.morphologicalEntry = morphologicalEntry;
     }
 
     public RootWord getRootWord() {
