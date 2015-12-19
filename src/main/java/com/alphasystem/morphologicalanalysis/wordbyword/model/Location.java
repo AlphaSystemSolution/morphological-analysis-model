@@ -4,13 +4,11 @@
 package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.ArabicWord;
-import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.common.model.Linkable;
 import com.alphasystem.morphologicalanalysis.morphology.model.MorphologicalEntry;
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NamedTag;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeech;
-import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RootWord;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
@@ -55,11 +53,7 @@ public class Location extends Linkable {
     @DBRef
     protected MorphologicalEntry morphologicalEntry;
 
-    protected RootWord rootWord;
-
     protected NamedTag namedTag;
-
-    protected NamedTemplate formTemplate;
 
     protected String translation;
 
@@ -73,7 +67,6 @@ public class Location extends Linkable {
      */
     public Location() {
         setPartOfSpeech(null);
-        setRootWord(null);
         setStartIndex(null);
         setEndIndex(null);
     }
@@ -96,7 +89,6 @@ public class Location extends Linkable {
         setLocationNumber(locationNumber);
         setHidden(hidden);
         setPartOfSpeech(null);
-        setRootWord(null);
         setStartIndex(null);
         setEndIndex(null);
     }
@@ -135,9 +127,7 @@ public class Location extends Linkable {
         setEndIndex(src.getEndIndex());
         setPartOfSpeech(src.getPartOfSpeech());
         setNamedTag(src.getNamedTag());
-        setFormTemplate(src.getFormTemplate());
         setTranslation(src.getTranslation());
-        setRootWord(new RootWord(src.getRootWord()));
         setProperties(AbstractProperties.copy(src.getProperties()));
     }
 
@@ -156,14 +146,6 @@ public class Location extends Linkable {
     public void setEndIndex(Integer endIndex) {
         this.endIndex = endIndex == null || endIndex.intValue() <= 0 ? 0
                 : endIndex;
-    }
-
-    public NamedTemplate getFormTemplate() {
-        return formTemplate;
-    }
-
-    public void setFormTemplate(NamedTemplate formTemplate) {
-        this.formTemplate = formTemplate;
     }
 
     public Integer getLocationNumber() {
@@ -227,14 +209,6 @@ public class Location extends Linkable {
 
     public void setMorphologicalEntry(MorphologicalEntry morphologicalEntry) {
         this.morphologicalEntry = morphologicalEntry;
-    }
-
-    public RootWord getRootWord() {
-        return rootWord;
-    }
-
-    public void setRootWord(RootWord rootWord) {
-        this.rootWord = rootWord;
     }
 
     public Integer getStartIndex() {
@@ -325,13 +299,6 @@ public class Location extends Linkable {
         return this;
     }
 
-    public Location withForm(NamedTemplate formTemplate) {
-        if (formTemplate != null) {
-            setFormTemplate(formTemplate);
-        }
-        return this;
-    }
-
     public Location withLocationIndex(Integer locationIndex) {
         if (locationIndex != null) {
             setLocationNumber(locationIndex);
@@ -356,13 +323,6 @@ public class Location extends Linkable {
     public Location withProperties(AbstractProperties properties) {
         if (properties != null) {
             setProperties(properties);
-        }
-        return this;
-    }
-
-    public Location withRootWord(RootWord rootWord) {
-        if (rootWord != null) {
-            setRootWord(rootWord);
         }
         return this;
     }
