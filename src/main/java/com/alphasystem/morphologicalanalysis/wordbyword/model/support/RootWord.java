@@ -4,7 +4,7 @@
 package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
 import com.alphasystem.arabic.model.ArabicLetterType;
-import com.alphasystem.persistence.model.AbstractDocument;
+import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import org.springframework.data.annotation.PersistenceConstructor;
 
 import static com.alphasystem.util.IdGenerator.nextId;
@@ -13,7 +13,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 /**
  * @author sali
  */
-public class RootWord extends AbstractDocument {
+public class RootWord extends AbstractSimpleDocument {
 
     private static final long serialVersionUID = 1870389910904806332L;
 
@@ -38,7 +38,6 @@ public class RootWord extends AbstractDocument {
         this.secondRadical = secondRadical;
         this.thirdRadical = thirdRadical;
         this.fourthRadical = fourthRadical;
-        updateDisplayName();
     }
 
     /**
@@ -56,7 +55,6 @@ public class RootWord extends AbstractDocument {
         setSecondRadical(src.getSecondRadical());
         setThirdRadical(src.getThirdRadical());
         setFourthRadical(src.getFourthRadical());
-        updateDisplayName();
     }
 
     public ArabicLetterType getFirstRadical() {
@@ -99,24 +97,6 @@ public class RootWord extends AbstractDocument {
                 .append((fourthRadical == null) ? "" : fourthRadical.toCode());
         String result = builder.toString().trim();
         return isBlank(result) ? null : result;
-    }
-
-    private String updateBuilder(ArabicLetterType src) {
-        StringBuilder builder = new StringBuilder();
-        String value = src == null ? "" : src.name();
-        if (!isBlank(value)) {
-            builder.append(":").append(value);
-        }
-        return builder.toString();
-    }
-
-    public void updateDisplayName() {
-        StringBuilder builder = new StringBuilder();
-        builder.append(id).append(updateBuilder(firstRadical))
-                .append(updateBuilder(secondRadical))
-                .append(updateBuilder(thirdRadical))
-                .append(updateBuilder(fourthRadical));
-        setDisplayName(builder.toString());
     }
 
 }

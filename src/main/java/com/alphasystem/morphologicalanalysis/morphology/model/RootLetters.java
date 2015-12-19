@@ -5,6 +5,7 @@ package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import com.alphasystem.arabic.model.ArabicLetterType;
 import com.alphasystem.persistence.model.AbstractDocument;
+import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
@@ -129,7 +130,7 @@ public class RootLetters extends AbstractDocument {
     }
 
     @Override
-    public int compareTo(AbstractDocument o) {
+    public int compareTo(AbstractSimpleDocument o) {
         boolean empty = isEmpty();
         int result = empty ? super.compareTo(o) : 0;
         if (!empty && isGivenType(RootLetters.class, o)) {

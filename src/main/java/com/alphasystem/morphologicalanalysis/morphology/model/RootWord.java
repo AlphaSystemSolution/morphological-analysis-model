@@ -12,7 +12,7 @@ import com.alphasystem.arabic.model.ArabicLetterType;
 import com.alphasystem.arabic.model.ArabicSupport;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SarfTermType;
-import com.alphasystem.persistence.model.AbstractDocument;
+import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
@@ -30,7 +30,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 @QueryEntity
 @Document
 @TypeAlias("RootWord")
-public class RootWord extends AbstractDocument implements ArabicSupport {
+public class RootWord extends AbstractSimpleDocument implements ArabicSupport {
 
     protected int firstRadicalIndex = 0;
     protected int secondRadicalIndex = 1;
@@ -350,17 +350,6 @@ public class RootWord extends AbstractDocument implements ArabicSupport {
     @Override
     public ArabicWord getLabel() {
         return getRootWord();
-    }
-
-    @Override
-    public void initDisplayName() {
-        String displayName = String.format("%s %s %s %s", getValue(firstRadical), getValue(secondRadical),
-                getValue(thirdRadical), getValue(fourthRadical));
-        if (isBlank(displayName.trim())) {
-            super.initDisplayName();
-        } else {
-            setDisplayName(displayName);
-        }
     }
 
     @Override

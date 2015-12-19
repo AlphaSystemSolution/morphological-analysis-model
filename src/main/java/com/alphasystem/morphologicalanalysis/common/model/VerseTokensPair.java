@@ -1,6 +1,7 @@
 package com.alphasystem.morphologicalanalysis.common.model;
 
 import com.alphasystem.persistence.model.AbstractDocument;
+import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.PersistenceConstructor;
 
@@ -80,7 +81,7 @@ public class VerseTokensPair extends AbstractDocument {
     }
 
     @Override
-    public int compareTo(AbstractDocument obj) {
+    public int compareTo(AbstractSimpleDocument obj) {
         int result = super.compareTo(obj);
         if (isGivenType(VerseTokensPair.class, obj)) {
             VerseTokensPair o = (VerseTokensPair) obj;

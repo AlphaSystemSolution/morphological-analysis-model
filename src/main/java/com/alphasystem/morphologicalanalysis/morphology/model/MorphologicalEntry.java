@@ -48,7 +48,6 @@ public class MorphologicalEntry extends AbstractDocument {
 
     public MorphologicalEntry() {
         super();
-        setConfiguration(null);
     }
 
     public NamedTemplate getForm() {
@@ -108,7 +107,7 @@ public class MorphologicalEntry extends AbstractDocument {
     }
 
     public void setConfiguration(ConjugationConfiguration configuration) {
-        this.configuration = configuration == null ? new ConjugationConfiguration() : configuration;
+        this.configuration = configuration;
     }
 
     public String getTranslation() {

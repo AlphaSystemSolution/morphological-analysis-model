@@ -7,7 +7,7 @@
 
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
-import com.alphasystem.persistence.model.AbstractDocument;
+import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -22,23 +22,17 @@ import java.util.List;
 @QueryEntity
 @Document
 @TypeAlias("ConjugationTemplate")
-public class ConjugationTemplate extends AbstractDocument {
+public class ConjugationTemplate extends AbstractSimpleDocument {
 
     protected List<ConjugationData> data;
     protected ChartConfiguration chartConfiguration;
-
-    public ConjugationTemplate() {
-        setChartConfiguration(null);
-        initDisplayName();
-    }
 
     public ChartConfiguration getChartConfiguration() {
         return chartConfiguration;
     }
 
     public void setChartConfiguration(ChartConfiguration chartConfiguration) {
-        this.chartConfiguration = chartConfiguration == null ? new ChartConfiguration()
-                : chartConfiguration;
+        this.chartConfiguration = chartConfiguration;
     }
 
     public List<ConjugationData> getData() {

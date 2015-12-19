@@ -234,7 +234,7 @@ public class Location extends Linkable {
     }
 
     public void setRootWord(RootWord rootWord) {
-        this.rootWord = rootWord == null ? new RootWord() : rootWord;
+        this.rootWord = rootWord;
     }
 
     public Integer getStartIndex() {

@@ -10,7 +10,7 @@ package com.alphasystem.morphologicalanalysis.morphology.model;
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.NounOfPlaceAndTime;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.VerbalNoun;
-import com.alphasystem.persistence.model.AbstractDocument;
+import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -26,7 +26,7 @@ import static com.alphasystem.arabic.model.NamedTemplate.FORM_I_CATEGORY_A_GROUP
 @QueryEntity
 @Document
 @TypeAlias("ConjugationData")
-public class ConjugationData extends AbstractDocument {
+public class ConjugationData extends AbstractSimpleDocument {
 
     protected NamedTemplate template = FORM_I_CATEGORY_A_GROUP_U_TEMPLATE;
     protected String translation;
@@ -34,10 +34,6 @@ public class ConjugationData extends AbstractDocument {
     protected List<VerbalNoun> verbalNouns;
     protected List<NounOfPlaceAndTime> adverbs;
     protected ConjugationConfiguration configuration = new ConjugationConfiguration();
-
-    public ConjugationData() {
-        initDisplayName();
-    }
 
     public List<VerbalNoun> getVerbalNouns() {
         if (verbalNouns == null) {

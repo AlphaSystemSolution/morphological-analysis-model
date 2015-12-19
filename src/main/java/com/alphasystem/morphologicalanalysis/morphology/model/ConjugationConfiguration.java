@@ -3,7 +3,7 @@
  */
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
-import com.alphasystem.persistence.model.AbstractDocument;
+import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,14 +14,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @QueryEntity
 @Document
 @TypeAlias("ConjugationConfiguration")
-public class ConjugationConfiguration extends AbstractDocument {
+public class ConjugationConfiguration extends AbstractSimpleDocument {
 
     private boolean removePassiveLine;
     private boolean skipRuleProcessing;
 
     public ConjugationConfiguration() {
         super();
-        initDisplayName();
     }
 
     public boolean isRemovePassiveLine() {
