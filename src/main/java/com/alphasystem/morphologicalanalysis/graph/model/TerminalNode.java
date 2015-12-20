@@ -10,6 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.alphasystem.arabic.ui.util.FontConstants.ARABIC_FONT_NAME;
+import static com.alphasystem.arabic.ui.util.FontConstants.ENGLISH_FONT_NAME;
 import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.TERMINAL;
 import static java.lang.String.format;
 
@@ -21,8 +23,8 @@ import static java.lang.String.format;
 public class TerminalNode extends LineSupport {
 
     private static final long serialVersionUID = -2286312045728788322L;
-    private static final FontMetaInfo DEFAULT_FONT = new FontMetaInfo("Arabic Typesetting", "NORMAL", "REGULAR", 24.0);
-    private static final FontMetaInfo DEFAULT_TRANSLATION_FONT = new FontMetaInfo("Century Gothic", "NORMAL",
+    private static final FontMetaInfo DEFAULT_FONT = new FontMetaInfo(ARABIC_FONT_NAME, "NORMAL", "REGULAR", 24.0);
+    private static final FontMetaInfo DEFAULT_TRANSLATION_FONT = new FontMetaInfo(ENGLISH_FONT_NAME, "NORMAL",
             "REGULAR", 10.0);
 
     /**

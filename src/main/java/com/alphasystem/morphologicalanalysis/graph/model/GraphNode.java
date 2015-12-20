@@ -4,6 +4,7 @@ import com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType;
 import com.alphasystem.persistence.model.AbstractDocument;
 import com.querydsl.core.annotations.QueryEntity;
 
+import static com.alphasystem.arabic.ui.util.FontConstants.ARABIC_FONT_NAME;
 import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.TERMINAL;
 
 /**
@@ -13,7 +14,7 @@ import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNod
 public abstract class GraphNode extends AbstractDocument {
 
     private static final long serialVersionUID = -3423247102141013999L;
-    private static final FontMetaInfo DEFAULT_FONT = new FontMetaInfo("Arabic Typesetting", "NORMAL", "REGULAR", 14.0);
+    private static final FontMetaInfo DEFAULT_FONT = new FontMetaInfo(ARABIC_FONT_NAME, "NORMAL", "REGULAR", 14.0);
 
     protected GraphNodeType graphNodeType;
     protected Integer chapterNumber;

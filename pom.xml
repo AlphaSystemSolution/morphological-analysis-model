@@ -21,6 +21,11 @@
             <version>${arabic-support.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.alphasystem.arabic</groupId>
+            <artifactId>arabic-ui-support</artifactId>
+            <version>${arabic-ui-support.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.mysema.querydsl</groupId>
             <artifactId>querydsl-apt</artifactId>
             <version>${mysema.version}</version>
@@ -54,6 +59,7 @@
     </build>
     <properties>
         <arabic-support.version>${project.version}</arabic-support.version>
+        <arabic-ui-support.version>${project.version}</arabic-ui-support.version>
         <model-base.version>${project.version}</model-base.version>
         <genOutputDirectory>${project.build.directory}/generated-sources/querydsl</genOutputDirectory>
     </properties>
