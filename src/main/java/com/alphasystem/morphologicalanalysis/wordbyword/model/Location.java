@@ -193,7 +193,6 @@ public class Location extends Linkable {
             }
             initDisplayName();
             String id = format("%s:%s", getDisplayName(), partOfSpeech);
-            properties.setDisplayName(id);
             properties.setId(id);
         }
         return properties;

@@ -6,7 +6,7 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType;
-import com.alphasystem.persistence.model.AbstractDocument;
+import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.Transient;
 
@@ -17,7 +17,7 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Num
  * @author sali
  */
 @QueryEntity
-public abstract class AbstractProperties extends AbstractDocument {
+public abstract class AbstractProperties extends AbstractSimpleDocument {
 
     private static final long serialVersionUID = 8386413187448630570L;
     protected NumberType number;
@@ -55,7 +55,6 @@ public abstract class AbstractProperties extends AbstractDocument {
         } else if (isParticle(src)) {
             target = new ParticleProperties((ParticleProperties) src);
         }
-        target.initDisplayName();
         return target;
     }
 
