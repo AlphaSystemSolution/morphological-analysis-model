@@ -4,8 +4,8 @@ import com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType;
 import com.alphasystem.persistence.model.AbstractDocument;
 import com.querydsl.core.annotations.QueryEntity;
 
-import static com.alphasystem.arabic.ui.util.FontConstants.ARABIC_FONT_NAME;
 import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.TERMINAL;
+import static java.lang.System.getProperty;
 
 /**
  * @author sali
@@ -13,6 +13,8 @@ import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNod
 @QueryEntity
 public abstract class GraphNode extends AbstractDocument {
 
+    public static final String ARABIC_FONT_NAME = getProperty("arabic.font.name", "Arabic Typesetting");
+    public static final String ENGLISH_FONT_NAME = getProperty("english.font.name", "Candara");
     private static final long serialVersionUID = -3423247102141013999L;
     private static final FontMetaInfo DEFAULT_FONT = new FontMetaInfo(ARABIC_FONT_NAME, "NORMAL", "REGULAR", 14.0);
 

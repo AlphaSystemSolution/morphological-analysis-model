@@ -10,8 +10,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.alphasystem.arabic.ui.util.FontConstants.ARABIC_FONT_NAME;
-import static com.alphasystem.arabic.ui.util.FontConstants.ENGLISH_FONT_NAME;
 import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.TERMINAL;
 import static java.lang.String.format;
 
