@@ -10,6 +10,7 @@ import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbMode;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbType;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.annotation.TypeAlias;
 
 import static com.alphasystem.arabic.model.ArabicWord.concatenateWithSpace;
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.ConversationType.THIRD_PERSON;
@@ -19,6 +20,7 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Ver
  * @author sali
  */
 @QueryEntity
+@TypeAlias("VerbProperties")
 public class VerbProperties extends AbstractProperties {
 
     private static final long serialVersionUID = 579863620988819896L;

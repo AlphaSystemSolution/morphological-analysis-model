@@ -10,6 +10,7 @@ import com.alphasystem.persistence.model.CascadeSave;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -23,6 +24,7 @@ import static java.lang.String.format;
  */
 @QueryEntity
 @Document
+@TypeAlias("Verse")
 public class Verse extends AbstractDocument {
 
     private static final long serialVersionUID = 2453854450176270449L;
