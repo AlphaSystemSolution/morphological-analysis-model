@@ -7,7 +7,6 @@ import com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirect
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirective;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.querydsl.core.annotations.QueryEntity;
-import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirection.ASCENDING;
@@ -18,7 +17,6 @@ import static com.alphasystem.morphologicalanalysis.morphology.model.support.Sor
  */
 @QueryEntity
 @Document
-@TypeAlias("ChartConfiguration")
 public class ChartConfiguration extends AbstractSimpleDocument {
 
     private boolean omitToc;

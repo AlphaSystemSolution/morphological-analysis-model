@@ -1,14 +1,13 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
+import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.querydsl.core.annotations.QueryEntity;
-import org.springframework.data.annotation.TypeAlias;
 
 /**
  * @author sali
  */
 @QueryEntity
-@TypeAlias("GraphMetaInfo")
-public class GraphMetaInfo {
+public class GraphMetaInfo extends AbstractSimpleDocument {
 
     private static final double DEFAULT_TOTAL_WIDTH = 900.0;
     private static final double DEFAULT_TOTAL_HEIGHT = 600.0;
@@ -25,6 +24,7 @@ public class GraphMetaInfo {
     private Boolean debugMode;
 
     public GraphMetaInfo() {
+        super();
         setWidth(null);
         setHeight(null);
         setGapBetweenTokens(null);

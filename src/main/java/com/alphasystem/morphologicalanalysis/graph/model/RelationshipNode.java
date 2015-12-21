@@ -4,7 +4,6 @@ import com.alphasystem.morphologicalanalysis.wordbyword.model.support.AlternateS
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RelationshipType;
 import com.alphasystem.persistence.model.CascadeSave;
 import com.querydsl.core.annotations.QueryEntity;
-import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,7 +14,6 @@ import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNod
  */
 @QueryEntity
 @Document
-@TypeAlias("RelationshipNode")
 public class RelationshipNode extends GraphNode {
 
     private static final long serialVersionUID = -958480666990518422L;

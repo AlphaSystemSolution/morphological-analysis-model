@@ -10,7 +10,6 @@ import com.alphasystem.persistence.model.CascadeSave;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
-import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -26,7 +25,6 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
  */
 @QueryEntity
 @Document
-@TypeAlias("Token")
 public class Token extends AbstractDocument {
 
     private static final long serialVersionUID = 15155700997755124L;

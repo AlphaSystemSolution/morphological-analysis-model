@@ -7,7 +7,6 @@ import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
 import com.alphasystem.persistence.model.AbstractDocument;
 import com.alphasystem.persistence.model.CascadeSave;
 import com.querydsl.core.annotations.QueryEntity;
-import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -23,7 +22,6 @@ import static java.lang.String.format;
  */
 @QueryEntity
 @Document
-@TypeAlias("MorphologicalEntry")
 public class MorphologicalEntry extends AbstractDocument {
 
     @DBRef

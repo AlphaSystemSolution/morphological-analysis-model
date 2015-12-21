@@ -9,7 +9,6 @@ import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
-import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.arabic.model.ArabicLetterType.*;
@@ -23,7 +22,6 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
  */
 @QueryEntity
 @Document
-@TypeAlias("RootLetters")
 public class RootLetters extends AbstractDocument {
 
     protected ArabicLetterType firstRadical;

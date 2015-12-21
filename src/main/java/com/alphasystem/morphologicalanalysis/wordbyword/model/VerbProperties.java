@@ -20,11 +20,11 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Ver
  * @author sali
  */
 @QueryEntity
-@TypeAlias("VerbProperties")
+@TypeAlias(VerbProperties.VERB_PROPERTIES)
 public class VerbProperties extends AbstractProperties {
 
+    static final String VERB_PROPERTIES = "verb_properties";
     private static final long serialVersionUID = 579863620988819896L;
-
     protected ConversationType conversationType;
 
     protected VerbType verbType;

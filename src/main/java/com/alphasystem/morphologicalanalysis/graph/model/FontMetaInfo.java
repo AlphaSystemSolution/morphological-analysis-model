@@ -1,14 +1,13 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
+import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.querydsl.core.annotations.QueryEntity;
-import org.springframework.data.annotation.TypeAlias;
 
 /**
  * @author sali
  */
 @QueryEntity
-@TypeAlias("FontMetaInfo")
-public class FontMetaInfo {
+public class FontMetaInfo extends AbstractSimpleDocument {
 
     protected String family;
 
@@ -19,6 +18,7 @@ public class FontMetaInfo {
     protected double size;
 
     public FontMetaInfo(){
+        super();
     }
 
     public FontMetaInfo(String family, String weight, String posture, double size) {

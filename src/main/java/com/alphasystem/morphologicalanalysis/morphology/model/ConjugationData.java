@@ -12,23 +12,19 @@ import com.alphasystem.morphologicalanalysis.morphology.model.support.NounOfPlac
 import com.alphasystem.morphologicalanalysis.morphology.model.support.VerbalNoun;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.querydsl.core.annotations.QueryEntity;
-import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.alphasystem.arabic.model.NamedTemplate.FORM_I_CATEGORY_A_GROUP_U_TEMPLATE;
 
 /**
  * @author sali
  */
 @QueryEntity
 @Document
-@TypeAlias("ConjugationData")
 public class ConjugationData extends AbstractSimpleDocument {
 
-    protected NamedTemplate template = FORM_I_CATEGORY_A_GROUP_U_TEMPLATE;
+    protected NamedTemplate template;
     protected String translation;
     protected RootLetters rootLetters;
     protected List<VerbalNoun> verbalNouns;
@@ -96,9 +92,6 @@ public class ConjugationData extends AbstractSimpleDocument {
      * @return possible object is {@link NamedTemplate }
      */
     public NamedTemplate getTemplate() {
-        if (template == null) {
-            template = FORM_I_CATEGORY_A_GROUP_U_TEMPLATE;
-        }
         return template;
     }
 

@@ -20,10 +20,11 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Num
 public abstract class AbstractProperties extends AbstractSimpleDocument {
 
     private static final long serialVersionUID = 8386413187448630570L;
+
     protected NumberType number;
     protected GenderType gender;
 
-    protected AbstractProperties() {
+    public AbstractProperties() {
         super();
         setNumber(null);
         setGender(null);

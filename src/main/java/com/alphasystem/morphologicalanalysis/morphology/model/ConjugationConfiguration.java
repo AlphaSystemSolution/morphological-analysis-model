@@ -12,9 +12,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @author sali
  */
 @QueryEntity
-@Document
-@TypeAlias("ConjugationConfiguration")
+@Document(collection = ConjugationConfiguration.CONJUGATION_CONFIGURATION)
+@TypeAlias(ConjugationConfiguration.CONJUGATION_CONFIGURATION)
 public class ConjugationConfiguration extends AbstractSimpleDocument {
+
+    static final String CONJUGATION_CONFIGURATION = "conjugation_configuration";
 
     private boolean removePassiveLine;
     private boolean skipRuleProcessing;

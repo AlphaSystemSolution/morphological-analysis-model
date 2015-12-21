@@ -20,9 +20,11 @@ import java.util.List;
  *
  */
 @QueryEntity
-@Document
-@TypeAlias("ConjugationTemplate")
+@Document(collection = ConjugationTemplate.CONJUGATION_TEMPLATE)
+@TypeAlias(ConjugationTemplate.CONJUGATION_TEMPLATE)
 public class ConjugationTemplate extends AbstractSimpleDocument {
+
+    static final String CONJUGATION_TEMPLATE = "conjugation_template";
 
     protected List<ConjugationData> data;
     protected ChartConfiguration chartConfiguration;
