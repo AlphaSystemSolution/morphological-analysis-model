@@ -4,6 +4,7 @@ import com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Token;
 import com.alphasystem.persistence.model.CascadeSave;
 import com.querydsl.core.annotations.QueryEntity;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,6 +19,7 @@ import static java.lang.String.format;
  */
 @QueryEntity
 @Document
+@TypeAlias("TerminalNode")
 public class TerminalNode extends LineSupport {
 
     private static final long serialVersionUID = -2286312045728788322L;

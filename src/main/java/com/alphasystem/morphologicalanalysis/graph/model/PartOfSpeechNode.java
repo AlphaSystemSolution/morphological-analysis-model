@@ -3,6 +3,7 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 import com.alphasystem.morphologicalanalysis.common.model.Linkable;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
 import com.querydsl.core.annotations.QueryEntity;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,6 +15,7 @@ import static java.lang.String.format;
  */
 @QueryEntity
 @Document
+@TypeAlias("PartOfSpeechNode")
 public class PartOfSpeechNode extends LinkSupport {
 
     private static final long serialVersionUID = -6416045963720763331L;

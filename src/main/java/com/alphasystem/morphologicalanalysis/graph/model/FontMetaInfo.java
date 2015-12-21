@@ -1,11 +1,13 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.querydsl.core.annotations.QueryEntity;
+import org.springframework.data.annotation.TypeAlias;
 
 /**
  * @author sali
  */
 @QueryEntity
+@TypeAlias("FontMetaInfo")
 public class FontMetaInfo {
 
     protected String family;

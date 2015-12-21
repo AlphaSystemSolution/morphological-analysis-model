@@ -3,6 +3,7 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.AlternateStatus;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RelationshipType;
 import com.querydsl.core.annotations.QueryEntity;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,6 +17,7 @@ import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNod
  */
 @QueryEntity
 @Document
+@TypeAlias("PhraseNode")
 public class PhraseNode extends LinkSupport {
 
     private static final long serialVersionUID = 8563558531527217502L;

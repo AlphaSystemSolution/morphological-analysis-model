@@ -5,6 +5,7 @@ import com.alphasystem.persistence.model.AbstractDocument;
 import com.alphasystem.persistence.model.CascadeSave;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,6 +17,7 @@ import java.util.List;
  */
 @QueryEntity
 @Document
+@TypeAlias("DependencyGraph")
 public class DependencyGraph extends AbstractDocument {
 
     private static final String SEPARATOR = "|";

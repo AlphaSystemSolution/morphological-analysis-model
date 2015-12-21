@@ -1,11 +1,13 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.querydsl.core.annotations.QueryEntity;
+import org.springframework.data.annotation.TypeAlias;
 
 /**
  * @author sali
  */
 @QueryEntity
+@TypeAlias("GraphMetaInfo")
 public class GraphMetaInfo {
 
     private static final double DEFAULT_TOTAL_WIDTH = 900.0;
