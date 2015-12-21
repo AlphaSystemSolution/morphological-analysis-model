@@ -132,17 +132,19 @@ public class MorphologicalEntry extends AbstractDocument {
         }
     }
 
+    public boolean isEmpty() {
+        return rootLetters == null || rootLetters.isEmpty() || form == null;
+    }
+
     @Override
     public void initDisplayName() {
-        if (rootLetters == null || rootLetters.isEmpty()) {
-            throw new RuntimeException("RootLetters cannot be null.");
+        if (isEmpty()) {
+            super.initDisplayName();
+        } else {
+            String displayName = rootLetters.getDisplayName();
+            setDisplayName(format("%s:%s", form.name(), displayName));
+            groupTag = displayName;
         }
-        if (form == null) {
-            throw new RuntimeException("Form cannot be null.");
-        }
-        String displayName = rootLetters.getDisplayName();
-        setDisplayName(format("%s:%s", form.name(), displayName));
-        groupTag = displayName;
     }
 
 }
