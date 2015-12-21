@@ -50,6 +50,13 @@ public class MorphologicalEntry extends AbstractDocument {
         super();
     }
 
+    public MorphologicalEntry(RootLetters rootLetters, NamedTemplate form) {
+        super();
+        this.rootLetters = rootLetters;
+        this.form = form;
+        initDisplayName();
+    }
+
     public NamedTemplate getForm() {
         return form;
     }
