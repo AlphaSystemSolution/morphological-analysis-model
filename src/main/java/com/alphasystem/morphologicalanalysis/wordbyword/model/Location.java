@@ -9,6 +9,7 @@ import com.alphasystem.morphologicalanalysis.morphology.model.MorphologicalEntry
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NamedTag;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeech;
+import com.alphasystem.persistence.model.CascadeSave;
 import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
@@ -51,6 +52,7 @@ public class Location extends Linkable {
     protected PartOfSpeech partOfSpeech;
 
     @DBRef
+    @CascadeSave
     protected MorphologicalEntry morphologicalEntry;
 
     protected NamedTag namedTag;
