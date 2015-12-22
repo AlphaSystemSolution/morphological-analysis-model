@@ -90,9 +90,9 @@ public class Location extends Linkable {
         setTokenNumber(tokenNumber);
         setLocationNumber(locationNumber);
         setHidden(hidden);
-        setPartOfSpeech(null);
         setStartIndex(null);
         setEndIndex(null);
+        setPartOfSpeech(null);
     }
 
     /**
@@ -146,8 +146,7 @@ public class Location extends Linkable {
     }
 
     public void setEndIndex(Integer endIndex) {
-        this.endIndex = endIndex == null || endIndex.intValue() <= 0 ? 0
-                : endIndex;
+        this.endIndex = ((endIndex == null) || (endIndex.intValue() <= 0)) ? 0 : endIndex;
     }
 
     public Integer getLocationNumber() {
@@ -179,8 +178,27 @@ public class Location extends Linkable {
     }
 
     public void setPartOfSpeech(PartOfSpeech partOfSpeech) {
-        this.partOfSpeech = partOfSpeech == null ? NOUN : partOfSpeech;
-        initProperties();
+        this.partOfSpeech = (partOfSpeech == null) ? NOUN : partOfSpeech;
+        // setting part of speech will make properties re-initialized, which will override the location
+        // properties, there is a case where we don't want to have this override to be happened.
+
+        // Case 1: We already have value in the DB and from UI we selected the location from drop down,
+        // from "LocationPropertiesSkin" line 47 we changed the common properties view (this class) and
+        // that will trigger the change in part of speech, that's why we are here.
+        // Now we need to change the part of speech in UI but will reset the properties as well which is we
+        // want to be happened. So we want to keep track current sets of properties and put them back once
+        // part of speech is set
+
+        // Case 2: This is completely new sets of properties, when properties are initialized by default they
+        // are assigned "NOUN" as part of speech, now if we are changing to some other type of part of speech
+        // then holding of current sets of properties will not work, in this case we want the override to be
+        // happened
+
+        // trick is to find out that if current location is transient or not, init properties only if the location
+        // is transient
+        if (isTransient()) {
+            initProperties();
+        }
     }
 
     public AbstractProperties getProperties() {
@@ -217,8 +235,7 @@ public class Location extends Linkable {
     }
 
     public void setStartIndex(Integer startIndex) {
-        this.startIndex = startIndex == null || startIndex.intValue() <= 0 ? 0
-                : startIndex;
+        this.startIndex = ((startIndex == null) || (startIndex.intValue() <= 0)) ? 0 : startIndex;
     }
 
     public ArabicWord getLocationWord() {
