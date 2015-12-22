@@ -65,7 +65,7 @@ public class NounProperties extends AbstractNounProperties {
     }
 
     public void setNounType(NounType type) {
-        this.nounType = type == null ? INDEFINITE : type;
+        this.nounType = (type == null) ? INDEFINITE : type;
     }
 
     public NounProperties withNounKind(NounKind nounKind) {
