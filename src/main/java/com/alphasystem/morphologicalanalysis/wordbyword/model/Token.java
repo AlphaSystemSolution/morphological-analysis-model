@@ -72,6 +72,7 @@ public class Token extends AbstractDocument {
         setToken(token);
         setLocations(null);
         setHidden(false);
+        initDisplayName();
     }
 
     /**
