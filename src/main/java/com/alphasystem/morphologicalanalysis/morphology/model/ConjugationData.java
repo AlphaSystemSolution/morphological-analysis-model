@@ -11,7 +11,7 @@ import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.NounOfPlaceAndTime;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.VerbalNoun;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import com.querydsl.core.annotations.QueryEntity;
+import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * @author sali
  */
-@QueryEntity
+@Entity
 @Document
 public class ConjugationData extends AbstractSimpleDocument {
 

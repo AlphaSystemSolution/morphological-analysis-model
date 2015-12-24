@@ -2,7 +2,7 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.common.model.Linkable;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
-import com.querydsl.core.annotations.QueryEntity;
+import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,7 +12,7 @@ import static java.lang.String.format;
 /**
  * @author sali
  */
-@QueryEntity
+@Entity
 @Document
 public class PartOfSpeechNode extends LinkSupport {
 

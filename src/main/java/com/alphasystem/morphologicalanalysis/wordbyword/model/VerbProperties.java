@@ -8,9 +8,9 @@ import com.alphasystem.morphologicalanalysis.wordbyword.model.support.Conversati
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.IncompleteVerb;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbMode;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbType;
-import com.querydsl.core.annotations.QueryEntity;
+import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.Transient;
-import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.arabic.model.ArabicWord.concatenateWithSpace;
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.ConversationType.THIRD_PERSON;
@@ -19,11 +19,10 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Ver
 /**
  * @author sali
  */
-@QueryEntity
-@TypeAlias(VerbProperties.VERB_PROPERTIES)
+@Entity
+@Document
 public class VerbProperties extends AbstractProperties {
 
-    static final String VERB_PROPERTIES = "verb_properties";
     private static final long serialVersionUID = 579863620988819896L;
     protected ConversationType conversationType;
 

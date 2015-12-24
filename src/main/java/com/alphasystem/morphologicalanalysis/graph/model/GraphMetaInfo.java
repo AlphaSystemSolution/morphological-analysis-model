@@ -1,12 +1,14 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import com.querydsl.core.annotations.QueryEntity;
+import org.mongodb.morphia.annotations.Entity;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author sali
  */
-@QueryEntity
+@Entity
+@Document
 public class GraphMetaInfo extends AbstractSimpleDocument {
 
     private static final double DEFAULT_TOTAL_WIDTH = 900.0;

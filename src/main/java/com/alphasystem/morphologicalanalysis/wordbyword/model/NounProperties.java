@@ -6,8 +6,9 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounKind;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounType;
-import com.querydsl.core.annotations.QueryEntity;
+import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.arabic.model.ArabicLetters.WORD_COMMA;
 import static com.alphasystem.arabic.model.ArabicWord.concatenate;
@@ -18,7 +19,8 @@ import static java.lang.String.format;
 /**
  * @author sali
  */
-@QueryEntity
+@Entity
+@Document
 public class NounProperties extends AbstractNounProperties {
 
     private static final long serialVersionUID = 1602979768959493665L;

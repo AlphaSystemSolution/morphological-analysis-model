@@ -8,8 +8,7 @@
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import com.querydsl.core.annotations.QueryEntity;
-import org.springframework.data.annotation.TypeAlias;
+import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
@@ -19,12 +18,9 @@ import java.util.List;
 /**
  *
  */
-@QueryEntity
-@Document(collection = ConjugationTemplate.CONJUGATION_TEMPLATE)
-@TypeAlias(ConjugationTemplate.CONJUGATION_TEMPLATE)
+@Entity
+@Document
 public class ConjugationTemplate extends AbstractSimpleDocument {
-
-    static final String CONJUGATION_TEMPLATE = "conjugation_template";
 
     protected List<ConjugationData> data;
     protected ChartConfiguration chartConfiguration;

@@ -7,7 +7,7 @@ import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
 import com.alphasystem.persistence.model.AbstractDocument;
 import com.alphasystem.persistence.model.CascadeSave;
-import com.querydsl.core.annotations.QueryEntity;
+import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -21,7 +21,7 @@ import static java.lang.String.format;
 /**
  * @author sali
  */
-@QueryEntity
+@Entity
 @Document
 public class Verse extends AbstractDocument {
 
@@ -30,6 +30,8 @@ public class Verse extends AbstractDocument {
     protected Integer chapterNumber;
 
     protected Integer verseNumber;
+
+    protected Integer tokenCount;
 
     @DBRef
     @CascadeSave
@@ -77,7 +79,11 @@ public class Verse extends AbstractDocument {
     }
 
     public Integer getTokenCount() {
-        return tokens.size();
+        return tokenCount;
+    }
+
+    public void setTokenCount(Integer tokenCount) {
+        this.tokenCount = tokenCount;
     }
 
     public List<Token> getTokens() {

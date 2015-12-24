@@ -6,7 +6,7 @@ package com.alphasystem.morphologicalanalysis.morphology.model;
 import com.alphasystem.arabic.model.ArabicLetterType;
 import com.alphasystem.persistence.model.AbstractDocument;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import com.querydsl.core.annotations.QueryEntity;
+import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -20,7 +20,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 /**
  * @author sali
  */
-@QueryEntity
+@Entity
 @Document
 public class RootLetters extends AbstractDocument {
 

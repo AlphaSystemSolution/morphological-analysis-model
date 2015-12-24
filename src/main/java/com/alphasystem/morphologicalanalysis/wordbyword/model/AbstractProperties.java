@@ -7,8 +7,9 @@ import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import com.querydsl.core.annotations.QueryEntity;
+import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType.MASCULINE;
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType.SINGULAR;
@@ -16,7 +17,8 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Num
 /**
  * @author sali
  */
-@QueryEntity
+@Entity
+@Document
 public abstract class AbstractProperties extends AbstractSimpleDocument {
 
     private static final long serialVersionUID = 8386413187448630570L;
