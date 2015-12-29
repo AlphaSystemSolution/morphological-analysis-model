@@ -7,6 +7,7 @@ import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
 import com.alphasystem.persistence.model.AbstractDocument;
 import com.alphasystem.persistence.model.CascadeSave;
 import org.mongodb.morphia.annotations.Entity;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -39,7 +40,7 @@ public class MorphologicalEntry extends AbstractDocument {
 
     protected ConjugationConfiguration configuration;
 
-    protected String translation;
+    protected String shortTranslation;
 
     @DBRef(lazy = true)
     protected Set<Location> locations;
@@ -48,10 +49,11 @@ public class MorphologicalEntry extends AbstractDocument {
         super();
     }
 
+    @PersistenceConstructor
     public MorphologicalEntry(RootLetters rootLetters, NamedTemplate form) {
         super();
-        this.rootLetters = rootLetters;
-        this.form = form;
+        setRootLetters(rootLetters);
+        setForm(form);
         initDisplayName();
     }
 
@@ -115,12 +117,12 @@ public class MorphologicalEntry extends AbstractDocument {
         this.configuration = configuration;
     }
 
-    public String getTranslation() {
-        return translation;
+    public String getShortTranslation() {
+        return shortTranslation;
     }
 
-    public void setTranslation(String translation) {
-        this.translation = translation;
+    public void setShortTranslation(String shortTranslation) {
+        this.shortTranslation = shortTranslation;
     }
 
     public Set<Location> getLocations() {
