@@ -10,6 +10,7 @@ import com.alphasystem.persistence.model.CascadeSave;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -31,6 +32,7 @@ public class Verse extends AbstractDocument {
 
     protected Integer verseNumber;
 
+    @Indexed(name = "token_count")
     protected Integer tokenCount;
 
     @DBRef

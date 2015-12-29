@@ -32,15 +32,10 @@ public class Chapter extends AbstractDocument {
 
     protected String chapterName;
 
-    @Indexed(
-            unique = true,
-            name = "chapter_number"
-    )
+    @Indexed(unique = true, name = "chapter_number")
     protected Integer chapterNumber;
 
-    @Indexed(
-            name = "verse_count"
-    )
+    @Indexed(name = "verse_count")
     protected Integer verseCount;
 
     @DBRef(lazy = true)

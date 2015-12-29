@@ -2,7 +2,8 @@ package com.alphasystem.morphologicalanalysis.common.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
 import com.alphasystem.persistence.model.AbstractDocument;
-import com.querydsl.core.annotations.QueryEntity;
+import org.mongodb.morphia.annotations.Entity;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * A marker class to represents that sub classes can be linked to or dependent on other classes of this type.
@@ -10,6 +11,7 @@ import com.querydsl.core.annotations.QueryEntity;
  * @author sali
  * @see Location
  */
-@QueryEntity
+@Entity
+@Document
 public abstract class Linkable extends AbstractDocument {
 }
