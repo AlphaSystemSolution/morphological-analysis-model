@@ -34,6 +34,10 @@ public class MorphologicalEntry extends AbstractDocument {
     @Indexed(name = "group-tag")
     protected String groupTag;
 
+    @DBRef
+    @CascadeSave
+    protected DictionaryNotes dictionaryNotes;
+
     protected Set<VerbalNoun> verbalNouns;
 
     protected Set<NounOfPlaceAndTime> nounOfPlaceAndTimes;
@@ -79,6 +83,14 @@ public class MorphologicalEntry extends AbstractDocument {
 
     public void setGroupTag(String groupTag) {
         this.groupTag = groupTag;
+    }
+
+    public DictionaryNotes getDictionaryNotes() {
+        return dictionaryNotes;
+    }
+
+    public void setDictionaryNotes(DictionaryNotes dictionaryNotes) {
+        this.dictionaryNotes = dictionaryNotes;
     }
 
     public Set<VerbalNoun> getVerbalNouns() {
