@@ -5,6 +5,7 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.common.model.Linkable;
+import com.alphasystem.morphologicalanalysis.morphology.model.DictionaryNotes;
 import com.alphasystem.morphologicalanalysis.morphology.model.MorphologicalEntry;
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NamedTag;
@@ -54,6 +55,10 @@ public class Location extends Linkable {
     @DBRef
     @CascadeSave
     protected MorphologicalEntry morphologicalEntry;
+
+    @DBRef
+    @CascadeSave
+    protected DictionaryNotes dictionaryNotes;
 
     protected NamedTag namedTag;
 
@@ -228,6 +233,14 @@ public class Location extends Linkable {
 
     public void setMorphologicalEntry(MorphologicalEntry morphologicalEntry) {
         this.morphologicalEntry = morphologicalEntry;
+    }
+
+    public DictionaryNotes getDictionaryNotes() {
+        return dictionaryNotes;
+    }
+
+    public void setDictionaryNotes(DictionaryNotes dictionaryNotes) {
+        this.dictionaryNotes = dictionaryNotes;
     }
 
     public Integer getStartIndex() {
