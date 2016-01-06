@@ -1,7 +1,6 @@
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import com.alphasystem.persistence.model.AbstractDocument;
-import com.alphasystem.persistence.model.CascadeSave;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -15,7 +14,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class DictionaryNotes extends AbstractDocument {
 
     @DBRef
-    @CascadeSave
     protected RootLetters rootLetters;
 
     protected String notes;

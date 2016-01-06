@@ -57,7 +57,6 @@ public class Location extends Linkable {
     protected MorphologicalEntry morphologicalEntry;
 
     @DBRef
-    @CascadeSave
     protected DictionaryNotes dictionaryNotes;
 
     protected NamedTag namedTag;
