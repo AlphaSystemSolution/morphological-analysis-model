@@ -3,7 +3,6 @@ package com.alphasystem.morphologicalanalysis.morphology.model;
 import com.alphasystem.persistence.model.AbstractDocument;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -13,7 +12,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class DictionaryNotes extends AbstractDocument {
 
-    @DBRef
     protected RootLetters rootLetters;
 
     protected String notes;

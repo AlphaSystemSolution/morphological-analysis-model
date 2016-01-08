@@ -5,7 +5,6 @@ import com.alphasystem.morphologicalanalysis.morphology.model.support.NounOfPlac
 import com.alphasystem.morphologicalanalysis.morphology.model.support.VerbalNoun;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
 import com.alphasystem.persistence.model.AbstractDocument;
-import com.alphasystem.persistence.model.CascadeSave;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -25,8 +24,6 @@ import static java.lang.String.format;
 @Document
 public class MorphologicalEntry extends AbstractDocument {
 
-    @DBRef
-    @CascadeSave
     protected RootLetters rootLetters;
 
     protected NamedTemplate form;
