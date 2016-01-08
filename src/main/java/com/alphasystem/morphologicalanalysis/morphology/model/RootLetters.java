@@ -4,6 +4,7 @@
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import com.alphasystem.arabic.model.ArabicLetterType;
+import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.persistence.model.AbstractDocument;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import org.mongodb.morphia.annotations.Entity;
@@ -12,6 +13,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.arabic.model.ArabicLetterType.*;
+import static com.alphasystem.arabic.model.ArabicWord.getWord;
 import static com.alphasystem.util.AppUtil.isGivenType;
 import static com.alphasystem.util.HashCodeUtil.hash;
 import static java.lang.String.format;
@@ -103,6 +105,17 @@ public class RootLetters extends AbstractDocument {
         } else {
             setDisplayName(displayName);
         }
+    }
+
+    public ArabicWord getLabel() {
+        ArabicWord arabicWord = null;
+        if (!isEmpty()) {
+            arabicWord = getWord(firstRadical, secondRadical, thirdRadical);
+            if (fourthRadical != null) {
+                arabicWord.append(fourthRadical);
+            }
+        }
+        return arabicWord;
     }
 
     @Transient
