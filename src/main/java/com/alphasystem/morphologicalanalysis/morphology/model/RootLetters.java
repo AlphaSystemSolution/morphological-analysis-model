@@ -31,6 +31,9 @@ public class RootLetters extends AbstractDocument {
     protected ArabicLetterType thirdRadical;
     protected ArabicLetterType fourthRadical;
 
+    @Transient
+    protected String name;
+
     @PersistenceConstructor
     public RootLetters() {
         this(FA, AIN, LAM);
@@ -60,8 +63,19 @@ public class RootLetters extends AbstractDocument {
         initDisplayName();
     }
 
-    private static String getValue(ArabicLetterType arabicLetterType) {
+    private static String getCode(ArabicLetterType arabicLetterType) {
         return (arabicLetterType == null) ? "" : arabicLetterType.toCode();
+    }
+
+    private static String getName(ArabicLetterType arabicLetterType) {
+        return (arabicLetterType == null) ? "" : arabicLetterType.name();
+    }
+
+    public String getName() {
+        if (name == null) {
+            initDisplayName();
+        }
+        return name;
     }
 
     public ArabicLetterType getFirstRadical() {
@@ -98,8 +112,11 @@ public class RootLetters extends AbstractDocument {
 
     @Override
     public void initDisplayName() {
-        String displayName = format("%s%s%s%s", getValue(firstRadical), getValue(secondRadical),
-                getValue(thirdRadical), getValue(fourthRadical));
+        String displayName = format("%s%s%s%s", getCode(firstRadical), getCode(secondRadical),
+                getCode(thirdRadical), getCode(fourthRadical));
+        String frName = getName(fourthRadical);
+        frName = frName.isEmpty() ? "" : format("_%s", frName);
+        name = format("%s_%s_%s%s", getName(firstRadical), getName(secondRadical), getName(thirdRadical), frName);
         if (isBlank(displayName.trim())) {
             super.initDisplayName();
         } else {
