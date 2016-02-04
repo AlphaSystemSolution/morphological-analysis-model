@@ -1,58 +1,82 @@
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
-import com.alphasystem.persistence.model.AbstractDocument;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
+import java.io.InputStream;
+
+import static com.alphasystem.util.AppUtil.isInstanceOf;
+import static java.lang.String.format;
+import static java.util.Objects.hash;
 
 /**
  * @author sali
  */
-@Entity
-@Document
-public class DictionaryNotes extends AbstractDocument {
+public class DictionaryNotes implements Comparable<DictionaryNotes> {
 
-    protected RootLetters rootLetters;
+    protected final RootLetters rootLetters;
+    protected String id;
+    protected InputStream inputStream;
 
-    protected String notes;
-
-    public DictionaryNotes() {
-        super();
+    public DictionaryNotes(final RootLetters rootLetters) {
+        if (rootLetters == null || rootLetters.isEmpty()) {
+            throw new RuntimeException("RootLetters cannot be null.");
+        }
+        this.rootLetters = rootLetters;
     }
 
-    @PersistenceConstructor
-    public DictionaryNotes(RootLetters rootLetters) {
-        setRootLetters(rootLetters);
-        initDisplayName();
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public RootLetters getRootLetters() {
         return rootLetters;
     }
 
-    public void setRootLetters(RootLetters rootLetters) {
-        this.rootLetters = rootLetters;
-    }
-
     public boolean isEmpty() {
         return rootLetters == null || rootLetters.isEmpty();
     }
 
-    public String getNotes() {
-        return notes;
+    public InputStream getInputStream() {
+        return inputStream;
     }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void setInputStream(InputStream inputStream) {
+        this.inputStream = inputStream;
+    }
+
+    public String getFileName() {
+        return format("%s.adoc", getName());
+    }
+
+    public String getName() {
+        return rootLetters.getName();
     }
 
     @Override
-    public void initDisplayName() {
-        if (rootLetters == null || rootLetters.isEmpty()) {
-            super.initDisplayName();
-        } else {
-            setDisplayName(rootLetters.getDisplayName());
-        }
-
+    public int hashCode() {
+        return hash(getName());
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean result = super.equals(obj);
+        if (isInstanceOf(DictionaryNotes.class, obj)) {
+            DictionaryNotes other = (DictionaryNotes) obj;
+            result = getName().equals(other.getName());
+        }
+        return result;
+    }
+
+    @Override
+    public int compareTo(DictionaryNotes o) {
+        return (o == null) ? 1 : getName().compareTo(o.getName());
+    }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
+
 }

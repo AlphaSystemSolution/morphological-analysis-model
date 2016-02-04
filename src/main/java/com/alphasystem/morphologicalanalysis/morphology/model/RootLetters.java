@@ -13,7 +13,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.arabic.model.ArabicLetterType.*;
-import static com.alphasystem.arabic.model.ArabicWord.getWord;
+import static com.alphasystem.arabic.model.ArabicWord.concatenateWithSpace;
 import static com.alphasystem.util.AppUtil.isGivenType;
 import static com.alphasystem.util.HashCodeUtil.hash;
 import static java.lang.String.format;
@@ -127,9 +127,9 @@ public class RootLetters extends AbstractDocument {
     public ArabicWord getLabel() {
         ArabicWord arabicWord = null;
         if (!isEmpty()) {
-            arabicWord = getWord(firstRadical, secondRadical, thirdRadical);
+            arabicWord = concatenateWithSpace(firstRadical.getLabel(), secondRadical.getLabel(), thirdRadical.getLabel());
             if (fourthRadical != null) {
-                arabicWord.append(fourthRadical);
+                arabicWord = concatenateWithSpace(arabicWord, fourthRadical.getLabel());
             }
         }
         return arabicWord;
