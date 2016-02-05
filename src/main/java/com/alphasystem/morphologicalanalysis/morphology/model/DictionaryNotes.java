@@ -1,9 +1,9 @@
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import java.io.InputStream;
+import java.nio.file.Path;
 
 import static com.alphasystem.util.AppUtil.isInstanceOf;
-import static java.lang.String.format;
 import static java.util.Objects.hash;
 
 /**
@@ -13,6 +13,8 @@ public class DictionaryNotes implements Comparable<DictionaryNotes> {
 
     protected final RootLetters rootLetters;
     protected String id;
+    protected String fileName;
+    protected Path filePath;
     protected InputStream inputStream;
 
     public DictionaryNotes(final RootLetters rootLetters) {
@@ -46,8 +48,20 @@ public class DictionaryNotes implements Comparable<DictionaryNotes> {
         this.inputStream = inputStream;
     }
 
+    public Path getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(Path filePath) {
+        this.filePath = filePath;
+    }
+
     public String getFileName() {
-        return format("%s.adoc", getName());
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public String getName() {
