@@ -4,7 +4,6 @@
 package com.alphasystem.morphologicalanalysis.morphology.model.support;
 
 import com.alphasystem.arabic.model.ArabicLetters;
-import com.alphasystem.arabic.model.ArabicSupport;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.RootWord;
@@ -18,42 +17,31 @@ import static java.util.Arrays.asList;
 /**
  * @author sali
  */
-public enum NounOfPlaceAndTime implements ArabicLetters, ArabicSupport {
+public enum NounOfPlaceAndTime implements ArabicLetters, NounSupport {
 
-    NOUN_OF_PLACE_AND_TIME_V1(createZarfRootWord(1, 2, 3,
-            MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_V1(createZarfRootWord(1, 2, 3, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_V2(createZarfRootWord(1, 2, 3,
-            MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_KASRA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_V2(createZarfRootWord(1, 2, 3, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_KASRA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_V3(createZarfRootWord(1, 2, 3,
-            MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_V3(createZarfRootWord(1, 2, 3, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_II(createZarfRootWord(2, 3, 4,
-            MEEM_WITH_DAMMA, TA_WITH_FATHA, FA_WITH_FATHA, AIN_WITH_SHADDA_AND_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_II(createZarfRootWord(2, 3, 4, MEEM_WITH_DAMMA, TA_WITH_FATHA, FA_WITH_FATHA, AIN_WITH_SHADDA_AND_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_III(createZarfRootWord(1, 3, 4,
-            MEEM_WITH_DAMMA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_III(createZarfRootWord(1, 3, 4, MEEM_WITH_DAMMA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_IV(createZarfRootWord(1, 2, 3,
-            MEEM_WITH_DAMMA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_IV(createZarfRootWord(1, 2, 3, MEEM_WITH_DAMMA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_V(createZarfRootWord(2, 3, 4,
-            MEEM_WITH_DAMMA, TA_WITH_FATHA, FA_WITH_FATHA, AIN_WITH_SHADDA_AND_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_V(createZarfRootWord(2, 3, 4, MEEM_WITH_DAMMA, TA_WITH_FATHA, FA_WITH_FATHA, AIN_WITH_SHADDA_AND_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_VI(createZarfRootWord(2, 4, 5,
-            MEEM_WITH_DAMMA, TA_WITH_FATHA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_VI(createZarfRootWord(2, 4, 5, MEEM_WITH_DAMMA, TA_WITH_FATHA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_VII(createZarfRootWord(2, 3, 4,
-            MEEM_WITH_DAMMA, NOON_WITH_SUKUN, FA_WITH_FATHA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_VII(createZarfRootWord(2, 3, 4, MEEM_WITH_DAMMA, NOON_WITH_SUKUN, FA_WITH_FATHA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_VIII(createZarfRootWord(1, 3, 4,
-            MEEM_WITH_DAMMA, FA_WITH_SUKUN, TA_WITH_FATHA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_VIII(createZarfRootWord(1, 3, 4, MEEM_WITH_DAMMA, FA_WITH_SUKUN, TA_WITH_FATHA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
     //NOUN_OF_PLACE_AND_TIME_FORM_IX(null),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_X(createZarfRootWord(3, 4, 5,
-            MEEM_WITH_DAMMA, SEEN_WITH_SUKUN, TA_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN));
+    NOUN_OF_PLACE_AND_TIME_FORM_X(createZarfRootWord(3, 4, 5, MEEM_WITH_DAMMA, SEEN_WITH_SUKUN, TA_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN));
 
     private static RootWord[] rootWords;
 
@@ -66,9 +54,25 @@ public enum NounOfPlaceAndTime implements ArabicLetters, ArabicSupport {
     }
 
     private final RootWord rootWord;
+    private final boolean feminine;
+    private final Flexibility flexibility;
 
-    NounOfPlaceAndTime(RootWord rootWord) {
+    NounOfPlaceAndTime(final RootWord rootWord) {
+        this(rootWord, false, Flexibility.FULLY_FLEXIBLE);
+    }
+
+    NounOfPlaceAndTime(final RootWord rootWord, final boolean feminine) {
+        this(rootWord, feminine, Flexibility.FULLY_FLEXIBLE);
+    }
+
+    NounOfPlaceAndTime(final RootWord rootWord, final Flexibility flexibility) {
+        this(rootWord, false, flexibility);
+    }
+
+    NounOfPlaceAndTime(final RootWord rootWord, final boolean feminine, final Flexibility flexibility) {
         this.rootWord = rootWord;
+        this.feminine = feminine;
+        this.flexibility = flexibility;
     }
 
     public static List<NounOfPlaceAndTime> getByTemplate(NamedTemplate template) {
@@ -120,8 +124,19 @@ public enum NounOfPlaceAndTime implements ArabicLetters, ArabicSupport {
         return rootWords;
     }
 
+    @Override
     public RootWord getRootWord() {
         return rootWord;
+    }
+
+    @Override
+    public boolean isFeminine() {
+        return feminine;
+    }
+
+    @Override
+    public Flexibility getFlexibility() {
+        return flexibility;
     }
 
     @Override

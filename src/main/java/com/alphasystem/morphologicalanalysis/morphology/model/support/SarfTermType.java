@@ -7,6 +7,7 @@
 
 package com.alphasystem.morphologicalanalysis.morphology.model.support;
 
+import com.alphasystem.arabic.model.ArabicSupport;
 import com.alphasystem.arabic.model.ArabicWord;
 
 import static com.alphasystem.arabic.model.ArabicLetterType.*;
@@ -15,7 +16,7 @@ import static com.alphasystem.arabic.model.ArabicWord.getWord;
 /**
  * @author sali
  */
-public enum SarfTermType {
+public enum SarfTermType implements ArabicSupport {
 
     PAST_TENSE(getWord(FA, AIN, LAM, SPACE, MEEM, ALIF, DDAD, YA)),
 
@@ -69,6 +70,7 @@ public enum SarfTermType {
         throw new IllegalArgumentException(v);
     }
 
+    @Override
     public ArabicWord getLabel() {
         return label;
     }
