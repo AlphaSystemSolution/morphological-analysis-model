@@ -12,6 +12,8 @@ import com.alphasystem.morphologicalanalysis.morphology.model.support.SarfTermTy
 
 import javax.xml.bind.annotation.*;
 
+import static com.alphasystem.arabic.model.ArabicLetters.TA_MARBUTA_WITH_DAMMATAN;
+import static com.alphasystem.arabic.model.DiacriticType.FATHA;
 import static java.lang.String.format;
 
 /**
@@ -151,6 +153,14 @@ public class RootWord implements ArabicSupport {
                     thirdRadical, thirdRadicalIndex, fourthRadical,
                     fourthRadicalIndex));
         }
+    }
+
+    public static RootWord convertToFeminine(RootWord src) {
+        final RootWord target = new RootWord(src);
+        final ArabicWord rootWord = target.getRootWord().replaceDiacritic(src.getThirdRadicalIndex(), FATHA)
+                .append(TA_MARBUTA_WITH_DAMMATAN);
+        target.setRootWord(rootWord);
+        return target;
     }
 
     public static ArabicWord replaceLetters(ArabicWord src,
