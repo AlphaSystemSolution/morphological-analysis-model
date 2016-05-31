@@ -1,4 +1,6 @@
-package com.alphasystem.morphologicalanalysis.morphology.model.support;
+package com.alphasystem.morphologicalanalysis.morphology.model;
+
+import com.alphasystem.morphologicalanalysis.morphology.model.support.NounSupport;
 
 /**
  * @author sali
