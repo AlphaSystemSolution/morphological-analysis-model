@@ -11,6 +11,8 @@ import com.alphasystem.morphologicalanalysis.morphology.model.RootWord;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.alphasystem.morphologicalanalysis.morphology.model.support.NounSupport.Flexibility.FULLY_FLEXIBLE;
+import static com.alphasystem.morphologicalanalysis.morphology.model.support.NounSupport.Flexibility.PARTLY_FLEXIBLE;
 import static com.alphasystem.morphologicalanalysis.morphology.util.TriLiteralTemplateHelper.createZarfRootWord;
 import static java.util.Arrays.asList;
 
@@ -19,9 +21,9 @@ import static java.util.Arrays.asList;
  */
 public enum NounOfPlaceAndTime implements ArabicLetters, NounSupport {
 
-    NOUN_OF_PLACE_AND_TIME_V1(createZarfRootWord(1, 2, 3, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_V1(createZarfRootWord(1, 2, 3, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN), false, PARTLY_FLEXIBLE),
 
-    NOUN_OF_PLACE_AND_TIME_V2(createZarfRootWord(1, 2, 3, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_KASRA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_V2(createZarfRootWord(1, 2, 3, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_KASRA, LAM_WITH_DAMMATAN), false, PARTLY_FLEXIBLE),
 
     NOUN_OF_PLACE_AND_TIME_V3(createZarfRootWord(1, 2, 3, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
 
@@ -58,11 +60,11 @@ public enum NounOfPlaceAndTime implements ArabicLetters, NounSupport {
     private final Flexibility flexibility;
 
     NounOfPlaceAndTime(final RootWord rootWord) {
-        this(rootWord, false, Flexibility.FULLY_FLEXIBLE);
+        this(rootWord, false, FULLY_FLEXIBLE);
     }
 
     NounOfPlaceAndTime(final RootWord rootWord, final boolean feminine) {
-        this(rootWord, feminine, Flexibility.FULLY_FLEXIBLE);
+        this(rootWord, feminine, FULLY_FLEXIBLE);
     }
 
     NounOfPlaceAndTime(final RootWord rootWord, final Flexibility flexibility) {
