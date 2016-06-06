@@ -85,6 +85,14 @@ public class TriLiteralTemplateHelper {
                 .withSarfTermType(sarfTermType);
     }
 
+    public static RootWord createRootWord(int firstRadicalIndex, int secondRadicalIndex, int thirdRadicalIndex,
+                                          int fourthRadicalIndex, ArabicLetter... arabicLetters) {
+        ArabicWord arabicWord = new ArabicWord(arabicLetters);
+        return new RootWord().withSarfTermType(null).withFirstRadicalIndex(firstRadicalIndex)
+                .withSecondRadicalIndex(secondRadicalIndex).withThirdRadicalIndex(thirdRadicalIndex)
+                .withFourthRadicalIndex(fourthRadicalIndex).withBaseWord(arabicWord).withRootWord(arabicWord);
+    }
+
     public static RootWord createVerbalNounRootWord(int firstRadicalIndex, int secondRadicalIndex, int thirdRadicalIndex,
                                                     ArabicLetter... arabicLetters) {
         return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, VERBAL_NOUN, arabicLetters);
