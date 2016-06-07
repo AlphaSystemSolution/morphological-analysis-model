@@ -5,35 +5,27 @@ import com.alphasystem.morphologicalanalysis.morphology.model.support.NounSuppor
 /**
  * @author sali
  */
-public final class NounRootBase {
+public abstract class NounRootBase<S extends Enum<S> & NounSupport, D extends Enum<D> & NounSupport, P extends Enum<P> & NounSupport> {
 
-    protected final NounSupport singularBaseWord;
-    protected final NounSupport dualBaseWord;
-    protected final NounSupport pluralBaseWord;
+    protected final S singularBaseWord;
+    protected final D dualBaseWord;
+    protected final P pluralBaseWord;
 
-    public NounRootBase(NounSupport singularBaseWord) {
-        this(singularBaseWord, singularBaseWord);
-    }
-
-    public NounRootBase(NounSupport singularBaseWord, NounSupport pluralBaseWord) {
-        this(singularBaseWord, singularBaseWord, pluralBaseWord);
-    }
-
-    public NounRootBase(NounSupport singularBaseWord, NounSupport dualBaseWord, NounSupport pluralBaseWord) {
+    protected NounRootBase(S singularBaseWord, D dualBaseWord, P pluralBaseWord) {
         this.singularBaseWord = singularBaseWord;
         this.dualBaseWord = dualBaseWord;
         this.pluralBaseWord = pluralBaseWord;
     }
 
-    public NounSupport getSingularBaseWord() {
+    public S getSingularBaseWord() {
         return singularBaseWord;
     }
 
-    public NounSupport getDualBaseWord() {
+    public D getDualBaseWord() {
         return dualBaseWord;
     }
 
-    public NounSupport getPluralBaseWord() {
+    public P getPluralBaseWord() {
         return pluralBaseWord;
     }
 }
