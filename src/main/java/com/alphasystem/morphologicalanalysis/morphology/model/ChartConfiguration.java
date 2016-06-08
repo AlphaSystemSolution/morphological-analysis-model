@@ -97,39 +97,37 @@ public class ChartConfiguration extends AbstractSimpleDocument {
         this.omitToc = omitToc;
     }
 
-    public ChartConfiguration withOmitAbbreviatedConjugation(
-            boolean omitAbbreviatedConjugation) {
+    public ChartConfiguration omitAbbreviatedConjugation(boolean omitAbbreviatedConjugation) {
         setOmitAbbreviatedConjugation(omitAbbreviatedConjugation);
         return this;
     }
 
-    public ChartConfiguration withOmitDetailedConjugation(
-            boolean omitDetailedConjugation) {
+    public ChartConfiguration omitDetailedConjugation(boolean omitDetailedConjugation) {
         setOmitDetailedConjugation(omitDetailedConjugation);
         return this;
     }
 
-    public ChartConfiguration withOmitHeader(boolean omitHeader) {
+    public ChartConfiguration omitHeader(boolean omitHeader) {
         setOmitHeader(omitHeader);
         return this;
     }
 
-    public ChartConfiguration withOmitTitle(boolean omitTitle) {
+    public ChartConfiguration omitTitle(boolean omitTitle) {
         setOmitTitle(omitTitle);
         return this;
     }
 
-    public ChartConfiguration withOmitToc(boolean omitToc) {
+    public ChartConfiguration omitToc(boolean omitToc) {
         setOmitToc(omitToc);
         return this;
     }
 
-    public ChartConfiguration withSortDirection(SortDirection sortDirection) {
+    public ChartConfiguration sortDirection(SortDirection sortDirection) {
         setSortDirection(sortDirection);
         return this;
     }
 
-    public ChartConfiguration withSortDirective(SortDirective sortDirective) {
+    public ChartConfiguration sortDirective(SortDirective sortDirective) {
         setSortDirective(sortDirective);
         return this;
     }

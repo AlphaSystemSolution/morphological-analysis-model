@@ -37,14 +37,12 @@ public class ConjugationConfiguration extends AbstractSimpleDocument {
         this.skipRuleProcessing = skipRuleProcessing;
     }
 
-    public ConjugationConfiguration withRemovePassiveLine(
-            boolean removePassiveLine) {
+    public ConjugationConfiguration removePassiveLine(boolean removePassiveLine) {
         setRemovePassiveLine(removePassiveLine);
         return this;
     }
 
-    public ConjugationConfiguration withSkipRuleProcessing(
-            boolean skipRuleProcessing) {
+    public ConjugationConfiguration skipRuleProcessing(boolean skipRuleProcessing) {
         setSkipRuleProcessing(skipRuleProcessing);
         return this;
     }
