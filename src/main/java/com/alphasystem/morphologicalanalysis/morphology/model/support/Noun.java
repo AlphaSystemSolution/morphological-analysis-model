@@ -6,8 +6,10 @@ import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.RootWord;
 import com.alphasystem.morphologicalanalysis.morphology.util.TriLiteralTemplateHelper;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType;
 
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.NounSupport.Flexibility.FULLY_FLEXIBLE;
+import static java.lang.String.format;
 
 /**
  * @author sali
@@ -282,4 +284,24 @@ public enum Noun implements ArabicLetters, NounSupport {
     public ArabicWord getLabel() {
         return getRootWord().getRootWord();
     }
+
+    @Override
+    public String getSingularRootName() {
+        return getRootName(NumberType.SINGULAR);
+    }
+
+    @Override
+    public String getDualRootName() {
+        return getRootName(NumberType.DUAL);
+    }
+
+    @Override
+    public String getPluralRootName() {
+        return getRootName(NumberType.PLURAL);
+    }
+
+    private String getRootName(NumberType numberType) {
+        return format("%s_%s", name(), numberType.name());
+    }
+
 }
