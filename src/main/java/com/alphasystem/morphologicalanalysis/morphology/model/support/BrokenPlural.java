@@ -77,7 +77,7 @@ public enum BrokenPlural implements ArabicLetters, NounSupport {
         return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, null, arabicLetters);
     }
 
-    public static RootWord createRootWord(int firstRadicalIndex, int secondRadicalIndex, int thirdRadicalIndex,
+    private static RootWord createRootWord(int firstRadicalIndex, int secondRadicalIndex, int thirdRadicalIndex,
                                           SarfTermType sarfTermType, ArabicLetter... arabicLetters) {
         return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, arabicLetters)
                 .withSarfTermType(sarfTermType);

@@ -1,10 +1,9 @@
 package com.alphasystem.morphologicalanalysis.morphology.model.support;
 
+import com.alphasystem.arabic.model.ArabicLetter;
 import com.alphasystem.arabic.model.ArabicLetters;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.morphology.model.RootWord;
-
-import static com.alphasystem.morphologicalanalysis.morphology.util.TriLiteralTemplateHelper.createRootWord;
 
 /**
  * @author sali
@@ -111,6 +110,14 @@ public enum Verb implements ArabicLetters, RootWordSupport {
 
     Verb(RootWord rootWord) {
         this.rootWord = rootWord;
+    }
+
+    private static RootWord createRootWord(int firstRadicalIndex, int secondRadicalIndex, int thirdRadicalIndex,
+                                          int fourthRadicalIndex, ArabicLetter... arabicLetters) {
+        ArabicWord arabicWord = new ArabicWord(arabicLetters);
+        return new RootWord().withSarfTermType(null).withFirstRadicalIndex(firstRadicalIndex)
+                .withSecondRadicalIndex(secondRadicalIndex).withThirdRadicalIndex(thirdRadicalIndex)
+                .withFourthRadicalIndex(fourthRadicalIndex).withBaseWord(arabicWord).withRootWord(arabicWord);
     }
 
     @Override
