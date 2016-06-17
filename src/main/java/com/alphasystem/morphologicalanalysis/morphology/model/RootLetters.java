@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.arabic.model.ArabicLetterType.*;
 import static com.alphasystem.arabic.model.ArabicWord.concatenateWithSpace;
-import static com.alphasystem.util.AppUtil.isGivenType;
+import static com.alphasystem.util.AppUtil.isInstanceOf;
 import static com.alphasystem.util.HashCodeUtil.hash;
 import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.isBlank;
@@ -144,7 +144,7 @@ public class RootLetters extends AbstractDocument {
     public boolean equals(Object obj) {
         boolean empty = isEmpty();
         boolean result = empty && super.equals(obj);
-        if (!empty && isGivenType(RootLetters.class, obj)) {
+        if (!empty && isInstanceOf(RootLetters.class, obj)) {
             RootLetters other = (RootLetters) obj;
             boolean equalFirstRadical = getFirstRadical().equals(other.getFirstRadical());
             boolean equalSecondRadical = getSecondRadical().equals(other.getSecondRadical());
@@ -161,7 +161,7 @@ public class RootLetters extends AbstractDocument {
     public int compareTo(AbstractSimpleDocument o) {
         boolean empty = isEmpty();
         int result = empty ? super.compareTo(o) : 0;
-        if (!empty && isGivenType(RootLetters.class, o)) {
+        if (!empty && isInstanceOf(RootLetters.class, o)) {
             RootLetters other = (RootLetters) o;
             int firstRadicalCompare = getFirstRadical().compareTo(other.getFirstRadical());
             int secondRadicalCompare = getSecondRadical().compareTo(other.getSecondRadical());
