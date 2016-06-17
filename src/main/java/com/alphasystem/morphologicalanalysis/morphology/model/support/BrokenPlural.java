@@ -4,7 +4,6 @@ import com.alphasystem.arabic.model.ArabicLetter;
 import com.alphasystem.arabic.model.ArabicLetters;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.morphology.model.RootWord;
-import com.alphasystem.morphologicalanalysis.morphology.util.TriLiteralTemplateHelper;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType;
 
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.NounSupport.Flexibility.*;
@@ -75,7 +74,13 @@ public enum BrokenPlural implements ArabicLetters, NounSupport {
 
     private static RootWord createRootWord(int firstRadicalIndex, int secondRadicalIndex, int thirdRadicalIndex,
                                            ArabicLetter... arabicLetters) {
-        return TriLiteralTemplateHelper.createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, null, arabicLetters);
+        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, null, arabicLetters);
+    }
+
+    public static RootWord createRootWord(int firstRadicalIndex, int secondRadicalIndex, int thirdRadicalIndex,
+                                          SarfTermType sarfTermType, ArabicLetter... arabicLetters) {
+        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, arabicLetters)
+                .withSarfTermType(sarfTermType);
     }
 
     @Override
