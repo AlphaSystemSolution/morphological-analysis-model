@@ -155,6 +155,14 @@ public class RootWord implements ArabicSupport {
         }
     }
 
+    public static RootWord createRootWord(int firstRadicalIndex, int secondRadicalIndex, int thirdRadicalIndex,
+                                          int fourthRadicalIndex, ArabicLetter... arabicLetters) {
+        ArabicWord arabicWord = new ArabicWord(arabicLetters);
+        return new RootWord().withSarfTermType(null).withFirstRadicalIndex(firstRadicalIndex)
+                .withSecondRadicalIndex(secondRadicalIndex).withThirdRadicalIndex(thirdRadicalIndex)
+                .withFourthRadicalIndex(fourthRadicalIndex).withBaseWord(arabicWord).withRootWord(arabicWord);
+    }
+
     public static RootWord convertToFeminine(RootWord src) {
         final RootWord target = new RootWord(src);
         final ArabicWord rootWord = target.getRootWord().replaceDiacritic(src.getThirdRadicalIndex(), FATHA)

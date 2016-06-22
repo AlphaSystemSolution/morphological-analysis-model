@@ -3,7 +3,6 @@
  */
 package com.alphasystem.morphologicalanalysis.morphology.model.support;
 
-import com.alphasystem.arabic.model.ArabicLetter;
 import com.alphasystem.arabic.model.ArabicLetters;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.arabic.model.NamedTemplate;
@@ -14,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.alphasystem.morphologicalanalysis.morphology.model.RootWord.createRootWord;
 import static java.lang.String.format;
 
 /**
@@ -21,97 +21,97 @@ import static java.lang.String.format;
  */
 public enum VerbalNoun implements ArabicLetters, NounSupport {
 
-    VERBAL_NOUN_V1(createRootWord(0, 1, 2, FA_WITH_FATHA, AIN_WITH_SUKUN, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V1(createRootWord(0, 1, 2, -1, FA_WITH_FATHA, AIN_WITH_SUKUN, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V2(createRootWord(0, 1, 2, FA_WITH_DAMMA, AIN_WITH_DAMMA, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V2(createRootWord(0, 1, 2, -1, FA_WITH_DAMMA, AIN_WITH_DAMMA, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V3(createRootWord(0, 1, 2, FA_WITH_DAMMA, AIN_WITH_SUKUN, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V3(createRootWord(0, 1, 2, -1, FA_WITH_DAMMA, AIN_WITH_SUKUN, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V4(createRootWord(0, 1, 2, FA_WITH_FATHA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V4(createRootWord(0, 1, 2, -1, FA_WITH_FATHA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V5(createRootWord(0, 1, 2, FA_WITH_FATHA, AIN_WITH_KASRA, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V5(createRootWord(0, 1, 2, -1, FA_WITH_FATHA, AIN_WITH_KASRA, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V6(createRootWord(0, 1, 2, FA_WITH_DAMMA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V6(createRootWord(0, 1, 2, -1, FA_WITH_DAMMA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V7(createRootWord(0, 1, 2, FA_WITH_KASRA, AIN_WITH_SUKUN, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V7(createRootWord(0, 1, 2, -1, FA_WITH_KASRA, AIN_WITH_SUKUN, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V8(createRootWord(0, 1, 2, FA_WITH_KASRA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V8(createRootWord(0, 1, 2, -1, FA_WITH_KASRA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V9(createRootWord(0, 1, 2, FA_WITH_FATHA, AIN_WITH_SUKUN, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN)),
+    VERBAL_NOUN_V9(createRootWord(0, 1, 2, -1, FA_WITH_FATHA, AIN_WITH_SUKUN, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V10(createRootWord(0, 1, 2, FA_WITH_KASRA, AIN_WITH_SUKUN, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
+    VERBAL_NOUN_V10(createRootWord(0, 1, 2, -1, FA_WITH_KASRA, AIN_WITH_SUKUN, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
 
-    VERBAL_NOUN_V11(createRootWord(0, 1, 2, FA_WITH_DAMMA, AIN_WITH_SUKUN, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
+    VERBAL_NOUN_V11(createRootWord(0, 1, 2, -1, FA_WITH_DAMMA, AIN_WITH_SUKUN, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
 
-    VERBAL_NOUN_V12(createRootWord(0, 1, 2, FA_WITH_FATHA, AIN_WITH_FATHA, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
+    VERBAL_NOUN_V12(createRootWord(0, 1, 2, -1, FA_WITH_FATHA, AIN_WITH_FATHA, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
 
-    VERBAL_NOUN_V13(createRootWord(0, 1, 2, FA_WITH_FATHA, AIN_WITH_KASRA, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
+    VERBAL_NOUN_V13(createRootWord(0, 1, 2, -1, FA_WITH_FATHA, AIN_WITH_KASRA, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
 
-    VERBAL_NOUN_V14(createRootWord(0, 1, 3, FA_WITH_FATHA, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_FATHA,
+    VERBAL_NOUN_V14(createRootWord(0, 1, 3, -1, FA_WITH_FATHA, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_FATHA,
             TA_MARBUTA_WITH_DAMMATAN), true),
 
-    VERBAL_NOUN_V15(createRootWord(0, 1, 3, FA_WITH_KASRA, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_FATHA,
+    VERBAL_NOUN_V15(createRootWord(0, 1, 3, -1, FA_WITH_KASRA, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_FATHA,
             TA_MARBUTA_WITH_DAMMATAN), true),
 
-    VERBAL_NOUN_V16(createRootWord(0, 1, 2, FA_WITH_KASRA, AIN_WITH_SUKUN, LAM_WITH_FATHA, LETTER_ALIF_MAKSURA)),
+    VERBAL_NOUN_V16(createRootWord(0, 1, 2, -1, FA_WITH_KASRA, AIN_WITH_SUKUN, LAM_WITH_FATHA, LETTER_ALIF_MAKSURA)),
 
-    VERBAL_NOUN_V17(createRootWord(0, 1, 2, FA_WITH_FATHA, AIN_WITH_SUKUN, LAM_WITH_FATHA, LETTER_ALIF_MAKSURA)),
+    VERBAL_NOUN_V17(createRootWord(0, 1, 2, -1, FA_WITH_FATHA, AIN_WITH_SUKUN, LAM_WITH_FATHA, LETTER_ALIF_MAKSURA)),
 
-    VERBAL_NOUN_V18(createRootWord(0, 1, 2, FA_WITH_DAMMA, AIN_WITH_SUKUN, LAM_WITH_FATHA, LETTER_ALIF_MAKSURA)),
+    VERBAL_NOUN_V18(createRootWord(0, 1, 2, -1, FA_WITH_DAMMA, AIN_WITH_SUKUN, LAM_WITH_FATHA, LETTER_ALIF_MAKSURA)),
 
-    VERBAL_NOUN_V19(createRootWord(0, 1, 3, FA_WITH_FATHA, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V19(createRootWord(0, 1, 3, -1, FA_WITH_FATHA, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V20(createRootWord(0, 1, 3, FA_WITH_KASRA, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V20(createRootWord(0, 1, 3, -1, FA_WITH_KASRA, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V21(createRootWord(0, 1, 3, FA_WITH_DAMMA, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V21(createRootWord(0, 1, 3, -1, FA_WITH_DAMMA, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V22(createRootWord(0, 1, 3, FA_WITH_DAMMA, AIN_WITH_DAMMA, WAW_WITH_SUKUN, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V22(createRootWord(0, 1, 3, -1, FA_WITH_DAMMA, AIN_WITH_DAMMA, WAW_WITH_SUKUN, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V23(createRootWord(0, 1, 3, FA_WITH_FATHA, AIN_WITH_DAMMA, WAW_WITH_SUKUN, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V23(createRootWord(0, 1, 3, -1, FA_WITH_FATHA, AIN_WITH_DAMMA, WAW_WITH_SUKUN, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V24(createRootWord(0, 1, 2, FA_WITH_FATHA, AIN_WITH_KASRA, YA_WITH_SUKUN, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_V24(createRootWord(0, 1, 2, -1, FA_WITH_FATHA, AIN_WITH_KASRA, YA_WITH_SUKUN, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V25(createRootWord(0, 1, 3, FA_WITH_FATHA, AIN_WITH_DAMMA, WAW_WITH_SUKUN, LAM_WITH_FATHA,
+    VERBAL_NOUN_V25(createRootWord(0, 1, 3, -1, FA_WITH_FATHA, AIN_WITH_DAMMA, WAW_WITH_SUKUN, LAM_WITH_FATHA,
             TA_MARBUTA_WITH_DAMMATAN), true),
 
-    VERBAL_NOUN_V26(createRootWord(0, 1, 2, FA_WITH_DAMMA, AIN_WITH_SUKUN, LAM_WITH_FATHA, LETTER_ALIF, NOON_WITH_DAMMATAN)),
+    VERBAL_NOUN_V26(createRootWord(0, 1, 2, -1, FA_WITH_DAMMA, AIN_WITH_SUKUN, LAM_WITH_FATHA, LETTER_ALIF, NOON_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_V27(createRootWord(1, 2, 3, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_FATHA,
+    VERBAL_NOUN_V27(createRootWord(1, 2, 3, -1, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_FATHA,
             TA_MARBUTA_WITH_DAMMATAN), true),
 
-    VERBAL_NOUN_FORM_II(createRootWord(1, 2, 4, TA_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_KASRA, YA_WITH_SUKUN, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_FORM_II(createRootWord(1, 2, 4, -1, TA_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_KASRA, YA_WITH_SUKUN, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_FORM_II_DEFECTIVE_VERB(createRootWord(1, 2, 3, TA_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_KASRA,
+    VERBAL_NOUN_FORM_II_DEFECTIVE_VERB(createRootWord(1, 2, 3, -1, TA_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_KASRA,
             LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
 
-    VERBAL_NOUN_FORM_III_V1(createRootWord(0, 1, 3, FA_WITH_KASRA, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_FORM_III_V1(createRootWord(0, 1, 3, -1, FA_WITH_KASRA, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_FORM_III_V2(createRootWord(1, 3, 4, MEEM_WITH_DAMMA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_KASRA,
+    VERBAL_NOUN_FORM_III_V2(createRootWord(1, 3, 4, -1, MEEM_WITH_DAMMA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_KASRA,
             LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
 
-    VERBAL_NOUN_FORM_III_DEFECTIVE_VERB(createRootWord(1, 3, 4, MEEM_WITH_DAMMA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_FATHA,
+    VERBAL_NOUN_FORM_III_DEFECTIVE_VERB(createRootWord(1, 3, 4, -1, MEEM_WITH_DAMMA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_FATHA,
             LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
 
-    VERBAL_NOUN_FORM_IV(createRootWord(1, 2, 4, ALIF_HAMZA_BELOW_WITH_KASRA, FA_WITH_SUKUN, AIN_WITH_FATHA,
+    VERBAL_NOUN_FORM_IV(createRootWord(1, 2, 4, -1, ALIF_HAMZA_BELOW_WITH_KASRA, FA_WITH_SUKUN, AIN_WITH_FATHA,
             LETTER_ALIF, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_FORM_V(createRootWord(1, 2, 3, TA_WITH_FATHA, FA_WITH_FATHA, AIN_WITH_SHADDA_AND_DAMMA, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_FORM_V(createRootWord(1, 2, 3, -1, TA_WITH_FATHA, FA_WITH_FATHA, AIN_WITH_SHADDA_AND_DAMMA, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_FORM_VI(createRootWord(1, 3, 4, TA_WITH_FATHA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_DAMMA, LAM_WITH_DAMMATAN)),
+    VERBAL_NOUN_FORM_VI(createRootWord(1, 3, 4, -1, TA_WITH_FATHA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_DAMMA, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_FORM_VII(createRootWord(2, 3, 5, ALIF_HAMZA_BELOW_WITH_KASRA, NOON_WITH_SUKUN, FA_WITH_KASRA,
+    VERBAL_NOUN_FORM_VII(createRootWord(2, 3, 5, -1, ALIF_HAMZA_BELOW_WITH_KASRA, NOON_WITH_SUKUN, FA_WITH_KASRA,
             AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_FORM_VIII(createRootWord(1, 3, 5, ALIF_HAMZA_BELOW_WITH_KASRA, FA_WITH_SUKUN, TA_WITH_KASRA,
+    VERBAL_NOUN_FORM_VIII(createRootWord(1, 3, 5, -1, ALIF_HAMZA_BELOW_WITH_KASRA, FA_WITH_SUKUN, TA_WITH_KASRA,
             AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_FORM_IX(createRootWord(1, 2, 5, ALIF_HAMZA_BELOW_WITH_KASRA, FA_WITH_SUKUN, AIN_WITH_KASRA,
+    VERBAL_NOUN_FORM_IX(createRootWord(1, 2, 5, -1, ALIF_HAMZA_BELOW_WITH_KASRA, FA_WITH_SUKUN, AIN_WITH_KASRA,
             LAM_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_FORM_X(createRootWord(3, 4, 6, ALIF_HAMZA_BELOW_WITH_KASRA, SEEN_WITH_SUKUN, TA_WITH_FATHA,
+    VERBAL_NOUN_FORM_X(createRootWord(3, 4, 6, -1, ALIF_HAMZA_BELOW_WITH_KASRA, SEEN_WITH_SUKUN, TA_WITH_FATHA,
             FA_WITH_SUKUN, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
 
-    VERBAL_NOUN_FORM_XI(createRootWord(1, 2, 5, ALIF_HAMZA_BELOW_WITH_KASRA, FA_WITH_SUKUN, AIN_WITH_KASRA,
+    VERBAL_NOUN_FORM_XI(createRootWord(1, 2, 5, -1, ALIF_HAMZA_BELOW_WITH_KASRA, FA_WITH_SUKUN, AIN_WITH_KASRA,
             YA_WITH_SUKUN, LAM_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN));
 
     private final RootWord rootWord;
@@ -126,27 +126,10 @@ public enum VerbalNoun implements ArabicLetters, NounSupport {
         this(rootWord, feminine, Flexibility.FULLY_FLEXIBLE);
     }
 
-    VerbalNoun(final RootWord rootWord, final Flexibility flexibility) {
-        this(rootWord, false, flexibility);
-    }
-
     VerbalNoun(final RootWord rootWord, final boolean feminine, final Flexibility flexibility) {
         this.rootWord = rootWord;
         this.feminine = feminine;
         this.flexibility = flexibility;
-    }
-
-    private static RootWord createRootWord(int firstRadicalIndex, int secondRadicalIndex, int thirdRadicalIndex,
-                                           ArabicLetter... arabicLetters) {
-        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, -1, arabicLetters);
-    }
-
-    private static RootWord createRootWord(int firstRadicalIndex, int secondRadicalIndex, int thirdRadicalIndex,
-                                           int fourthRadicalIndex, ArabicLetter... arabicLetters) {
-        ArabicWord arabicWord = new ArabicWord(arabicLetters);
-        return new RootWord().withSarfTermType(null).withFirstRadicalIndex(firstRadicalIndex)
-                .withSecondRadicalIndex(secondRadicalIndex).withThirdRadicalIndex(thirdRadicalIndex)
-                .withFourthRadicalIndex(fourthRadicalIndex).withBaseWord(arabicWord).withRootWord(arabicWord);
     }
 
     public static List<VerbalNoun> getByTemplate(NamedTemplate template) {

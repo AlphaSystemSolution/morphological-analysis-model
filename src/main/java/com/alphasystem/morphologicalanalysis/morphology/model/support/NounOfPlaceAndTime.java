@@ -3,7 +3,6 @@
  */
 package com.alphasystem.morphologicalanalysis.morphology.model.support;
 
-import com.alphasystem.arabic.model.ArabicLetter;
 import com.alphasystem.arabic.model.ArabicLetters;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.arabic.model.NamedTemplate;
@@ -13,6 +12,7 @@ import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.alphasystem.morphologicalanalysis.morphology.model.RootWord.createRootWord;
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.NounSupport.Flexibility.FULLY_FLEXIBLE;
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.NounSupport.Flexibility.PARTLY_FLEXIBLE;
 import static java.lang.String.format;
@@ -20,32 +20,32 @@ import static java.util.Arrays.asList;
 
 /**
  * @author sali
-    */
-    public enum NounOfPlaceAndTime implements ArabicLetters, NounSupport {
+ */
+public enum NounOfPlaceAndTime implements ArabicLetters, NounSupport {
 
-    NOUN_OF_PLACE_AND_TIME_V1(createRootWord(1, 2, 3, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN), false, PARTLY_FLEXIBLE),
+    NOUN_OF_PLACE_AND_TIME_V1(createRootWord(1, 2, 3, -1, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN), false, PARTLY_FLEXIBLE),
 
-    NOUN_OF_PLACE_AND_TIME_V2(createRootWord(1, 2, 3, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_KASRA, LAM_WITH_DAMMATAN), false, PARTLY_FLEXIBLE),
+    NOUN_OF_PLACE_AND_TIME_V2(createRootWord(1, 2, 3, -1, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_KASRA, LAM_WITH_DAMMATAN), false, PARTLY_FLEXIBLE),
 
-    NOUN_OF_PLACE_AND_TIME_V3(createRootWord(1, 2, 3, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
+    NOUN_OF_PLACE_AND_TIME_V3(createRootWord(1, 2, 3, -1, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_II(createRootWord(2, 3, 4, MEEM_WITH_DAMMA, TA_WITH_FATHA, FA_WITH_FATHA, AIN_WITH_SHADDA_AND_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_II(createRootWord(2, 3, 4, -1, MEEM_WITH_DAMMA, TA_WITH_FATHA, FA_WITH_FATHA, AIN_WITH_SHADDA_AND_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_III(createRootWord(1, 3, 4, MEEM_WITH_DAMMA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_III(createRootWord(1, 3, 4, -1, MEEM_WITH_DAMMA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_IV(createRootWord(1, 2, 3, MEEM_WITH_DAMMA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_IV(createRootWord(1, 2, 3, -1, MEEM_WITH_DAMMA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_V(createRootWord(2, 3, 4, MEEM_WITH_DAMMA, TA_WITH_FATHA, FA_WITH_FATHA, AIN_WITH_SHADDA_AND_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_V(createRootWord(2, 3, 4, -1, MEEM_WITH_DAMMA, TA_WITH_FATHA, FA_WITH_FATHA, AIN_WITH_SHADDA_AND_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_VI(createRootWord(2, 4, 5, MEEM_WITH_DAMMA, TA_WITH_FATHA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_VI(createRootWord(2, 4, 5, -1, MEEM_WITH_DAMMA, TA_WITH_FATHA, FA_WITH_FATHA, LETTER_ALIF, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_VII(createRootWord(2, 3, 4, MEEM_WITH_DAMMA, NOON_WITH_SUKUN, FA_WITH_FATHA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_VII(createRootWord(2, 3, 4, -1, MEEM_WITH_DAMMA, NOON_WITH_SUKUN, FA_WITH_FATHA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_VIII(createRootWord(1, 3, 4, MEEM_WITH_DAMMA, FA_WITH_SUKUN, TA_WITH_FATHA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
+    NOUN_OF_PLACE_AND_TIME_FORM_VIII(createRootWord(1, 3, 4, -1, MEEM_WITH_DAMMA, FA_WITH_SUKUN, TA_WITH_FATHA, AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
     //NOUN_OF_PLACE_AND_TIME_FORM_IX(null),
 
-    NOUN_OF_PLACE_AND_TIME_FORM_X(createRootWord(3, 4, 5, MEEM_WITH_DAMMA, SEEN_WITH_SUKUN, TA_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN));
+    NOUN_OF_PLACE_AND_TIME_FORM_X(createRootWord(3, 4, 5, -1, MEEM_WITH_DAMMA, SEEN_WITH_SUKUN, TA_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN));
 
     private static RootWord[] rootWords;
 
@@ -77,19 +77,6 @@ import static java.util.Arrays.asList;
         this.rootWord = rootWord;
         this.feminine = feminine;
         this.flexibility = flexibility;
-    }
-
-    private static RootWord createRootWord(int firstRadicalIndex, int secondRadicalIndex, int thirdRadicalIndex,
-                                           ArabicLetter... arabicLetters) {
-        return createRootWord(firstRadicalIndex, secondRadicalIndex, thirdRadicalIndex, -1, arabicLetters);
-    }
-
-    private static RootWord createRootWord(int firstRadicalIndex, int secondRadicalIndex, int thirdRadicalIndex,
-                                           int fourthRadicalIndex, ArabicLetter... arabicLetters) {
-        ArabicWord arabicWord = new ArabicWord(arabicLetters);
-        return new RootWord().withSarfTermType(null).withFirstRadicalIndex(firstRadicalIndex)
-                .withSecondRadicalIndex(secondRadicalIndex).withThirdRadicalIndex(thirdRadicalIndex)
-                .withFourthRadicalIndex(fourthRadicalIndex).withBaseWord(arabicWord).withRootWord(arabicWord);
     }
 
     public static List<NounOfPlaceAndTime> getByTemplate(NamedTemplate template) {
