@@ -48,7 +48,7 @@ import static java.lang.String.format;
         "firstRadicalIndex", "secondRadicalIndex", "thirdRadicalIndex",
         "fourthRadicalIndex", "sarfTermType"})
 @XmlRootElement
-public class RootWord implements ArabicSupport {
+public class  RootWord implements ArabicSupport {
 
     @XmlElement(defaultValue = "0")
     protected int firstRadicalIndex = 0;
