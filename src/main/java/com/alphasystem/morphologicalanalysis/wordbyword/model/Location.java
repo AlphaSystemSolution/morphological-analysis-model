@@ -68,9 +68,9 @@ public class Location extends Linkable {
      *
      */
     public Location() {
-        setPartOfSpeech(null);
         setStartIndex(null);
         setEndIndex(null);
+        setPartOfSpeech(null);
     }
 
     /**
