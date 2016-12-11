@@ -3,6 +3,7 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * @author sali
@@ -24,6 +25,12 @@ public class GraphMetaInfo extends AbstractSimpleDocument {
     private Boolean showGridLines;
     private Boolean showOutLines;
     private Boolean debugMode;
+    @Field("term_font")
+    private FontMetaInfo terminalFont;
+    @Field("pos_font")
+    private FontMetaInfo partOfSpeechFont;
+    @Field("trans_font")
+    private FontMetaInfo translationFont;
 
     public GraphMetaInfo() {
         super();
@@ -105,4 +112,27 @@ public class GraphMetaInfo extends AbstractSimpleDocument {
         this.debugMode = debugMode == null ? false : debugMode;
     }
 
+    public FontMetaInfo getTerminalFont() {
+        return terminalFont;
+    }
+
+    public void setTerminalFont(FontMetaInfo terminalFont) {
+        this.terminalFont = terminalFont;
+    }
+
+    public FontMetaInfo getPartOfSpeechFont() {
+        return partOfSpeechFont;
+    }
+
+    public void setPartOfSpeechFont(FontMetaInfo partOfSpeechFont) {
+        this.partOfSpeechFont = partOfSpeechFont;
+    }
+
+    public FontMetaInfo getTranslationFont() {
+        return translationFont;
+    }
+
+    public void setTranslationFont(FontMetaInfo translationFont) {
+        this.translationFont = translationFont;
+    }
 }

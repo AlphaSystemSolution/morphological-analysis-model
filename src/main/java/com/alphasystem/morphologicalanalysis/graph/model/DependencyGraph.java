@@ -21,7 +21,7 @@ public class DependencyGraph extends AbstractDocument {
     private static final String SEPARATOR = "|";
     protected Integer chapterNumber;
     protected List<VerseTokensPair> tokens;
-    protected GraphMetaInfo metaInfo;
+    private GraphMetaInfo metaInfo;
     @DBRef
     @CascadeSave
     protected List<GraphNode> nodes;

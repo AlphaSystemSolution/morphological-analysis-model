@@ -72,6 +72,10 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     QUOTATION_SENTENCE(getWord(MEEM, QAF, WAW, LAM, SPACE, ALIF, LAM, QAF, WAW, LAM)),
 
+    CONDITION(getWord(SHEEN, RA, TTA), "#239B56"),
+
+    ANSWER_TO_CONDITION(getWord(JEEM, WAW, ALIF, BA, SPACE, ALIF, LAM, SHEEN, RA, TTA), "#239B56"),
+
     _KAF(getWord(KAF, ALIF, FA), "#008080")
 
     //
