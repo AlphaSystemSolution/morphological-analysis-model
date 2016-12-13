@@ -123,7 +123,7 @@ public abstract class GraphNode extends AbstractDocument {
     }
 
     public void setFont(FontMetaInfo font) {
-        this.font = font == null ? getDefaultFont() : font;
+        this.font = (font == null) ? getDefaultFont() : font;
     }
 
     public Integer getVersion() {
