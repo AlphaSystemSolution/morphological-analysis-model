@@ -4,6 +4,8 @@ import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import static java.lang.String.format;
+
 /**
  * @author sali
  */
@@ -19,7 +21,7 @@ public class FontMetaInfo extends AbstractSimpleDocument {
 
     protected double size;
 
-    public FontMetaInfo(){
+    public FontMetaInfo() {
         super();
     }
 
@@ -62,13 +64,18 @@ public class FontMetaInfo extends AbstractSimpleDocument {
         this.size = size;
     }
 
-    public FontMetaInfo withFamily(String family){
+    public FontMetaInfo withFamily(String family) {
         setFamily(family);
         return this;
     }
 
-    public FontMetaInfo withSize(double size){
+    public FontMetaInfo withSize(double size) {
         setSize(size);
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return format("%s:%s:%s:%s:%s:%s", getClass().getSimpleName(), id, family, weight, posture, size);
     }
 }
