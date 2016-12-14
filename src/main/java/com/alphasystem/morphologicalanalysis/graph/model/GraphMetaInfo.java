@@ -25,6 +25,7 @@ public class GraphMetaInfo extends AbstractSimpleDocument {
     private Boolean showGridLines;
     private Boolean showOutLines;
     private Boolean debugMode;
+    private String backgroundColor;
     @Field("term_font")
     private FontMetaInfo terminalFont;
     @Field("pos_font")
@@ -45,7 +46,7 @@ public class GraphMetaInfo extends AbstractSimpleDocument {
     }
 
     private Double getDefaultValue(Double src, Double defaultValue) {
-        return src == null || src.doubleValue() <= 0 ? defaultValue : src;
+        return src == null || src <= 0 ? defaultValue : src;
     }
 
     public Double getWidth() {
@@ -110,6 +111,14 @@ public class GraphMetaInfo extends AbstractSimpleDocument {
 
     public void setDebugMode(Boolean debugMode) {
         this.debugMode = debugMode == null ? false : debugMode;
+    }
+
+    public String getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
     }
 
     public FontMetaInfo getTerminalFont() {
