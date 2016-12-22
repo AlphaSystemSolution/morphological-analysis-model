@@ -6,7 +6,7 @@ import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import static com.alphasystem.util.AppUtil.isGivenType;
+import static com.alphasystem.util.AppUtil.isInstanceOf;
 import static com.alphasystem.util.HashCodeUtil.hash;
 import static java.lang.String.format;
 
@@ -74,7 +74,7 @@ public class VerseTokensPair extends AbstractDocument {
     @Override
     public boolean equals(Object obj) {
         boolean result = super.equals(obj);
-        if (isGivenType(VerseTokensPair.class, obj)) {
+        if (isInstanceOf(VerseTokensPair.class, obj)) {
             VerseTokensPair o = (VerseTokensPair) obj;
             result = getVerseNumber().equals(o.getVerseNumber()) && getFirstTokenIndex().equals(o.getFirstTokenIndex())
                     && getLastTokenIndex().equals(o.getLastTokenIndex());
@@ -85,7 +85,7 @@ public class VerseTokensPair extends AbstractDocument {
     @Override
     public int compareTo(AbstractSimpleDocument obj) {
         int result = super.compareTo(obj);
-        if (isGivenType(VerseTokensPair.class, obj)) {
+        if (isInstanceOf(VerseTokensPair.class, obj)) {
             VerseTokensPair o = (VerseTokensPair) obj;
             result = getVerseNumber().compareTo(o.getVerseNumber());
             if (result == 0) {

@@ -40,11 +40,17 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${genOutputDirectory}</outputDirectory>
-                            <processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor
-                            </processor>
+                            <processor>com.querydsl.apt.morphia.MorphiaAnnotationProcessor</processor>
                         </configuration>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.querydsl</groupId>
+                        <artifactId>querydsl-apt</artifactId>
+                        <version>${querydsl.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
