@@ -28,16 +28,15 @@ public class MorphologicalEntry extends AbstractDocument {
 
     protected NamedTemplate form;
 
-    @Indexed(name = "group-tag")
-    protected String groupTag;
+    @Indexed(name = "group-tag") private String groupTag;
 
     protected Set<VerbalNoun> verbalNouns;
 
-    protected Set<NounOfPlaceAndTime> nounOfPlaceAndTimes;
+    private Set<NounOfPlaceAndTime> nounOfPlaceAndTimes;
 
     protected ConjugationConfiguration configuration;
 
-    protected String shortTranslation;
+    private String shortTranslation;
 
     @DBRef(lazy = true)
     protected Set<Location> locations;
@@ -149,6 +148,22 @@ public class MorphologicalEntry extends AbstractDocument {
             setDisplayName(format("%s:%s", form.name(), displayName));
             groupTag = displayName;
         }
+    }
+
+    public VerbalNoun[] toVerbalNounArray() {
+        VerbalNoun[] verbalNouns = null;
+        if (this.verbalNouns != null && !this.verbalNouns.isEmpty()) {
+            verbalNouns = this.verbalNouns.toArray(new VerbalNoun[0]);
+        }
+        return verbalNouns;
+    }
+
+    public NounOfPlaceAndTime[] toNounOPlaceAndTimeArray() {
+        NounOfPlaceAndTime[] nounOfPlaceAndTimes = null;
+        if (this.nounOfPlaceAndTimes != null && !this.nounOfPlaceAndTimes.isEmpty()) {
+            nounOfPlaceAndTimes = this.nounOfPlaceAndTimes.toArray(new NounOfPlaceAndTime[0]);
+        }
+        return nounOfPlaceAndTimes;
     }
 
 }

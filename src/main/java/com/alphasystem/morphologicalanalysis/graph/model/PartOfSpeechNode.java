@@ -21,7 +21,7 @@ public class PartOfSpeechNode extends LinkSupport {
     @DBRef
     protected Location location;
 
-    protected Integer locationNumber;
+    private Integer locationNumber;
 
     protected boolean hidden;
 

@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.alphasystem.morphologicalanalysis.morphology.model.support;
 
 import com.alphasystem.arabic.model.ArabicLetters;
