@@ -30,7 +30,7 @@ public class ConjugationTemplate extends AbstractSimpleDocument {
     }
 
     public void setChartConfiguration(ChartConfiguration chartConfiguration) {
-        this.chartConfiguration = chartConfiguration;
+        this.chartConfiguration = (chartConfiguration == null) ? new ChartConfiguration() : chartConfiguration;
     }
 
     public List<ConjugationData> getData() {
