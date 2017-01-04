@@ -127,9 +127,9 @@ public class RootLetters extends AbstractDocument {
     public ArabicWord getLabel() {
         ArabicWord arabicWord = null;
         if (!isEmpty()) {
-            arabicWord = concatenateWithSpace(firstRadical.getLabel(), secondRadical.getLabel(), thirdRadical.getLabel());
+            arabicWord = concatenateWithSpace(firstRadical.toLabel(), secondRadical.toLabel(), thirdRadical.toLabel());
             if (fourthRadical != null) {
-                arabicWord = concatenateWithSpace(arabicWord, fourthRadical.getLabel());
+                arabicWord = concatenateWithSpace(arabicWord, fourthRadical.toLabel());
             }
         }
         return arabicWord;
