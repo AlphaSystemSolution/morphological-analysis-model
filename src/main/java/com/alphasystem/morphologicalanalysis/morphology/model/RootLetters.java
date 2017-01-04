@@ -34,6 +34,9 @@ public class RootLetters extends AbstractDocument {
     @Transient
     protected String name;
 
+    @Transient
+    private boolean empty;
+
     @PersistenceConstructor
     public RootLetters() {
         this(FA, AIN, LAM);
@@ -56,10 +59,10 @@ public class RootLetters extends AbstractDocument {
      */
     public RootLetters(ArabicLetterType firstRadical, ArabicLetterType secondRadical, ArabicLetterType thirdRadical,
                        ArabicLetterType fourthRadical) {
-        this.firstRadical = firstRadical;
-        this.secondRadical = secondRadical;
-        this.thirdRadical = thirdRadical;
-        this.fourthRadical = fourthRadical;
+        setFirstRadical(firstRadical);
+        setSecondRadical(secondRadical);
+        setThirdRadical(thirdRadical);
+        setFourthRadical(fourthRadical);
         initDisplayName();
     }
 
@@ -84,6 +87,7 @@ public class RootLetters extends AbstractDocument {
 
     public void setFirstRadical(ArabicLetterType firstRadical) {
         this.firstRadical = firstRadical;
+        empty = (this.firstRadical == null) || (this.secondRadical == null) || (this.thirdRadical == null);
     }
 
     public ArabicLetterType getSecondRadical() {
@@ -92,6 +96,7 @@ public class RootLetters extends AbstractDocument {
 
     public void setSecondRadical(ArabicLetterType secondRadical) {
         this.secondRadical = secondRadical;
+        empty = (this.firstRadical == null) || (this.secondRadical == null) || (this.thirdRadical == null);
     }
 
     public ArabicLetterType getThirdRadical() {
@@ -100,6 +105,7 @@ public class RootLetters extends AbstractDocument {
 
     public void setThirdRadical(ArabicLetterType thirdRadical) {
         this.thirdRadical = thirdRadical;
+        empty = (this.firstRadical == null) || (this.secondRadical == null) || (this.thirdRadical == null);
     }
 
     public ArabicLetterType getFourthRadical() {
@@ -124,7 +130,7 @@ public class RootLetters extends AbstractDocument {
         }
     }
 
-    public ArabicWord getLabel() {
+    public ArabicWord toLabel() {
         ArabicWord arabicWord = null;
         if (!isEmpty()) {
             arabicWord = concatenateWithSpace(firstRadical.toLabel(), secondRadical.toLabel(), thirdRadical.toLabel());
@@ -137,7 +143,7 @@ public class RootLetters extends AbstractDocument {
 
     @Transient
     public boolean isEmpty() {
-        return firstRadical == null || secondRadical == null || thirdRadical == null;
+        return empty;
     }
 
     @Override
