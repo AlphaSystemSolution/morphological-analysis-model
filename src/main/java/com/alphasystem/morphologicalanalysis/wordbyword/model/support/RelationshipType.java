@@ -100,7 +100,7 @@ public enum RelationshipType implements ArabicSupportEnum {
     }
 
     @Override
-    public ArabicWord getLabel() {
+    public ArabicWord toLabel() {
         return label;
     }
 

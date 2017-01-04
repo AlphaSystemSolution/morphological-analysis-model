@@ -144,7 +144,7 @@ public enum NounOfPlaceAndTime implements ArabicLetters, NounSupport {
     }
 
     @Override
-    public ArabicWord getLabel() {
+    public ArabicWord toLabel() {
         return getRootWord().getRootWord();
     }
 

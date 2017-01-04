@@ -48,10 +48,10 @@ public class NounProperties extends AbstractNounProperties {
     @Override
     @Transient
     public ArabicWord getLabel() {
-        return concatenateWithSpace(concatenate(status.getLabel(), WORD_COMMA),
-                concatenate(number.getLabel(), WORD_COMMA),
-                concatenate(gender.getLabel(), WORD_COMMA),
-                concatenate(nounType.getLabel()));
+        return concatenateWithSpace(concatenate(status.toLabel(), WORD_COMMA),
+                concatenate(number.toLabel(), WORD_COMMA),
+                concatenate(gender.toLabel(), WORD_COMMA),
+                concatenate(nounType.toLabel()));
     }
 
     public NounKind getNounKind() {

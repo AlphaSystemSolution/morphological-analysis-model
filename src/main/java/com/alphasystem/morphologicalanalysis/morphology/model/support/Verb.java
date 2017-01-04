@@ -539,8 +539,8 @@ public enum Verb implements ArabicLetters, VerbSupport {
     }
 
     @Override
-    public ArabicWord getLabel() {
-        return getRootWord().getLabel();
+    public ArabicWord toLabel() {
+        return getRootWord().toLabel();
     }
 
 

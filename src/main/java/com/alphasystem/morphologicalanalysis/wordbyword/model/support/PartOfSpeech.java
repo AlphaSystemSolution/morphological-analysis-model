@@ -236,7 +236,7 @@ public enum PartOfSpeech implements ArabicSupportEnum {
     }
 
     @Override
-    public ArabicWord getLabel() {
+    public ArabicWord toLabel() {
         return label;
     }
 

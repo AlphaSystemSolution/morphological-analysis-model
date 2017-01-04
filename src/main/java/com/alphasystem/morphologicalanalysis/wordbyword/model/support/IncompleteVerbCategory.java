@@ -43,7 +43,7 @@ public enum IncompleteVerbCategory implements ArabicSupportEnum {
     }
 
     @Override
-    public ArabicWord getLabel() {
+    public ArabicWord toLabel() {
         return label;
     }
 

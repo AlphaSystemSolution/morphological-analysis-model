@@ -20,7 +20,7 @@ public enum DummyFamily implements IncompleteVerbType {
     }
 
     @Override
-    public ArabicWord getLabel() {
+    public ArabicWord toLabel() {
         return null;
     }
 }

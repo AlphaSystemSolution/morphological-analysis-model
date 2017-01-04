@@ -20,7 +20,7 @@ public enum LocationType implements ArabicSupportEnum {
 	}
 
 	@Override
-	public ArabicWord getLabel() {
+	public ArabicWord toLabel() {
 		return null;
 	}
 

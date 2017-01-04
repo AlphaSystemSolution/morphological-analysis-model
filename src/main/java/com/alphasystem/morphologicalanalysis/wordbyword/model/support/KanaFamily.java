@@ -26,7 +26,7 @@ public enum KanaFamily implements IncompleteVerbType {
     }
 
     @Override
-    public ArabicWord getLabel() {
+    public ArabicWord toLabel() {
         return label;
     }
 

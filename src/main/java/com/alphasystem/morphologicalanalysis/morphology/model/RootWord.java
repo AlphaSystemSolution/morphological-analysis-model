@@ -388,7 +388,7 @@ public class  RootWord implements ArabicSupport {
     }
 
     @Override
-    public ArabicWord getLabel() {
+    public ArabicWord toLabel() {
         return getRootWord();
     }
 

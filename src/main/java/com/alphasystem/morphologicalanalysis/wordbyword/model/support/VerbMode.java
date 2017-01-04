@@ -38,7 +38,7 @@ public enum VerbMode implements ArabicSupportEnum {
 	}
 
 	@Override
-	public ArabicWord getLabel() {
+	public ArabicWord toLabel() {
 		return label;
 	}
 

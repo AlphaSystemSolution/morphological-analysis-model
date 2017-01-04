@@ -30,7 +30,7 @@ public enum NamedTag implements ArabicSupportEnum {
 	}
 
 	@Override
-	public ArabicWord getLabel() {
+	public ArabicWord toLabel() {
 		return label;
 	}
 

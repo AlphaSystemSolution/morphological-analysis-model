@@ -58,7 +58,7 @@ public enum SarfTermType implements ArabicSupport {
      */
     SarfTermType(ArabicWord label) {
         this.label = label;
-        this.value = (getLabel() == null) ? null : getLabel().toBuckWalter();
+        this.value = (toLabel() == null) ? null : toLabel().toBuckWalter();
     }
 
     public static SarfTermType fromValue(String v) {
@@ -71,7 +71,7 @@ public enum SarfTermType implements ArabicSupport {
     }
 
     @Override
-    public ArabicWord getLabel() {
+    public ArabicWord toLabel() {
         return label;
     }
 
