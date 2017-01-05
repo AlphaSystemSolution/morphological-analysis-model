@@ -48,7 +48,7 @@ public class ConjugationData extends AbstractSimpleDocument {
         this.verbalNouns.addAll(verbalNouns);
     }
 
-    public void setVerbalNouns(VerbalNoun... verbalNouns) {
+    public void addVerbalNouns(VerbalNoun... verbalNouns) {
         getVerbalNouns().addAll(Arrays.asList(verbalNouns));
     }
 
