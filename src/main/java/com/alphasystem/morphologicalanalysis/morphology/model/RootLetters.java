@@ -198,16 +198,6 @@ public class RootLetters extends AbstractDocument {
         return hashCode;
     }
 
-    @Override
-    public String toString() {
-        String displayName = getDisplayName();
-        if (isBlank(displayName)) {
-            initDisplayName();
-            displayName = getDisplayName();
-        }
-        return displayName;
-    }
-
     public RootLetters withFirstRadical(ArabicLetterType firstRadical) {
         setFirstRadical(firstRadical);
         return this;
