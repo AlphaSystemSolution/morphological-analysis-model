@@ -15,6 +15,7 @@ import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -31,6 +32,10 @@ public class ConjugationData extends AbstractSimpleDocument {
     protected List<NounOfPlaceAndTime> adverbs;
     protected ConjugationConfiguration configuration = new ConjugationConfiguration();
 
+    public ConjugationData() {
+        setTemplate(NamedTemplate.FORM_I_CATEGORY_A_GROUP_U_TEMPLATE);
+    }
+
     public List<VerbalNoun> getVerbalNouns() {
         if (verbalNouns == null) {
             verbalNouns = new ArrayList<>();
@@ -39,7 +44,12 @@ public class ConjugationData extends AbstractSimpleDocument {
     }
 
     public void setVerbalNouns(List<VerbalNoun> verbalNouns) {
-        this.verbalNouns = verbalNouns;
+        this.verbalNouns = new ArrayList<>();
+        this.verbalNouns.addAll(verbalNouns);
+    }
+
+    public void setVerbalNouns(VerbalNoun... verbalNouns) {
+        getVerbalNouns().addAll(Arrays.asList(verbalNouns));
     }
 
     public List<NounOfPlaceAndTime> getAdverbs() {
