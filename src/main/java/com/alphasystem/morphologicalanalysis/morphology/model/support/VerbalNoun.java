@@ -106,10 +106,7 @@ public enum VerbalNoun implements ArabicLetters, NounSupport {
             LAM_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
 
     VERBAL_NOUN_FORM_X(createRootWord(3, 4, 6, -1, ALIF_HAMZA_BELOW_WITH_KASRA, SEEN_WITH_SUKUN, TA_WITH_FATHA,
-            FA_WITH_SUKUN, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN)),
-
-    VERBAL_NOUN_FORM_XI(createRootWord(1, 2, 5, -1, ALIF_HAMZA_BELOW_WITH_KASRA, FA_WITH_SUKUN, AIN_WITH_KASRA,
-            YA_WITH_SUKUN, LAM_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN));
+            FA_WITH_SUKUN, AIN_WITH_FATHA, LETTER_ALIF, LAM_WITH_DAMMATAN));
 
     private final RootWord rootWord;
     private final boolean feminine;
@@ -161,9 +158,6 @@ public enum VerbalNoun implements ArabicLetters, NounSupport {
                 break;
             case FORM_X_TEMPLATE:
                 verbalNouns.add(VERBAL_NOUN_FORM_X);
-                break;
-            case FORM_XI_TEMPLATE:
-                verbalNouns.add(VERBAL_NOUN_FORM_XI);
                 break;
             default:
                 break;
