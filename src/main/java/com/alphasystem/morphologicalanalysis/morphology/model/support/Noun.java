@@ -7,6 +7,7 @@ import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType
 
 import static com.alphasystem.morphologicalanalysis.morphology.model.RootWord.createRootWord;
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.NounSupport.Flexibility.FULLY_FLEXIBLE;
+import static com.alphasystem.morphologicalanalysis.morphology.model.support.NounSupport.Flexibility.PARTLY_FLEXIBLE;
 import static java.lang.String.format;
 
 /**
@@ -128,7 +129,13 @@ public enum Noun implements ArabicLetters, NounSupport {
             AIN_WITH_FATHA, LAM_WITH_DAMMATAN)),
 
     FORM_X_FEMININE_PASSIVE_PARTICIPLE(createRootWord(3, 4, 5, -1, MEEM_WITH_DAMMA, SEEN_WITH_SUKUN, TA_WITH_FATHA, FA_WITH_SUKUN,
-            AIN_WITH_FATHA, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true);
+            AIN_WITH_FATHA, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true),
+
+    NOUN_OF_PLACE_AND_TIME_V1(createRootWord(1, 2, 3, -1, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN), false, PARTLY_FLEXIBLE),
+
+    NOUN_OF_PLACE_AND_TIME_V2(createRootWord(1, 2, 3, -1, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_KASRA, LAM_WITH_DAMMATAN), false, PARTLY_FLEXIBLE),
+
+    NOUN_OF_PLACE_AND_TIME_V3(createRootWord(1, 2, 3, -1, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_FATHA, TA_MARBUTA_WITH_DAMMATAN), true);
 
     private final RootWord rootWord;
     private final boolean feminine;

@@ -8,7 +8,6 @@
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import com.alphasystem.arabic.model.NamedTemplate;
-import com.alphasystem.morphologicalanalysis.morphology.model.support.NounOfPlaceAndTime;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.VerbalNoun;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import org.mongodb.morphia.annotations.Entity;
@@ -29,7 +28,6 @@ public class ConjugationData extends AbstractSimpleDocument {
     protected String translation;
     protected RootLetters rootLetters;
     protected List<VerbalNoun> verbalNouns;
-    protected List<NounOfPlaceAndTime> adverbs;
     protected ConjugationConfiguration configuration = new ConjugationConfiguration();
 
     public ConjugationData() {
@@ -50,17 +48,6 @@ public class ConjugationData extends AbstractSimpleDocument {
 
     public void addVerbalNouns(VerbalNoun... verbalNouns) {
         getVerbalNouns().addAll(Arrays.asList(verbalNouns));
-    }
-
-    public List<NounOfPlaceAndTime> getAdverbs() {
-        if (adverbs == null) {
-            adverbs = new ArrayList<>();
-        }
-        return adverbs;
-    }
-
-    public void setAdverbs(List<NounOfPlaceAndTime> adverbs) {
-        this.adverbs = adverbs;
     }
 
     public ConjugationConfiguration getConfiguration() {

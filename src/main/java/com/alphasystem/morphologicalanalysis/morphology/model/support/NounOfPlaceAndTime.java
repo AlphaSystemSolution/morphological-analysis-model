@@ -21,6 +21,7 @@ import static java.util.Arrays.asList;
 /**
  * @author sali
  */
+@Deprecated
 public enum NounOfPlaceAndTime implements ArabicLetters, NounSupport {
 
     NOUN_OF_PLACE_AND_TIME_V1(createRootWord(1, 2, 3, -1, MEEM_WITH_FATHA, FA_WITH_SUKUN, AIN_WITH_FATHA, LAM_WITH_DAMMATAN), false, PARTLY_FLEXIBLE),
