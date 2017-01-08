@@ -27,10 +27,20 @@ public class ChartConfiguration extends AbstractSimpleDocument {
     private boolean omitSarfTermCaption;
     private SortDirective sortDirective;
     private SortDirection sortDirection;
+    private String arabicFontFamily;
+    private String translationFontFamily;
+    private long arabicFontSize;
+    private long translationFontSize;
+    private long headingFontSize;
 
     public ChartConfiguration() {
         setSortDirection(null);
         setSortDirection(null);
+        setArabicFontFamily(null);
+        setTranslationFontFamily(null);
+        setArabicFontSize(0);
+        setTranslationFontSize(0);
+        setHeadingFontSize(0);
     }
 
     public SortDirection getSortDirection() {
@@ -97,6 +107,46 @@ public class ChartConfiguration extends AbstractSimpleDocument {
         this.omitToc = omitToc;
     }
 
+    public String getArabicFontFamily() {
+        return arabicFontFamily;
+    }
+
+    public void setArabicFontFamily(String arabicFontFamily) {
+        this.arabicFontFamily = (arabicFontFamily == null) ? "Arabic Typesetting" : arabicFontFamily;
+    }
+
+    public String getTranslationFontFamily() {
+        return translationFontFamily;
+    }
+
+    public void setTranslationFontFamily(String translationFontFamily) {
+        this.translationFontFamily = (translationFontFamily == null) ? "Canadara" : translationFontFamily;
+    }
+
+    public long getArabicFontSize() {
+        return arabicFontSize;
+    }
+
+    public void setArabicFontSize(long arabicFontSize) {
+        this.arabicFontSize = (arabicFontSize <= 0) ? 40 : arabicFontSize;
+    }
+
+    public long getTranslationFontSize() {
+        return translationFontSize;
+    }
+
+    public void setTranslationFontSize(long translationFontSize) {
+        this.translationFontSize = (translationFontSize <= 0) ? 12 : translationFontSize;
+    }
+
+    public long getHeadingFontSize() {
+        return headingFontSize;
+    }
+
+    public void setHeadingFontSize(long headingFontSize) {
+        this.headingFontSize = (headingFontSize <= 0) ? 72 : headingFontSize;
+    }
+
     public ChartConfiguration omitAbbreviatedConjugation(boolean omitAbbreviatedConjugation) {
         setOmitAbbreviatedConjugation(omitAbbreviatedConjugation);
         return this;
@@ -129,6 +179,31 @@ public class ChartConfiguration extends AbstractSimpleDocument {
 
     public ChartConfiguration sortDirective(SortDirective sortDirective) {
         setSortDirective(sortDirective);
+        return this;
+    }
+
+    public ChartConfiguration arabicFontFamily(String arabicFontFamily) {
+        setArabicFontFamily(arabicFontFamily);
+        return this;
+    }
+
+    public ChartConfiguration translationFontFamily(String translationFontFamily) {
+        setTranslationFontFamily(translationFontFamily);
+        return this;
+    }
+
+    public ChartConfiguration arabicFontSize(long arabicFontSize) {
+        setArabicFontSize(arabicFontSize);
+        return this;
+    }
+
+    public ChartConfiguration translationFontSize(long translationFontSize) {
+        setTranslationFontSize(translationFontSize);
+        return this;
+    }
+
+    public ChartConfiguration headingFontSize(long headingFontSize) {
+        setHeadingFontSize(headingFontSize);
         return this;
     }
 }
