@@ -129,7 +129,7 @@ public class ChartConfiguration extends AbstractSimpleDocument {
     }
 
     public void setArabicFontSize(long arabicFontSize) {
-        this.arabicFontSize = (arabicFontSize <= 0) ? 40 : arabicFontSize;
+        this.arabicFontSize = (arabicFontSize <= 0) ? 20 : arabicFontSize;
     }
 
     public long getTranslationFontSize() {
@@ -137,7 +137,7 @@ public class ChartConfiguration extends AbstractSimpleDocument {
     }
 
     public void setTranslationFontSize(long translationFontSize) {
-        this.translationFontSize = (translationFontSize <= 0) ? 24 : translationFontSize;
+        this.translationFontSize = (translationFontSize <= 0) ? 12 : translationFontSize;
     }
 
     public long getHeadingFontSize() {
@@ -145,7 +145,7 @@ public class ChartConfiguration extends AbstractSimpleDocument {
     }
 
     public void setHeadingFontSize(long headingFontSize) {
-        this.headingFontSize = (headingFontSize <= 0) ? 72 : headingFontSize;
+        this.headingFontSize = (headingFontSize <= 0) ? 36 : headingFontSize;
     }
 
     public ChartConfiguration omitAbbreviatedConjugation(boolean omitAbbreviatedConjugation) {
