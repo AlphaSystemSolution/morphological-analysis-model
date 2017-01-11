@@ -3,7 +3,6 @@
  */
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
-import com.alphasystem.arabic.ui.util.FontUtilities;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirection;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirective;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
@@ -113,7 +112,7 @@ public class ChartConfiguration extends AbstractSimpleDocument {
     }
 
     public void setArabicFontFamily(String arabicFontFamily) {
-        this.arabicFontFamily = (arabicFontFamily == null) ? FontUtilities.getDefaultArabicFontName() : arabicFontFamily;
+        this.arabicFontFamily = arabicFontFamily;
     }
 
     public String getTranslationFontFamily() {
@@ -121,7 +120,7 @@ public class ChartConfiguration extends AbstractSimpleDocument {
     }
 
     public void setTranslationFontFamily(String translationFontFamily) {
-        this.translationFontFamily = (translationFontFamily == null) ? FontUtilities.getDefaultEnglishFont() : translationFontFamily;
+        this.translationFontFamily = translationFontFamily;
     }
 
     public long getArabicFontSize() {
@@ -129,7 +128,7 @@ public class ChartConfiguration extends AbstractSimpleDocument {
     }
 
     public void setArabicFontSize(long arabicFontSize) {
-        this.arabicFontSize = (arabicFontSize <= 0) ? 20 : arabicFontSize;
+        this.arabicFontSize = arabicFontSize;
     }
 
     public long getTranslationFontSize() {
@@ -137,7 +136,7 @@ public class ChartConfiguration extends AbstractSimpleDocument {
     }
 
     public void setTranslationFontSize(long translationFontSize) {
-        this.translationFontSize = (translationFontSize <= 0) ? 12 : translationFontSize;
+        this.translationFontSize = translationFontSize;
     }
 
     public long getHeadingFontSize() {
@@ -145,7 +144,7 @@ public class ChartConfiguration extends AbstractSimpleDocument {
     }
 
     public void setHeadingFontSize(long headingFontSize) {
-        this.headingFontSize = (headingFontSize <= 0) ? 36 : headingFontSize;
+        this.headingFontSize = headingFontSize;
     }
 
     public ChartConfiguration omitAbbreviatedConjugation(boolean omitAbbreviatedConjugation) {
