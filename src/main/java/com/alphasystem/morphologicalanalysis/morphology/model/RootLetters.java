@@ -66,6 +66,17 @@ public class RootLetters extends AbstractDocument {
         initDisplayName();
     }
 
+    public RootLetters(RootLetters src){
+        if(src == null){
+            throw new NullPointerException("source cannot be null");
+        }
+        setFirstRadical(src.getFirstRadical());
+        setSecondRadical(src.getSecondRadical());
+        setThirdRadical(src.getThirdRadical());
+        setFourthRadical(src.getFourthRadical());
+        initDisplayName();
+    }
+
     private static String getCode(ArabicLetterType arabicLetterType) {
         return (arabicLetterType == null) ? "" : arabicLetterType.toCode();
     }
