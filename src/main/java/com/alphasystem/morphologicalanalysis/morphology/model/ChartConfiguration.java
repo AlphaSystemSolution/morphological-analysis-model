@@ -32,6 +32,7 @@ public class ChartConfiguration extends AbstractSimpleDocument {
     private long arabicFontSize;
     private long translationFontSize;
     private long headingFontSize;
+    private PageOption pageOption;
 
     public ChartConfiguration() {
         setSortDirection(null);
@@ -41,6 +42,7 @@ public class ChartConfiguration extends AbstractSimpleDocument {
         setArabicFontSize(0);
         setTranslationFontSize(0);
         setHeadingFontSize(0);
+        setPageOption(null);
     }
 
     public SortDirection getSortDirection() {
@@ -147,6 +149,14 @@ public class ChartConfiguration extends AbstractSimpleDocument {
         this.headingFontSize = headingFontSize;
     }
 
+    public PageOption getPageOption() {
+        return pageOption;
+    }
+
+    public void setPageOption(PageOption pageOption) {
+        this.pageOption = (pageOption == null) ? new PageOption() : pageOption;
+    }
+
     public ChartConfiguration omitAbbreviatedConjugation(boolean omitAbbreviatedConjugation) {
         setOmitAbbreviatedConjugation(omitAbbreviatedConjugation);
         return this;
@@ -204,6 +214,11 @@ public class ChartConfiguration extends AbstractSimpleDocument {
 
     public ChartConfiguration headingFontSize(long headingFontSize) {
         setHeadingFontSize(headingFontSize);
+        return this;
+    }
+
+    public ChartConfiguration pageOption(PageOption pageOption) {
+        setPageOption(pageOption);
         return this;
     }
 }
