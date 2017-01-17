@@ -25,6 +25,10 @@ public class ConjugationTemplate extends AbstractSimpleDocument {
     protected List<ConjugationData> data;
     protected ChartConfiguration chartConfiguration;
 
+    public ConjugationTemplate() {
+        setChartConfiguration(null);
+    }
+
     public ChartConfiguration getChartConfiguration() {
         return chartConfiguration;
     }
