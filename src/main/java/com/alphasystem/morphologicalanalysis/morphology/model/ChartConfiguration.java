@@ -36,13 +36,39 @@ public class ChartConfiguration extends AbstractSimpleDocument {
 
     public ChartConfiguration() {
         setSortDirection(null);
-        setSortDirection(null);
+        setSortDirective(null);
         setArabicFontFamily(null);
         setTranslationFontFamily(null);
         setArabicFontSize(0);
         setTranslationFontSize(0);
         setHeadingFontSize(0);
         setPageOption(null);
+    }
+
+    /**
+     * Copy constructor.
+     *
+     * @param src source object
+     * @throws NullPointerException if <code>src</code> is null.
+     */
+    public ChartConfiguration(ChartConfiguration src){
+        if (src == null) {
+            throw new NullPointerException("source object can not be null");
+        }
+        setOmitToc(src.isOmitToc());
+        setOmitAbbreviatedConjugation(src.isOmitAbbreviatedConjugation());
+        setOmitDetailedConjugation(src.isOmitDetailedConjugation());
+        setOmitTitle(src.isOmitTitle());
+        setOmitHeader(src.isOmitHeader());
+        setOmitSarfTermCaption(src.isOmitSarfTermCaption());
+        setSortDirection(src.getSortDirection());
+        setSortDirective(src.getSortDirective());
+        setArabicFontFamily(src.getArabicFontFamily());
+        setTranslationFontFamily(src.getTranslationFontFamily());
+        setArabicFontSize(src.getArabicFontSize());
+        setTranslationFontSize(src.getTranslationFontSize());
+        setHeadingFontSize(src.getHeadingFontSize());
+        setPageOption(new PageOption(src.getPageOption()));
     }
 
     public SortDirection getSortDirection() {

@@ -10,8 +10,21 @@ public class PageOption extends AbstractSimpleDocument {
 
     private PageOrientation orientation;
 
-    public PageOption(){
+    public PageOption() {
         setOrientation(null);
+    }
+
+    /**
+     * Copy constructor.
+     *
+     * @param src source object
+     * @throws NullPointerException if <code>src</code> is null.
+     */
+    public PageOption(PageOption src) {
+        if (src == null) {
+            throw new NullPointerException("source object can not be null");
+        }
+        setOrientation(src.getOrientation());
     }
 
     public PageOrientation getOrientation() {
