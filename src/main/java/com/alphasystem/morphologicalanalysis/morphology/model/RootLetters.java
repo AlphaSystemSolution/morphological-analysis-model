@@ -152,6 +152,10 @@ public class RootLetters extends AbstractDocument {
         return arabicWord;
     }
 
+    public boolean hasFourthRadical() {
+        return fourthRadical != null;
+    }
+
     @Transient
     public boolean isEmpty() {
         return empty;
