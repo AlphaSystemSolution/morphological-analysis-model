@@ -12,7 +12,9 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import static com.alphasystem.arabic.model.ArabicLetterType.*;
+import static com.alphasystem.arabic.model.ArabicLetterType.AIN;
+import static com.alphasystem.arabic.model.ArabicLetterType.FA;
+import static com.alphasystem.arabic.model.ArabicLetterType.LAM;
 import static com.alphasystem.arabic.model.ArabicWord.concatenateWithSpace;
 import static com.alphasystem.util.AppUtil.isInstanceOf;
 import static com.alphasystem.util.HashCodeUtil.hash;
@@ -66,8 +68,8 @@ public class RootLetters extends AbstractDocument {
         initDisplayName();
     }
 
-    public RootLetters(RootLetters src){
-        if(src == null){
+    public RootLetters(RootLetters src) {
+        if (src == null) {
             throw new NullPointerException("source cannot be null");
         }
         setFirstRadical(src.getFirstRadical());
@@ -159,6 +161,16 @@ public class RootLetters extends AbstractDocument {
     @Transient
     public boolean isEmpty() {
         return empty;
+    }
+
+    public String toMawridSearchString() {
+        return String.format("%s%s%s%s", toMawridChar(firstRadical), toMawridChar(secondRadical),
+                toMawridChar(thirdRadical), toMawridChar(fourthRadical));
+    }
+
+    private static String toMawridChar(ArabicLetterType arabicLetter) {
+        return (arabicLetter == null) ? "" : (ArabicLetterType.HAMZA.equals(arabicLetter) ?
+                String.valueOf(ArabicLetterType.ALIF.getCode()) : String.valueOf(arabicLetter.getCode()));
     }
 
     @Override
