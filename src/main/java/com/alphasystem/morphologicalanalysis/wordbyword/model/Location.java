@@ -10,6 +10,7 @@ import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapter
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NamedTag;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeech;
 import com.alphasystem.persistence.model.CascadeSave;
+import org.apache.commons.lang3.StringUtils;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
@@ -54,6 +55,8 @@ public class Location extends Linkable {
     @DBRef
     @CascadeSave
     protected MorphologicalEntry morphologicalEntry;
+
+    private String text;
 
     protected NamedTag namedTag;
 
@@ -146,7 +149,7 @@ public class Location extends Linkable {
     }
 
     public void setEndIndex(Integer endIndex) {
-        this.endIndex = ((endIndex == null) || (endIndex.intValue() <= 0)) ? 0 : endIndex;
+        this.endIndex = ((endIndex == null) || (endIndex <= 0)) ? 0 : endIndex;
     }
 
     public Integer getLocationNumber() {
@@ -163,6 +166,21 @@ public class Location extends Linkable {
 
     public void setHidden(boolean hidden) {
         this.hidden = hidden;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+        initLocationWord();
+    }
+
+    private void initLocationWord(){
+        if(!StringUtils.isBlank(text)){
+            locationWord = ArabicWord.fromUnicode(text);
+        }
     }
 
     public NamedTag getNamedTag() {
@@ -235,15 +253,11 @@ public class Location extends Linkable {
     }
 
     public void setStartIndex(Integer startIndex) {
-        this.startIndex = ((startIndex == null) || (startIndex.intValue() <= 0)) ? 0 : startIndex;
+        this.startIndex = ((startIndex == null) || (startIndex <= 0)) ? 0 : startIndex;
     }
 
     public ArabicWord getLocationWord() {
         return locationWord;
-    }
-
-    public void setLocationWord(ArabicWord locationWord) {
-        this.locationWord = locationWord;
     }
 
     public Integer getTokenNumber() {
