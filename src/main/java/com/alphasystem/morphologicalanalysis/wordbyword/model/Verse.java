@@ -93,7 +93,10 @@ public class Verse extends AbstractDocument {
     }
 
     public void setTokens(List<Token> tokens) {
-        this.tokens = tokens == null ? new ArrayList<Token>() : tokens;
+        this.tokens = new ArrayList<>();
+        if (tokens != null && !tokens.isEmpty()) {
+            this.tokens.addAll(tokens);
+        }
     }
 
     public ArabicWord getVerse() {
