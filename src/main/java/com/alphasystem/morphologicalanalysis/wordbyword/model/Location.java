@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.ArabicWord;
@@ -36,36 +33,35 @@ public class Location extends Linkable {
 
     protected Integer tokenNumber;
 
-    protected Integer locationNumber;
+    private Integer locationNumber;
 
     protected boolean hidden;
 
     /**
      * Start index of this location within token (inclusive)
      */
-    protected Integer startIndex;
+    private Integer startIndex;
 
     /**
      * End index of this location within token (exclusive)
      */
-    protected Integer endIndex;
+    private Integer endIndex;
 
-    protected PartOfSpeech partOfSpeech;
+    private PartOfSpeech partOfSpeech;
 
     @DBRef
     @CascadeSave
-    protected MorphologicalEntry morphologicalEntry;
+    private MorphologicalEntry morphologicalEntry;
 
     private String text;
 
-    protected NamedTag namedTag;
+    private NamedTag namedTag;
 
     protected String translation;
 
     protected AbstractProperties properties;
 
-    @Transient
-    protected ArabicWord locationWord;
+    @Transient private ArabicWord locationWord;
 
     /**
      *
