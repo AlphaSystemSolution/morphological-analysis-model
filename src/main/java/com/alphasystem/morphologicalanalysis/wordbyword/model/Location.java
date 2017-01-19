@@ -130,6 +130,7 @@ public class Location extends Linkable {
         setNamedTag(src.getNamedTag());
         setTranslation(src.getTranslation());
         setProperties(AbstractProperties.copy(src.getProperties()));
+        initDisplayName();
     }
 
     public Integer getChapterNumber() {

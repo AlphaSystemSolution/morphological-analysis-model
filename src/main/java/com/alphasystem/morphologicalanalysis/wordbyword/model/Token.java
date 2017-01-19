@@ -89,6 +89,7 @@ public class Token extends AbstractDocument {
         setToken(src.getToken());
         setHidden(src.isHidden());
         setLocations(src.getLocations());
+        initDisplayName();
     }
 
     public boolean isHidden() {
