@@ -1,7 +1,6 @@
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import com.alphasystem.arabic.model.NamedTemplate;
-import com.alphasystem.morphologicalanalysis.morphology.model.support.NounOfPlaceAndTime;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.VerbalNoun;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
 import com.alphasystem.persistence.model.AbstractDocument;
@@ -31,8 +30,6 @@ public class MorphologicalEntry extends AbstractDocument {
     @Indexed(name = "group-tag") private String groupTag;
 
     protected Set<VerbalNoun> verbalNouns;
-
-    private Set<NounOfPlaceAndTime> nounOfPlaceAndTimes;
 
     protected ConjugationConfiguration configuration;
 
@@ -91,20 +88,6 @@ public class MorphologicalEntry extends AbstractDocument {
         }
     }
 
-    public Set<NounOfPlaceAndTime> getNounOfPlaceAndTimes() {
-        if (nounOfPlaceAndTimes == null) {
-            nounOfPlaceAndTimes = new LinkedHashSet<>();
-        }
-        return nounOfPlaceAndTimes;
-    }
-
-    public void setNounOfPlaceAndTimes(Set<NounOfPlaceAndTime> nounOfPlaceAndTimes) {
-        this.nounOfPlaceAndTimes = new LinkedHashSet<>();
-        if (nounOfPlaceAndTimes != null) {
-            this.nounOfPlaceAndTimes.addAll(nounOfPlaceAndTimes);
-        }
-    }
-
     public ConjugationConfiguration getConfiguration() {
         return configuration;
     }
@@ -156,14 +139,6 @@ public class MorphologicalEntry extends AbstractDocument {
             verbalNouns = this.verbalNouns.toArray(new VerbalNoun[0]);
         }
         return verbalNouns;
-    }
-
-    public NounOfPlaceAndTime[] toNounOPlaceAndTimeArray() {
-        NounOfPlaceAndTime[] nounOfPlaceAndTimes = null;
-        if (this.nounOfPlaceAndTimes != null && !this.nounOfPlaceAndTimes.isEmpty()) {
-            nounOfPlaceAndTimes = this.nounOfPlaceAndTimes.toArray(new NounOfPlaceAndTime[0]);
-        }
-        return nounOfPlaceAndTimes;
     }
 
 }
