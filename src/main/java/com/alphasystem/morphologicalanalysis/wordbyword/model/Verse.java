@@ -32,8 +32,7 @@ public class Verse extends AbstractDocument {
 
     protected Integer verseNumber;
 
-    @Indexed(name = "token_count")
-    protected Integer tokenCount;
+    @Indexed(name = "token_count") private Integer tokenCount;
 
     @DBRef
     @CascadeSave
