@@ -149,6 +149,9 @@ public class Token extends AbstractDocument {
     }
 
     public ArabicWord getTokenWord() {
+        if (tokenWord == null) {
+            initTokenWord();
+        }
         return tokenWord;
     }
 
