@@ -20,10 +20,9 @@ public class PhraseNode extends LinkSupport {
 
     private static final long serialVersionUID = 8563558531527217502L;
 
-    @DBRef
-    protected List<PartOfSpeechNode> fragments;
-    protected AlternateStatus alternateStatus;
-    protected List<RelationshipType> relationships;
+    @DBRef private List<PartOfSpeechNode> fragments;
+    private AlternateStatus alternateStatus;
+    private List<RelationshipType> relationships;
 
     public PhraseNode() {
         this(null);
