@@ -174,8 +174,8 @@ public class Location extends Linkable {
         initLocationWord();
     }
 
-    private void initLocationWord(){
-        if(!StringUtils.isBlank(text)){
+    private void initLocationWord() {
+        if (!StringUtils.isBlank(text)) {
             locationWord = ArabicWord.fromUnicode(text);
         }
     }
@@ -254,6 +254,9 @@ public class Location extends Linkable {
     }
 
     public ArabicWord getLocationWord() {
+        if (locationWord == null) {
+            initLocationWord();
+        }
         return locationWord;
     }
 
@@ -296,6 +299,11 @@ public class Location extends Linkable {
 
     public boolean isTransient() {
         return startIndex == 0 && endIndex == 0;
+    }
+
+    public void updatePartOfSpeech(PartOfSpeech partOfSpeech){
+        this.partOfSpeech = (partOfSpeech == null) ? NOUN : partOfSpeech;
+        initProperties();
     }
 
     /**
