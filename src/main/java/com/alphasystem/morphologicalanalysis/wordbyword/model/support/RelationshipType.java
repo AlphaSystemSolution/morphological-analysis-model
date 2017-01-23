@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
 import com.alphasystem.arabic.model.ArabicLetters;
@@ -20,10 +17,11 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     MUDAF(getWord(MEEM, DDAD, ALIF, FA)),
 
-    MUDAF_ILAIH(getWord(MEEM, DDAD, ALIF, FA, SPACE, ALIF_HAMZA_BELOW, LAM, YA,
-            HA), "#4AA02C"),
+    MUDAF_ILAIH(getWord(MEEM, DDAD, ALIF, FA, SPACE, ALIF_HAMZA_BELOW, LAM, YA, HA), "#4AA02C"),
 
     IDAFAH(getWord(ALIF_HAMZA_BELOW, DDAD, ALIF, FA, TA_MARBUTA), "#336633"),
+
+    DOUBLE_IDAFAH(getWord(ALIF_HAMZA_BELOW, DDAD, ALIF, FA, TA, ALIF, NOON), "#336633"),
 
     MOWSOOF(getWord(MEEM, WAW, SAD, WAW, FA)),
 
@@ -47,6 +45,8 @@ public enum RelationshipType implements ArabicSupportEnum {
 
     ISM(getWord(ALIF_HAMZA_BELOW, SEEN, MEEM), "#800000"),
 
+    FORBIDDEN(getWord(FA, AIN, LAM, SPACE, NOON, HA, YA), "#7D3C98"),
+
     FAIIL(getWord(FA, ALIF, AIN, LAM), "#4C5F6A"),
 
     ALTERNATE_DOER(getWord(NOON, ALIF, YA_HAMZA_ABOVE, BA, SPACE, FA, ALIF, AIN, LAM), "#4C5F6A"),
@@ -62,6 +62,8 @@ public enum RelationshipType implements ArabicSupportEnum {
     MAFOOL_MUTLIQ(getWord(MEEM, FA, AIN, WAW, LAM, SPACE, MEEM, TTA, LAM, QAF), "#FF8040"),
 
     TAWKEED(getWord(TA, WAW, KAF, YA, DAL), "#BBAADD"),
+
+    MUNADI(getWord(MEEM, NOON, ALIF, DAL, YA), "#48C9B0"),
 
     NOUN_BASED_SENTENCE(getWord(JEEM, MEEM, LAM, TA_MARBUTA, SPACE, ALIF_HAMZA_BELOW, SEEN, MEEM, YA, TA_MARBUTA),
             "#FF00FF"),
