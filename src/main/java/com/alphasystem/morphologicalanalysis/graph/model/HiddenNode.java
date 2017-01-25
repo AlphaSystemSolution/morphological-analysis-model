@@ -23,7 +23,7 @@ public class HiddenNode extends TerminalNode {
         this(null, token);
     }
 
-    public HiddenNode(String id, Token token) {
+    private HiddenNode(String id, Token token) {
         super(id, token, HIDDEN);
     }
 }

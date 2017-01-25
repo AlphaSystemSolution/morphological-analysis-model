@@ -17,9 +17,9 @@ import static java.lang.String.format;
 @Document
 public class VerseTokensPair extends AbstractDocument {
 
-    protected Integer verseNumber;
-    protected Integer firstTokenIndex;
-    protected Integer lastTokenIndex;
+    private Integer verseNumber;
+    private Integer firstTokenIndex;
+    private Integer lastTokenIndex;
 
     public VerseTokensPair(Integer verseNumber) {
         this(verseNumber, -1, -1);

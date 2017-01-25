@@ -20,14 +20,13 @@ public abstract class LinkSupport extends LineSupport {
     /**
      * x location for circle.
      */
-    protected Double cx;
+    private Double cx;
     /**
      * y location for circle
      */
-    protected Double cy;
+    private Double cy;
 
-    @DBRef
-    protected Linkable linkable;
+    @DBRef Linkable linkable;
 
     public LinkSupport() {
         this(null, TERMINAL);
@@ -43,7 +42,7 @@ public abstract class LinkSupport extends LineSupport {
         return linkable;
     }
 
-    public void setLinkable(Linkable linkable) {
+    void setLinkable(Linkable linkable) {
         this.linkable = linkable;
     }
 

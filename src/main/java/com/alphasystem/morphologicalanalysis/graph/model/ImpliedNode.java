@@ -19,7 +19,7 @@ public class ImpliedNode extends TerminalNode {
         this(null);
     }
 
-    public ImpliedNode(String id, Token token) {
+    private ImpliedNode(String id, Token token) {
         super(id, token, IMPLIED);
     }
 

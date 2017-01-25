@@ -19,8 +19,8 @@ public class RelationshipNode extends GraphNode {
 
     private static final long serialVersionUID = -958480666990518422L;
 
-    protected AlternateStatus alternateStatus;
-    protected RelationshipType relationshipType;
+    private AlternateStatus alternateStatus;
+    private RelationshipType relationshipType;
     private Double controlX1;
     private Double controlY1;
     private Double controlX2;

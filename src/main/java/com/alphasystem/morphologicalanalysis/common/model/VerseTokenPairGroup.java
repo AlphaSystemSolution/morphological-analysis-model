@@ -11,9 +11,9 @@ import static org.apache.commons.lang3.ArrayUtils.isNotEmpty;
  */
 public class VerseTokenPairGroup {
 
-    protected Integer chapterNumber;
-    protected List<VerseTokensPair> pairs;
-    protected boolean includeHidden;
+    private Integer chapterNumber;
+    private List<VerseTokensPair> pairs;
+    private boolean includeHidden;
 
     public VerseTokenPairGroup() {
         setPairs((VerseTokensPair[]) null);

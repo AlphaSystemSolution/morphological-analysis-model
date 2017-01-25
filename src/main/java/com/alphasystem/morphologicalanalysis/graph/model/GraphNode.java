@@ -15,21 +15,21 @@ import static java.lang.System.getProperty;
 @Document
 public abstract class GraphNode extends AbstractDocument {
 
-    public static final String ARABIC_FONT_NAME = getProperty("arabic.font.name", "Arabic Typesetting");
-    public static final String ENGLISH_FONT_NAME = getProperty("english.font.name", "Candara");
+    static final String ARABIC_FONT_NAME = getProperty("arabic.font.name", "Arabic Typesetting");
+    static final String ENGLISH_FONT_NAME = getProperty("english.font.name", "Candara");
     private static final long serialVersionUID = -3423247102141013999L;
     private static final FontMetaInfo DEFAULT_FONT = new FontMetaInfo(ARABIC_FONT_NAME, "NORMAL", "REGULAR", 14.0);
 
-    protected GraphNodeType graphNodeType;
-    protected Integer chapterNumber;
-    protected Integer verseNumber;
-    protected Integer tokenNumber;
-    protected Integer version;
-    protected Double x;
-    protected Double y;
-    protected Double translateX;
-    protected Double translateY;
-    protected FontMetaInfo font;
+    private GraphNodeType graphNodeType;
+    private Integer chapterNumber;
+    private Integer verseNumber;
+    private Integer tokenNumber;
+    private Integer version;
+    private Double x;
+    private Double y;
+    private Double translateX;
+    private Double translateY;
+    private FontMetaInfo font;
 
     public GraphNode() {
         this(null, TERMINAL);
@@ -74,7 +74,7 @@ public abstract class GraphNode extends AbstractDocument {
         return DEFAULT_FONT;
     }
 
-    protected Double getPositiveValue(Double src) {
+    Double getPositiveValue(Double src) {
         return src == null ? 0.0 : src;
     }
 

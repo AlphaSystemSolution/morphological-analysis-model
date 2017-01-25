@@ -7,10 +7,19 @@
 
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
-import com.alphasystem.arabic.model.*;
+import com.alphasystem.arabic.model.ArabicLetter;
+import com.alphasystem.arabic.model.ArabicLetterType;
+import com.alphasystem.arabic.model.ArabicSupport;
+import com.alphasystem.arabic.model.ArabicWord;
+import com.alphasystem.arabic.model.SarfMemberType;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SarfTermType;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
 import static com.alphasystem.arabic.model.ArabicLetters.TA_MARBUTA_WITH_DAMMATAN;
 import static com.alphasystem.arabic.model.DiacriticType.FATHA;
@@ -48,32 +57,20 @@ import static java.lang.String.format;
         "firstRadicalIndex", "secondRadicalIndex", "thirdRadicalIndex",
         "fourthRadicalIndex", "sarfTermType"})
 @XmlRootElement
-public class  RootWord implements ArabicSupport {
+public class RootWord implements ArabicSupport {
 
-    @XmlElement(defaultValue = "0")
-    protected int firstRadicalIndex = 0;
-    @XmlElement(defaultValue = "1")
-    protected int secondRadicalIndex = 1;
-    @XmlElement(defaultValue = "2")
-    protected int thirdRadicalIndex = 2;
-    @XmlElement(defaultValue = "-1")
-    protected int fourthRadicalIndex = -1;
-    @XmlElement(required = true)
-    protected SarfTermType sarfTermType;
-    @XmlElement(required = true)
-    private ArabicWord rootWord;
-    @XmlTransient
-    private ArabicLetter firstRadical;
-    @XmlTransient
-    private ArabicLetter secondRadical;
-    @XmlTransient
-    private ArabicLetter thirdRadical;
-    @XmlTransient
-    private ArabicLetter fourthRadical;
-    @XmlTransient
-    private SarfMemberType memberType;
-    @XmlElement(required = true)
-    private ArabicWord baseWord;
+    @XmlElement(defaultValue = "0") private int firstRadicalIndex = 0;
+    @XmlElement(defaultValue = "1") private int secondRadicalIndex = 1;
+    @XmlElement(defaultValue = "2") private int thirdRadicalIndex = 2;
+    @XmlElement(defaultValue = "-1") private int fourthRadicalIndex = -1;
+    @XmlElement(required = true) private SarfTermType sarfTermType;
+    @XmlElement(required = true) private ArabicWord rootWord;
+    @XmlTransient private ArabicLetter firstRadical;
+    @XmlTransient private ArabicLetter secondRadical;
+    @XmlTransient private ArabicLetter thirdRadical;
+    @XmlTransient private ArabicLetter fourthRadical;
+    @XmlTransient private SarfMemberType memberType;
+    @XmlElement(required = true) private ArabicWord baseWord;
 
     /**
      *

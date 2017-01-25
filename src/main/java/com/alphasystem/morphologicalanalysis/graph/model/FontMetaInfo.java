@@ -13,13 +13,10 @@ import static java.lang.String.format;
 @Document
 public class FontMetaInfo extends AbstractSimpleDocument {
 
-    protected String family;
-
-    protected String weight;
-
-    protected String posture;
-
-    protected double size;
+    private String family;
+    private String weight;
+    private String posture;
+    private double size;
 
     public FontMetaInfo() {
         super();

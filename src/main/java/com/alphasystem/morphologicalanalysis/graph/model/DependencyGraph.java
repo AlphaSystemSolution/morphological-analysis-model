@@ -19,12 +19,12 @@ import java.util.List;
 public class DependencyGraph extends AbstractDocument {
 
     private static final String SEPARATOR = "|";
-    protected Integer chapterNumber;
-    protected List<VerseTokensPair> tokens;
+    private Integer chapterNumber;
+    private List<VerseTokensPair> tokens;
     private GraphMetaInfo metaInfo;
     @DBRef
     @CascadeSave
-    protected List<GraphNode> nodes;
+    private List<GraphNode> nodes;
 
     public DependencyGraph() {
         super();

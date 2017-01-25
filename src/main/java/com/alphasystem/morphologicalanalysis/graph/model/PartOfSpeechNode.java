@@ -42,7 +42,7 @@ public class PartOfSpeechNode extends LinkSupport {
         return locationNumber;
     }
 
-    public void setLocationNumber(Integer locationNumber) {
+    private void setLocationNumber(Integer locationNumber) {
         this.locationNumber = locationNumber;
     }
 

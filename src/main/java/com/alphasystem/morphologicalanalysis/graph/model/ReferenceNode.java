@@ -23,7 +23,7 @@ public class ReferenceNode extends TerminalNode {
         this(null, token);
     }
 
-    public ReferenceNode(String id, Token token) {
+    private ReferenceNode(String id, Token token) {
         super(id, token, REFERENCE);
     }
 }

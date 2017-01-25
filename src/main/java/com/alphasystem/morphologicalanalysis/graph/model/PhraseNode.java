@@ -46,7 +46,7 @@ public class PhraseNode extends LinkSupport {
         return fragments;
     }
 
-    public void setFragments(List<PartOfSpeechNode> fragments) {
+    private void setFragments(List<PartOfSpeechNode> fragments) {
         this.fragments = new ArrayList<>();
         if (fragments != null) {
             this.fragments.addAll(fragments);
@@ -57,7 +57,7 @@ public class PhraseNode extends LinkSupport {
         return relationships;
     }
 
-    public void setRelationships(List<RelationshipType> relationships) {
+    private void setRelationships(List<RelationshipType> relationships) {
         this.relationships = new ArrayList<>();
         if (relationships != null) {
             this.relationships.addAll(relationships);
