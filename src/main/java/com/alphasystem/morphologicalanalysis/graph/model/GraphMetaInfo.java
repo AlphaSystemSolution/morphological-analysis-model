@@ -14,8 +14,9 @@ public class GraphMetaInfo extends AbstractSimpleDocument {
 
     private static final double DEFAULT_TOTAL_WIDTH = 900.0;
     private static final double DEFAULT_TOTAL_HEIGHT = 600.0;
-    private static final double DEFAULT_TOKEN_WIDTH = 60.0;
+    private static final double DEFAULT_TOKEN_WIDTH = 80.0;
     private static final double DEFAULT_TOKEN_HEIGHT = 100.0;
+    private static final double GAP_BETWEEN_TOKENS = 80.0;
 
     private Double width;
     private Double height;
@@ -41,8 +42,8 @@ public class GraphMetaInfo extends AbstractSimpleDocument {
         setTokenWidth(null);
         setTokenHeight(null);
         setDebugMode(false);
-        setShowGridLines(true);
-        setShowOutLines(true);
+        setShowGridLines(false);
+        setShowOutLines(false);
     }
 
     private Double getDefaultValue(Double src, Double defaultValue) {
@@ -86,7 +87,7 @@ public class GraphMetaInfo extends AbstractSimpleDocument {
     }
 
     public void setGapBetweenTokens(Double gapBetweenTokens) {
-        this.gapBetweenTokens = getDefaultValue(gapBetweenTokens, 60.0);
+        this.gapBetweenTokens = getDefaultValue(gapBetweenTokens, GAP_BETWEEN_TOKENS);
     }
 
     public Boolean isShowGridLines() {
