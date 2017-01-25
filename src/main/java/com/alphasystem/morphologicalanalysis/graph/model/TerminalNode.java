@@ -21,19 +21,19 @@ import static java.lang.String.format;
 public class TerminalNode extends LineSupport {
 
     private static final long serialVersionUID = -2286312045728788322L;
-    public static final FontMetaInfo DEFAULT_FONT = new FontMetaInfo(ARABIC_FONT_NAME, "NORMAL", "REGULAR", 24.0);
+    private static final FontMetaInfo DEFAULT_FONT = new FontMetaInfo(ARABIC_FONT_NAME, "NORMAL", "REGULAR", 24.0);
     private static final FontMetaInfo DEFAULT_TRANSLATION_FONT = new FontMetaInfo(ENGLISH_FONT_NAME, "NORMAL",
-            "REGULAR", 10.0);
+            "REGULAR", 12.0);
 
     /**
      * x location for translation
      */
-    protected Double translationX;
+    private Double translationX;
 
     /**
      * y location for translation
      */
-    protected Double translationY;
+    private Double translationY;
 
     protected FontMetaInfo translationFont;
 
@@ -42,7 +42,7 @@ public class TerminalNode extends LineSupport {
 
     @DBRef
     @CascadeSave
-    protected List<PartOfSpeechNode> partOfSpeechNodes;
+    private List<PartOfSpeechNode> partOfSpeechNodes;
 
     public TerminalNode() {
         this((String) null);
