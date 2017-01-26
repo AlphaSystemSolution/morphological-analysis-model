@@ -52,15 +52,15 @@ public enum PartOfSpeech implements ArabicSupportEnum {
     DEFINITE_ARTICLE("Definite article", getWord(LAM, ALIF, MEEM, SPACE, ALIF,
             LAM, TA, AIN, RA, YA, FA)),
 
-    EMPHATIC_PARTICLE("Emphatic particle", getWord(ALIF, LAM, LAM, ALIF, MEEM,
-            SPACE, LAM, ALIF, MEEM, SPACE, ALIF, LAM, TA, AIN, LAM, YA, LAM)),
+    EMPHATIC_PARTICLE("Emphatic particle", getWord(ALIF, LAM, LAM, ALIF,
+            MEEM, SPACE, LAM, ALIF, MEEM, SPACE, ALIF, LAM, TA, WAW, KAF, YA,
+            DAL)),
 
     IMPERATIVE_PARTICLE("Imperative particle", getWord(LAM, ALIF, MEEM, SPACE,
             ALIF, LAM, ALIF, MEEM, RA)),
 
-    PARTICLE_OF_PURPOSE("Particle of purpose", getWord(ALIF, LAM, LAM, ALIF,
-            MEEM, SPACE, LAM, ALIF, MEEM, SPACE, ALIF, LAM, TA, WAW, KAF, YA,
-            DAL)),
+    PARTICLE_OF_PURPOSE("Particle of purpose", getWord(ALIF, LAM, LAM, ALIF, MEEM,
+            SPACE, LAM, ALIF, MEEM, SPACE, ALIF, LAM, TA, AIN, LAM, YA, LAM)),
 
     CONJUNCTION_PARTICLE_WAW("Conjunction particle", getWord(ALIF, LAM, WAW,
             ALIF, WAW, SPACE, AIN, ALIF, TTA, FA, TA_MARBUTA)),
