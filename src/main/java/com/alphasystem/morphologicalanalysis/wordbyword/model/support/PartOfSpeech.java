@@ -62,6 +62,8 @@ public enum PartOfSpeech implements ArabicSupportEnum {
     PARTICLE_OF_PURPOSE("Particle of purpose", getWord(ALIF, LAM, LAM, ALIF, MEEM,
             SPACE, LAM, ALIF, MEEM, SPACE, ALIF, LAM, TA, AIN, LAM, YA, LAM)),
 
+    PARTICLE_OF_CONJUNCTION("Conjunction particle", getWord(HHA, RA, FA, SPACE, AIN, TTA, FA)),
+
     CONJUNCTION_PARTICLE_WAW("Conjunction particle", getWord(ALIF, LAM, WAW,
             ALIF, WAW, SPACE, AIN, ALIF, TTA, FA, TA_MARBUTA)),
 
