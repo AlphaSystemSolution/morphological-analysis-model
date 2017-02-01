@@ -29,24 +29,27 @@ public class Token extends AbstractDocument {
 
     private static final long serialVersionUID = 15155700997755124L;
 
-    protected Integer chapterNumber;
+    private Integer chapterNumber;
 
-    protected Integer verseNumber;
+    private Integer verseNumber;
 
-    protected Integer tokenNumber;
+    private Integer tokenNumber;
 
-    protected String token;
+    private String token;
+
+    private String translation;
 
     /**
      * For empty or hidden location will set as true to mark that this location was added for
      * Tree bank dependency graph
      */
-    protected boolean hidden;
+    private boolean hidden;
+
     @DBRef
     @CascadeSave
-    protected List<Location> locations;
-    @Transient
-    protected ArabicWord tokenWord;
+    private List<Location> locations;
+
+    @Transient private ArabicWord tokenWord;
 
     /**
      *
@@ -156,22 +159,11 @@ public class Token extends AbstractDocument {
     }
 
     public String getTranslation() {
-        StringBuilder builder = new StringBuilder();
-        if (locations != null && !locations.isEmpty()) {
-            Location location = locations.get(0);
-            String translation = location.getTranslation();
-            translation = isBlank(translation) ? "" : translation;
-            builder.append(translation);
-            for (int i = 1; i < locations.size(); i++) {
-                builder.append(" ");
-                location = locations.get(i);
-                translation = location.getTranslation();
-                translation = isBlank(translation) ? ""
-                        : translation;
-                builder.append(translation);
-            }
-        }
-        return builder.toString();
+        return translation;
+    }
+
+    public void setTranslation(String translation) {
+        this.translation = translation;
     }
 
     public Integer getVerseNumber() {

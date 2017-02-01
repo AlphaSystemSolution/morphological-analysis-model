@@ -15,23 +15,25 @@ import static com.alphasystem.arabic.model.ArabicWord.getWord;
  */
 public enum NounStatus implements ArabicSupportEnum {
 
-	NOMINATIVE("Nominative", getWord(MEEM, RA, FA, WAW, AIN)),
+	NOMINATIVE("Nominative", getWord(MEEM, RA, FA, WAW, AIN), getWord(RA, FA, AIN)),
 
-	ACCUSATIVE("Accusative", getWord(MEEM, NOON, SAD, WAW, BA)),
+	ACCUSATIVE("Accusative", getWord(MEEM, NOON, SAD, WAW, BA), getWord(NOON, SAD, BA)),
 
-	GENETIVE("Genitive", getWord(MEEM, JEEM, RA, WAW, RA));
+	GENITIVE("Genitive", getWord(MEEM, JEEM, RA, WAW, RA), getWord(JEEM, RA));
 
 	private final String code;
-
-	private final ArabicWord label;
+	private final ArabicWord longLabel;
+    private final ArabicWord shortLabel;
 
 	/**
-	 * @param code
-	 * @param label
+	 * @param code name of the status
+	 * @param longLabel long label of status
+     * @param shortLabel short label of status
 	 */
-	NounStatus(String code, ArabicWord label) {
+	NounStatus(String code, ArabicWord longLabel, ArabicWord shortLabel) {
 		this.code = code;
-		this.label = label;
+		this.longLabel = longLabel;
+        this.shortLabel = shortLabel;
 	}
 
 	@Override
@@ -41,10 +43,18 @@ public enum NounStatus implements ArabicSupportEnum {
 
 	@Override
 	public ArabicWord toLabel() {
-		return label;
+		return longLabel;
 	}
 
-	@Override
+    public ArabicWord getLongLabel() {
+        return longLabel;
+    }
+
+    public ArabicWord getShortLabel() {
+        return shortLabel;
+    }
+
+    @Override
 	public String getName() {
 		return name();
 	}

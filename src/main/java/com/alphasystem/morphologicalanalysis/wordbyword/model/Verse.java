@@ -7,6 +7,7 @@ import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
 import com.alphasystem.persistence.model.AbstractDocument;
 import com.alphasystem.persistence.model.CascadeSave;
+import org.apache.commons.lang3.StringUtils;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
@@ -28,18 +29,19 @@ public class Verse extends AbstractDocument {
 
     private static final long serialVersionUID = 2453854450176270449L;
 
-    protected Integer chapterNumber;
+    private Integer chapterNumber;
 
-    protected Integer verseNumber;
+    private Integer verseNumber;
+
+    private String text;
 
     @Indexed(name = "token_count") private Integer tokenCount;
 
     @DBRef
     @CascadeSave
-    protected List<Token> tokens;
+    private List<Token> tokens;
 
-    @Transient
-    protected ArabicWord verse;
+    @Transient private ArabicWord verse;
 
     /**
      *
@@ -98,12 +100,19 @@ public class Verse extends AbstractDocument {
         }
     }
 
-    public ArabicWord getVerse() {
-        return verse;
+    public String getText() {
+        return text;
     }
 
-    public void setVerse(ArabicWord verse) {
-        this.verse = verse;
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public ArabicWord getVerse() {
+        if (verse == null && !StringUtils.isBlank(text)) {
+            verse = ArabicWord.fromUnicode(text);
+        }
+        return verse;
     }
 
     public Integer getVerseNumber() {

@@ -9,13 +9,14 @@ import static com.alphasystem.arabic.model.ArabicWord.getWord;
 /**
  * @author sali
  */
+@Deprecated
 public enum AlternateStatus implements ArabicSupportEnum {
 
     NOMINATIVE("Nominative", getWord(RA, FA, AIN)),
 
     ACCUSATIVE("Accusative", getWord(NOON, SAD, BA)),
 
-    GENETIVE("Genitive", getWord(JEEM, RA));;
+    GENITIVE("Genitive", getWord(JEEM, RA));
 
     private final String code;
 

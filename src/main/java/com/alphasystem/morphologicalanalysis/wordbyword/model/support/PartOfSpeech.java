@@ -46,7 +46,7 @@ public enum PartOfSpeech implements ArabicSupportEnum {
     GENITIVE_PARTICLE("Genitive particle", "#800000", getWord(HHA, RA, FA,
             SPACE, JEEM, RA)),
 
-    ACCUSSATIVE_PARTICLE("Accussative particle", "#8B0807", getWord(HHA, RA, FA,
+    ACCUSATIVE_PARTICLE("Accusative particle", "#8B0807", getWord(HHA, RA, FA,
             SPACE, NOON, SAD, BA)),
 
     DEFINITE_ARTICLE("Definite article", getWord(LAM, ALIF, MEEM, SPACE, ALIF,
