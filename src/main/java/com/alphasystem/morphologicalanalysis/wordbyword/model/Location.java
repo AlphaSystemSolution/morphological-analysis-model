@@ -10,7 +10,6 @@ import com.alphasystem.persistence.model.CascadeSave;
 import org.apache.commons.lang3.StringUtils;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -53,15 +52,15 @@ public class Location extends Linkable {
     @CascadeSave
     private MorphologicalEntry morphologicalEntry;
 
+    private String derivedText;
+
     private String text;
 
     private NamedTag namedTag;
 
-    protected String translation;
+    private String translation;
 
     protected AbstractProperties properties;
-
-    @Transient private ArabicWord locationWord;
 
     /**
      *
@@ -165,19 +164,20 @@ public class Location extends Linkable {
         this.hidden = hidden;
     }
 
+    public String getDerivedText() {
+        return derivedText;
+    }
+
+    public void setDerivedText(String derivedText) {
+        this.derivedText = derivedText;
+    }
+
     public String getText() {
         return text;
     }
 
     public void setText(String text) {
         this.text = text;
-        initLocationWord();
-    }
-
-    private void initLocationWord() {
-        if (!StringUtils.isBlank(text)) {
-            locationWord = ArabicWord.fromUnicode(text);
-        }
     }
 
     public NamedTag getNamedTag() {
@@ -254,8 +254,9 @@ public class Location extends Linkable {
     }
 
     public ArabicWord getLocationWord() {
-        if (locationWord == null) {
-            initLocationWord();
+        ArabicWord locationWord = null;
+        if (!StringUtils.isBlank(text)) {
+            locationWord = ArabicWord.fromUnicode(text);
         }
         return locationWord;
     }
