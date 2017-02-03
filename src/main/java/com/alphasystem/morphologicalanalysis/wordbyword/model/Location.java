@@ -10,6 +10,7 @@ import com.alphasystem.persistence.model.CascadeSave;
 import org.apache.commons.lang3.StringUtils;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -253,7 +254,8 @@ public class Location extends Linkable {
         this.startIndex = ((startIndex == null) || (startIndex <= 0)) ? 0 : startIndex;
     }
 
-    public ArabicWord getLocationWord() {
+    @Transient
+    public ArabicWord locationWord() {
         ArabicWord locationWord = null;
         if (!StringUtils.isBlank(text)) {
             locationWord = ArabicWord.fromUnicode(text);
@@ -298,6 +300,7 @@ public class Location extends Linkable {
         getProperties();
     }
 
+    @Transient
     public boolean isTransient() {
         return startIndex == 0 && endIndex == 0;
     }

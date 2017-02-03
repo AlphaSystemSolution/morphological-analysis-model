@@ -92,7 +92,7 @@ public abstract class AbstractProperties extends AbstractSimpleDocument {
     }
 
     @Transient
-    public ArabicWord getLabel() {
+    public ArabicWord label() {
         return null;
     }
 

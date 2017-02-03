@@ -151,7 +151,8 @@ public class Token extends AbstractDocument {
         this.tokenNumber = tokenNumber;
     }
 
-    public ArabicWord getTokenWord() {
+    @Transient
+    public ArabicWord tokenWord() {
         if (tokenWord == null) {
             initTokenWord();
         }

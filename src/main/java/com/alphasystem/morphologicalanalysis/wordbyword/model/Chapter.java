@@ -79,7 +79,7 @@ public class Chapter extends AbstractDocument {
         initChapterNameWord();
     }
 
-    public ArabicWord getChapterNameWord() {
+    public ArabicWord chapterNameWord() {
         return chapterNameWord;
     }
 

@@ -108,7 +108,8 @@ public class Verse extends AbstractDocument {
         this.text = text;
     }
 
-    public ArabicWord getVerse() {
+    @Transient
+    public ArabicWord verse() {
         if (verse == null && !StringUtils.isBlank(text)) {
             verse = ArabicWord.fromUnicode(text);
         }

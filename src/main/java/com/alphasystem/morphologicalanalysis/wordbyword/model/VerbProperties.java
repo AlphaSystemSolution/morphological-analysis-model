@@ -71,7 +71,7 @@ public class VerbProperties extends AbstractProperties {
 
     @Override
     @Transient
-    public ArabicWord getLabel() {
+    public ArabicWord label() {
         return concatenateWithSpace(gender.toLabel(),
                 conversationType.toLabel(), number.toLabel());
     }
