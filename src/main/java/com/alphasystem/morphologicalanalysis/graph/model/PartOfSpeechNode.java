@@ -50,7 +50,7 @@ public class PartOfSpeechNode extends LinkSupport {
     public void initDisplayName() {
         String ver = getVersion() <= 0 ? "" : format(":%s", getVersion());
         String dn = location == null ? "" :
-                format("%s%s:%s", location.getDisplayName(), ver, location.getPartOfSpeech());
+                format("%s%s:%s", location.getDisplayName(), ver, location.getWordType());
         if (location != null) {
             setChapterNumber(location.getChapterNumber());
             setVerseNumber(location.getVerseNumber());
