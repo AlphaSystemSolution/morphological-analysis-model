@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.alphasystem.morphologicalanalysis.morphology.model.RootWord.createRootWord;
-import static com.alphasystem.morphologicalanalysis.morphology.model.support.Flexibility.FULLY_FLEXIBLE;
-import static com.alphasystem.morphologicalanalysis.morphology.model.support.Flexibility.PARTLY_FLEXIBLE;
+import static com.alphasystem.morphologicalanalysis.morphology.model.support.NounSupport.Flexibility.FULLY_FLEXIBLE;
+import static com.alphasystem.morphologicalanalysis.morphology.model.support.NounSupport.Flexibility.PARTLY_FLEXIBLE;
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
 
