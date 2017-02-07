@@ -5,15 +5,8 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType;
-import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounPartOfSpeechType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType;
-import com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeechType;
-import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ParticlePartOfSpeechType;
-import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ProNounPartOfSpeechType;
-import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbPartOfSpeechType;
-import com.alphasystem.morphologicalanalysis.wordbyword.model.support.WordType;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import com.alphasystem.util.AppUtil;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -30,13 +23,11 @@ public abstract class AbstractProperties extends AbstractSimpleDocument {
 
     private static final long serialVersionUID = 8386413187448630570L;
 
-    protected PartOfSpeechType partOfSpeech;
     protected NumberType number;
     protected GenderType gender;
 
-    AbstractProperties() {
+    public AbstractProperties() {
         super();
-        setPartOfSpeech(null);
         setNumber(null);
         setGender(null);
     }
@@ -45,28 +36,12 @@ public abstract class AbstractProperties extends AbstractSimpleDocument {
      * @param src
      * @throws NullPointerException
      */
-    AbstractProperties(AbstractProperties src) throws NullPointerException {
+    protected AbstractProperties(AbstractProperties src) throws NullPointerException {
         if (src == null) {
             throw new NullPointerException("Source is null.");
         }
-        setId(null);
-        setPartOfSpeech(src.getPartOfSpeech());
         setNumber(src.getNumber());
         setGender(src.getGender());
-    }
-
-    public static AbstractProperties create(WordType wordType) {
-        AbstractProperties properties = null;
-        if (WordType.PARTICLE.equals(wordType)) {
-            properties = new ParticleProperties();
-        } else if (WordType.VERB.equals(wordType)) {
-            properties = new VerbProperties();
-        } else if (WordType.PRO_NOUN.equals(wordType)) {
-            properties = new ProNounProperties();
-        } else {
-            properties = new NounProperties();
-        }
-        return properties;
     }
 
     public static AbstractProperties copy(AbstractProperties src) {
@@ -74,25 +49,38 @@ public abstract class AbstractProperties extends AbstractSimpleDocument {
             return null;
         }
         AbstractProperties target = null;
-        final PartOfSpeechType partOfSpeech = src.getPartOfSpeech();
-        if (AppUtil.isInstanceOf(NounPartOfSpeechType.class, partOfSpeech)) {
+        if (isNoun(src)) {
             target = new NounProperties((NounProperties) src);
-        } else if (AppUtil.isInstanceOf(ProNounPartOfSpeechType.class, partOfSpeech)) {
+        } else if (isPronoun(src)) {
             target = new ProNounProperties((ProNounProperties) src);
-        } else if (AppUtil.isInstanceOf(VerbPartOfSpeechType.class, partOfSpeech)) {
+        } else if (isVerb(src)) {
             target = new VerbProperties((VerbProperties) src);
-        } else if (AppUtil.isInstanceOf(ParticlePartOfSpeechType.class, partOfSpeech)) {
+        } else if (isParticle(src)) {
             target = new ParticleProperties((ParticleProperties) src);
         }
         return target;
     }
 
-    public PartOfSpeechType getPartOfSpeech() {
-        return partOfSpeech;
+    public static boolean isNoun(AbstractProperties properties) {
+        return properties != null
+                && NounProperties.class.isAssignableFrom(properties.getClass());
     }
 
-    public void setPartOfSpeech(PartOfSpeechType partOfSpeech) {
-        this.partOfSpeech = (partOfSpeech == null) ? NounPartOfSpeechType.NOUN : partOfSpeech;
+    public static boolean isParticle(AbstractProperties properties) {
+        return properties == null
+                || ParticleProperties.class.isAssignableFrom(properties
+                .getClass());
+    }
+
+    public static boolean isPronoun(AbstractProperties properties) {
+        return properties != null
+                && ProNounProperties.class.isAssignableFrom(properties
+                .getClass());
+    }
+
+    public static boolean isVerb(AbstractProperties properties) {
+        return properties != null
+                && VerbProperties.class.isAssignableFrom(properties.getClass());
     }
 
     public GenderType getGender() {
@@ -116,4 +104,13 @@ public abstract class AbstractProperties extends AbstractSimpleDocument {
         this.number = number == null ? SINGULAR : number;
     }
 
+    public AbstractProperties withGenderType(GenderType gender) {
+        setGender(gender);
+        return this;
+    }
+
+    public AbstractProperties withNumberType(NumberType number) {
+        setNumber(number);
+        return this;
+    }
 }

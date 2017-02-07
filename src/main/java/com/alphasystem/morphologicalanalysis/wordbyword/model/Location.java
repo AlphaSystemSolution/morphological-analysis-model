@@ -5,7 +5,7 @@ import com.alphasystem.morphologicalanalysis.common.model.Linkable;
 import com.alphasystem.morphologicalanalysis.morphology.model.MorphologicalEntry;
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NamedTag;
-import com.alphasystem.morphologicalanalysis.wordbyword.model.support.WordType;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeech;
 import com.alphasystem.persistence.model.CascadeSave;
 import org.apache.commons.lang3.StringUtils;
 import org.mongodb.morphia.annotations.Entity;
@@ -14,6 +14,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.PartOfSpeech.NOUN;
 import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
@@ -26,15 +27,15 @@ public class Location extends Linkable {
 
     private static final long serialVersionUID = 7895140946662001637L;
 
-    private Integer chapterNumber;
+    protected Integer chapterNumber;
 
-    private Integer verseNumber;
+    protected Integer verseNumber;
 
-    private Integer tokenNumber;
+    protected Integer tokenNumber;
 
     private Integer locationNumber;
 
-    private boolean hidden;
+    protected boolean hidden;
 
     /**
      * Start index of this location within token (inclusive)
@@ -46,7 +47,7 @@ public class Location extends Linkable {
      */
     private Integer endIndex;
 
-    private WordType wordType;
+    private PartOfSpeech partOfSpeech;
 
     @DBRef
     @CascadeSave
@@ -68,7 +69,7 @@ public class Location extends Linkable {
     public Location() {
         setStartIndex(null);
         setEndIndex(null);
-        setWordType(null);
+        setPartOfSpeech(null);
     }
 
     /**
@@ -76,11 +77,11 @@ public class Location extends Linkable {
      * @param verseNumber
      * @param tokenNumber
      * @param locationNumber
-     * @param wordType
      * @param hidden
      * @throws InvalidChapterException
      */
-    public Location(Integer chapterNumber, Integer verseNumber, Integer tokenNumber, Integer locationNumber, WordType wordType, boolean hidden)
+    public Location(Integer chapterNumber, Integer verseNumber,
+                    Integer tokenNumber, Integer locationNumber, boolean hidden)
             throws InvalidChapterException {
         super();
         setChapterNumber(chapterNumber);
@@ -90,7 +91,7 @@ public class Location extends Linkable {
         setHidden(hidden);
         setStartIndex(null);
         setEndIndex(null);
-        setWordType(wordType);
+        setPartOfSpeech(null);
     }
 
     /**
@@ -98,13 +99,13 @@ public class Location extends Linkable {
      * @param verseNumber
      * @param tokenNumber
      * @param locationNumber
-     * @param wordType
      * @throws InvalidChapterException
      */
     @PersistenceConstructor
-    public Location(Integer chapterNumber, Integer verseNumber, Integer tokenNumber, Integer locationNumber, WordType wordType)
+    public Location(Integer chapterNumber, Integer verseNumber,
+                    Integer tokenNumber, Integer locationNumber)
             throws InvalidChapterException {
-        this(chapterNumber, verseNumber, tokenNumber, locationNumber, wordType, false);
+        this(chapterNumber, verseNumber, tokenNumber, locationNumber, false);
     }
 
     /**
@@ -125,7 +126,7 @@ public class Location extends Linkable {
         setHidden(src.isHidden());
         setStartIndex(src.getStartIndex());
         setEndIndex(src.getEndIndex());
-        setWordType(src.getWordType());
+        setPartOfSpeech(src.getPartOfSpeech());
         setNamedTag(src.getNamedTag());
         setTranslation(src.getTranslation());
         setProperties(AbstractProperties.copy(src.getProperties()));
@@ -188,19 +189,47 @@ public class Location extends Linkable {
         this.namedTag = namedTag;
     }
 
-    public WordType getWordType() {
-        return wordType;
+    public PartOfSpeech getPartOfSpeech() {
+        return partOfSpeech;
     }
 
-    public void setWordType(WordType wordType) {
-        this.wordType = (wordType == null) ? WordType.NOUN : wordType;
-        initProperties();
+    public void setPartOfSpeech(PartOfSpeech partOfSpeech) {
+        this.partOfSpeech = (partOfSpeech == null) ? NOUN : partOfSpeech;
+        // setting part of speech will make properties re-initialized, which will override the location
+        // properties, there is a case where we don't want to have this override to be happened.
+
+        // Case 1: We already have value in the DB and from UI we selected the location from drop down,
+        // from "LocationPropertiesSkin" line 47 we changed the common properties view (this class) and
+        // that will trigger the change in part of speech, that's why we are here.
+        // Now we need to change the part of speech in UI but will reset the properties as well which is we
+        // want to be happened. So we want to keep track current sets of properties and put them back once
+        // part of speech is set
+
+        // Case 2: This is completely new sets of properties, when properties are initialized by default they
+        // are assigned "NOUN" as part of speech, now if we are changing to some other type of part of speech
+        // then holding of current sets of properties will not work, in this case we want the override to be
+        // happened
+
+        // trick is to find out that if current location is transient or not, init properties only if the location
+        // is transient
+        if (isTransient()) {
+            initProperties();
+        }
     }
 
     public AbstractProperties getProperties() {
-        if (properties == null && wordType != null) {
-            properties = AbstractProperties.create(wordType);
+        if (properties == null && partOfSpeech != null) {
+            Class<? extends AbstractProperties> propertiesClass = partOfSpeech
+                    .getPropertiesClass();
+            try {
+                properties = propertiesClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+                properties = new ParticleProperties();
+            }
             initDisplayName();
+            String id = format("%s:%s", getDisplayName(), partOfSpeech);
+            properties.setId(id);
         }
         return properties;
     }
@@ -276,6 +305,11 @@ public class Location extends Linkable {
         return startIndex == 0 && endIndex == 0;
     }
 
+    public void updatePartOfSpeech(PartOfSpeech partOfSpeech){
+        this.partOfSpeech = (partOfSpeech == null) ? NOUN : partOfSpeech;
+        initProperties();
+    }
+
     /**
      * Checks whether this location is before the given location. This method will only returns true if the chapter and
      * verse number of this location is matches the chapter and verse number of given location.
@@ -316,6 +350,13 @@ public class Location extends Linkable {
     public Location withNamedTag(NamedTag namedTag) {
         if (namedTag != null) {
             setNamedTag(namedTag);
+        }
+        return this;
+    }
+
+    public Location withPartOfSpeech(PartOfSpeech partOfSpeech) {
+        if (partOfSpeech != null) {
+            setPartOfSpeech(partOfSpeech);
         }
         return this;
     }
