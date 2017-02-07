@@ -14,9 +14,6 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
@@ -63,7 +60,7 @@ public class Location extends Linkable {
 
     private String translation;
 
-    protected List<AbstractProperties> properties;
+    protected AbstractProperties properties;
 
     /**
      *
@@ -131,7 +128,7 @@ public class Location extends Linkable {
         setWordType(src.getWordType());
         setNamedTag(src.getNamedTag());
         setTranslation(src.getTranslation());
-        setProperties(src.getProperties());
+        setProperties(AbstractProperties.copy(src.getProperties()));
         initDisplayName();
     }
 
@@ -200,20 +197,16 @@ public class Location extends Linkable {
         initProperties();
     }
 
-    public List<AbstractProperties> getProperties() {
-        if (properties.isEmpty() && wordType != null) {
-            properties = new ArrayList<>();
-            properties.add(AbstractProperties.create(wordType));
+    public AbstractProperties getProperties() {
+        if (properties == null && wordType != null) {
+            properties = AbstractProperties.create(wordType);
             initDisplayName();
         }
         return properties;
     }
 
-    public void setProperties(List<AbstractProperties> properties) {
-        this.properties = new ArrayList<>();
-        if (properties != null && !properties.isEmpty()) {
-            properties.forEach(p -> this.properties.add(AbstractProperties.copy(p)));
-        }
+    public void setProperties(AbstractProperties properties) {
+        this.properties = properties;
     }
 
     public MorphologicalEntry getMorphologicalEntry() {
@@ -274,7 +267,7 @@ public class Location extends Linkable {
     }
 
     private void initProperties() {
-        properties = new ArrayList<>();
+        properties = null;
         getProperties();
     }
 
@@ -323,6 +316,13 @@ public class Location extends Linkable {
     public Location withNamedTag(NamedTag namedTag) {
         if (namedTag != null) {
             setNamedTag(namedTag);
+        }
+        return this;
+    }
+
+    public Location withProperties(AbstractProperties properties) {
+        if (properties != null) {
+            setProperties(properties);
         }
         return this;
     }
