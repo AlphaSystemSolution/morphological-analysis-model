@@ -5,6 +5,10 @@ package com.alphasystem.morphologicalanalysis.morphology.model.support;
  */
 public interface NounSupport extends RootWordSupport {
 
+    enum Flexibility {
+        FULLY_FLEXIBLE, PARTLY_FLEXIBLE, NON_FLEXIBLE
+    }
+
     boolean isFeminine();
 
     Flexibility getFlexibility();
