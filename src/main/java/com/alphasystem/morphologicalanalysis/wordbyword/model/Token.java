@@ -9,14 +9,12 @@ import com.alphasystem.persistence.model.AbstractDocument;
 import com.alphasystem.persistence.model.CascadeSave;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.alphasystem.arabic.model.ArabicWord.fromUnicode;
 import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
@@ -48,8 +46,6 @@ public class Token extends AbstractDocument {
     @DBRef
     @CascadeSave
     private List<Location> locations;
-
-    @Transient private ArabicWord tokenWord;
 
     /**
      *
@@ -140,7 +136,6 @@ public class Token extends AbstractDocument {
 
     public void setToken(String token) {
         this.token = token;
-        initTokenWord();
     }
 
     public Integer getTokenNumber() {
@@ -151,12 +146,8 @@ public class Token extends AbstractDocument {
         this.tokenNumber = tokenNumber;
     }
 
-    @Transient
     public ArabicWord tokenWord() {
-        if (tokenWord == null) {
-            initTokenWord();
-        }
-        return tokenWord;
+        return isBlank(token)?null:ArabicWord.fromUnicode(token);
     }
 
     public String getTranslation() {
@@ -180,10 +171,6 @@ public class Token extends AbstractDocument {
         String r = hidden ? ":1" : "";
         String dn = format("%s:%s:%s%s", chapterNumber, verseNumber, tokenNumber, r);
         setDisplayName(dn);
-    }
-
-    private void initTokenWord() {
-        tokenWord = isBlank(token) ? null : fromUnicode(token);
     }
 
     public Token withChapterNumber(Integer chapterNumber) {
