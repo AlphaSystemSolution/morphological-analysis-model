@@ -12,8 +12,6 @@ public enum NounPartOfSpeechType implements PartOfSpeechType {
 
     NOUN("Noun", "#000080", getWord(ALIF_HAMZA_BELOW, SEEN, MEEM)),
     PROPER_NOUN("Proper Noun", "#000080", getWord(ALIF_HAMZA_BELOW, SEEN, MEEM, SPACE, AIN, LAM, MEEM)),
-    RELATIVE_PRONOUN("Relative pronoun", "#3EA055", getWord(ALIF_HAMZA_BELOW, SEEN, MEEM, SPACE, MEEM, WAW, SAD, WAW, LAM)),
-    DEMONSTRATIVE_PRONOUN("Demonstrative pronoun", "#008080", getWord(ALIF_HAMZA_BELOW, SEEN, MEEM, SPACE, ALIF_HAMZA_BELOW, SHEEN, ALIF, RA, TA_MARBUTA)),
     TIME_ADVERB("Time adverb", null, getWord(DTHA, RA, FA, SPACE, ZAIN, MEEM, ALIF, NOON)),
     LOCATION_ADVERB("Location adverb", null, getWord(DTHA, RA, FA, SPACE, MEEM, KAF, ALIF, NOON));
 
