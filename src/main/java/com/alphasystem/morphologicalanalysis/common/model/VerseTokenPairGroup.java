@@ -3,9 +3,6 @@ package com.alphasystem.morphologicalanalysis.common.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Collections.addAll;
-import static org.apache.commons.lang3.ArrayUtils.isNotEmpty;
-
 /**
  * @author sali
  */
@@ -16,7 +13,7 @@ public class VerseTokenPairGroup {
     private boolean includeHidden;
 
     public VerseTokenPairGroup() {
-        setPairs((VerseTokensPair[]) null);
+        setPairs(null);
     }
 
     public Integer getChapterNumber() {
@@ -37,13 +34,6 @@ public class VerseTokenPairGroup {
 
     public List<VerseTokensPair> getPairs() {
         return pairs;
-    }
-
-    public void setPairs(VerseTokensPair... pairs) {
-        this.pairs = new ArrayList<>();
-        if (isNotEmpty(pairs)) {
-            addAll(this.pairs, pairs);
-        }
     }
 
     public void setPairs(List<VerseTokensPair> pairs) {
