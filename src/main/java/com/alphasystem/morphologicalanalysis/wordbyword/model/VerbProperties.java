@@ -7,6 +7,7 @@ import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ConversationType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.IncompleteVerb;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbMode;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbPartOfSpeechType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbType;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.Transient;
@@ -21,7 +22,7 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Ver
  */
 @Entity
 @Document
-public class VerbProperties extends AbstractProperties {
+public class VerbProperties extends AbstractProperties<VerbPartOfSpeechType> {
 
     private static final long serialVersionUID = 579863620988819896L;
     protected ConversationType conversationType;

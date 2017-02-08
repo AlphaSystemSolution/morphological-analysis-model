@@ -5,6 +5,7 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounKind;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounPartOfSpeechType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounType;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.Transient;
@@ -21,7 +22,7 @@ import static java.lang.String.format;
  */
 @Entity
 @Document
-public class NounProperties extends AbstractNounProperties {
+public class NounProperties extends AbstractNounProperties<NounPartOfSpeechType> {
 
     private static final long serialVersionUID = 1602979768959493665L;
 

@@ -4,6 +4,7 @@
 package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ConversationType;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ProNounPartOfSpeechType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ProNounType;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,7 +18,7 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Pro
  */
 @Entity
 @Document
-public class ProNounProperties extends AbstractNounProperties {
+public class ProNounProperties extends AbstractNounProperties<ProNounPartOfSpeechType> {
 
 	private static final long serialVersionUID = 6798660811802129204L;
 

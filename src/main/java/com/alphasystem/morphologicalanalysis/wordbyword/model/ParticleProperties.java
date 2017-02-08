@@ -5,6 +5,7 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ParticlePartOfSpeechType;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Entity
 @Document
-public class ParticleProperties extends AbstractProperties {
+public class ParticleProperties extends AbstractProperties<ParticlePartOfSpeechType> {
 
 	private static final long serialVersionUID = 3916962887098806402L;
 

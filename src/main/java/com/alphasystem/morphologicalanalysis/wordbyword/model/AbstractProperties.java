@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.ArabicWord;
@@ -26,11 +23,11 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Num
  */
 @Entity
 @Document
-public abstract class AbstractProperties extends AbstractSimpleDocument {
+public abstract class AbstractProperties<P extends Enum<P> & PartOfSpeechType> extends AbstractSimpleDocument {
 
     private static final long serialVersionUID = 8386413187448630570L;
 
-    protected PartOfSpeechType partOfSpeech;
+    protected P partOfSpeech;
     protected NumberType number;
     protected GenderType gender;
 
@@ -50,7 +47,7 @@ public abstract class AbstractProperties extends AbstractSimpleDocument {
             throw new NullPointerException("Source is null.");
         }
         setId(null);
-        setPartOfSpeech(src.getPartOfSpeech());
+        setPartOfSpeech((P) src.getPartOfSpeech());
         setNumber(src.getNumber());
         setGender(src.getGender());
     }
@@ -74,7 +71,7 @@ public abstract class AbstractProperties extends AbstractSimpleDocument {
             return null;
         }
         AbstractProperties target = null;
-        final PartOfSpeechType partOfSpeech = src.getPartOfSpeech();
+        final Enum<?> partOfSpeech = src.getPartOfSpeech();
         if (AppUtil.isInstanceOf(NounPartOfSpeechType.class, partOfSpeech)) {
             target = new NounProperties((NounProperties) src);
         } else if (AppUtil.isInstanceOf(ProNounPartOfSpeechType.class, partOfSpeech)) {
@@ -87,12 +84,12 @@ public abstract class AbstractProperties extends AbstractSimpleDocument {
         return target;
     }
 
-    public PartOfSpeechType getPartOfSpeech() {
+    public P getPartOfSpeech() {
         return partOfSpeech;
     }
 
-    public void setPartOfSpeech(PartOfSpeechType partOfSpeech) {
-        this.partOfSpeech = (partOfSpeech == null) ? NounPartOfSpeechType.NOUN : partOfSpeech;
+    public void setPartOfSpeech(P partOfSpeech) {
+        this.partOfSpeech = (partOfSpeech == null) ? (P) NounPartOfSpeechType.NOUN : partOfSpeech;
     }
 
     public GenderType getGender() {
