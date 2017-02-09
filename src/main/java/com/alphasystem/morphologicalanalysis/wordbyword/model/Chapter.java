@@ -7,12 +7,6 @@ import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
 import com.alphasystem.persistence.model.AbstractDocument;
 import com.alphasystem.persistence.model.CascadeSave;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,25 +18,19 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 /**
  * @author sali
  */
-@Entity
-@Document
 public class Chapter extends AbstractDocument {
 
     private static final long serialVersionUID = 2227615567873753719L;
 
     protected String chapterName;
 
-    @Indexed(unique = true, name = "chapter_number")
     protected Integer chapterNumber;
 
-    @Indexed(name = "verse_count")
     protected Integer verseCount;
 
-    @DBRef(lazy = true)
     @CascadeSave
     protected List<Verse> verses;
 
-    @Transient
     protected ArabicWord chapterNameWord;
 
     /**
@@ -58,7 +46,6 @@ public class Chapter extends AbstractDocument {
      * @param chapterName
      * @throws InvalidChapterException
      */
-    @PersistenceConstructor
     public Chapter(Integer chapterNumber, String chapterName)
             throws InvalidChapterException {
         setChapterNumber(chapterNumber);

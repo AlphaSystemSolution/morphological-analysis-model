@@ -5,7 +5,6 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
 import com.alphasystem.arabic.model.ArabicLetterType;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import org.springframework.data.annotation.PersistenceConstructor;
 
 import static com.alphasystem.util.IdGenerator.nextId;
 import static org.apache.commons.lang3.StringUtils.isBlank;
@@ -29,7 +28,6 @@ public class RootWord extends AbstractSimpleDocument {
         this(null, null, null, null);
     }
 
-    @PersistenceConstructor
     public RootWord(ArabicLetterType firstRadical,
                     ArabicLetterType secondRadical, ArabicLetterType thirdRadical,
                     ArabicLetterType fourthRadical) {

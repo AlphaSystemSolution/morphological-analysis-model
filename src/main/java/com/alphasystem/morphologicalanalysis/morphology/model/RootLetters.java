@@ -7,10 +7,6 @@ import com.alphasystem.arabic.model.ArabicLetterType;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.persistence.model.AbstractDocument;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.arabic.model.ArabicLetterType.AIN;
 import static com.alphasystem.arabic.model.ArabicLetterType.FA;
@@ -24,8 +20,6 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 /**
  * @author sali
  */
-@Entity
-@Document
 public class RootLetters extends AbstractDocument {
 
     protected ArabicLetterType firstRadical;
@@ -33,13 +27,10 @@ public class RootLetters extends AbstractDocument {
     protected ArabicLetterType thirdRadical;
     protected ArabicLetterType fourthRadical;
 
-    @Transient
     protected String name;
 
-    @Transient
     private boolean empty;
 
-    @PersistenceConstructor
     public RootLetters() {
         this(FA, AIN, LAM);
     }
@@ -158,7 +149,6 @@ public class RootLetters extends AbstractDocument {
         return fourthRadical != null;
     }
 
-    @Transient
     public boolean isEmpty() {
         return empty;
     }

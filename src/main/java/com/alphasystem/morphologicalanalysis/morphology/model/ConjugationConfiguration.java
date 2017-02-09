@@ -4,14 +4,10 @@
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author sali
  */
-@Entity
-@Document
 public class ConjugationConfiguration extends AbstractSimpleDocument {
 
     private boolean removePassiveLine;

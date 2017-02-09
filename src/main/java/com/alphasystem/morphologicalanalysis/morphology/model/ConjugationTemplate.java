@@ -8,8 +8,6 @@
 package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -18,8 +16,6 @@ import java.util.List;
 /**
  *
  */
-@Entity
-@Document
 public class ConjugationTemplate extends AbstractSimpleDocument {
 
     protected List<ConjugationData> data;

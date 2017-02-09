@@ -14,9 +14,6 @@ import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbPartOf
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.WordType;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.alphasystem.util.AppUtil;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.GenderType.MASCULINE;
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType.SINGULAR;
@@ -24,8 +21,6 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Num
 /**
  * @author sali
  */
-@Entity
-@Document
 public abstract class AbstractProperties extends AbstractSimpleDocument {
 
     private static final long serialVersionUID = 8386413187448630570L;
@@ -103,7 +98,6 @@ public abstract class AbstractProperties extends AbstractSimpleDocument {
         this.gender = gender == null ? MASCULINE : gender;
     }
 
-    @Transient
     public ArabicWord label() {
         return null;
     }

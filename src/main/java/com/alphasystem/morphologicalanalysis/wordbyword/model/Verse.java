@@ -6,14 +6,7 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
 import com.alphasystem.persistence.model.AbstractDocument;
-import com.alphasystem.persistence.model.CascadeSave;
 import org.apache.commons.lang3.StringUtils;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +16,6 @@ import static java.lang.String.format;
 /**
  * @author sali
  */
-@Entity
-@Document
 public class Verse extends AbstractDocument {
 
     private static final long serialVersionUID = 2453854450176270449L;
@@ -35,13 +26,11 @@ public class Verse extends AbstractDocument {
 
     private String text;
 
-    @Indexed(name = "token_count") private Integer tokenCount;
+    private Integer tokenCount;
 
-    @DBRef
-    @CascadeSave
     private List<Token> tokens;
 
-    @Transient private ArabicWord verse;
+    private ArabicWord verse;
 
     /**
      *
@@ -55,7 +44,6 @@ public class Verse extends AbstractDocument {
      * @param verseNumber
      * @throws InvalidChapterException
      */
-    @PersistenceConstructor
     public Verse(Integer chapterNumber, Integer verseNumber)
             throws InvalidChapterException {
         setChapterNumber(chapterNumber);
@@ -108,7 +96,6 @@ public class Verse extends AbstractDocument {
         this.text = text;
     }
 
-    @Transient
     public ArabicWord verse() {
         if (verse == null && !StringUtils.isBlank(text)) {
             verse = ArabicWord.fromUnicode(text);

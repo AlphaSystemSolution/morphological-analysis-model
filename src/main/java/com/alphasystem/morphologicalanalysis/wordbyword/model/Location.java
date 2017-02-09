@@ -8,11 +8,6 @@ import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NamedTag;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.WordType;
 import com.alphasystem.persistence.model.CascadeSave;
 import org.apache.commons.lang3.StringUtils;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +18,6 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 /**
  * @author sali
  */
-@Entity
-@Document
 public class Location extends Linkable {
 
     private static final long serialVersionUID = 7895140946662001637L;
@@ -51,7 +44,6 @@ public class Location extends Linkable {
 
     private WordType wordType;
 
-    @DBRef
     @CascadeSave
     private MorphologicalEntry morphologicalEntry;
 
@@ -104,7 +96,6 @@ public class Location extends Linkable {
      * @param wordType
      * @throws InvalidChapterException
      */
-    @PersistenceConstructor
     public Location(Integer chapterNumber, Integer verseNumber, Integer tokenNumber, Integer locationNumber, WordType wordType)
             throws InvalidChapterException {
         this(chapterNumber, verseNumber, tokenNumber, locationNumber, wordType, false);
@@ -232,7 +223,6 @@ public class Location extends Linkable {
         this.startIndex = ((startIndex == null) || (startIndex <= 0)) ? 0 : startIndex;
     }
 
-    @Transient
     public ArabicWord locationWord() {
         ArabicWord locationWord = null;
         if (!StringUtils.isBlank(text)) {
@@ -278,7 +268,6 @@ public class Location extends Linkable {
         getProperties();
     }
 
-    @Transient
     public boolean isTransient() {
         return startIndex == 0 && endIndex == 0;
     }

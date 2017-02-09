@@ -1,16 +1,12 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import static java.lang.String.format;
 
 /**
  * @author sali
  */
-@Entity
-@Document
 public class FontMetaInfo extends AbstractSimpleDocument {
 
     private String family;

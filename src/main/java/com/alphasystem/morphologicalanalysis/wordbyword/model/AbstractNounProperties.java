@@ -4,16 +4,12 @@
 package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounStatus;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounStatus.NOMINATIVE;
 
 /**
  * @author sali
  */
-@Entity
-@Document
 public abstract class AbstractNounProperties extends AbstractProperties {
 
     private static final long serialVersionUID = -5435719155848625378L;

@@ -4,11 +4,6 @@ import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.VerbalNoun;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
 import com.alphasystem.persistence.model.AbstractDocument;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -19,15 +14,13 @@ import static java.lang.String.format;
 /**
  * @author sali
  */
-@Entity
-@Document
 public class MorphologicalEntry extends AbstractDocument {
 
     protected RootLetters rootLetters;
 
     protected NamedTemplate form;
 
-    @Indexed(name = "group-tag") private String groupTag;
+    private String groupTag;
 
     protected Set<VerbalNoun> verbalNouns;
 
@@ -35,14 +28,12 @@ public class MorphologicalEntry extends AbstractDocument {
 
     private String shortTranslation;
 
-    @DBRef(lazy = true)
     protected Set<Location> locations;
 
     public MorphologicalEntry() {
         super();
     }
 
-    @PersistenceConstructor
     public MorphologicalEntry(RootLetters rootLetters, NamedTemplate form) {
         super();
         setRootLetters(rootLetters);

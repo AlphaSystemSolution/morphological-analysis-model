@@ -10,8 +10,6 @@ package com.alphasystem.morphologicalanalysis.morphology.model;
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.VerbalNoun;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,8 +18,6 @@ import java.util.List;
 /**
  * @author sali
  */
-@Entity
-@Document
 public class ConjugationData extends AbstractSimpleDocument {
 
     protected NamedTemplate template;

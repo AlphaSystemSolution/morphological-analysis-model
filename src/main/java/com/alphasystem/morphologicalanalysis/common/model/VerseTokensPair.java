@@ -2,9 +2,6 @@ package com.alphasystem.morphologicalanalysis.common.model;
 
 import com.alphasystem.persistence.model.AbstractDocument;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.util.AppUtil.isInstanceOf;
 import static com.alphasystem.util.HashCodeUtil.hash;
@@ -13,19 +10,19 @@ import static java.lang.String.format;
 /**
  * @author sali
  */
-@Entity
-@Document
 public class VerseTokensPair extends AbstractDocument {
 
     private Integer verseNumber;
     private Integer firstTokenIndex;
     private Integer lastTokenIndex;
 
+    public VerseTokensPair(){
+    }
+
     public VerseTokensPair(Integer verseNumber) {
         this(verseNumber, -1, -1);
     }
 
-    @PersistenceConstructor
     public VerseTokensPair(Integer verseNumber, Integer firstTokenIndex, Integer lastTokenIndex) {
         super();
         setVerseNumber(verseNumber);

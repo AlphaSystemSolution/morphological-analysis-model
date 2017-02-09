@@ -1,15 +1,10 @@
 package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * @author sali
  */
-@Entity
-@Document
 public class GraphMetaInfo extends AbstractSimpleDocument {
 
     private static final double DEFAULT_TOTAL_WIDTH = 900.0;
@@ -27,11 +22,8 @@ public class GraphMetaInfo extends AbstractSimpleDocument {
     private Boolean showOutLines;
     private Boolean debugMode;
     private String backgroundColor;
-    @Field("term_font")
     private FontMetaInfo terminalFont;
-    @Field("pos_font")
     private FontMetaInfo partOfSpeechFont;
-    @Field("trans_font")
     private FontMetaInfo translationFont;
 
     public GraphMetaInfo() {

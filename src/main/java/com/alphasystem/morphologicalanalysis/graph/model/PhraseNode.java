@@ -2,9 +2,6 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.AlternateStatus;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.RelationshipType;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +11,11 @@ import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNod
 /**
  * @author sali
  */
-@Entity
-@Document
 public class PhraseNode extends LinkSupport {
 
     private static final long serialVersionUID = 8563558531527217502L;
 
-    @DBRef private List<PartOfSpeechNode> fragments;
+    private List<PartOfSpeechNode> fragments;
     private AlternateStatus alternateStatus;
     private List<RelationshipType> relationships;
 

@@ -2,10 +2,6 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.Token;
-import com.alphasystem.persistence.model.CascadeSave;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +12,6 @@ import static java.lang.String.format;
 /**
  * @author sali
  */
-@Entity
-@Document
 public class TerminalNode extends LineSupport {
 
     private static final long serialVersionUID = -2286312045728788322L;
@@ -37,11 +31,8 @@ public class TerminalNode extends LineSupport {
 
     protected FontMetaInfo translationFont;
 
-    @DBRef
     protected Token token;
 
-    @DBRef
-    @CascadeSave
     private List<PartOfSpeechNode> partOfSpeechNodes;
 
     public TerminalNode() {

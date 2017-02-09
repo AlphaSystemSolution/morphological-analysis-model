@@ -2,11 +2,6 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.common.model.VerseTokensPair;
 import com.alphasystem.persistence.model.AbstractDocument;
-import com.alphasystem.persistence.model.CascadeSave;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,16 +9,12 @@ import java.util.List;
 /**
  * @author sali
  */
-@Entity
-@Document
 public class DependencyGraph extends AbstractDocument {
 
     private static final String SEPARATOR = "|";
     private Integer chapterNumber;
     private List<VerseTokensPair> tokens;
     private GraphMetaInfo metaInfo;
-    @DBRef
-    @CascadeSave
     private List<GraphNode> nodes;
 
     public DependencyGraph() {
@@ -33,7 +24,6 @@ public class DependencyGraph extends AbstractDocument {
         setMetaInfo(null);
     }
 
-    @PersistenceConstructor
     public DependencyGraph(Integer chapterNumber) {
         super();
         setChapterNumber(chapterNumber);

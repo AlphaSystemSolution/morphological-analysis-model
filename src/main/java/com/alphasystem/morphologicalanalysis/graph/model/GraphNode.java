@@ -2,8 +2,6 @@ package com.alphasystem.morphologicalanalysis.graph.model;
 
 import com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType;
 import com.alphasystem.persistence.model.AbstractDocument;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.morphologicalanalysis.graph.model.support.GraphNodeType.TERMINAL;
 import static java.lang.System.getProperty;
@@ -11,8 +9,6 @@ import static java.lang.System.getProperty;
 /**
  * @author sali
  */
-@Entity
-@Document
 public abstract class GraphNode extends AbstractDocument {
 
     static final String ARABIC_FONT_NAME = getProperty("arabic.font.name", "Arabic Typesetting");

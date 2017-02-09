@@ -6,9 +6,6 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounKind;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounType;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.arabic.model.ArabicLetters.WORD_COMMA;
 import static com.alphasystem.arabic.model.ArabicWord.concatenate;
@@ -19,8 +16,6 @@ import static java.lang.String.format;
 /**
  * @author sali
  */
-@Entity
-@Document
 public class NounProperties extends AbstractNounProperties {
 
     private static final long serialVersionUID = 1602979768959493665L;
@@ -46,7 +41,6 @@ public class NounProperties extends AbstractNounProperties {
     }
 
     @Override
-    @Transient
     public ArabicWord label() {
         return concatenateWithSpace(concatenate(status.toLabel(), WORD_COMMA),
                 concatenate(number.toLabel(), WORD_COMMA),

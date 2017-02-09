@@ -5,8 +5,6 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ConversationType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ProNounType;
-import org.mongodb.morphia.annotations.Entity;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.ConversationType.THIRD_PERSON;
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.ProNounType.DETACHED;
@@ -15,8 +13,6 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Pro
  * @author sali
  * 
  */
-@Entity
-@Document
 public class ProNounProperties extends AbstractNounProperties {
 
 	private static final long serialVersionUID = 6798660811802129204L;
