@@ -187,8 +187,11 @@ public class Location extends Linkable {
     }
 
     public void setWordType(WordType wordType) {
+        WordType current = this.wordType;
         this.wordType = (wordType == null) ? WordType.NOUN : wordType;
-        initProperties();
+        if (current == null || !this.wordType.equals(current)) {
+            initProperties();
+        }
     }
 
     public List<AbstractProperties> getProperties() {

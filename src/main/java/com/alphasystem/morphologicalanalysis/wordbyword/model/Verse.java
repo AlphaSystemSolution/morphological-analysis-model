@@ -63,8 +63,7 @@ public class Verse extends AbstractDocument {
             throws InvalidChapterException {
         if (chapterNumber == null
                 || (chapterNumber <= 0 || chapterNumber > 114)) {
-            throw new InvalidChapterException(format(
-                    "Invalid chapter Number {%s}", chapterNumber));
+            throw new InvalidChapterException(chapterNumber);
         }
         this.chapterNumber = chapterNumber;
     }

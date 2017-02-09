@@ -22,7 +22,7 @@ public class Chapter extends AbstractDocument {
 
     private static final long serialVersionUID = 2227615567873753719L;
 
-    protected String chapterName;
+    private String chapterName;
 
     protected Integer chapterNumber;
 
@@ -46,11 +46,13 @@ public class Chapter extends AbstractDocument {
      * @param chapterName
      * @throws InvalidChapterException
      */
+    @PersistenceConstructor
     public Chapter(Integer chapterNumber, String chapterName)
             throws InvalidChapterException {
         setChapterNumber(chapterNumber);
         setChapterName(chapterName);
         setVerses(null);
+        initDisplayName();
     }
 
     public boolean addVerse(Verse e) {
@@ -63,11 +65,10 @@ public class Chapter extends AbstractDocument {
 
     public void setChapterName(String chapterName) {
         this.chapterName = chapterName;
-        initChapterNameWord();
     }
 
     public ArabicWord chapterNameWord() {
-        return chapterNameWord;
+        return isBlank(chapterName)?null:ArabicWord.fromUnicode(chapterName);
     }
 
     public Integer getChapterNumber() {
@@ -78,8 +79,7 @@ public class Chapter extends AbstractDocument {
             throws InvalidChapterException {
         if (chapterNumber == null
                 || (chapterNumber <= 0 || chapterNumber > 114)) {
-            throw new InvalidChapterException(format(
-                    "Invalid chapter Number {%s}", chapterNumber));
+            throw new InvalidChapterException(chapterNumber);
         }
         this.chapterNumber = chapterNumber;
     }
@@ -102,11 +102,6 @@ public class Chapter extends AbstractDocument {
 
     public void setVerses(List<Verse> verses) {
         this.verses = verses == null ? new ArrayList<Verse>() : verses;
-    }
-
-    private void initChapterNameWord() {
-        this.chapterNameWord = isBlank(chapterName) ? null
-                : fromUnicode(chapterName);
     }
 
     @Override

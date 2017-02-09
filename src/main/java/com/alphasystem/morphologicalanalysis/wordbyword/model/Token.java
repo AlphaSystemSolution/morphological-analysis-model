@@ -170,10 +170,6 @@ public class Token extends AbstractDocument {
         setDisplayName(dn);
     }
 
-    private void initTokenWord() {
-        tokenWord = isBlank(token) ? null : fromUnicode(token);
-    }
-
     public Token withChapterNumber(Integer chapterNumber) {
         if (chapterNumber != null) {
             setChapterNumber(chapterNumber);

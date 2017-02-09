@@ -10,7 +10,9 @@ import static com.alphasystem.arabic.model.ArabicWord.getWord;
  */
 public enum ProNounPartOfSpeechType implements PartOfSpeechType {
 
-    PRONOUN("Pronoun", "#8C001A", getWord(DDAD, MEEM, YA, RA));
+    PRONOUN("Pronoun", "#8C001A", getWord(DDAD, MEEM, YA, RA)),
+    RELATIVE_PRONOUN("Relative pronoun", "#3EA055", getWord(ALIF_HAMZA_BELOW, SEEN, MEEM, SPACE, MEEM, WAW, SAD, WAW, LAM)),
+    DEMONSTRATIVE_PRONOUN("Demonstrative pronoun", "#008080", getWord(ALIF_HAMZA_BELOW, SEEN, MEEM, SPACE, ALIF_HAMZA_BELOW, SHEEN, ALIF, RA, TA_MARBUTA)),;
 
     private final String code;
     private final String colorCode;

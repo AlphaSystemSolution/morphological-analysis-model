@@ -45,6 +45,8 @@
     <properties>
         <base.version>${project.parent.version}</base.version>
         <arabic-support.version>${base.version}</arabic-support.version>
-        <model-base.version>${project.version}</model-base.version>
+        <arabic-ui-support.version>${base.version}</arabic-ui-support.version>
+        <model-base.version>${base.version}</model-base.version>
+        <genOutputDirectory>${project.build.directory}/generated-sources/querydsl</genOutputDirectory>
     </properties>
 </project>

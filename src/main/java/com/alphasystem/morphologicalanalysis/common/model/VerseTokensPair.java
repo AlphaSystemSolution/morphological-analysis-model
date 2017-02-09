@@ -20,7 +20,11 @@ public class VerseTokensPair extends AbstractDocument {
     }
 
     public VerseTokensPair(Integer verseNumber) {
-        this(verseNumber, -1, -1);
+        this(verseNumber, 1);
+    }
+
+    public VerseTokensPair(Integer verseNumber, Integer firstTokenIndex) {
+        this(verseNumber, firstTokenIndex, -1);
     }
 
     public VerseTokensPair(Integer verseNumber, Integer firstTokenIndex, Integer lastTokenIndex) {
@@ -41,7 +45,7 @@ public class VerseTokensPair extends AbstractDocument {
     }
 
     public void setFirstTokenIndex(Integer firstTokenIndex) {
-        this.firstTokenIndex = firstTokenIndex == null ? -1 : firstTokenIndex;
+        this.firstTokenIndex = (firstTokenIndex == null || firstTokenIndex <= 0) ? 1 : firstTokenIndex;
     }
 
     public Integer getLastTokenIndex() {
@@ -49,7 +53,7 @@ public class VerseTokensPair extends AbstractDocument {
     }
 
     public void setLastTokenIndex(Integer lastTokenIndex) {
-        this.lastTokenIndex = lastTokenIndex == null ? -1 : lastTokenIndex;
+        this.lastTokenIndex = (lastTokenIndex == null || lastTokenIndex <= 0) ? -1 : lastTokenIndex;
     }
 
     public Integer getVerseNumber() {
