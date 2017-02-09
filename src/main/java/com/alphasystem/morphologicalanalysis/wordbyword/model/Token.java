@@ -10,7 +10,6 @@ import com.alphasystem.persistence.model.AbstractDocument;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.alphasystem.arabic.model.ArabicWord.fromUnicode;
 import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
@@ -38,8 +37,6 @@ public class Token extends AbstractDocument {
     private boolean hidden;
 
     private List<Location> locations;
-
-    private ArabicWord tokenWord;
 
     /**
      *
@@ -129,7 +126,6 @@ public class Token extends AbstractDocument {
 
     public void setToken(String token) {
         this.token = token;
-        initTokenWord();
     }
 
     public Integer getTokenNumber() {
@@ -141,10 +137,7 @@ public class Token extends AbstractDocument {
     }
 
     public ArabicWord tokenWord() {
-        if (tokenWord == null) {
-            initTokenWord();
-        }
-        return tokenWord;
+        return isBlank(token) ? null : ArabicWord.fromUnicode(token);
     }
 
     public String getTranslation() {

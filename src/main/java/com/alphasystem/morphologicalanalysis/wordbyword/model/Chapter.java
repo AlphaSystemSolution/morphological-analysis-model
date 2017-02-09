@@ -11,7 +11,6 @@ import com.alphasystem.persistence.model.CascadeSave;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.alphasystem.arabic.model.ArabicWord.fromUnicode;
 import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
@@ -31,8 +30,6 @@ public class Chapter extends AbstractDocument {
     @CascadeSave
     protected List<Verse> verses;
 
-    protected ArabicWord chapterNameWord;
-
     /**
      *
      */
@@ -46,7 +43,6 @@ public class Chapter extends AbstractDocument {
      * @param chapterName
      * @throws InvalidChapterException
      */
-    @PersistenceConstructor
     public Chapter(Integer chapterNumber, String chapterName)
             throws InvalidChapterException {
         setChapterNumber(chapterNumber);
