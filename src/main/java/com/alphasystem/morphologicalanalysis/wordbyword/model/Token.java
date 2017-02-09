@@ -147,7 +147,7 @@ public class Token extends AbstractDocument {
     }
 
     public ArabicWord tokenWord() {
-        return isBlank(token)?null:ArabicWord.fromUnicode(token);
+        return isBlank(token) ? null : ArabicWord.fromUnicode(token);
     }
 
     public String getTranslation() {
