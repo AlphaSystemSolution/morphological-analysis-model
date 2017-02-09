@@ -11,6 +11,7 @@ import com.alphasystem.morphologicalanalysis.wordbyword.model.support.VerbPartOf
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.WordType;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
 import com.alphasystem.util.AppUtil;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -23,6 +24,7 @@ import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.Num
  */
 @Entity
 @Document
+@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY, property = "@class")
 public abstract class AbstractProperties<P extends Enum<P> & PartOfSpeechType> extends AbstractSimpleDocument {
 
     private static final long serialVersionUID = 8386413187448630570L;
@@ -42,6 +44,7 @@ public abstract class AbstractProperties<P extends Enum<P> & PartOfSpeechType> e
      * @param src
      * @throws NullPointerException
      */
+    @SuppressWarnings("unchecked")
     AbstractProperties(AbstractProperties src) throws NullPointerException {
         if (src == null) {
             throw new NullPointerException("Source is null.");
