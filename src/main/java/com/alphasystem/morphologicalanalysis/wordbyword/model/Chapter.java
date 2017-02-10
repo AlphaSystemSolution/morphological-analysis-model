@@ -7,6 +7,7 @@ import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.morphologicalanalysis.wordbyword.exception.InvalidChapterException;
 import com.alphasystem.persistence.model.AbstractDocument;
 import com.alphasystem.persistence.model.CascadeSave;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 /**
  * @author sali
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Chapter extends AbstractDocument {
 
     private static final long serialVersionUID = 2227615567873753719L;
@@ -43,10 +45,20 @@ public class Chapter extends AbstractDocument {
      * @param chapterName
      * @throws InvalidChapterException
      */
-    public Chapter(Integer chapterNumber, String chapterName)
-            throws InvalidChapterException {
+    public Chapter(Integer chapterNumber, String chapterName) throws InvalidChapterException {
         setChapterNumber(chapterNumber);
         setChapterName(chapterName);
+        setVerses(null);
+        initDisplayName();
+    }
+
+    public Chapter(Chapter src) {
+        if (src == null) {
+            throw new NullPointerException("src object cannot be null.");
+        }
+        setChapterNumber(src.getChapterNumber());
+        setChapterName(src.getChapterName());
+        setVerseCount(src.getVerseCount());
         setVerses(null);
         initDisplayName();
     }
@@ -64,7 +76,7 @@ public class Chapter extends AbstractDocument {
     }
 
     public ArabicWord chapterNameWord() {
-        return isBlank(chapterName)?null:ArabicWord.fromUnicode(chapterName);
+        return isBlank(chapterName) ? null : ArabicWord.fromUnicode(chapterName);
     }
 
     public Integer getChapterNumber() {
