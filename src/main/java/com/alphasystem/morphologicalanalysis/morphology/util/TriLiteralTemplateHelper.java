@@ -13,6 +13,7 @@ import static com.alphasystem.morphologicalanalysis.morphology.model.support.Sar
 /**
  * @author sali
  */
+@Deprecated
 public class TriLiteralTemplateHelper {
 
     public static RootWord createActiveParticipleFeminineRootWord(int firstRadicalIndex, int secondRadicalIndex,
