@@ -3,16 +3,7 @@ package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 import com.alphasystem.arabic.model.ArabicSupportEnum;
 import com.alphasystem.arabic.model.ArabicWord;
 
-import static com.alphasystem.arabic.model.ArabicLetterType.AIN;
-import static com.alphasystem.arabic.model.ArabicLetterType.ALIF_HAMZA_BELOW;
-import static com.alphasystem.arabic.model.ArabicLetterType.DDAD;
-import static com.alphasystem.arabic.model.ArabicLetterType.FA;
-import static com.alphasystem.arabic.model.ArabicLetterType.HHA;
-import static com.alphasystem.arabic.model.ArabicLetterType.LAM;
-import static com.alphasystem.arabic.model.ArabicLetterType.MEEM;
-import static com.alphasystem.arabic.model.ArabicLetterType.RA;
-import static com.alphasystem.arabic.model.ArabicLetterType.SEEN;
-import static com.alphasystem.arabic.model.ArabicLetterType.YA;
+import static com.alphasystem.arabic.model.ArabicLetterType.*;
 import static com.alphasystem.arabic.model.ArabicWord.getWord;
 
 /**
