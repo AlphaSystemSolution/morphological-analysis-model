@@ -1,0 +1,34 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.alphasystem.project</groupId>
+        <artifactId>jar</artifactId>
+        <version>3.0.0-SNAPSHOT</version>
+    </parent>
+    <groupId>com.alphasystem.arabic</groupId>
+    <artifactId>morphological-analysis-simple-model</artifactId>
+    <version>4.0.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>com.alphasystem.mongo</groupId>
+            <artifactId>model-base</artifactId>
+            <version>4.1.0-SNAPSHOT</version>
+            <classifier>clean</classifier>
+        </dependency>
+        <dependency>
+            <groupId>com.alphasystem.arabic</groupId>
+            <artifactId>morphological-analysis-common-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.8.1</version>
+        </dependency>
+    </dependencies>
+    <properties>
+        <base.version>3.0.0-SNAPSHOT</base.version>
+        <model-base.version>${base.version}</model-base.version>
+    </properties>
+</project>

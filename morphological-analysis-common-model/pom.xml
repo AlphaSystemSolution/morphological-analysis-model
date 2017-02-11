@@ -7,12 +7,17 @@
         <version>3.0.0-SNAPSHOT</version>
     </parent>
     <groupId>com.alphasystem.arabic</groupId>
-    <artifactId>morphological-analysis-model</artifactId>
+    <artifactId>morphological-analysis-common-model</artifactId>
     <version>4.0.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <modules>
-        <module>morphological-analysis-common-model</module>
-        <module>morphological-analysis-entity-model</module>
-        <module>morphological-analysis-simple-model</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>com.alphasystem.arabic</groupId>
+            <artifactId>arabic-support</artifactId>
+            <version>${arabic-support.version}</version>
+        </dependency>
+    </dependencies>
+    <properties>
+        <base.version>3.0.0-SNAPSHOT</base.version>
+        <arabic-support.version>${base.version}</arabic-support.version>
+    </properties>
 </project>

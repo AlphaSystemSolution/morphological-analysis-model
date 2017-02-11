@@ -17,8 +17,8 @@
         </dependency>
         <dependency>
             <groupId>com.alphasystem.arabic</groupId>
-            <artifactId>arabic-support</artifactId>
-            <version>${arabic-support.version}</version>
+            <artifactId>morphological-analysis-common-model</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.mysema.querydsl</groupId>
@@ -65,8 +65,6 @@
     </build>
     <properties>
         <base.version>3.0.0-SNAPSHOT</base.version>
-        <arabic-support.version>${base.version}</arabic-support.version>
-        <arabic-ui-support.version>${base.version}</arabic-ui-support.version>
         <model-base.version>${base.version}</model-base.version>
         <genOutputDirectory>${project.build.directory}/generated-sources/querydsl</genOutputDirectory>
     </properties>
