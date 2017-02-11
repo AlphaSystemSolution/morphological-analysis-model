@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
+package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.arabic.model.ArabicLetterType;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
