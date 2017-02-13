@@ -12,7 +12,7 @@
     <dependencies>
         <dependency>
             <groupId>com.alphasystem.mongo</groupId>
-            <artifactId>model-base</artifactId>
+            <artifactId>entity-model-base</artifactId>
             <version>${model-base.version}</version>
         </dependency>
         <dependency>
@@ -64,8 +64,7 @@
         </plugins>
     </build>
     <properties>
-        <base.version>3.0.0-SNAPSHOT</base.version>
-        <model-base.version>${base.version}</model-base.version>
+        <model-base.version>${project.version}</model-base.version>
         <genOutputDirectory>${project.build.directory}/generated-sources/querydsl</genOutputDirectory>
     </properties>
 </project>
