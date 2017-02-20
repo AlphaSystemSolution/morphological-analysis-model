@@ -19,7 +19,7 @@ public abstract class AbstractNounProperties<P extends Enum<P> & PartOfSpeechTyp
 
     protected NounStatus status;
 
-    public AbstractNounProperties() {
+    AbstractNounProperties() {
         super();
         setStatus(null);
     }
@@ -28,7 +28,7 @@ public abstract class AbstractNounProperties<P extends Enum<P> & PartOfSpeechTyp
      * @param src
      * @throws NullPointerException
      */
-    public AbstractNounProperties(AbstractNounProperties src) throws NullPointerException {
+    AbstractNounProperties(AbstractNounProperties src) throws NullPointerException {
         super(src);
         setStatus(src.getStatus());
     }
