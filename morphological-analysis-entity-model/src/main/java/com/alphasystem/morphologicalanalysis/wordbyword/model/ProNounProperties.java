@@ -4,13 +4,14 @@
 package com.alphasystem.morphologicalanalysis.wordbyword.model;
 
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ConversationType;
+import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NounStatus;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ProNounPartOfSpeechType;
 import com.alphasystem.morphologicalanalysis.wordbyword.model.support.ProNounType;
 import org.mongodb.morphia.annotations.Entity;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.ConversationType.THIRD_PERSON;
-import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.ProNounType.DETACHED;
+import static com.alphasystem.morphologicalanalysis.wordbyword.model.support.ProNounType.ATTACHED;
 
 /**
  * @author sali
@@ -28,8 +29,10 @@ public class ProNounProperties extends AbstractNounProperties<ProNounPartOfSpeec
 
 	public ProNounProperties() {
 		super();
+		setPartOfSpeech(ProNounPartOfSpeechType.PRONOUN);
 		setConversationType(null);
 		setProNounType(null);
+        setStatus(NounStatus.GENITIVE);
 	}
 
 	/**
@@ -56,7 +59,7 @@ public class ProNounProperties extends AbstractNounProperties<ProNounPartOfSpeec
 	}
 
 	public void setProNounType(ProNounType proNounType) {
-		this.proNounType = proNounType == null ? DETACHED : proNounType;
+		this.proNounType = proNounType == null ? ATTACHED : proNounType;
 	}
 
 	public ProNounProperties withConversationType(
