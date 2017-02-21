@@ -73,6 +73,11 @@ public class VerbProperties extends AbstractProperties<VerbPartOfSpeechType> {
                 conversationType.toLabel(), number.toLabel());
     }
 
+    @Override
+    protected VerbPartOfSpeechType getDefaultPartOfSpeech() {
+        return VerbPartOfSpeechType.VERB;
+    }
+
     public VerbMode getMode() {
         return mode;
     }

@@ -86,8 +86,10 @@ public abstract class AbstractProperties<P extends Enum<P> & PartOfSpeechType> e
         return partOfSpeech;
     }
 
+    protected abstract P getDefaultPartOfSpeech();
+
     public void setPartOfSpeech(P partOfSpeech) {
-        this.partOfSpeech = (partOfSpeech == null) ? (P) NounPartOfSpeechType.NOUN : partOfSpeech;
+        this.partOfSpeech = (partOfSpeech == null) ? getDefaultPartOfSpeech() : partOfSpeech;
     }
 
     public GenderType getGender() {

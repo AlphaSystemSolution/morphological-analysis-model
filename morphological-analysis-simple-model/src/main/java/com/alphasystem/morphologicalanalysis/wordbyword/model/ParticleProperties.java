@@ -29,7 +29,12 @@ public class ParticleProperties extends AbstractProperties<ParticlePartOfSpeechT
 		super(src);
 	}
 
-	@Override
+    @Override
+    protected ParticlePartOfSpeechType getDefaultPartOfSpeech() {
+        return ParticlePartOfSpeechType.GENITIVE_PARTICLE;
+    }
+
+    @Override
 	public void setGender(GenderType gender) {
 		this.gender = null;
 	}

@@ -43,6 +43,11 @@ public class ProNounProperties extends AbstractNounProperties<ProNounPartOfSpeec
 		setProNounType(src.getProNounType());
 	}
 
+	@Override
+	protected ProNounPartOfSpeechType getDefaultPartOfSpeech() {
+		return ProNounPartOfSpeechType.PRONOUN;
+	}
+
 	public ConversationType getConversationType() {
 		return conversationType;
 	}

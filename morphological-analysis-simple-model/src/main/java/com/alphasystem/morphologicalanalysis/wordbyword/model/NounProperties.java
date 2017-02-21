@@ -51,6 +51,11 @@ public class NounProperties extends AbstractNounProperties<NounPartOfSpeechType>
                 concatenate(nounType.toLabel()));
     }
 
+    @Override
+    protected NounPartOfSpeechType getDefaultPartOfSpeech() {
+        return NounPartOfSpeechType.NOUN;
+    }
+
     public NounKind getNounKind() {
         return nounKind;
     }
