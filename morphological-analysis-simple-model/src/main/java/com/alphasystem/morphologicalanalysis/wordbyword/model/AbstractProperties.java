@@ -112,4 +112,24 @@ public abstract class AbstractProperties<P extends Enum<P> & PartOfSpeechType> e
         this.number = number == null ? SINGULAR : number;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        boolean result = super.equals(obj);
+        if (AppUtil.isInstanceOf(AbstractProperties.class, obj)) {
+            AbstractProperties o = (AbstractProperties) obj;
+            result = getPartOfSpeech().equals(o.getPartOfSpeech());
+        }
+        return result;
+    }
+
+    @Override
+    @SuppressWarnings({"unchecked"})
+    public int compareTo(AbstractSimpleDocument obj) {
+        int result = super.compareTo(obj);
+        if (AppUtil.isInstanceOf(AbstractProperties.class, obj)) {
+            AbstractProperties o = (AbstractProperties) obj;
+            result = getPartOfSpeech().compareTo((P) o.getPartOfSpeech());
+        }
+        return result;
+    }
 }
