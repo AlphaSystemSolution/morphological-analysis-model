@@ -194,17 +194,21 @@ public class Location extends Linkable {
         }
     }
 
-    public void addProperties(AbstractProperties abstractProperties) {
-        if (!properties.contains(abstractProperties)) {
+    public boolean addProperties(AbstractProperties abstractProperties) {
+        final boolean added = !properties.contains(abstractProperties);
+        if (added) {
             properties.add(abstractProperties);
         }
+        return added;
     }
 
-    public void removeProperties(AbstractProperties abstractProperties) {
+    public boolean removeProperties(AbstractProperties abstractProperties) {
         final int i = properties.indexOf(abstractProperties);
-        if (i >= 0) {
+        final boolean removed = i >= 0;
+        if (removed) {
             properties.remove(i);
         }
+        return removed;
     }
 
     public List<AbstractProperties> getProperties() {
