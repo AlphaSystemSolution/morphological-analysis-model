@@ -18,8 +18,13 @@ public class ParticleProperties extends AbstractProperties<ParticlePartOfSpeechT
 	private static final long serialVersionUID = 3916962887098806402L;
 
 	public ParticleProperties() {
-		super();
+		this(ParticlePartOfSpeechType.GENITIVE_PARTICLE);
 	}
+
+    public ParticleProperties(ParticlePartOfSpeechType partOfSpeech) {
+        super();
+        setPartOfSpeech(partOfSpeech);
+    }
 
 	/**
 	 * @param src
