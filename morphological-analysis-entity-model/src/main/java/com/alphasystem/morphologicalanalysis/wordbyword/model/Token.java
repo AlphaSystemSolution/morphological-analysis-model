@@ -122,11 +122,7 @@ public class Token extends AbstractDocument {
     public void setLocations(List<Location> locations) {
         this.locations = new ArrayList<>();
         if (locations != null && !locations.isEmpty()) {
-            locations.forEach(l -> {
-                if (l != null) {
-                    this.locations.add(new Location(l));
-                }
-            });
+            locations.stream().filter(l -> l != null).forEachOrdered(l -> this.locations.add(l));
         }
     }
 

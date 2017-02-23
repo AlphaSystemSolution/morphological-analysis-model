@@ -132,6 +132,8 @@ public class Location extends Linkable {
         setNamedTag(src.getNamedTag());
         setTranslation(src.getTranslation());
         setProperties(src.getProperties());
+        setText(src.getText());
+        setDerivedText(src.getDerivedText());
         initDisplayName();
     }
 
@@ -215,7 +217,7 @@ public class Location extends Linkable {
     public void setProperties(List<AbstractProperties> properties) {
         this.properties = new ArrayList<>();
         if (properties != null && !properties.isEmpty()) {
-            properties.forEach(p -> this.properties.add(AbstractProperties.copy(p)));
+            properties.forEach(p -> this.properties.add(p));
         }
     }
 
