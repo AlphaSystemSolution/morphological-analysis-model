@@ -1,8 +1,11 @@
 package com.alphasystem.morphologicalanalysis.wordbyword.model.support;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 /**
  * @author sali
  */
+@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY, property = "@class")
 public abstract class IncompleteVerb<T extends IncompleteVerbType> {
 
     protected IncompleteVerbCategory category;
