@@ -2,11 +2,9 @@ package com.alphasystem.morphologicalanalysis.morphology.model;
 
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.VerbalNoun;
-import com.alphasystem.morphologicalanalysis.wordbyword.model.Location;
 import com.alphasystem.persistence.model.AbstractDocument;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -29,8 +27,6 @@ public class MorphologicalEntry extends AbstractDocument {
     protected ConjugationConfiguration configuration;
 
     private String shortTranslation;
-
-    protected Set<Location> locations;
 
     public MorphologicalEntry() {
         super();
@@ -95,20 +91,6 @@ public class MorphologicalEntry extends AbstractDocument {
 
     public void setShortTranslation(String shortTranslation) {
         this.shortTranslation = shortTranslation;
-    }
-
-    public Set<Location> getLocations() {
-        if (locations == null) {
-            locations = new HashSet<>();
-        }
-        return locations;
-    }
-
-    public void setLocations(Set<Location> locations) {
-        this.locations = new HashSet<>();
-        if (locations != null) {
-            this.locations.addAll(locations);
-        }
     }
 
     public boolean isEmpty() {
