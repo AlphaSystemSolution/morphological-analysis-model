@@ -228,6 +228,9 @@ public class Location extends Linkable {
     }
 
     public MorphologicalEntry getMorphologicalEntry() {
+        if (morphologicalEntry == null) {
+            morphologicalEntry = new MorphologicalEntry();
+        }
         return morphologicalEntry;
     }
 
