@@ -77,6 +77,7 @@ public class Token extends AbstractDocument {
         setVerseNumber(src.getVerseNumber());
         setTokenNumber(src.getTokenNumber());
         setToken(src.getToken());
+        setTranslation(src.getTranslation());
         setHidden(src.isHidden());
         setLocations(src.getLocations());
         initDisplayName();
