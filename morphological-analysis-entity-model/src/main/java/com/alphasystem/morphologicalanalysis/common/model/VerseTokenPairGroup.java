@@ -43,6 +43,10 @@ public class VerseTokenPairGroup {
         }
     }
 
+    public void addPair(Integer verseNumber, Integer firstTokenIndex, Integer lastTokenIndex){
+        getPairs().add(new VerseTokensPair(verseNumber, firstTokenIndex, lastTokenIndex));
+    }
+
     @Override
     public String toString() {
         if (pairs.isEmpty()) {
