@@ -1,6 +1,7 @@
 package com.alphasystem.morphologicalanalysis.common.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -14,6 +15,11 @@ public class VerseTokenPairGroup {
 
     public VerseTokenPairGroup() {
         setPairs(null);
+    }
+
+    public VerseTokenPairGroup(Integer chapterNumber, VerseTokensPair... pairs) {
+        this.chapterNumber = chapterNumber;
+        setPairs(Arrays.asList(pairs));
     }
 
     public Integer getChapterNumber() {
@@ -43,7 +49,7 @@ public class VerseTokenPairGroup {
         }
     }
 
-    public void addPair(Integer verseNumber, Integer firstTokenIndex, Integer lastTokenIndex){
+    public void addPair(Integer verseNumber, Integer firstTokenIndex, Integer lastTokenIndex) {
         getPairs().add(new VerseTokensPair(verseNumber, firstTokenIndex, lastTokenIndex));
     }
 
