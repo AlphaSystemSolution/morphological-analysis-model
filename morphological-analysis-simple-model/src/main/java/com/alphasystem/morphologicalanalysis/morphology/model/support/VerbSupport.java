@@ -5,13 +5,4 @@ package com.alphasystem.morphologicalanalysis.morphology.model.support;
  */
 public interface VerbSupport extends RootWordSupport {
 
-    String getThirdPersonMasculineName();
-
-    String getThirdPersonFeminineName();
-
-    String getSecondPersonMasculineName();
-
-    String getSecondPersonFeminineName();
-
-    String getFirstPersonName();
 }

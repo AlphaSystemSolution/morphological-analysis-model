@@ -9,9 +9,4 @@ public interface NounSupport extends RootWordSupport {
 
     Flexibility getFlexibility();
 
-    String getSingularRootName();
-
-    String getDualRootName();
-
-    String getPluralRootName();
 }
