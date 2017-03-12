@@ -7,7 +7,6 @@ import com.alphasystem.arabic.model.ArabicLetters;
 import com.alphasystem.arabic.model.ArabicWord;
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.RootWord;
-import com.alphasystem.morphologicalanalysis.wordbyword.model.support.NumberType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,6 @@ import java.util.List;
 import static com.alphasystem.morphologicalanalysis.morphology.model.RootWord.createRootWord;
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.Flexibility.FULLY_FLEXIBLE;
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.Flexibility.PARTLY_FLEXIBLE;
-import static java.lang.String.format;
 import static java.util.Arrays.asList;
 
 /**
@@ -149,22 +147,4 @@ public enum NounOfPlaceAndTime implements ArabicLetters, NounSupport {
         return getRootWord().getRootWord();
     }
 
-    @Override
-    public String getSingularRootName() {
-        return getRootName(NumberType.SINGULAR);
-    }
-
-    @Override
-    public String getDualRootName() {
-        return getRootName(NumberType.DUAL);
-    }
-
-    @Override
-    public String getPluralRootName() {
-        return getRootName(NumberType.PLURAL);
-    }
-
-    private String getRootName(NumberType numberType) {
-        return format("%s_%s", name(), numberType.name());
-    }
 }
