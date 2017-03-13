@@ -32,6 +32,17 @@ public class ConjugationData extends AbstractSimpleDocument {
         setTemplate(NamedTemplate.FORM_I_CATEGORY_A_GROUP_U_TEMPLATE);
     }
 
+    public ConjugationData(ConjugationData src) {
+        if (src == null) {
+            throw new NullPointerException("src cannot be null.");
+        }
+        setTemplate(src.getTemplate());
+        setTranslation(src.getTranslation());
+        setRootLetters(new RootLetters(src.getRootLetters()));
+        setConfiguration(new ConjugationConfiguration(src.getConfiguration()));
+        setVerbalNouns(src.getVerbalNouns());
+    }
+
     public List<VerbalNoun> getVerbalNouns() {
         if (verbalNouns == null) {
             verbalNouns = new ArrayList<>();

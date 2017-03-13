@@ -19,6 +19,14 @@ public class ConjugationConfiguration extends AbstractSimpleDocument {
         super();
     }
 
+    public ConjugationConfiguration(ConjugationConfiguration src){
+        if(src == null){
+            throw new NullPointerException("src cannot be null.");
+        }
+        setSkipRuleProcessing(src.isSkipRuleProcessing());
+        setRemovePassiveLine(src.isRemovePassiveLine());
+    }
+
     public boolean isRemovePassiveLine() {
         return removePassiveLine;
     }
