@@ -10,6 +10,7 @@ package com.alphasystem.morphologicalanalysis.morphology.model;
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.VerbalNoun;
 import com.alphasystem.persistence.model.AbstractSimpleDocument;
+import com.alphasystem.util.AppUtil;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
@@ -128,4 +129,16 @@ public class ConjugationData extends AbstractSimpleDocument {
         this.translation = value;
     }
 
+    @Override
+    public int compareTo(AbstractSimpleDocument o) {
+        int result = super.compareTo(o);
+        if (AppUtil.isInstanceOf(ConjugationData.class, o)) {
+            ConjugationData other = (ConjugationData) o;
+            result = getRootLetters().compareTo(other.getRootLetters());
+            if (result == 0) {
+                result = getTemplate().compareTo(other.getTemplate());
+            }
+        }
+        return result;
+    }
 }
