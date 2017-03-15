@@ -1,8 +1,9 @@
 /**
  *
  */
-package com.alphasystem.app.morphologicalengine.conjugation.model;
+package com.alphasystem.morphologicalengine.model;
 
+import com.alphasystem.app.morphologicalengine.conjugation.model.ChartMode;
 import com.alphasystem.morphologicalanalysis.morphology.model.RootLetters;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.alphasystem.app.morphologicalengine.conjugation.model.abbrvconj;
+package com.alphasystem.morphologicalengine.model.abbrvconj;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

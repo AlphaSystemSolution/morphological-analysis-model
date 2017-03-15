@@ -1,12 +1,12 @@
 /**
  *
  */
-package com.alphasystem.app.morphologicalengine.conjugation.model;
+package com.alphasystem.morphologicalengine.model;
 
-import com.alphasystem.app.morphologicalengine.conjugation.model.abbrvconj.ActiveLine;
-import com.alphasystem.app.morphologicalengine.conjugation.model.abbrvconj.AdverbLine;
-import com.alphasystem.app.morphologicalengine.conjugation.model.abbrvconj.ImperativeAndForbiddingLine;
-import com.alphasystem.app.morphologicalengine.conjugation.model.abbrvconj.PassiveLine;
+import com.alphasystem.morphologicalengine.model.abbrvconj.ActiveLine;
+import com.alphasystem.morphologicalengine.model.abbrvconj.AdverbLine;
+import com.alphasystem.morphologicalengine.model.abbrvconj.ImperativeAndForbiddingLine;
+import com.alphasystem.morphologicalengine.model.abbrvconj.PassiveLine;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import static java.util.Objects.hash;
