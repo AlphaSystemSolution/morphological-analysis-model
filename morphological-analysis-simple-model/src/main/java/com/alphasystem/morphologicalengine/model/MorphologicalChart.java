@@ -11,18 +11,37 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MorphologicalChart {
 
-    private final AbbreviatedConjugation abbreviatedConjugation;
-    private final DetailedConjugation detailedConjugation;
-    private final ConjugationHeader conjugationHeader;
+    private AbbreviatedConjugation abbreviatedConjugation;
+    private DetailedConjugation detailedConjugation;
+    private ConjugationHeader conjugationHeader;
+
+    public MorphologicalChart() {
+    }
 
     /**
      * @param abbreviatedConjugation
      * @param detailedConjugation
      */
     public MorphologicalChart(AbbreviatedConjugation abbreviatedConjugation, DetailedConjugation detailedConjugation) {
+        setAbbreviatedConjugation(abbreviatedConjugation);
+        setDetailedConjugation(detailedConjugation);
+    }
+
+    public AbbreviatedConjugation getAbbreviatedConjugation() {
+        return abbreviatedConjugation;
+    }
+
+    public void setAbbreviatedConjugation(AbbreviatedConjugation abbreviatedConjugation) {
         this.abbreviatedConjugation = abbreviatedConjugation;
+        conjugationHeader = (abbreviatedConjugation == null) ? null : abbreviatedConjugation.getConjugationHeader();
+    }
+
+    public DetailedConjugation getDetailedConjugation() {
+        return detailedConjugation;
+    }
+
+    public void setDetailedConjugation(DetailedConjugation detailedConjugation) {
         this.detailedConjugation = detailedConjugation;
-        this.conjugationHeader = (abbreviatedConjugation == null) ? null : abbreviatedConjugation.getConjugationHeader();
     }
 
     @Override
@@ -53,14 +72,6 @@ public class MorphologicalChart {
 
     public RootLetters getRootLetters() {
         return conjugationHeader == null ? new RootLetters() : conjugationHeader.getRootLetters();
-    }
-
-    public DetailedConjugation getDetailedConjugation() {
-        return detailedConjugation;
-    }
-
-    public AbbreviatedConjugation getAbbreviatedConjugation() {
-        return abbreviatedConjugation;
     }
 
 }
