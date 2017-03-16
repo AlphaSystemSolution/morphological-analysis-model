@@ -101,10 +101,10 @@ public class SarfChartComparator implements Comparator<MorphologicalChart> {
 
     private int compareByType(MorphologicalChart o1, MorphologicalChart o2) {
         int result = 0;
-        ChartMode cm1 = o1.getHeader().getChartMode();
-        ChartMode cm2 = o2.getHeader().getChartMode();
-        result = compareNamedTemplate(o1.getNamedTemplate(),
-                o2.getNamedTemplate());
+        ChartMode cm1 = o1.header().getChartMode();
+        ChartMode cm2 = o2.header().getChartMode();
+        result = compareNamedTemplate(o1.namedTemplate(),
+                o2.namedTemplate());
         if (result == 0) {
             result = compareRootType(cm1.getRootType(), cm2.getRootType());
             if (result == 0) {

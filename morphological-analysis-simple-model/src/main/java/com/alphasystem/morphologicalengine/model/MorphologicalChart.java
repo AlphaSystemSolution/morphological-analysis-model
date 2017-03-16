@@ -55,11 +55,11 @@ public class MorphologicalChart {
         return result;
     }
 
-    public ConjugationHeader getHeader() {
+    public ConjugationHeader header() {
         return conjugationHeader;
     }
 
-    public NamedTemplate getNamedTemplate() {
+    public NamedTemplate namedTemplate() {
         NamedTemplate namedTemplate = null;
         if (conjugationHeader != null) {
             ChartMode chartMode = conjugationHeader.getChartMode();
@@ -70,7 +70,7 @@ public class MorphologicalChart {
         return namedTemplate;
     }
 
-    public RootLetters getRootLetters() {
+    public RootLetters rootLetters() {
         return conjugationHeader == null ? new RootLetters() : conjugationHeader.getRootLetters();
     }
 
