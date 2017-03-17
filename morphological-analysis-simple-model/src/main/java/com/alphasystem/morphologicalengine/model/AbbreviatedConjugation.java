@@ -43,12 +43,22 @@ public class AbbreviatedConjugation {
         this.activeLine = activeLine;
     }
 
+    public AbbreviatedConjugation activeLine(ActiveLine activeLine) {
+        setActiveLine(activeLine);
+        return this;
+    }
+
     public PassiveLine getPassiveLine() {
         return passiveLine;
     }
 
     public void setPassiveLine(PassiveLine passiveLine) {
         this.passiveLine = passiveLine;
+    }
+
+    public AbbreviatedConjugation passiveLine(PassiveLine passiveLine) {
+        setPassiveLine(passiveLine);
+        return this;
     }
 
     public ImperativeAndForbiddingLine getImperativeAndForbiddingLine() {
@@ -59,12 +69,22 @@ public class AbbreviatedConjugation {
         this.imperativeAndForbiddingLine = imperativeAndForbiddingLine;
     }
 
+    public AbbreviatedConjugation imperativeAndForbiddingLine(ImperativeAndForbiddingLine imperativeAndForbiddingLine) {
+        setImperativeAndForbiddingLine(imperativeAndForbiddingLine);
+        return this;
+    }
+
     public AdverbLine getAdverbLine() {
         return adverbLine;
     }
 
     public void setAdverbLine(AdverbLine adverbLine) {
         this.adverbLine = adverbLine;
+    }
+
+    public AbbreviatedConjugation adverbLine(AdverbLine adverbLine) {
+        setAdverbLine(adverbLine);
+        return this;
     }
 
     @Override

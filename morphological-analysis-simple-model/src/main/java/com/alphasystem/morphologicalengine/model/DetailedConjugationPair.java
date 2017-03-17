@@ -3,15 +3,16 @@
  */
 package com.alphasystem.morphologicalengine.model;
 
-import com.alphasystem.morphologicalengine.model.ConjugationGroup;
-
 /**
  * @author sali
  */
 public abstract class DetailedConjugationPair<G extends ConjugationGroup> {
 
-    private final G leftSideConjugations;
-    private final G rightSideConjugations;
+    private G leftSideConjugations;
+    private G rightSideConjugations;
+
+    public DetailedConjugationPair(){
+    }
 
     public DetailedConjugationPair(G leftSideConjugations, G rightSideConjugations) {
         this.leftSideConjugations = leftSideConjugations;
@@ -26,4 +27,11 @@ public abstract class DetailedConjugationPair<G extends ConjugationGroup> {
         return rightSideConjugations;
     }
 
+    public void setLeftSideConjugations(G leftSideConjugations) {
+        this.leftSideConjugations = leftSideConjugations;
+    }
+
+    public void setRightSideConjugations(G rightSideConjugations) {
+        this.rightSideConjugations = rightSideConjugations;
+    }
 }

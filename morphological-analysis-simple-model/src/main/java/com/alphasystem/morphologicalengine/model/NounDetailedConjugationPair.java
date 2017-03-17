@@ -8,6 +8,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NounDetailedConjugationPair extends DetailedConjugationPair<NounConjugationGroup> {
 
+    public NounDetailedConjugationPair(){
+    }
+
     public NounDetailedConjugationPair(NounConjugationGroup leftSideConjugations, NounConjugationGroup rightSideConjugations) {
         super(leftSideConjugations, rightSideConjugations);
     }

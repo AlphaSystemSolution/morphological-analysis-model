@@ -8,6 +8,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class VerbDetailedConjugationPair extends DetailedConjugationPair<VerbConjugationGroup> {
 
+    public VerbDetailedConjugationPair() {
+    }
+
     public VerbDetailedConjugationPair(VerbConjugationGroup leftSideConjugations, VerbConjugationGroup rightSideConjugations) {
         super(leftSideConjugations, rightSideConjugations);
     }
