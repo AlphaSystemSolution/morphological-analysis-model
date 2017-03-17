@@ -59,6 +59,11 @@ public class PassiveLine {
         this.verbalNoun = verbalNoun;
     }
 
+    public PassiveLine verbalNoun(String verbalNoun) {
+        setVerbalNoun(verbalNoun);
+        return this;
+    }
+
     public String[] getVerbalNouns() {
         return verbalNouns;
     }
