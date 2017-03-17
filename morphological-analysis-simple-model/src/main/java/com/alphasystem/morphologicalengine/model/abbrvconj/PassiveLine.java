@@ -33,12 +33,22 @@ public class PassiveLine {
         this.pastPassiveTense = pastPassiveTense;
     }
 
+    public PassiveLine pastPassiveTense(String pastPassiveTense) {
+        setPastPassiveTense(pastPassiveTense);
+        return this;
+    }
+
     public String getPresentPassiveTense() {
         return presentPassiveTense;
     }
 
     public void setPresentPassiveTense(String presentPassiveTense) {
         this.presentPassiveTense = presentPassiveTense;
+    }
+
+    public PassiveLine presentPassiveTense(String presentPassiveTense) {
+        setPresentPassiveTense(presentPassiveTense);
+        return this;
     }
 
     public String getVerbalNoun() {
@@ -57,6 +67,11 @@ public class PassiveLine {
         this.verbalNouns = verbalNouns;
     }
 
+    public PassiveLine verbalNouns(String... verbalNouns) {
+        setVerbalNouns(verbalNouns);
+        return this;
+    }
+
     public String getPassiveParticipleMasculine() {
         return passiveParticipleMasculine;
     }
@@ -65,12 +80,22 @@ public class PassiveLine {
         this.passiveParticipleMasculine = passiveParticipleMasculine;
     }
 
+    public PassiveLine passiveParticipleMasculine(String passiveParticipleMasculine) {
+        setPassiveParticipleMasculine(passiveParticipleMasculine);
+        return this;
+    }
+
     public String getPassiveParticipleValue() {
         return passiveParticipleValue;
     }
 
     public void setPassiveParticipleValue(String passiveParticipleValue) {
         this.passiveParticipleValue = passiveParticipleValue;
+    }
+
+    public PassiveLine passiveParticipleValue(String passiveParticipleValue) {
+        setPassiveParticipleValue(passiveParticipleValue);
+        return this;
     }
 
     @Override
