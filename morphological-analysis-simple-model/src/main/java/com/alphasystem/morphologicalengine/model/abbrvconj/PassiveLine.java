@@ -108,7 +108,7 @@ public class PassiveLine {
         return hash(pastPassiveTense, presentPassiveTense, passiveParticipleMasculine, verbalNouns);
     }
 
-    public boolean isNull() {
+    public boolean empty() {
         return pastPassiveTense == null && presentPassiveTense == null
                 && passiveParticipleMasculine == null;
     }
