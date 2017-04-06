@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import static com.alphasystem.arabic.model.ArabicLetterType.AIN;
 import static com.alphasystem.arabic.model.ArabicLetterType.FA;
 import static com.alphasystem.arabic.model.ArabicLetterType.LAM;
-import static com.alphasystem.arabic.model.ArabicWord.concatenateWithSpace;
+import static com.alphasystem.arabic.model.ArabicWord.concatenate;
 import static com.alphasystem.util.AppUtil.isInstanceOf;
 import static com.alphasystem.util.HashCodeUtil.hash;
 import static java.lang.String.format;
@@ -139,9 +139,9 @@ public class RootLetters extends AbstractDocument {
     public ArabicWord toLabel() {
         ArabicWord arabicWord = null;
         if (!isEmpty()) {
-            arabicWord = concatenateWithSpace(firstRadical.toLabel(), secondRadical.toLabel(), thirdRadical.toLabel());
+            arabicWord = concatenate(firstRadical.toLabel(), secondRadical.toLabel(), thirdRadical.toLabel());
             if (fourthRadical != null) {
-                arabicWord = concatenateWithSpace(arabicWord, fourthRadical.toLabel());
+                arabicWord = concatenate(arabicWord, fourthRadical.toLabel());
             }
         }
         return arabicWord;
