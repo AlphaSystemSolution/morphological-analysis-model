@@ -5,5 +5,5 @@ package com.alphasystem.app.morphologicalengine.conjugation.model;
  */
 public enum OutputFormat {
 
-    UNICODE, HTML, BUCK_WALTER
+    UNICODE, HTML, BUCK_WALTER, STREAM
 }
