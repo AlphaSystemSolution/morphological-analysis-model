@@ -4,14 +4,16 @@
 package com.alphasystem.morphologicalengine.model.abbrvconj;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.apache.commons.lang3.ArrayUtils;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import static java.util.Objects.hash;
 
 /**
  * @author sali
  */
+@Deprecated
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ActiveLine {
 

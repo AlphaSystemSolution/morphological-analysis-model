@@ -3,8 +3,9 @@
  */
 package com.alphasystem.morphologicalengine.model;
 
+import java.util.Comparator;
+
 import com.alphasystem.app.morphologicalengine.conjugation.model.ChartMode;
-import com.alphasystem.morphologicalengine.model.abbrvconj.ActiveLine;
 import com.alphasystem.arabic.model.NamedTemplate;
 import com.alphasystem.arabic.model.RootType;
 import com.alphasystem.arabic.model.VerbType;
@@ -12,11 +13,11 @@ import com.alphasystem.arabic.model.WeakVerbType;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirection;
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirective;
 
-import java.util.Comparator;
-
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirection.ASCENDING;
 import static com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirection.DESCENDING;
-import static com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirective.*;
+import static com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirective.ALPHABATICAL;
+import static com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirective.NONE;
+import static com.alphasystem.morphologicalanalysis.morphology.model.support.SortDirective.TYPE;
 
 
 /**
@@ -181,11 +182,7 @@ public class SarfChartComparator implements Comparator<MorphologicalChart> {
         if (morphologicalChart != null) {
             AbbreviatedConjugation abbreviatedConjugation = morphologicalChart.getAbbreviatedConjugation();
             if (abbreviatedConjugation != null) {
-                ActiveLine activeLine = abbreviatedConjugation.getActiveLine();
-                if (activeLine != null) {
-                    //TODO:
-                    //arabicWord = activeLine.getPastTense();
-                }
+                //TODO:
             }
         }
         return arabicWord;

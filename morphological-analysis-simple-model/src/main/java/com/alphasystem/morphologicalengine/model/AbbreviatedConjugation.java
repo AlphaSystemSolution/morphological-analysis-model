@@ -7,10 +7,6 @@ import java.util.Arrays;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import com.alphasystem.morphologicalengine.model.abbrvconj.ActiveLine;
-import com.alphasystem.morphologicalengine.model.abbrvconj.AdverbLine;
-import com.alphasystem.morphologicalengine.model.abbrvconj.ImperativeAndForbiddingLine;
-import com.alphasystem.morphologicalengine.model.abbrvconj.PassiveLine;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -40,18 +36,6 @@ public class AbbreviatedConjugation {
 
     // default adverb values
     private String[] adverbs;
-
-    @Deprecated
-    private ActiveLine activeLine;
-
-    @Deprecated
-    private PassiveLine passiveLine;
-
-    @Deprecated
-    private ImperativeAndForbiddingLine imperativeAndForbiddingLine;
-
-    @Deprecated
-    private AdverbLine adverbLine;
 
     public ConjugationHeader getConjugationHeader() {
         return conjugationHeader;
@@ -193,70 +177,6 @@ public class AbbreviatedConjugation {
 
     public boolean hasPassiveLine(){
         return pastPassiveTense != null || presentPassiveTense != null || passiveParticiple != null;
-    }
-
-    @Deprecated
-    public ActiveLine getActiveLine() {
-        return activeLine;
-    }
-
-    @Deprecated
-    public void setActiveLine(ActiveLine activeLine) {
-        this.activeLine = activeLine;
-    }
-
-    @Deprecated
-    public AbbreviatedConjugation activeLine(ActiveLine activeLine) {
-        setActiveLine(activeLine);
-        return this;
-    }
-
-    @Deprecated
-    public PassiveLine getPassiveLine() {
-        return passiveLine;
-    }
-
-    @Deprecated
-    public void setPassiveLine(PassiveLine passiveLine) {
-        this.passiveLine = passiveLine;
-    }
-
-    @Deprecated
-    public AbbreviatedConjugation passiveLine(PassiveLine passiveLine) {
-        setPassiveLine(passiveLine);
-        return this;
-    }
-
-    @Deprecated
-    public ImperativeAndForbiddingLine getImperativeAndForbiddingLine() {
-        return imperativeAndForbiddingLine;
-    }
-
-    @Deprecated
-    public void setImperativeAndForbiddingLine(ImperativeAndForbiddingLine imperativeAndForbiddingLine) {
-        this.imperativeAndForbiddingLine = imperativeAndForbiddingLine;
-    }
-
-    @Deprecated
-    public AbbreviatedConjugation imperativeAndForbiddingLine(ImperativeAndForbiddingLine imperativeAndForbiddingLine) {
-        setImperativeAndForbiddingLine(imperativeAndForbiddingLine);
-        return this;
-    }
-
-    @Deprecated
-    public AdverbLine getAdverbLine() {
-        return adverbLine;
-    }
-
-    @Deprecated
-    public void setAdverbLine(AdverbLine adverbLine) {
-        this.adverbLine = adverbLine;
-    }
-
-    @Deprecated
-    public AbbreviatedConjugation adverbLine(AdverbLine adverbLine) {
-        setAdverbLine(adverbLine);
-        return this;
     }
 
     @Override

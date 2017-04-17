@@ -10,6 +10,7 @@ import static java.util.Objects.hash;
 /**
  * @author sali
  */
+@Deprecated
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PassiveLine {
 
