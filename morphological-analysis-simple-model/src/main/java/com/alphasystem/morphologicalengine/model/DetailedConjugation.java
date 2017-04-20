@@ -4,7 +4,6 @@
 package com.alphasystem.morphologicalengine.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.apache.commons.lang3.ArrayUtils;
 
 /**
  * @author sali
@@ -12,109 +11,126 @@ import org.apache.commons.lang3.ArrayUtils;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DetailedConjugation {
 
-    private VerbDetailedConjugationPair activeTensePair;
+    // active values
+    private VerbConjugationGroup pastTense;
+    private VerbConjugationGroup presentTense;
+    private NounConjugationGroup activeParticipleMasculine;
+    private NounConjugationGroup activeParticipleFeminine;
 
-    private NounDetailedConjugationPair[] verbalNounPairs;
+    // passive values
+    private VerbConjugationGroup pastPassiveTense;
+    private VerbConjugationGroup presentPassiveTense;
+    private NounConjugationGroup passiveParticipleMasculine;
+    private NounConjugationGroup passiveParticipleFeminine;
 
-    private NounDetailedConjugationPair activeParticiplePair;
+    // imperative and forbidden values
+    private VerbConjugationGroup imperative;
+    private VerbConjugationGroup forbidding;
 
-    private VerbDetailedConjugationPair passiveTensePair;
+    // verbal noun values
+    private NounConjugationGroup[] verbalNouns;
 
-    private NounDetailedConjugationPair passiveParticiplePair;
+    // adverb values
+    private NounConjugationGroup[] adverbs;
 
-    private VerbDetailedConjugationPair imperativeAndForbiddingPair;
-
-    private NounDetailedConjugationPair[] adverbPairs;
-
-
-    public VerbDetailedConjugationPair getActiveTensePair() {
-        return activeTensePair;
+    public VerbConjugationGroup getPastTense() {
+        return pastTense;
     }
 
-    public void setActiveTensePair(VerbDetailedConjugationPair activeTensePair) {
-        this.activeTensePair = activeTensePair;
+    public void setPastTense(VerbConjugationGroup pastTense) {
+        this.pastTense = pastTense;
     }
 
-    public DetailedConjugation activeTensePair(VerbDetailedConjugationPair activeTensePair) {
-        setActiveTensePair(activeTensePair);
-        return this;
+    public VerbConjugationGroup getPresentTense() {
+        return presentTense;
     }
 
-    public NounDetailedConjugationPair[] getVerbalNounPairs() {
-        return verbalNounPairs;
+    public void setPresentTense(VerbConjugationGroup presentTense) {
+        this.presentTense = presentTense;
     }
 
-    public void setVerbalNounPairs(NounDetailedConjugationPair[] verbalNounPairs) {
-        this.verbalNounPairs = verbalNounPairs;
+    public NounConjugationGroup getActiveParticipleMasculine() {
+        return activeParticipleMasculine;
     }
 
-    public DetailedConjugation verbalNounPairs(NounDetailedConjugationPair... verbalNounPairs) {
-        this.verbalNounPairs = ArrayUtils.addAll(this.verbalNounPairs, verbalNounPairs);
-        return this;
+    public void setActiveParticipleMasculine(NounConjugationGroup activeParticipleMasculine) {
+        this.activeParticipleMasculine = activeParticipleMasculine;
     }
 
-    public NounDetailedConjugationPair getActiveParticiplePair() {
-        return activeParticiplePair;
+    public NounConjugationGroup getActiveParticipleFeminine() {
+        return activeParticipleFeminine;
     }
 
-    public void setActiveParticiplePair(NounDetailedConjugationPair activeParticiplePair) {
-        this.activeParticiplePair = activeParticiplePair;
+    public void setActiveParticipleFeminine(NounConjugationGroup activeParticipleFeminine) {
+        this.activeParticipleFeminine = activeParticipleFeminine;
     }
 
-    public DetailedConjugation activeParticiplePair(NounDetailedConjugationPair activeParticiplePair) {
-        setActiveParticiplePair(activeParticiplePair);
-        return this;
+    public VerbConjugationGroup getPastPassiveTense() {
+        return pastPassiveTense;
     }
 
-    public VerbDetailedConjugationPair getPassiveTensePair() {
-        return passiveTensePair;
+    public void setPastPassiveTense(VerbConjugationGroup pastPassiveTense) {
+        this.pastPassiveTense = pastPassiveTense;
     }
 
-    public void setPassiveTensePair(VerbDetailedConjugationPair passiveTensePair) {
-        this.passiveTensePair = passiveTensePair;
+    public VerbConjugationGroup getPresentPassiveTense() {
+        return presentPassiveTense;
     }
 
-    public DetailedConjugation passiveTensePair(VerbDetailedConjugationPair passiveTensePair) {
-        setPassiveTensePair(passiveTensePair);
-        return this;
+    public void setPresentPassiveTense(VerbConjugationGroup presentPassiveTense) {
+        this.presentPassiveTense = presentPassiveTense;
     }
 
-    public NounDetailedConjugationPair getPassiveParticiplePair() {
-        return passiveParticiplePair;
+    public NounConjugationGroup getPassiveParticipleMasculine() {
+        return passiveParticipleMasculine;
     }
 
-    public void setPassiveParticiplePair(NounDetailedConjugationPair passiveParticiplePair) {
-        this.passiveParticiplePair = passiveParticiplePair;
+    public void setPassiveParticipleMasculine(NounConjugationGroup passiveParticipleMasculine) {
+        this.passiveParticipleMasculine = passiveParticipleMasculine;
     }
 
-    public DetailedConjugation passiveParticiplePair(NounDetailedConjugationPair passiveParticiplePair) {
-        setPassiveParticiplePair(passiveParticiplePair);
-        return this;
+    public NounConjugationGroup getPassiveParticipleFeminine() {
+        return passiveParticipleFeminine;
     }
 
-    public VerbDetailedConjugationPair getImperativeAndForbiddingPair() {
-        return imperativeAndForbiddingPair;
+    public void setPassiveParticipleFeminine(NounConjugationGroup passiveParticipleFeminine) {
+        this.passiveParticipleFeminine = passiveParticipleFeminine;
     }
 
-    public void setImperativeAndForbiddingPair(VerbDetailedConjugationPair imperativeAndForbiddingPair) {
-        this.imperativeAndForbiddingPair = imperativeAndForbiddingPair;
+    public VerbConjugationGroup getImperative() {
+        return imperative;
     }
 
-    public DetailedConjugation imperativeAndForbiddingPair(VerbDetailedConjugationPair imperativeAndForbiddingPair) {
-        setImperativeAndForbiddingPair(imperativeAndForbiddingPair);
-        return this;
+    public void setImperative(VerbConjugationGroup imperative) {
+        this.imperative = imperative;
     }
 
-    public NounDetailedConjugationPair[] getAdverbPairs() {
-        return adverbPairs;
+    public VerbConjugationGroup getForbidding() {
+        return forbidding;
     }
 
-    public void setAdverbPairs(NounDetailedConjugationPair[] adverbPairs) {
-        this.adverbPairs = adverbPairs;
+    public void setForbidding(VerbConjugationGroup forbidding) {
+        this.forbidding = forbidding;
     }
 
-    public DetailedConjugation adverbPairs(NounDetailedConjugationPair... adverbPairs) {
-        this.adverbPairs = ArrayUtils.addAll(this.adverbPairs, adverbPairs);
-        return this;
+    public NounConjugationGroup[] getVerbalNouns() {
+        return verbalNouns;
     }
+
+    public void setVerbalNouns(NounConjugationGroup[] verbalNouns) {
+        this.verbalNouns = verbalNouns;
+    }
+
+    public NounConjugationGroup[] getAdverbs() {
+        return adverbs;
+    }
+
+    public void setAdverbs(NounConjugationGroup[] adverbs) {
+        this.adverbs = adverbs;
+    }
+
+    public boolean hasPassiveLine(){
+        return pastPassiveTense != null || presentPassiveTense != null || passiveParticipleMasculine != null;
+    }
+
 }
