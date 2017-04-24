@@ -15,6 +15,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AbbreviatedConjugation {
 
+    private String id;
+
     private ConjugationHeader conjugationHeader;
 
     // default active values
@@ -36,6 +38,14 @@ public class AbbreviatedConjugation {
 
     // default adverb values
     private String[] adverbs;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public ConjugationHeader getConjugationHeader() {
         return conjugationHeader;
