@@ -22,12 +22,15 @@ public class AbbreviatedConjugation {
     // default active values
     private String pastTense;
     private String presentTense;
-    private String activeParticiple;
+    private String activeParticipleMasculine;
+    private String activeParticipleFeminine;
+    
 
     // default passive values
     private String pastPassiveTense;
     private String presentPassiveTense;
-    private String passiveParticiple;
+    private String passiveParticipleMasculine;
+    private String passiveParticipleFeminine;
 
     // default imperative and forbidden values
     private String imperative;
@@ -94,16 +97,29 @@ public class AbbreviatedConjugation {
         return this;
     }
 
-    public String getActiveParticiple() {
-        return activeParticiple;
+    public String getActiveParticipleMasculine() {
+        return activeParticipleMasculine;
     }
 
-    public void setActiveParticiple(String activeParticiple) {
-        this.activeParticiple = activeParticiple;
+    public void setActiveParticipleMasculine(String activeParticipleMasculine) {
+        this.activeParticipleMasculine = activeParticipleMasculine;
     }
 
-    public AbbreviatedConjugation activeParticiple(String activeParticiple) {
-        setActiveParticiple(activeParticiple);
+    public AbbreviatedConjugation activeParticipleMasculine(String activeParticipleMasculine) {
+        setActiveParticipleMasculine(activeParticipleMasculine);
+        return this;
+    }
+
+    public String getActiveParticipleFeminine() {
+        return activeParticipleFeminine;
+    }
+
+    public void setActiveParticipleFeminine(String activeParticipleFeminine) {
+        this.activeParticipleFeminine = activeParticipleFeminine;
+    }
+
+    public AbbreviatedConjugation activeParticipleFeminine(String activeParticipleFeminine) {
+        setActiveParticipleFeminine(activeParticipleFeminine);
         return this;
     }
 
@@ -133,16 +149,29 @@ public class AbbreviatedConjugation {
         return this;
     }
 
-    public String getPassiveParticiple() {
-        return passiveParticiple;
+    public String getPassiveParticipleMasculine() {
+        return passiveParticipleMasculine;
     }
 
-    public void setPassiveParticiple(String passiveParticiple) {
-        this.passiveParticiple = passiveParticiple;
+    public void setPassiveParticipleMasculine(String passiveParticipleMasculine) {
+        this.passiveParticipleMasculine = passiveParticipleMasculine;
     }
 
-    public AbbreviatedConjugation passiveParticiple(String passiveParticipleMasculine) {
-        setPassiveParticiple(passiveParticipleMasculine);
+    public AbbreviatedConjugation passiveParticipleMasculine(String passiveParticipleMasculine) {
+        setPassiveParticipleMasculine(passiveParticipleMasculine);
+        return this;
+    }
+
+    public String getPassiveParticipleFeminine() {
+        return passiveParticipleFeminine;
+    }
+
+    public void setPassiveParticipleFeminine(String passiveParticipleFeminine) {
+        this.passiveParticipleFeminine = passiveParticipleFeminine;
+    }
+
+    public AbbreviatedConjugation passiveParticipleFeminine(String passiveParticipleFeminine) {
+        setPassiveParticipleFeminine(passiveParticipleFeminine);
         return this;
     }
 
@@ -186,12 +215,12 @@ public class AbbreviatedConjugation {
     }
 
     public boolean hasPassiveLine(){
-        return pastPassiveTense != null || presentPassiveTense != null || passiveParticiple != null;
+        return pastPassiveTense != null || presentPassiveTense != null || passiveParticipleMasculine != null;
     }
 
     @Override
     public int hashCode() {
-        return Arrays.deepHashCode(new Object[]{pastTense, presentTense, activeParticiple, pastPassiveTense,
-                presentPassiveTense, passiveParticiple, imperative, forbidding, verbalNouns, adverbs});
+        return Arrays.deepHashCode(new Object[]{pastTense, presentTense, activeParticipleMasculine, pastPassiveTense,
+                presentPassiveTense, passiveParticipleMasculine, imperative, forbidding, verbalNouns, adverbs});
     }
 }
