@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DetailedConjugation {
 
+    private String id;
+
     // active values
     private VerbConjugationGroup pastTense;
     private VerbConjugationGroup presentTense;
@@ -32,6 +34,14 @@ public class DetailedConjugation {
 
     // adverb values
     private NounConjugationGroup[] adverbs;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public VerbConjugationGroup getPastTense() {
         return pastTense;
