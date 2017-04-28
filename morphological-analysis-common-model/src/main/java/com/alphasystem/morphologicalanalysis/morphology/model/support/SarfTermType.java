@@ -79,4 +79,10 @@ public enum SarfTermType implements ArabicSupport {
         return value;
     }
 
+	public boolean isVerbType() {
+		return PAST_TENSE.name().equals(name()) || PRESENT_TENSE.name().equals(name())
+				|| PAST_PASSIVE_TENSE.name().equals(name()) || PRESENT_PASSIVE_TENSE.name().equals(name())
+				|| IMPERATIVE.name().equals(name()) || FORBIDDING.name().equals(name());
+	}
+
 }
