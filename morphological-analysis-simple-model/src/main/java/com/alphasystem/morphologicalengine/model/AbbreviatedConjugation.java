@@ -15,212 +15,158 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AbbreviatedConjugation {
 
-    private String id;
+	private String id;
 
-    private ConjugationHeader conjugationHeader;
+	private ConjugationHeader conjugationHeader;
 
-    // default active values
-    private String pastTense;
-    private String presentTense;
-    private String activeParticipleMasculine;
-    private String activeParticipleFeminine;
-    
+	// default active values
+	private AbbreviatedRecord pastTense;
+	private AbbreviatedRecord presentTense;
+	private AbbreviatedRecord activeParticipleMasculine;
+	private AbbreviatedRecord activeParticipleFeminine;
 
-    // default passive values
-    private String pastPassiveTense;
-    private String presentPassiveTense;
-    private String passiveParticipleMasculine;
-    private String passiveParticipleFeminine;
+	// default passive values
+	private AbbreviatedRecord pastPassiveTense;
+	private AbbreviatedRecord presentPassiveTense;
+	private AbbreviatedRecord passiveParticipleMasculine;
+	private AbbreviatedRecord passiveParticipleFeminine;
 
-    // default imperative and forbidden values
-    private String imperative;
-    private String forbidding;
+	// default imperative and forbidden values
+	private AbbreviatedRecord imperative;
+	private AbbreviatedRecord forbidding;
 
-    // default verbal noun values
-    private String[] verbalNouns;
+	// default verbal noun values
+	private AbbreviatedRecord[] verbalNouns;
 
-    // default adverb values
-    private String[] adverbs;
+	// default adverb values
+	private AbbreviatedRecord[] adverbs;
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public ConjugationHeader getConjugationHeader() {
-        return conjugationHeader;
-    }
+	public ConjugationHeader getConjugationHeader() {
+		return conjugationHeader;
+	}
 
-    public void setConjugationHeader(ConjugationHeader conjugationHeader) {
-        this.conjugationHeader = conjugationHeader;
-    }
+	public void setConjugationHeader(ConjugationHeader conjugationHeader) {
+		this.conjugationHeader = conjugationHeader;
+	}
 
-    public String getPastTense() {
-        return pastTense;
-    }
+	public AbbreviatedRecord getPastTense() {
+		return pastTense;
+	}
 
-    public void setPastTense(String pastTense) {
-        this.pastTense = pastTense;
-    }
+	public void setPastTense(AbbreviatedRecord pastTense) {
+		this.pastTense = pastTense;
+	}
 
-    public AbbreviatedConjugation pastTense(String pastTense) {
-        setPastTense(pastTense);
-        return this;
-    }
+	public AbbreviatedRecord getPresentTense() {
+		return presentTense;
+	}
 
-    public String getPresentTense() {
-        return presentTense;
-    }
+	public void setPresentTense(AbbreviatedRecord presentTense) {
+		this.presentTense = presentTense;
+	}
 
-    public void setPresentTense(String presentTense) {
-        this.presentTense = presentTense;
-    }
+	public AbbreviatedRecord[] getVerbalNouns() {
+		return verbalNouns;
+	}
 
-    public AbbreviatedConjugation presentTense(String presentTense) {
-        setPresentTense(presentTense);
-        return this;
-    }
+	public void setVerbalNouns(AbbreviatedRecord[] verbalNouns) {
+		this.verbalNouns = verbalNouns;
+	}
 
-    public String[] getVerbalNouns() {
-        return verbalNouns;
-    }
+	public AbbreviatedRecord getActiveParticipleMasculine() {
+		return activeParticipleMasculine;
+	}
 
-    public void setVerbalNouns(String[] verbalNouns) {
-        this.verbalNouns = verbalNouns;
-    }
+	public void setActiveParticipleMasculine(AbbreviatedRecord activeParticipleMasculine) {
+		this.activeParticipleMasculine = activeParticipleMasculine;
+	}
 
-    public AbbreviatedConjugation verbalNouns(String... verbalNouns) {
-        this.verbalNouns = ArrayUtils.addAll(this.verbalNouns, verbalNouns);
-        return this;
-    }
+	public AbbreviatedRecord getActiveParticipleFeminine() {
+		return activeParticipleFeminine;
+	}
 
-    public String getActiveParticipleMasculine() {
-        return activeParticipleMasculine;
-    }
+	public void setActiveParticipleFeminine(AbbreviatedRecord activeParticipleFeminine) {
+		this.activeParticipleFeminine = activeParticipleFeminine;
+	}
 
-    public void setActiveParticipleMasculine(String activeParticipleMasculine) {
-        this.activeParticipleMasculine = activeParticipleMasculine;
-    }
+	public AbbreviatedRecord getPastPassiveTense() {
+		return pastPassiveTense;
+	}
 
-    public AbbreviatedConjugation activeParticipleMasculine(String activeParticipleMasculine) {
-        setActiveParticipleMasculine(activeParticipleMasculine);
-        return this;
-    }
+	public void setPastPassiveTense(AbbreviatedRecord pastPassiveTense) {
+		this.pastPassiveTense = pastPassiveTense;
+	}
 
-    public String getActiveParticipleFeminine() {
-        return activeParticipleFeminine;
-    }
+	public AbbreviatedRecord getPresentPassiveTense() {
+		return presentPassiveTense;
+	}
 
-    public void setActiveParticipleFeminine(String activeParticipleFeminine) {
-        this.activeParticipleFeminine = activeParticipleFeminine;
-    }
+	public void setPresentPassiveTense(AbbreviatedRecord presentPassiveTense) {
+		this.presentPassiveTense = presentPassiveTense;
+	}
 
-    public AbbreviatedConjugation activeParticipleFeminine(String activeParticipleFeminine) {
-        setActiveParticipleFeminine(activeParticipleFeminine);
-        return this;
-    }
+	public AbbreviatedRecord getPassiveParticipleMasculine() {
+		return passiveParticipleMasculine;
+	}
 
-    public String getPastPassiveTense() {
-        return pastPassiveTense;
-    }
+	public void setPassiveParticipleMasculine(AbbreviatedRecord passiveParticipleMasculine) {
+		this.passiveParticipleMasculine = passiveParticipleMasculine;
+	}
 
-    public void setPastPassiveTense(String pastPassiveTense) {
-        this.pastPassiveTense = pastPassiveTense;
-    }
+	public AbbreviatedRecord getPassiveParticipleFeminine() {
+		return passiveParticipleFeminine;
+	}
 
-    public AbbreviatedConjugation pastPassiveTense(String pastPassiveTense) {
-        setPastPassiveTense(pastPassiveTense);
-        return this;
-    }
+	public void setPassiveParticipleFeminine(AbbreviatedRecord passiveParticipleFeminine) {
+		this.passiveParticipleFeminine = passiveParticipleFeminine;
+	}
 
-    public String getPresentPassiveTense() {
-        return presentPassiveTense;
-    }
+	public AbbreviatedRecord getImperative() {
+		return imperative;
+	}
 
-    public void setPresentPassiveTense(String presentPassiveTense) {
-        this.presentPassiveTense = presentPassiveTense;
-    }
+	public void setImperative(AbbreviatedRecord imperative) {
+		this.imperative = imperative;
+	}
 
-    public AbbreviatedConjugation presentPassiveTense(String presentPassiveTense) {
-        setPresentPassiveTense(presentPassiveTense);
-        return this;
-    }
+	public AbbreviatedRecord getForbidding() {
+		return forbidding;
+	}
 
-    public String getPassiveParticipleMasculine() {
-        return passiveParticipleMasculine;
-    }
+	public void setForbidding(AbbreviatedRecord forbidding) {
+		this.forbidding = forbidding;
+	}
 
-    public void setPassiveParticipleMasculine(String passiveParticipleMasculine) {
-        this.passiveParticipleMasculine = passiveParticipleMasculine;
-    }
+	public AbbreviatedRecord[] getAdverbs() {
+		return adverbs;
+	}
 
-    public AbbreviatedConjugation passiveParticipleMasculine(String passiveParticipleMasculine) {
-        setPassiveParticipleMasculine(passiveParticipleMasculine);
-        return this;
-    }
+	public void setAdverbs(AbbreviatedRecord[] adverbs) {
+		this.adverbs = adverbs;
+	}
 
-    public String getPassiveParticipleFeminine() {
-        return passiveParticipleFeminine;
-    }
+	public boolean hasPassiveLine() {
+		return pastPassiveTense != null || presentPassiveTense != null || passiveParticipleMasculine != null;
+	}
 
-    public void setPassiveParticipleFeminine(String passiveParticipleFeminine) {
-        this.passiveParticipleFeminine = passiveParticipleFeminine;
-    }
-
-    public AbbreviatedConjugation passiveParticipleFeminine(String passiveParticipleFeminine) {
-        setPassiveParticipleFeminine(passiveParticipleFeminine);
-        return this;
-    }
-
-    public String getImperative() {
-        return imperative;
-    }
-
-    public void setImperative(String imperative) {
-        this.imperative = imperative;
-    }
-
-    public AbbreviatedConjugation imperative(String imperative) {
-        setImperative(imperative);
-        return this;
-    }
-
-    public String getForbidding() {
-        return forbidding;
-    }
-
-    public void setForbidding(String forbidding) {
-        this.forbidding = forbidding;
-    }
-
-    public AbbreviatedConjugation forbidding(String forbidding) {
-        setForbidding(forbidding);
-        return this;
-    }
-
-    public String[] getAdverbs() {
-        return adverbs;
-    }
-
-    public void setAdverbs(String[] adverbs) {
-        this.adverbs = adverbs;
-    }
-
-    public AbbreviatedConjugation adverbs(String... adverbs) {
-        this.adverbs = ArrayUtils.addAll(this.adverbs, adverbs);
-        return this;
-    }
-
-    public boolean hasPassiveLine(){
-        return pastPassiveTense != null || presentPassiveTense != null || passiveParticipleMasculine != null;
-    }
-
-    @Override
-    public int hashCode() {
-        return Arrays.deepHashCode(new Object[]{pastTense, presentTense, activeParticipleMasculine, pastPassiveTense,
-                presentPassiveTense, passiveParticipleMasculine, imperative, forbidding, verbalNouns, adverbs});
-    }
+	@Override
+	public int hashCode() {
+		Object[] values = new Object[]{pastTense, presentTense, activeParticipleMasculine, pastPassiveTense,
+				presentPassiveTense, passiveParticipleMasculine, imperative, forbidding};
+		if (!ArrayUtils.isEmpty(verbalNouns)) {
+			values = ArrayUtils.addAll(values, verbalNouns);
+		}
+		if (!ArrayUtils.isEmpty(adverbs)) {
+			values = ArrayUtils.addAll(values, adverbs);
+		}
+		return Arrays.deepHashCode(values);
+	}
 }
