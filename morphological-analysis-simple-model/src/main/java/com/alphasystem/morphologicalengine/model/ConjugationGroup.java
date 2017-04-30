@@ -1,6 +1,7 @@
 package com.alphasystem.morphologicalengine.model;
 
 import com.alphasystem.morphologicalanalysis.morphology.model.support.SarfTermType;
+import com.alphasystem.util.IdGenerator;
 
 /**
  * @author sali
@@ -24,7 +25,7 @@ public class ConjugationGroup {
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id = (id == null) ? IdGenerator.nextId() : id;
     }
 
     public String defaultValue() {
