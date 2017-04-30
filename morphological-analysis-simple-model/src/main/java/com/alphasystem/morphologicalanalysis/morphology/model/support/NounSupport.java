@@ -5,6 +5,8 @@ package com.alphasystem.morphologicalanalysis.morphology.model.support;
  */
 public interface NounSupport extends RootWordSupport {
 
+    String name();
+
     boolean isFeminine();
 
     Flexibility getFlexibility();
