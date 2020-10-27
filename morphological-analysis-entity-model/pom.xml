@@ -61,5 +61,7 @@
     <properties>
         <model-base.version>${project.version}</model-base.version>
         <genOutputDirectory>${project.build.directory}/generated-sources/querydsl</genOutputDirectory>
+        <querydsl.version>4.4.0</querydsl.version>
+        <mysema.version>3.7.4</mysema.version>
     </properties>
 </project>
