@@ -29,7 +29,8 @@ public class ConjugationTemplate extends AbstractSimpleDocument {
 
     public ConjugationTemplate(ConjugationTemplate src) {
         if (src == null) {
-            throw new NullPointerException("src cannot be null.");
+            setChartConfiguration(null);
+            return;
         }
         setId(null);
         setChartConfiguration(new ChartConfiguration(src.getChartConfiguration()));
@@ -63,6 +64,11 @@ public class ConjugationTemplate extends AbstractSimpleDocument {
      */
     public void setData(List<ConjugationData> data) {
         this.data = data;
+    }
+
+    public ConjugationTemplate withChartConfiguration(ChartConfiguration src) {
+        setChartConfiguration(src);
+        return this;
     }
 
     public ConjugationTemplate withData(Collection<ConjugationData> values) {
