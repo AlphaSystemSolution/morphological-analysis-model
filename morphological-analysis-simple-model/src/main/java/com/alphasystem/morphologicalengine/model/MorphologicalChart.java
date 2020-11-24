@@ -14,17 +14,27 @@ public class MorphologicalChart {
     private AbbreviatedConjugation abbreviatedConjugation;
     private DetailedConjugation detailedConjugation;
     private ConjugationHeader conjugationHeader;
+    private final String id;
 
-    public MorphologicalChart() {
+    public MorphologicalChart(final String id) {
+        this.id = id;
     }
 
     /**
-     * @param abbreviatedConjugation
-     * @param detailedConjugation
+     * @param id                     unique identifier of the chart
+     * @param abbreviatedConjugation abbreviated conjugation
+     * @param detailedConjugation    detail conjugation
      */
-    public MorphologicalChart(AbbreviatedConjugation abbreviatedConjugation, DetailedConjugation detailedConjugation) {
+    public MorphologicalChart(final String id,
+                              AbbreviatedConjugation abbreviatedConjugation,
+                              DetailedConjugation detailedConjugation) {
+        this(id);
         setAbbreviatedConjugation(abbreviatedConjugation);
         setDetailedConjugation(detailedConjugation);
+    }
+
+    public String getId() {
+        return this.id;
     }
 
     public AbbreviatedConjugation getAbbreviatedConjugation() {
